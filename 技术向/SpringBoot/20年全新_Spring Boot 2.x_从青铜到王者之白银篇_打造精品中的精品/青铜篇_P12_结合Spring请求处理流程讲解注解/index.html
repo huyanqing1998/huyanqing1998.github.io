@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>青铜篇_P12_结合Spring请求处理流程讲解注解 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="结合Spring请求处理流程讲解注解 20年全新-Spring Boot 2.x从青铜到王者之青铜篇-打造精品中的精品-程序员-编程-架构师-SpringBoot  json是对象序列化的产物。 HttpMessageConverter 将对象序列化，将json反序列化。  @Controller 和 @RestController 类内都是对外提供HTTP服务的方法。 @Controller类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="青铜篇_P12_结合Spring请求处理流程讲解注解">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/SpringBoot/20%E5%B9%B4%E5%85%A8%E6%96%B0_Spring%20Boot%202.x_%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85%E4%B9%8B%E7%99%BD%E9%93%B6%E7%AF%87_%E6%89%93%E9%80%A0%E7%B2%BE%E5%93%81%E4%B8%AD%E7%9A%84%E7%B2%BE%E5%93%81/%E9%9D%92%E9%93%9C%E7%AF%87_P12_%E7%BB%93%E5%90%88Spring%E8%AF%B7%E6%B1%82%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B%E8%AE%B2%E8%A7%A3%E6%B3%A8%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="结合Spring请求处理流程讲解注解 20年全新-Spring Boot 2.x从青铜到王者之青铜篇-打造精品中的精品-程序员-编程-架构师-SpringBoot  json是对象序列化的产物。 HttpMessageConverter 将对象序列化，将json反序列化。  @Controller 和 @RestController 类内都是对外提供HTTP服务的方法。 @Controller类">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.hooy.xyz/image/c6ec4560906f2fbe242b182c37913796.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/32ed27e50f76058ae1d01376b577dad2.png">
+<meta property="article:published_time" content="2020-07-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-15T08:31:06.336Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="字母哥课堂">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.hooy.xyz/image/c6ec4560906f2fbe242b182c37913796.png">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E5%90%88Spring%E8%AF%B7%E6%B1%82%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B%E8%AE%B2%E8%A7%A3%E6%B3%A8%E8%A7%A3"><span class="toc-text">结合Spring请求处理流程讲解注解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Controller"><span class="toc-text">@Controller</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ResponseBody"><span class="toc-text">@ResponseBody</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#RestController"><span class="toc-text">@RestController</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%B0%86%E9%BB%98%E8%AE%A4%E7%9A%84json%E6%A0%BC%E5%BC%8F%EF%BC%8C%E5%8F%98%E6%9B%B4%E4%B8%BA%E4%BB%A5%E5%85%B6%E4%BB%96%E6%A0%BC%E5%BC%8F%E8%BF%94%E5%9B%9E%EF%BC%9F"><span class="toc-text">如何将默认的json格式，变更为以其他格式返回？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96"><span class="toc-text">依赖</span></a></li></ol></li></ol></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/SpringBoot/">SpringBoot</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/SpringBoot/20%E5%B9%B4%E5%85%A8%E6%96%B0-Spring-Boot-2-x-%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85%E4%B9%8B%E7%99%BD%E9%93%B6%E7%AF%87-%E6%89%93%E9%80%A0%E7%B2%BE%E5%93%81%E4%B8%AD%E7%9A%84%E7%B2%BE%E5%93%81/">20年全新_Spring Boot 2.x_从青铜到王者之白银篇_打造精品中的精品</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-07-13T16:00:00.000Z">2020-07-14</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>青铜篇_P12_结合Spring请求处理流程讲解注解</span></h1>
+<h2 id="结合Spring请求处理流程讲解注解"><a href="#结合Spring请求处理流程讲解注解" class="headerlink" title="结合Spring请求处理流程讲解注解"></a>结合Spring请求处理流程讲解注解</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1tt4y1y7sr">20年全新-Spring Boot 2.x从青铜到王者之青铜篇-打造精品中的精品-程序员-编程-架构师-SpringBoot</a></p>
+</blockquote>
+<p>json是对象序列化的产物。</p>
+<p><code>HttpMessageConverter</code> 将对象序列化，将json反序列化。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/c6ec4560906f2fbe242b182c37913796.png" alt="c6ec4560906f2fbe242b182c37913796.png"></p>
+<p><code>@Controller</code> 和 <code>@RestController</code> 类内都是对外提供HTTP服务的方法。</p>
+<h4 id="Controller"><a href="#Controller" class="headerlink" title="@Controller"></a>@Controller</h4><p><strong>类</strong> <em>返回String，视图名称</em></p>
+<h4 id="ResponseBody"><a href="#ResponseBody" class="headerlink" title="@ResponseBody"></a>@ResponseBody</h4><p><strong>返回类</strong> <em>将返回类以默认的json格式返回</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public @ResponseBody Article getArticle( @PathVariable(&quot;id&quot;) Long id ) &#123;</span><br><span class="line">    // more code ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果加上 <code>@ResponseBody</code> ，将省略第6、7步。<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/32ed27e50f76058ae1d01376b577dad2.png" alt="32ed27e50f76058ae1d01376b577dad2.png"></p>
+<h4 id="RestController"><a href="#RestController" class="headerlink" title="@RestController"></a>@RestController</h4><p><strong>类</strong> <em>相当于 @Controller + @ResponseBody 类内方法都是以默认json格式返回</em></p>
+<h3 id="如何将默认的json格式，变更为以其他格式返回？"><a href="#如何将默认的json格式，变更为以其他格式返回？" class="headerlink" title="如何将默认的json格式，变更为以其他格式返回？"></a>如何将默认的json格式，变更为以其他格式返回？</h3><p>例：将以Excel格式返回。</p>
+<h4 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;poi-ooxml&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.9&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>自定义类，继承 <code>AbstractHttpMessageConverter&lt;?&gt;</code> 抽象类，并实现 <code>supports</code> 、<code>readInternal</code> 和 <code>writeInternal</code> 方法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">package xyz.hooy.demo.bronze.p12;</span><br><span class="line"></span><br><span class="line">import org.apache.poi.hssf.usermodel.HSSFWorkbook;</span><br><span class="line">import org.apache.poi.ss.usermodel.Row;</span><br><span class="line">import org.apache.poi.ss.usermodel.Sheet;</span><br><span class="line">import org.apache.poi.ss.usermodel.Workbook;</span><br><span class="line">import org.springframework.http.HttpInputMessage;</span><br><span class="line">import org.springframework.http.HttpOutputMessage;</span><br><span class="line">import org.springframework.http.MediaType;</span><br><span class="line">import org.springframework.http.converter.AbstractHttpMessageConverter;</span><br><span class="line">import org.springframework.http.converter.HttpMessageNotReadableException;</span><br><span class="line">import org.springframework.http.converter.HttpMessageNotWritableException;</span><br><span class="line">import org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line"></span><br><span class="line">//将本类注入</span><br><span class="line">@Service</span><br><span class="line">public class ResponseToXlsConverter extends AbstractHttpMessageConverter&lt;Result&gt; &#123;</span><br><span class="line"></span><br><span class="line">    //响应头，告诉前端响应的是Excel这种格式，如果是浏览器，就会提供下载而不是页面展示数据。</span><br><span class="line">    private static final MediaType EXCEL_TYPE = MediaType.valueOf(&quot;application/vnd.ms-excel&quot;);</span><br><span class="line"></span><br><span class="line">    //告诉处理Excel这种数据类型</span><br><span class="line">    ResponseToXlsConverter()&#123;</span><br><span class="line">        super(EXCEL_TYPE);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @Override</span><br><span class="line">    protected boolean supports(Class&lt;?&gt; Clazz) &#123;</span><br><span class="line">        //仅支持Result对象，将其数据Excel化</span><br><span class="line">        return (Result.class == Clazz);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //针对于@RequestBody 反序列化的过程。</span><br><span class="line">    @Override</span><br><span class="line">    protected Result readInternal(Class&lt;? extends Result&gt; aClass, HttpInputMessage httpInputMessage) throws IOException, HttpMessageNotReadableException &#123;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //针对于@ResponseBody 序列化的过程。</span><br><span class="line">    @Override</span><br><span class="line">    protected void writeInternal(Result result, HttpOutputMessage httpOutputMessage) throws IOException, HttpMessageNotWritableException &#123;</span><br><span class="line">        final Workbook workbook = new HSSFWorkbook();</span><br><span class="line">        final Sheet sheet = workbook.createSheet();</span><br><span class="line"></span><br><span class="line">        //在Excel里的第一行</span><br><span class="line">        final Row row = sheet.createRow(0);</span><br><span class="line">        //第一列</span><br><span class="line">        row.createCell(0).setCellValue(result.getMessage());</span><br><span class="line">        //第二列</span><br><span class="line">        row.createCell(1).setCellValue(result.getData().toString());</span><br><span class="line"></span><br><span class="line">        //写回给客户端，响应</span><br><span class="line">        workbook.write(httpOutputMessage.getBody());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>继承与实现关系图：</p>
+<pre><code>
+</code></pre>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringBoot/20%E5%B9%B4%E5%85%A8%E6%96%B0_Spring%20Boot%202.x_%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85%E4%B9%8B%E7%99%BD%E9%93%B6%E7%AF%87_%E6%89%93%E9%80%A0%E7%B2%BE%E5%93%81%E4%B8%AD%E7%9A%84%E7%B2%BE%E5%93%81/%E9%9D%92%E9%93%9C%E7%AF%87_P11_HTTP%E5%8D%8F%E8%AE%AE%E4%B8%8ESpring%E5%8F%82%E6%95%B0%E6%8E%A5%E6%94%B6%E6%B3%A8%E8%A7%A3/">青铜篇_P11_HTTP协议与Spring参数接收注解<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringBoot/20%E5%B9%B4%E5%85%A8%E6%96%B0_Spring%20Boot%202.x_%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85%E4%B9%8B%E7%99%BD%E9%93%B6%E7%AF%87_%E6%89%93%E9%80%A0%E7%B2%BE%E5%93%81%E4%B8%AD%E7%9A%84%E7%B2%BE%E5%93%81/%E9%9D%92%E9%93%9C%E7%AF%87_P10_%E5%B8%B8%E7%94%A8%E6%B3%A8%E8%A7%A3%E5%BC%80%E5%8F%91RESTful%E6%8E%A5%E5%8F%A3%EF%BC%88%E4%B8%8B%EF%BC%89/">青铜篇_P10_常用注解开发RESTful接口（下）<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
