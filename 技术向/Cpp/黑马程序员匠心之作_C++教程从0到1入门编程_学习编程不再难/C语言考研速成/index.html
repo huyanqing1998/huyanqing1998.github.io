@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>C语言考研速成 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="黑马程序员匠心之作|C++教程从0到1入门编程,学习编程不再难  1 C++初识1.1 第一个C++程序1.1.1 创建项目文件 -&gt; 项目 -&gt; 空项目（使用C++ for Windows从头开始操作。不提供基础文件） 解决方案资源管理器 -&gt; 源文件 -&gt; 添加 -&gt; 新建项 -&gt; C++ 文件（.cpp） 12345678# include &lt;io">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言考研速成">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E5%8C%A0%E5%BF%83%E4%B9%8B%E4%BD%9C_C++%E6%95%99%E7%A8%8B%E4%BB%8E0%E5%88%B01%E5%85%A5%E9%97%A8%E7%BC%96%E7%A8%8B_%E5%AD%A6%E4%B9%A0%E7%BC%96%E7%A8%8B%E4%B8%8D%E5%86%8D%E9%9A%BE/C%E8%AF%AD%E8%A8%80%E8%80%83%E7%A0%94%E9%80%9F%E6%88%90/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="黑马程序员匠心之作|C++教程从0到1入门编程,学习编程不再难  1 C++初识1.1 第一个C++程序1.1.1 创建项目文件 -&gt; 项目 -&gt; 空项目（使用C++ for Windows从头开始操作。不提供基础文件） 解决方案资源管理器 -&gt; 源文件 -&gt; 添加 -&gt; 新建项 -&gt; C++ 文件（.cpp） 12345678# include &lt;io">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-15T06:31:53.943Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="黑马程序员">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-C-%E5%88%9D%E8%AF%86"><span class="toc-text">1 C++初识</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E7%AC%AC%E4%B8%80%E4%B8%AAC-%E7%A8%8B%E5%BA%8F"><span class="toc-text">1.1 第一个C++程序</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-1-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-text">1.1.1 创建项目</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-%E5%B8%B8%E9%87%8F"><span class="toc-text">1.4 常量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-text">2 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-sizeof-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">2.2 sizeof 关键字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-4-%E5%AD%97%E7%AC%A6%E5%9E%8B"><span class="toc-text">2.4 字符型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">8 结构体</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#8-2-%E7%BB%93%E6%9E%84%E4%BD%93%E5%AE%9A%E4%B9%89%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="toc-text">8.2 结构体定义和使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-3-%E7%BB%93%E6%9E%84%E4%BD%93%E6%95%B0%E7%BB%84"><span class="toc-text">8.3 结构体数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-4-%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88"><span class="toc-text">8.4 结构体指针</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-5-%E7%BB%93%E6%9E%84%E4%BD%93%E5%B5%8C%E5%A5%97%E7%BB%93%E6%9E%84%E4%BD%93"><span class="toc-text">8.5 结构体嵌套结构体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-6-%E7%BB%93%E6%9E%84%E4%BD%93%E5%81%9A%E5%87%BD%E6%95%B0%E5%8F%82%E6%95%B0"><span class="toc-text">8.6 结构体做函数参数</span></a></li></ol></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Cpp/">Cpp</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Cpp/%E9%BB%91%E9%A9%AC%E7%A8%8B%E5%BA%8F%E5%91%98%E5%8C%A0%E5%BF%83%E4%B9%8B%E4%BD%9C-C-%E6%95%99%E7%A8%8B%E4%BB%8E0%E5%88%B01%E5%85%A5%E9%97%A8%E7%BC%96%E7%A8%8B-%E5%AD%A6%E4%B9%A0%E7%BC%96%E7%A8%8B%E4%B8%8D%E5%86%8D%E9%9A%BE/">黑马程序员匠心之作_C++教程从0到1入门编程_学习编程不再难</a></div><div id="post-meta">发布于&nbsp;<time datetime="2021-08-31T16:00:00.000Z">2021-09-01</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>C语言考研速成</span></h1>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1et411b73Z">黑马程序员匠心之作|C++教程从0到1入门编程,学习编程不再难</a></p>
+</blockquote>
+<h3 id="1-C-初识"><a href="#1-C-初识" class="headerlink" title="1 C++初识"></a>1 C++初识</h3><h4 id="1-1-第一个C-程序"><a href="#1-1-第一个C-程序" class="headerlink" title="1.1 第一个C++程序"></a>1.1 第一个C++程序</h4><h5 id="1-1-1-创建项目"><a href="#1-1-1-创建项目" class="headerlink" title="1.1.1 创建项目"></a>1.1.1 创建项目</h5><p>文件 -&gt; 项目 -&gt; 空项目（使用C++ for Windows从头开始操作。不提供基础文件）</p>
+<p>解决方案资源管理器 -&gt; 源文件 -&gt; 添加 -&gt; 新建项 -&gt; C++ 文件（.cpp）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;Hello World&quot;</span> &lt;&lt; endl; <span class="comment">// 文字输出</span></span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-4-常量"><a href="#1-4-常量" class="headerlink" title="1.4 常量"></a>1.4 常量</h4><p><strong>作用：</strong>记录程序中不可更改的数据。</p>
+<p><strong>语法：</strong>两种方式：</p>
+<ol>
+<li><strong>#define</strong> 宏常量：<code>#define 常量名 常量值</code></li>
+</ol>
+<p>​		通常在函数的上面定义</p>
+<ol start="2">
+<li><strong>const</strong> 修饰变量：<code>const 数据类型 常量名 = 常量值</code></li>
+</ol>
+<p>​		通常在变量定义前加关键字 const</p>
+<p><strong>示例：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. #define 宏常量</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DAY 7</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 2. const 修饰变量</span></span><br><span class="line">	<span class="type">const</span> <span class="type">int</span> MONTH = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;一周总共有：&quot;</span> &lt;&lt; DAY &lt;&lt; <span class="string">&quot;天,一年有：&quot;</span> &lt;&lt; MONTH &lt;&lt; <span class="string">&quot;月&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-数据类型"><a href="#2-数据类型" class="headerlink" title="2 数据类型"></a>2 数据类型</h3><h4 id="2-2-sizeof-关键字"><a href="#2-2-sizeof-关键字" class="headerlink" title="2.2 sizeof 关键字"></a>2.2 sizeof 关键字</h4><p><strong>作用：</strong>利用sizeof关键字可以统计数据类型所占内存大小</p>
+<p><strong>语法：</strong><code>sizeof(数据类型 / 变量)</code></p>
+<p><strong>示例：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">// short 占2字节</span></span><br><span class="line">	<span class="type">short</span> num = <span class="number">10</span>;</span><br><span class="line">	cout &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">short</span>) &lt;&lt; endl;</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-4-字符型"><a href="#2-4-字符型" class="headerlink" title="2.4 字符型"></a>2.4 字符型</h4><p><strong>作用：</strong>字符型变量用于显示单个字符</p>
+<p><strong>语法：</strong><code>char ch = &#39;a&#39;</code></p>
+<p><strong>注意：</strong> </p>
+<ol>
+<li>在显示字符型变量只占用1个字节</li>
+<li>字符型变量并不是把字符本身放到内存的储存中，而是将对应的ASCII编码放到存储单元</li>
+</ol>
+<h3 id="8-结构体"><a href="#8-结构体" class="headerlink" title="8 结构体"></a>8 结构体</h3><h4 id="8-2-结构体定义和使用"><a href="#8-2-结构体定义和使用" class="headerlink" title="8.2 结构体定义和使用"></a>8.2 结构体定义和使用</h4><p><strong>作用：</strong>结构体属于用户自定义的数据类型，允许用户存储不同的数据类型</p>
+<p><strong>语法：</strong><code>struct 结构体名 &#123; 结构体成员列表 &#125;</code></p>
+<p>通过结构体创建变量的方式有三种：</p>
+<ul>
+<li>struct 结构体名 变量名</li>
+<li>struct 结构体名 变量名 &#x3D; { 成员1值 , 成员2值 }</li>
+<li>定义结构体时顺便创建变量</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">	string name;</span><br><span class="line">	<span class="type">int</span> age;</span><br><span class="line">	<span class="type">int</span> score;</span><br><span class="line">&#125;s3;<span class="comment">// 3. 定义结构体时顺便创建变量</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 1. struct 结构体名 变量名</span></span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">Student</span> s1;</span><br><span class="line">	s1.name = <span class="string">&quot;Hooy&quot;</span>;</span><br><span class="line">	s1.age = <span class="number">23</span>;</span><br><span class="line">	s1.score = <span class="number">100</span>;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;姓名：&quot;</span> &lt;&lt; s1.name &lt;&lt; <span class="string">&quot; 年龄：&quot;</span> &lt;&lt; s1.age &lt;&lt; <span class="string">&quot; 分数：&quot;</span> &lt;&lt; s1.score &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 2. struct 结构体名 变量名 = &#123; 成员1值 , 成员2值 &#125;</span></span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">Student</span> s2 = &#123;<span class="string">&quot;Yan&quot;</span> , <span class="number">20</span> , <span class="number">90</span>&#125;;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;姓名：&quot;</span> &lt;&lt; s2.name &lt;&lt; <span class="string">&quot; 年龄：&quot;</span> &lt;&lt; s2.age &lt;&lt; <span class="string">&quot; 分数：&quot;</span> &lt;&lt; s2.score &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 3. 定义结构体时顺便创建变量</span></span><br><span class="line">	s3.name = <span class="string">&quot;Tsing&quot;</span>;</span><br><span class="line">	s3.age = <span class="number">80</span>;</span><br><span class="line">	s3.score = <span class="number">123</span>;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;姓名：&quot;</span> &lt;&lt; s3.name &lt;&lt; <span class="string">&quot; 年龄：&quot;</span> &lt;&lt; s3.age &lt;&lt; <span class="string">&quot; 分数：&quot;</span> &lt;&lt; s3.score &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-3-结构体数组"><a href="#8-3-结构体数组" class="headerlink" title="8.3 结构体数组"></a>8.3 结构体数组</h4><p><strong>作用：</strong>将自定义的结构体放入到数组中方便维护</p>
+<p><strong>语法：</strong><code>struct 结构体名 数组名[元素个数] = &#123; &#123;&#125; , &#123;&#125; , &#123;&#125; &#125;</code></p>
+<p><strong>示例：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 定义结构体</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">	string name;</span><br><span class="line">	<span class="type">int</span> age;</span><br><span class="line">	<span class="type">int</span> score;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 2. 创建结构体数组</span></span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">Student</span> stuArray[<span class="number">3</span>] = &#123;</span><br><span class="line">		&#123;<span class="string">&quot;Hooy&quot;</span>,<span class="number">20</span>,<span class="number">60</span>&#125;,</span><br><span class="line">		&#123;<span class="string">&quot;Yan&quot;</span>,<span class="number">30</span>,<span class="number">54</span>&#125;,</span><br><span class="line">		&#123;<span class="string">&quot;Tsing&quot;</span>,<span class="number">78</span>,<span class="number">12</span>&#125;</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="comment">// 3. 给结构体中的元素赋值</span></span><br><span class="line">	stuArray[<span class="number">1</span>].name = <span class="string">&quot;燕&quot;</span>;</span><br><span class="line">	stuArray[<span class="number">1</span>].age = <span class="number">15</span>;</span><br><span class="line">	stuArray[<span class="number">1</span>].score = <span class="number">3</span>;</span><br><span class="line">	<span class="comment">// 4. 遍历结构体数组</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>;i &lt; <span class="number">3</span>;i++) &#123;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;姓名：&quot;</span> &lt;&lt; stuArray[i].name</span><br><span class="line">			 &lt;&lt; <span class="string">&quot;年龄：&quot;</span> &lt;&lt; stuArray[i].age</span><br><span class="line">			 &lt;&lt; <span class="string">&quot;分数：&quot;</span> &lt;&lt; stuArray[i].score &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-4-结构体指针"><a href="#8-4-结构体指针" class="headerlink" title="8.4 结构体指针"></a>8.4 结构体指针</h4><p><strong>作用：</strong>通过指针访问结构体中的成员</p>
+<ul>
+<li>利用操作符 <code>-&gt;</code> 可以通过结构体指针访问结构体属性</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 定义结构体</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">	string name;</span><br><span class="line">	<span class="type">int</span> age;</span><br><span class="line">	<span class="type">int</span> score;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 2. 创建学生结构体变量</span></span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">Student</span> s = &#123;<span class="string">&quot;张三&quot;</span>,<span class="number">18</span>,<span class="number">70</span>&#125;;</span><br><span class="line">	<span class="comment">// 3. 通过指针指向结构体变量</span></span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">Student</span>* p = &amp;s;</span><br><span class="line">	<span class="comment">// 4.通过指针访问结构体变量中的数据</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;姓名：&quot;</span> &lt;&lt; p-&gt;name &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-5-结构体嵌套结构体"><a href="#8-5-结构体嵌套结构体" class="headerlink" title="8.5 结构体嵌套结构体"></a>8.5 结构体嵌套结构体</h4><p><strong>作用：</strong>结构体中的成员可以是另一个结构体</p>
+<p><strong>示例：</strong>每一个老师辅导一个学员，一个老师的结构体中，记录一个学生的结构体</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义学生结构体</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">	string name;</span><br><span class="line">	<span class="type">int</span> age;</span><br><span class="line">	<span class="type">int</span> score;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义老师结构体</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Teacher</span> &#123;</span><br><span class="line">	<span class="type">int</span> id;</span><br><span class="line">	string name;</span><br><span class="line">	<span class="type">int</span> age;</span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">Student</span> stu;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">Teacher</span> t;</span><br><span class="line">	t.id = <span class="number">1</span>;</span><br><span class="line">	t.name = <span class="string">&quot;老王&quot;</span>;</span><br><span class="line">	t.age = <span class="number">30</span>;</span><br><span class="line">	t.stu.name = <span class="string">&quot;张三&quot;</span>;</span><br><span class="line">	t.stu.age = <span class="number">18</span>;</span><br><span class="line">	t.stu.score = <span class="number">70</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-6-结构体做函数参数"><a href="#8-6-结构体做函数参数" class="headerlink" title="8.6 结构体做函数参数"></a>8.6 结构体做函数参数</h4><p><strong>作用：</strong>将结构体作为参数向函数中传递</p>
+<p>传递方式有两种：</p>
+<ul>
+<li>值传递</li>
+<li>地址传递</li>
+</ul>
+<p><strong>示例：</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义学生结构体</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Student</span> &#123;</span><br><span class="line">	string name;</span><br><span class="line">	<span class="type">int</span> age;</span><br><span class="line">	<span class="type">int</span> score;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 值传递：由于将对象复制一份，因此修改操作不影响原对象</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printStudent1</span><span class="params">(<span class="keyword">struct</span> Student s)</span> </span>&#123;</span><br><span class="line">	s.age = <span class="number">100</span>;</span><br><span class="line">	cout &lt;&lt; s.name &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; s.age &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; s.score &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 2. 地址传递：由于是原对象地址，因此修改操作是对原对象修改</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">printStudent2</span><span class="params">(<span class="keyword">struct</span> Student* s)</span> </span>&#123;</span><br><span class="line">	s-&gt;age = <span class="number">120</span>;</span><br><span class="line">	cout &lt;&lt; s-&gt;name &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; s-&gt;age &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; s-&gt;score &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">Student</span> s = &#123;<span class="string">&quot;张三&quot;</span>,<span class="number">18</span>,<span class="number">70</span>&#125;;</span><br><span class="line">	<span class="built_in">printStudent1</span>(s);</span><br><span class="line">	<span class="built_in">printStudent2</span>(&amp;s);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E5%88%9B%E4%BD%9C%E9%9B%86/00008_%E7%94%B1%E7%A1%AC%E7%9B%98%E6%8E%89%E7%9B%98%E5%BC%95%E5%8F%91%E7%9A%84Win10%E8%93%9D%E5%B1%8F%E6%95%85%E9%9A%9C/">00008_由硬盘掉盘引起的Win10蓝屏故障<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P03%20%E5%85%A5%E9%97%A8%E6%A1%88%E4%BE%8B/">P03 入门案例<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

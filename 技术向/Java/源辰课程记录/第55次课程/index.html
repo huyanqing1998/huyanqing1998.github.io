@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第55次课程 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰74班 第55次课程 09.09.2019 内容 JS基本语法[廖彦] 0.知识要点 alert(“字符串”);    将字符串以弹窗的形式显示 document.write(“&lt;&gt;字符串&lt;&#x2F;&gt;”)；    将生成HTML代码在页面上显示 1.JS内联、内部和外部 和CSS十分相似 01.html 123456789101112131415161718&lt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第55次课程">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC55%E6%AC%A1%E8%AF%BE%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰74班 第55次课程 09.09.2019 内容 JS基本语法[廖彦] 0.知识要点 alert(“字符串”);    将字符串以弹窗的形式显示 document.write(“&lt;&gt;字符串&lt;&#x2F;&gt;”)；    将生成HTML代码在页面上显示 1.JS内联、内部和外部 和CSS十分相似 01.html 123456789101112131415161718&lt;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-09-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T01:20:01.575Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2019-09-08T16:00:00.000Z">2019-09-09</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第55次课程</span></h1>
+<p><strong>源辰74班</strong></p>
+<p><strong>第55次课程</strong></p>
+<p><strong>09.09.2019</strong></p>
+<p><strong>内容</strong></p>
+<p><strong>JS基本语法[廖彦]</strong></p>
+<p><strong>0.知识要点</strong></p>
+<p><strong>alert(“字符串”);    将字符串以弹窗的形式显示</strong></p>
+<p><strong>document.write(“&lt;&gt;字符串&lt;&#x2F;&gt;”)；    将生成HTML代码在页面上显示</strong></p>
+<p><strong>1.JS内联、内部和外部</strong></p>
+<p>和CSS十分相似</p>
+<p>01.html</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!--内部--&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">       alert(&quot;hello world!&quot;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">    &lt;!--外部--&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;  src=&quot;01.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;!--内联--&gt;</span><br><span class="line">    &lt;button onclick=&quot;alert(&#x27;你好衡阳&#x27;)&quot;&gt;按钮&lt;/button&gt;</span><br><span class="line">               &lt;!--双引号内部使用单引号--&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>01.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&quot;你好中国!&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>**2.**<strong>function</strong></p>
+<p>02.html</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    </span><br><span class="line">    function add( a,b )&#123;</span><br><span class="line">       return a + b;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    sub = function( a,b )&#123;</span><br><span class="line">       return a - b;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //js 没有重载，后写的同名函数会覆盖之前的函数</span><br><span class="line">    function add( a,b,c )&#123;</span><br><span class="line">       //arguments 用于存放传入函数的所有参数</span><br><span class="line">       var sum = 0;</span><br><span class="line">       for(var i=0;i&lt;arguments.length;i++)&#123;</span><br><span class="line">           sum += arguments[i];</span><br><span class="line">       &#125;</span><br><span class="line">       return sum;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //js 函数的参数可以任意输入</span><br><span class="line">    alert(add(1,2,3,4,5,6));</span><br><span class="line">    alert(sub(3,2));</span><br><span class="line">    </span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>**3.**<strong>全局变量&#x2F;局部变量</strong></p>
+<p>03.html</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;!-- js 全局变量/局部变量 --&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    //在script标签内定义变量是全局变量</span><br><span class="line">    var a = 100;</span><br><span class="line">    </span><br><span class="line">    function test()&#123;</span><br><span class="line">       //在函数内定义变量是局部变量</span><br><span class="line">       var b = 200;</span><br><span class="line">       </span><br><span class="line">       alert(&quot;test():&quot;+a);</span><br><span class="line">       alert(&quot;test():&quot;+b);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    test();</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    alert(&quot;after input:&quot;+a);</span><br><span class="line">    alert(&quot;after input:&quot;+b);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.for-in</strong></p>
+<p>04.html</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var a = 100;</span><br><span class="line">    var b = &quot;100&quot;;</span><br><span class="line">    document.write((a==b) + &quot;</span><br><span class="line">&quot;);</span><br><span class="line">    document.write((a===b) + &quot;</span><br><span class="line">&quot;);</span><br><span class="line">    //定义数组</span><br><span class="line">    var arr = [11,22,33,44];</span><br><span class="line">    //for-in 类似java中  增强for</span><br><span class="line">    for(var a in arr)&#123;</span><br><span class="line">       document.write(arr[a] + &quot;</span><br><span class="line">&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.[案例]海盗旗</strong></p>
+<p>05HaiDaoQi.html</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    var level = 5;</span><br><span class="line">    //打印海盗旗</span><br><span class="line">    for(var i=0;i&lt;level;i++)&#123;</span><br><span class="line">       for(var j=0;j&lt;=i;j++)&#123;</span><br><span class="line">           document.write(&quot;*&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">       document.write(&quot;</span><br><span class="line">&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //打印金字塔</span><br><span class="line">    for (var i = 1; i &lt;= level; i++) &#123;</span><br><span class="line">           for (var j = 1; j &lt;= level - i;  j++)  &#123;</span><br><span class="line">               //几种不同类型的空格 nbsp ensp  emsp</span><br><span class="line">               document.write(&quot;&amp;nbsp;&quot;);</span><br><span class="line">           &#125;</span><br><span class="line">           for (var k = 1; k &lt;= i * 2 - 1;   k++) &#123;</span><br><span class="line">               document.write(&quot;*&quot;);</span><br><span class="line">           &#125;</span><br><span class="line">           document.write(&quot;</span><br><span class="line">&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">    </span><br><span class="line">    //打印表情海盗旗</span><br><span class="line">    for(var i=0;i&lt;level;i++)&#123;</span><br><span class="line">       for(var j=0;j&lt;=i;j++)&#123;</span><br><span class="line">           //html标签 引入图片</span><br><span class="line">           document.write(&quot;&lt;img  src=&#x27;img/timg.jpg&#x27; width=&#x27;50px&#x27;&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">       document.write(&quot;</span><br><span class="line">&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC54%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第54次课程<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC56%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第56次课程<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

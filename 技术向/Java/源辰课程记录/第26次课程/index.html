@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第26次课程 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰74班 第26次课程 06.21.2019 **内容    ** ** Java_interface与多态1[蒋斌]** 1.蜘蛛网扑克牌[排序功能] 知识点： 字符串内字符截取 将字符串内的数字转化为 数字 12345String name &#x3D; &quot;1-2&quot;;&#x2F;&#x2F;字符串内字符截取&#x2F;&#x2F;将字符串内的数字转化为 数字int value &#x3D; Integer.parseInt(nam">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第26次课程">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC26%E6%AC%A1%E8%AF%BE%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰74班 第26次课程 06.21.2019 **内容    ** ** Java_interface与多态1[蒋斌]** 1.蜘蛛网扑克牌[排序功能] 知识点： 字符串内字符截取 将字符串内的数字转化为 数字 12345String name &#x3D; &quot;1-2&quot;;&#x2F;&#x2F;字符串内字符截取&#x2F;&#x2F;将字符串内的数字转化为 数字int value &#x3D; Integer.parseInt(nam">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.hooy.xyz/image/f59f6b53b16ffe34f7bce92b9d351222.png">
+<meta property="article:published_time" content="2019-06-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T01:13:01.124Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.hooy.xyz/image/f59f6b53b16ffe34f7bce92b9d351222.png">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2019-06-20T16:00:00.000Z">2019-06-21</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第26次课程</span></h1>
+<p><strong>源辰74班</strong></p>
+<p><strong>第26次课程</strong></p>
+<p><strong>06.21.2019</strong></p>
+<p>**内容    **</p>
+<p>** Java_interface与多态1[蒋斌]**</p>
+<p><strong>1.蜘蛛网扑克牌[排序功能]</strong></p>
+<p><strong>知识点：</strong></p>
+<p>字符串内字符截取</p>
+<p>将字符串内的数字转化为 数字</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String name = &quot;1-2&quot;;</span><br><span class="line">//字符串内字符截取</span><br><span class="line">//将字符串内的数字转化为 数字</span><br><span class="line">int value = Integer.parseInt(name.substring(0,1);</span><br><span class="line">获取值：value = 1;</span><br></pre></td></tr></table></figure>
+
+<p>自制排序功能（最直观）：</p>
+<p><a href="./file/190620Z.zip">190620Z.zip</a></p>
+<p><strong>Class Main</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br></pre></td><td class="code"><pre><span class="line">import java.awt.*;</span><br><span class="line">import java.util.Random;</span><br><span class="line"></span><br><span class="line">import javax.sql.CommonDataSource;</span><br><span class="line">import javax.swing.*;</span><br><span class="line"></span><br><span class="line">public class Main extends JFrame&#123;</span><br><span class="line">    private Container contentPane;</span><br><span class="line">    private Card[] cards = new Card[56];</span><br><span class="line">    //创建三个玩家</span><br><span class="line">    private CardsContair[] playContair = new CardsContair[3];</span><br><span class="line">    //预留地主牌</span><br><span class="line">    private CardsContair landLord = new CardsContair();</span><br><span class="line">    </span><br><span class="line">    public void start() &#123;</span><br><span class="line">        init();</span><br><span class="line">        cardInit();</span><br><span class="line">        for(int i=0;i&lt;playContair.length;i++) &#123;</span><br><span class="line">            Common.sort(playContair[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        for(int j=0;j&lt;playContair[0].c.length;j++) &#123;</span><br><span class="line">            Common.move(playContair[0].c[j], playContair[0].c[j].getLocation(), new Point(50,60+j*20));</span><br><span class="line">            contentPane.setComponentZOrder(playContair[0].c[j], 0);    </span><br><span class="line">        &#125;</span><br><span class="line">        for(int j=0;j&lt;playContair[1].c.length;j++) &#123;</span><br><span class="line">            Common.move(playContair[1].c[j], playContair[1].c[j].getLocation(), new Point(180+j*25,450));</span><br><span class="line">            contentPane.setComponentZOrder(playContair[1].c[j], 0);    </span><br><span class="line">        &#125;</span><br><span class="line">        for(int j=0;j&lt;playContair[2].c.length;j++) &#123;</span><br><span class="line">            Common.move(playContair[2].c[j], playContair[2].c[j].getLocation(), new Point(700,60+j*20));</span><br><span class="line">            contentPane.setComponentZOrder(playContair[2].c[j], 0);    </span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void init()&#123;</span><br><span class="line">        //设置窗口大小</span><br><span class="line">        this.setSize(830, 630);</span><br><span class="line">        //关闭窗口即终止程序</span><br><span class="line">        this.setDefaultCloseOperation(3);</span><br><span class="line">        //窗口居中</span><br><span class="line">        this.setLocationRelativeTo(null);</span><br><span class="line">        //空布局</span><br><span class="line">        this.setLayout(null);</span><br><span class="line">        //初始化容器</span><br><span class="line">        contentPane = this.getContentPane();</span><br><span class="line">        //设置容器背景颜色(R,G,B)</span><br><span class="line">        contentPane.setBackground(new Color(0,112,26));    </span><br><span class="line">        //窗口显示(非隐藏)</span><br><span class="line">        this.setVisible(true);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void cardInit() &#123;</span><br><span class="line">        int count = 1;</span><br><span class="line">        for(int i=1;i&lt;=5;i++) &#123;</span><br><span class="line">            for(int j=1;j&lt;=13;j++) &#123;</span><br><span class="line">                if(i==5&amp;&amp;j&gt;=3) &#123;</span><br><span class="line">                    break;</span><br><span class="line">                &#125;else &#123;</span><br><span class="line">                    //设置权值(power)</span><br><span class="line">                    if(i==5 &amp;&amp; j==2) &#123;</span><br><span class="line">                        cards[count] = new Card(i+&quot;-&quot;+j,false,17);</span><br><span class="line">                        //控件的位置</span><br><span class="line">                        cards[count].setLocation(300+(i*20), 50);</span><br><span class="line">                        //将cards[count]控件添加到contentPane容器上</span><br><span class="line">                        contentPane.add(cards[count]);</span><br><span class="line">                        count++;</span><br><span class="line">                        continue;</span><br><span class="line">                    &#125;</span><br><span class="line">                    if(i==5 &amp;&amp; j==1) &#123;</span><br><span class="line">                        cards[count] = new Card(i+&quot;-&quot;+j,false,16);</span><br><span class="line">                        //控件的位置</span><br><span class="line">                        cards[count].setLocation(300+(i*20), 50);</span><br><span class="line">                        //将cards[count]控件添加到contentPane容器上</span><br><span class="line">                        contentPane.add(cards[count]);</span><br><span class="line">                        count++;</span><br><span class="line">                        continue;</span><br><span class="line">                    &#125;</span><br><span class="line">                    if(j==2) &#123;</span><br><span class="line">                        cards[count] = new Card(i+&quot;-&quot;+j,false,15);</span><br><span class="line">                        //控件的位置</span><br><span class="line">                        cards[count].setLocation(300+(i*20), 50);</span><br><span class="line">                        //将cards[count]控件添加到contentPane容器上</span><br><span class="line">                        contentPane.add(cards[count]);</span><br><span class="line">                        count++;</span><br><span class="line">                        continue;</span><br><span class="line">                    &#125;</span><br><span class="line">                    if(j==1) &#123;</span><br><span class="line">                        cards[count] = new Card(i+&quot;-&quot;+j,false,14);</span><br><span class="line">                        //控件的位置</span><br><span class="line">                        cards[count].setLocation(300+(i*20), 50);</span><br><span class="line">                        //将cards[count]控件添加到contentPane容器上</span><br><span class="line">                        contentPane.add(cards[count]);</span><br><span class="line">                        count++;</span><br><span class="line">                        continue;</span><br><span class="line">                    &#125;</span><br><span class="line">                    cards[count] = new Card(i+&quot;-&quot;+j,false,j);</span><br><span class="line">                    //控件的位置</span><br><span class="line">                    cards[count].setLocation(300+(i*20), 50);</span><br><span class="line">                    //将cards[count]控件添加到contentPane容器上</span><br><span class="line">                    contentPane.add(cards[count]);</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        //洗牌</span><br><span class="line">        Random r = new Random();</span><br><span class="line">        for(int i=0;i&lt;1000;i++) &#123;</span><br><span class="line">            int a = r.nextInt(54)+1;</span><br><span class="line">            int b = r.nextInt(54)+1;</span><br><span class="line">            Card temp = cards[a];</span><br><span class="line">            cards[a] = cards[b];</span><br><span class="line">            cards[b] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        for(int i=0;i&lt;3;i++) &#123;</span><br><span class="line">            playContair[i] = new CardsContair();</span><br><span class="line">        &#125;</span><br><span class="line">        //发牌</span><br><span class="line">        </span><br><span class="line">        for(int i=1;i&lt;=54;i++) &#123;</span><br><span class="line">            if(i&gt;=52) &#123;</span><br><span class="line">                landLord.add(cards[i]);</span><br><span class="line">                Common.move(cards[i], cards[i].getLocation(), new Point(300+(i-52)*80,15));</span><br><span class="line">                continue;</span><br><span class="line">            &#125;</span><br><span class="line">            switch((i-1)%3) &#123;</span><br><span class="line">                case 0:</span><br><span class="line">                    Common.move(cards[i], cards[i].getLocation(), new Point(50,60+i*7));</span><br><span class="line">                    playContair[0].add(cards[i]);</span><br><span class="line">                    cards[i].turnFront();</span><br><span class="line">                    break;</span><br><span class="line">                case 1:</span><br><span class="line">                    Common.move(cards[i], cards[i].getLocation(), new Point(180+i*7,450));</span><br><span class="line">                    playContair[1].add(cards[i]);</span><br><span class="line">                    cards[i].turnFront();</span><br><span class="line">                    break;</span><br><span class="line">                case 2:</span><br><span class="line">                    Common.move(cards[i], cards[i].getLocation(), new Point(700,60+i*7));</span><br><span class="line">                    playContair[2].add(cards[i]);</span><br><span class="line">                    cards[i].turnFront();</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">            contentPane.setComponentZOrder(cards[i], 0);    </span><br><span class="line">        &#125;    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Class Common</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">import java.awt.Point;</span><br><span class="line">public class Common &#123;</span><br><span class="line">    //移动效果方法，用于发牌</span><br><span class="line">    public static void move(Card card,Point  from,Point to) &#123;</span><br><span class="line">       if(to.x != from.x) &#123;</span><br><span class="line">           double k = (1.0) * (to.y -  from.y) / (to.x - from.x);</span><br><span class="line">           double b = to.y - to.x * k;</span><br><span class="line">           int flag = 0;</span><br><span class="line">           if(from.x &lt; to.x) &#123;</span><br><span class="line">               flag = 10;</span><br><span class="line">           &#125;else &#123;</span><br><span class="line">               flag = -10;</span><br><span class="line">           &#125;</span><br><span class="line">           for(int  i=from.x;Math.abs(i-to.x)&gt;20;i+=flag) &#123;</span><br><span class="line">               double y = k * i + b;</span><br><span class="line">               card.setLocation(i,(int)y);</span><br><span class="line">               try &#123;</span><br><span class="line">                  //延迟3s 完成</span><br><span class="line">                  Thread.sleep(3);</span><br><span class="line">               &#125;catch(InterruptedException  e) &#123;</span><br><span class="line">                  e.printStackTrace();</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       //位置校准</span><br><span class="line">       card.setLocation(to);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //排序</span><br><span class="line">    public static void sort(CardsContair  playContair) &#123;</span><br><span class="line">       for(int  i=0;i&lt;playContair.getSize()-1;i++) &#123;</span><br><span class="line">           for(int  j=0;j&lt;playContair.getSize()-i-1;j++) &#123;</span><br><span class="line">               if(playContair.c[j].getPower()&gt;playContair.c[j+1].getPower()) &#123;</span><br><span class="line">                  Card temp =  playContair.c[j];</span><br><span class="line">                  playContair.c[j] =  playContair.c[j+1];</span><br><span class="line">                  playContair.c[j+1] =  temp;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Class Card</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import javax.swing.*;</span><br><span class="line">public class Card extends JLabel&#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private boolean up;</span><br><span class="line">    //private int flower;</span><br><span class="line">    //private int number;</span><br><span class="line">    private int power;</span><br><span class="line">    </span><br><span class="line">    public Card()&#123;</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">    public Card(String name,boolean up,int  power) &#123;</span><br><span class="line">       this.name = name;</span><br><span class="line">       this.up = up;</span><br><span class="line">       this.power = power;</span><br><span class="line">       //设置牌的高度和宽度</span><br><span class="line">       this.setSize(71,96);</span><br><span class="line">       if(up) &#123;</span><br><span class="line">           //正面</span><br><span class="line">           turnFront();</span><br><span class="line">       &#125;else &#123;</span><br><span class="line">           //反面</span><br><span class="line">           turnRear();</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //正面贴图</span><br><span class="line">    public void turnFront() &#123;</span><br><span class="line">       this.setIcon(new  ImageIcon(&quot;images/&quot;+name+&quot;.gif&quot;));</span><br><span class="line">    &#125;</span><br><span class="line">    //反面贴图</span><br><span class="line">    public void turnRear() &#123;</span><br><span class="line">       this.setIcon(new  ImageIcon(&quot;images/rear.gif&quot;));</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    </span><br><span class="line">    public int getPower() &#123;</span><br><span class="line">       return power;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Class CardsContair</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">//单个玩家</span><br><span class="line">public class CardsContair &#123;</span><br><span class="line">    public Card[] c;</span><br><span class="line">    private int index;</span><br><span class="line">    </span><br><span class="line">    public CardsContair()&#123;</span><br><span class="line">       c = new Card[17];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void add(Card card) &#123;</span><br><span class="line">       if(index&gt;=c.length) &#123;</span><br><span class="line">           //数组扩容</span><br><span class="line">           Card[] newC = new  Card[c.length*2];</span><br><span class="line">           for(int i=0;i&lt;c.length;i++) &#123;</span><br><span class="line">               newC[i] = c[i];</span><br><span class="line">           &#125;</span><br><span class="line">           c = newC;</span><br><span class="line">       &#125;</span><br><span class="line">       c[index] = card;</span><br><span class="line">       index++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int getSize() &#123;</span><br><span class="line">       return index;</span><br><span class="line">    &#125;</span><br><span class="line">    public Card[] getC() &#123;</span><br><span class="line">       return c;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Main Test</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       new Main().start();;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.多态</strong></p>
+<p>一个类的多种形态</p>
+<p>父类的引用指向子类：父类 变量名 &#x3D; new 子类;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/f59f6b53b16ffe34f7bce92b9d351222.png" alt="f59f6b53b16ffe34f7bce92b9d351222.png"></p>
+<p><strong>实践例题1：</strong></p>
+<p><strong>Class Shape</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.www;</span><br><span class="line">public class Shape &#123;</span><br><span class="line">    //形状</span><br><span class="line">    public void draw() &#123;</span><br><span class="line">       System.out.println(&quot;基本的形状&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Circls extends Shape&#123;</span><br><span class="line">    //圆形</span><br><span class="line">    public void draw() &#123;</span><br><span class="line">       System.out.println(&quot;圆形&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Square extends Shape&#123;</span><br><span class="line">    //方形</span><br><span class="line">       public void draw() &#123;</span><br><span class="line">           System.out.println(&quot;方形&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Main Shape_Test</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.www;</span><br><span class="line">public class Shape_Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       Shape s = new Circls();</span><br><span class="line">       s.draw();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>实践例题2：</strong></p>
+<p>**Abstract **<strong>Class Plane</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.www;</span><br><span class="line">public abstract class Plane &#123;</span><br><span class="line">    public abstract void fly();      //起飞</span><br><span class="line">    public abstract void land();</span><br><span class="line">    public void planeFlyandLand(Plane p) &#123;</span><br><span class="line">       p.fly();</span><br><span class="line">       p.land();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Copter extends Plane&#123;</span><br><span class="line">    //重写</span><br><span class="line">    public void fly() &#123;</span><br><span class="line">       System.out.println(&quot;垂直起飞&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public void land() &#123;</span><br><span class="line">       System.out.println(&quot;垂直降落&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class Jet extends Plane&#123;</span><br><span class="line">    //重写</span><br><span class="line">    public void fly() &#123;</span><br><span class="line">       System.out.println(&quot;喷气起飞&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    public void land() &#123;</span><br><span class="line">       System.out.println(&quot;喷气降落&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Main Plane_Test</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.www;</span><br><span class="line">public class Plane_Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       Plane p = new Jet();</span><br><span class="line">       p.planeFlyandLand(p);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.接口（interface）</strong></p>
+<p>比抽象类更抽象</p>
+<p>不能实例化（new）</p>
+<p>接口里：</p>
+<p>属性不加final也是常量，不加static也是静态。</p>
+<p>方法不加abstract也是抽象方法。方法是抽象的，没有方法体。</p>
+<p><strong>实践例题1：</strong></p>
+<p><strong>interface Jump</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.interface_Test;</span><br><span class="line">//接口：制定的一种标准</span><br><span class="line">public interface Jump &#123;</span><br><span class="line">    //接口内所有属性均为：final(常量)  static(静态)</span><br><span class="line">    final static int a = 10;</span><br><span class="line">    //接口内所有方法均为：abstract(抽象)</span><br><span class="line">    public void superJump();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Main Person</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.interface_Test;</span><br><span class="line">public class Person implements Jump&#123;</span><br><span class="line">    //重写：具体实现 接口Jump中的superJump方法</span><br><span class="line">    @Override</span><br><span class="line">    public void superJump() &#123;</span><br><span class="line">       System.out.println(&quot;跳的很高&quot;);</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接口可以多实现</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//例如：</span><br><span class="line">public class Gaode implements TalkLikeGirl,Path&#123;</span><br><span class="line">                类体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接口可以多继承</p>
+<p><strong>实践例题2：</strong></p>
+<p><strong>Talk</strong></p>
+<p>**Interface **<strong>baseTalk</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.Talk;</span><br><span class="line">public interface baseTalk &#123;</span><br><span class="line">    public void talk(String content);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>**Interface ** <strong>TalkLikeGirl</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.Talk;</span><br><span class="line">public interface TalkLikeGirl extends  baseTalk&#123;</span><br><span class="line">    public void changeTalk(String content);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Interface Path</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.Talk;</span><br><span class="line">public interface Path &#123;</span><br><span class="line">    public void genPah(String content);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Class Gaode</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.Talk;</span><br><span class="line">public class Gaode implements  TalkLikeGirl,Path&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void talk(String content) &#123;</span><br><span class="line">       System.out.println(&quot;高德地图欢迎您&quot;);</span><br><span class="line">       changeTalk(content);</span><br><span class="line">       genPah(content);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void genPah(String content) &#123;</span><br><span class="line">       System.out.println(&quot;林志玲音色：林志玲为您导航！&quot;);</span><br><span class="line">       System.out.println(content);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void changeTalk(String content) &#123;</span><br><span class="line">       //空格为分隔符，String[0] = &quot;衡阳&quot;，String[1] = &quot;北京&quot;</span><br><span class="line">       String start = content.split(&quot;  &quot;)[0];</span><br><span class="line">       String end = content.split(&quot; &quot;)[1];</span><br><span class="line">       System.out.println(start+&quot;--长沙--&quot;+end);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Main Test</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.Talk;</span><br><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       Gaode gd = new Gaode();</span><br><span class="line">       //content = &quot;衡阳 北京&quot;</span><br><span class="line">       gd.talk(&quot;衡阳 北京&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>实践例题3：</strong></p>
+<p>项目中使用Class（类）来实现，下节课中将用Interface（接口）来实现。</p>
+<p><strong>Teacher</strong></p>
+<p><strong>Class Teacher</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.teacher;</span><br><span class="line">public class Teacher &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private String course;</span><br><span class="line">    public Teacher() &#123;</span><br><span class="line">       super();</span><br><span class="line">    &#125;</span><br><span class="line">    public Teacher(String name,String  course) &#123;</span><br><span class="line">       super();</span><br><span class="line">       this.name = name;</span><br><span class="line">       this.course = course;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void selfIntroduce() &#123;</span><br><span class="line">       System.out.println(&quot;我是&quot;+name+&quot;，所教科目：&quot;+course);</span><br><span class="line">    &#125;</span><br><span class="line">    public String getName() &#123;</span><br><span class="line">       return name;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">       if(name==null || &quot;&quot;.equals(name)) &#123;</span><br><span class="line">           this.name = &quot;匿名&quot;;</span><br><span class="line">       &#125;</span><br><span class="line">       this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getCourse() &#123;</span><br><span class="line">       return course;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setCourse(String course) &#123;</span><br><span class="line">       if(course==null || &quot;&quot;.equals(&quot;&quot;)) &#123;</span><br><span class="line">           this.course = &quot;百科&quot;;</span><br><span class="line">       &#125;</span><br><span class="line">       this.course = course;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Class EnglishTeacher</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.teacher;</span><br><span class="line">public class EnglishTeacher extends Teacher  &#123;</span><br><span class="line">    //超类里已经有的成员，但权限为私有，所以需要重新创建成员</span><br><span class="line">    private String name;</span><br><span class="line">    private String course;</span><br><span class="line">    public EnglishTeacher(String name) &#123;</span><br><span class="line">       super();</span><br><span class="line">       this.name = name;</span><br><span class="line">       this.course = &quot;英语&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    public void selfIntroduce() &#123;</span><br><span class="line">       System.out.println(&quot;我是&quot;+name+&quot;，所教科目：&quot;+course);</span><br><span class="line">    &#125;</span><br><span class="line">    public String getName() &#123;</span><br><span class="line">       return name;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">       if(name==null || &quot;&quot;.equals(name)) &#123;</span><br><span class="line">           this.name = &quot;匿名&quot;;</span><br><span class="line">       &#125;</span><br><span class="line">       this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getCourse() &#123;</span><br><span class="line">       return course;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Class MathTeacher</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.teacher;</span><br><span class="line">public class MathTeacher extends Teacher &#123;</span><br><span class="line">    //超类里已经有的成员，但权限为私有，所以需要重新创建成员</span><br><span class="line">    private String name;</span><br><span class="line">    private String course;</span><br><span class="line">    public MathTeacher(String name) &#123;</span><br><span class="line">       super();</span><br><span class="line">       this.name = name;</span><br><span class="line">       this.course = &quot;英语&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    public void selfIntroduce() &#123;</span><br><span class="line">       System.out.println(&quot;我是&quot;+name+&quot;，所教科目：&quot;+course);</span><br><span class="line">    &#125;</span><br><span class="line">    public String getName() &#123;</span><br><span class="line">       return name;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">       if(name==null || &quot;&quot;.equals(name)) &#123;</span><br><span class="line">           this.name = &quot;匿名&quot;;</span><br><span class="line">       &#125;</span><br><span class="line">       this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getCourse() &#123;</span><br><span class="line">       return course;</span><br><span class="line">    &#125;</span><br><span class="line">       </span><br><span class="line">&#125;</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+<p>**Class **<strong>Examiner</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.teacher;</span><br><span class="line">public class Examiner &#123;</span><br><span class="line">    public void judage(Teacher t) &#123;</span><br><span class="line">       t.selfIntroduce();</span><br><span class="line">       if(&quot;数学&quot;.equals(t.getCourse()))&#123;</span><br><span class="line">           System.out.println(&quot;1+1=?&quot;);</span><br><span class="line">       &#125;else if(&quot;英语&quot;.equals(t.getCourse())) &#123;</span><br><span class="line">           System.out.println(&quot;衬衫的价格?&quot;);</span><br><span class="line">       &#125;else &#123;</span><br><span class="line">           System.out.println(&quot;西游记作者：章承恩?&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Main Test</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.teacher;</span><br><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       Teacher t = new EnglishTeacher(&quot;张三&quot;);</span><br><span class="line">       Examiner ex = new Examiner();</span><br><span class="line">       ex.judage(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC25%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第25次课程<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC27%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第27次课程<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

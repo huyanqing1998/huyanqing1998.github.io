@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第74次课程_EASYUI_1 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰76班 第74次课程 2019.11.01 内容 EASYUI_1[廖彦] 1.esayUI配置环境 esayUI官方网站： http:&#x2F;&#x2F;www.jeasyui.net&#x2F; 需将以下文件放入工程文件的WebContent目录中du  不同的网页控件模板可以在此网站上找到源码，将其粘贴到自己的项目文件中。 2.easyUI应用 大麦(damai)电商项目后台管理 product.jsp  123">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第74次课程_EASYUI_1">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC74%E6%AC%A1%E8%AF%BE%E7%A8%8B_EASYUI_1/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰76班 第74次课程 2019.11.01 内容 EASYUI_1[廖彦] 1.esayUI配置环境 esayUI官方网站： http:&#x2F;&#x2F;www.jeasyui.net&#x2F; 需将以下文件放入工程文件的WebContent目录中du  不同的网页控件模板可以在此网站上找到源码，将其粘贴到自己的项目文件中。 2.easyUI应用 大麦(damai)电商项目后台管理 product.jsp  123">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.hooy.xyz/image/80d970ecf48293a259b552119a223938.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/2af98310ba29c76174daef55148b5dde.png">
+<meta property="article:published_time" content="2019-10-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T01:25:17.047Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.hooy.xyz/image/80d970ecf48293a259b552119a223938.png">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2019-10-31T16:00:00.000Z">2019-11-01</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第74次课程_EASYUI_1</span></h1>
+<p><strong>源辰76班</strong></p>
+<p><strong>第74次课程</strong></p>
+<p><strong>2019.11.01</strong></p>
+<p><strong>内容</strong></p>
+<p><strong>EASYUI_1[廖彦]</strong></p>
+<p><strong>1.esayUI配置环境</strong></p>
+<p><strong>esayUI官方网站：</strong></p>
+<p><a target="_blank" rel="noopener" href="http://www.jeasyui.net/">http://www.jeasyui.net/</a></p>
+<p>需将以下文件放入工程文件的WebContent目录中du</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/80d970ecf48293a259b552119a223938.png" alt="80d970ecf48293a259b552119a223938.png"></p>
+<p>不同的网页控件模板可以在此网站上找到<span style="background-color: #ffaaaa">源码</span>，将其粘贴到自己的项目文件中。</p>
+<p><strong>2.easyUI应用</strong></p>
+<p><strong>大麦(damai)电商项目后台管理</strong></p>
+<p>product.jsp</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/2af98310ba29c76174daef55148b5dde.png" alt="2af98310ba29c76174daef55148b5dde.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;java&quot;  contentType=&quot;text/html; charset=utf-8&quot;</span><br><span class="line">    pageEncoding=&quot;utf-8&quot;%&gt;</span><br><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD HTML 4.01  Transitional//EN&quot;  &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot;  content=&quot;text/html; charset=utf-8&quot;&gt;</span><br><span class="line">&lt;title&gt;商品管理&lt;/title&gt;</span><br><span class="line"></span><br><span class="line">     &lt;!-- 相对路径 --&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot;  href=&quot;../js/easyui/themes/default/easyui.css&quot;&gt;</span><br><span class="line">    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot;  href=&quot;../js/easyui/themes/icon.css&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 绝对路径 --&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;  src=&quot;/191026_Servlet/js/easyui/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;  src=&quot;/191026_Servlet/js/easyui/jquery.easyui.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 国际化js文件 --&gt;</span><br><span class="line">    &lt;!-- 改进绝对路径：工程名可以任意变化 --&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;  src=&quot;&lt;%=application.getContextPath()  %&gt;/js/easyui/locale/easyui-lang-zh_CN.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">       function edit()&#123;</span><br><span class="line">           //web版 选中某一行</span><br><span class="line">           //获取表格当前选中的行 row 就是  Product 实体对象 --&gt; json对象</span><br><span class="line">           var row =  $(&quot;#dg&quot;).datagrid(&quot;getSelected&quot;);</span><br><span class="line">           if(row==null)&#123;</span><br><span class="line">               $.messager.alert(&#x27;系统提示&#x27;,&#x27;请选择要编辑的服装&#x27;,&#x27;error&#x27;);</span><br><span class="line">               return;</span><br><span class="line">           &#125;</span><br><span class="line">           //打开对话框</span><br><span class="line">        $(&#x27;#dlg&#x27;).dialog(&#x27;open&#x27;);</span><br><span class="line">           //将行数据填写到表单控件中</span><br><span class="line">        $(&quot;#editForm&quot;).form(&#x27;load&#x27;,row);</span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">       function add()&#123;</span><br><span class="line">           $(&#x27;#dlg&#x27;).dialog(&#x27;open&#x27;);</span><br><span class="line">           //清除表单控件里的数据</span><br><span class="line">        $(&quot;#editForm&quot;).form(&#x27;clear&#x27;);</span><br><span class="line">       &#125;</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;!-- fit:true 表格全屏显示 --&gt;</span><br><span class="line">    &lt;table class=&quot;easyui-datagrid&quot;  title=&quot;DataGrid Complex Toolbar&quot; id=&quot;dg&quot;</span><br><span class="line">           data-options=&quot;</span><br><span class="line">           fit:true,</span><br><span class="line">           rownumbers:true,</span><br><span class="line">           singleSelect:true,</span><br><span class="line">           url:&#x27;&lt;%=application.getContextPath()  %&gt;/product.s?op=query&#x27;,</span><br><span class="line">           method:&#x27;get&#x27;,</span><br><span class="line">           toolbar:&#x27;#tb&#x27;&quot;&gt;</span><br><span class="line">           &lt;!-- Ajax局部刷新技术 --&gt;</span><br><span class="line">       &lt;thead&gt;</span><br><span class="line">           &lt;tr&gt;</span><br><span class="line">               &lt;!-- 对应json字符串中的各个变量名 --&gt;</span><br><span class="line">               &lt;th  data-options=&quot;field:&#x27;pid&#x27;,width:80&quot;&gt;pid&lt;/th&gt;</span><br><span class="line">               &lt;th  data-options=&quot;field:&#x27;pname&#x27;,width:100&quot;&gt;pname&lt;/th&gt;</span><br><span class="line">               &lt;th  data-options=&quot;field:&#x27;market_price&#x27;,width:80,align:&#x27;right&#x27;&quot;&gt;market_price&lt;/th&gt;</span><br><span class="line">               &lt;th  data-options=&quot;field:&#x27;shop_price&#x27;,width:80,align:&#x27;right&#x27;&quot;&gt;shop_price&lt;/th&gt;</span><br><span class="line">               &lt;th  data-options=&quot;field:&#x27;image&#x27;,width:240&quot;&gt;image&lt;/th&gt;</span><br><span class="line">               &lt;th  data-options=&quot;field:&#x27;pdesc&#x27;,width:360,align:&#x27;center&#x27;&quot;&gt;pdesc&lt;/th&gt;</span><br><span class="line">               &lt;th  data-options=&quot;field:&#x27;is_hot&#x27;,width:100&quot;&gt;is_hot&lt;/th&gt;</span><br><span class="line">               &lt;th  data-options=&quot;field:&#x27;pdate&#x27;,width:100&quot;&gt;pdate&lt;/th&gt;</span><br><span class="line">               &lt;th  data-options=&quot;field:&#x27;csid&#x27;,width:100&quot;&gt;csid&lt;/th&gt;</span><br><span class="line">           &lt;/tr&gt;</span><br><span class="line">       &lt;/thead&gt;</span><br><span class="line">    &lt;/table&gt;</span><br><span class="line">    &lt;div id=&quot;tb&quot;  style=&quot;padding:5px;height:auto&quot;&gt;</span><br><span class="line">       &lt;div style=&quot;margin-bottom:5px&quot;&gt;</span><br><span class="line">           &lt;a href=&quot;#&quot;  class=&quot;easyui-linkbutton&quot; iconCls=&quot;icon-add&quot;  plain=&quot;true&quot;&gt;&lt;/a&gt;</span><br><span class="line">           &lt;a href=&quot;#&quot;  class=&quot;easyui-linkbutton&quot;  iconCls=&quot;icon-edit&quot; plain=&quot;true&quot;&gt;&lt;/a&gt;</span><br><span class="line">           &lt;a href=&quot;#&quot;  class=&quot;easyui-linkbutton&quot;  iconCls=&quot;icon-save&quot; plain=&quot;true&quot;&gt;&lt;/a&gt;</span><br><span class="line">           &lt;a href=&quot;#&quot;  class=&quot;easyui-linkbutton&quot; iconCls=&quot;icon-cut&quot;  plain=&quot;true&quot;&gt;&lt;/a&gt;</span><br><span class="line">           &lt;a href=&quot;#&quot;  class=&quot;easyui-linkbutton&quot;  iconCls=&quot;icon-remove&quot; plain=&quot;true&quot;&gt;&lt;/a&gt;</span><br><span class="line">       &lt;/div&gt;</span><br><span class="line">       &lt;div&gt;</span><br><span class="line">           Date From: &lt;input  class=&quot;easyui-datebox&quot; style=&quot;width:80px&quot;&gt;</span><br><span class="line">           To: &lt;input class=&quot;easyui-datebox&quot; style=&quot;width:80px&quot;&gt;</span><br><span class="line">           Language:</span><br><span class="line">           &lt;select class=&quot;easyui-combobox&quot;  panelHeight=&quot;auto&quot; style=&quot;width:100px&quot;&gt;</span><br><span class="line">               &lt;option  value=&quot;java&quot;&gt;Java&lt;/option&gt;</span><br><span class="line">               &lt;option value=&quot;c&quot;&gt;C&lt;/option&gt;</span><br><span class="line">               &lt;option  value=&quot;basic&quot;&gt;Basic&lt;/option&gt;</span><br><span class="line">               &lt;option  value=&quot;perl&quot;&gt;Perl&lt;/option&gt;</span><br><span class="line">               &lt;option  value=&quot;python&quot;&gt;Python&lt;/option&gt;</span><br><span class="line">           &lt;/select&gt;</span><br><span class="line">           &lt;a href=&quot;#&quot;  class=&quot;easyui-linkbutton&quot;  iconCls=&quot;icon-search&quot;&gt;Search&lt;/a&gt;</span><br><span class="line">           &lt;a href=&quot;javascript:void(0)&quot;  class=&quot;easyui-linkbutton&quot;  onclick=&quot;edit()&quot;&gt;编辑&lt;/a&gt;</span><br><span class="line">           &lt;a href=&quot;javascript:void(0)&quot;  class=&quot;easyui-linkbutton&quot; onclick=&quot;add()&quot;&gt;新增&lt;/a&gt;</span><br><span class="line">       &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">       &lt;!-- closed:true 刷新后对话框不会自动弹出来 --&gt;</span><br><span class="line">       &lt;div id=&quot;dlg&quot; class=&quot;easyui-dialog&quot;  title=&quot;Basic Dialog&quot;  data-options=&quot;iconCls:&#x27;icon-save&#x27;, closed:true&quot;  style=&quot;width:400px;height:400px;padding:10px&quot;&gt;</span><br><span class="line">           &lt;form action=&quot;&quot; id=&quot;editForm&quot;&gt;</span><br><span class="line">               &lt;input class=&quot;easyui-textbox&quot;  name=&quot;pid&quot; style=&quot;width:300px&quot;  data-options=&quot;label:&#x27;商品ID:&#x27;&quot;&gt;</span><br><span class="line">               &lt;input class=&quot;easyui-textbox&quot;  name=&quot;pname&quot; style=&quot;width:300px&quot;  data-options=&quot;label:&#x27;名称:&#x27;&quot;&gt;</span><br><span class="line">               &lt;input class=&quot;easyui-textbox&quot;  name=&quot;shop_price&quot; style=&quot;width:300px&quot;  data-options=&quot;label:&#x27;商场价:&#x27;&quot;&gt;</span><br><span class="line">           &lt;/form&gt;</span><br><span class="line">       &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>根据MVC模式编写后台服务</strong></p>
+<p>product.java</p>
+<p>product的实体类（容器）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.damai.bean;</span><br><span class="line">import java.sql.Timestamp;</span><br><span class="line">public class Product &#123;</span><br><span class="line">    private Integer pid;</span><br><span class="line">    private String pname;</span><br><span class="line">    private Integer market_price;</span><br><span class="line">    private Integer shop_price;</span><br><span class="line">    private String image;</span><br><span class="line">    private String pdesc;</span><br><span class="line">    private String is_hot;</span><br><span class="line">    private Timestamp pdate;</span><br><span class="line">    private Integer csid;</span><br><span class="line">    public Integer getPid() &#123;</span><br><span class="line">       return pid;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setPid(Integer pid) &#123;</span><br><span class="line">       this.pid = pid;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getPname() &#123;</span><br><span class="line">       return pname;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setPname(String pname) &#123;</span><br><span class="line">       this.pname = pname;</span><br><span class="line">    &#125;</span><br><span class="line">    public Integer getMarket_price() &#123;</span><br><span class="line">       return market_price;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setMarket_price(Integer  market_price) &#123;</span><br><span class="line">       this.market_price = market_price;</span><br><span class="line">    &#125;</span><br><span class="line">    public Integer getShop_price() &#123;</span><br><span class="line">       return shop_price;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setShop_price(Integer  shop_price) &#123;</span><br><span class="line">       this.shop_price = shop_price;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getImage() &#123;</span><br><span class="line">       return image;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setImage(String image) &#123;</span><br><span class="line">       this.image = image;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getPdesc() &#123;</span><br><span class="line">       return pdesc;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setPdesc(String pdesc) &#123;</span><br><span class="line">       this.pdesc = pdesc;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getIs_hot() &#123;</span><br><span class="line">       return is_hot;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setIs_hot(String is_hot) &#123;</span><br><span class="line">       this.is_hot = is_hot;</span><br><span class="line">    &#125;</span><br><span class="line">    public Timestamp getPdate() &#123;</span><br><span class="line">       return pdate;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setPdate(Timestamp pdate) &#123;</span><br><span class="line">       this.pdate = pdate;</span><br><span class="line">    &#125;</span><br><span class="line">    public Integer getCsid() &#123;</span><br><span class="line">       return csid;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setCsid(Integer csid) &#123;</span><br><span class="line">       this.csid = csid;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ProductServlet.java</p>
+<p>服务主体</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.damai.servlet;</span><br><span class="line"></span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.PrintWriter;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">import javax.servlet.annotation.WebServlet;</span><br><span class="line">import javax.servlet.http.HttpServlet;</span><br><span class="line">import javax.servlet.http.HttpServletRequest;</span><br><span class="line">import javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line">import com.google.gson.Gson;</span><br><span class="line">import com.yc.damai.bean.Product;</span><br><span class="line">import com.yc.damai.biz.ProductBiz;</span><br><span class="line"></span><br><span class="line">@WebServlet(&quot;/product.s&quot;)</span><br><span class="line">public class ProductServlet extends BaseServlet &#123;</span><br><span class="line">    private static final long serialVersionUID = 1L;</span><br><span class="line">       </span><br><span class="line">    private ProductBiz biz = new ProductBiz();</span><br><span class="line">    </span><br><span class="line">    public void query(HttpServletRequest request, HttpServletResponse response) throws IOException &#123;</span><br><span class="line">        response.setContentType(&quot;text/html; charset=utf-8&quot;);</span><br><span class="line">        List&lt;Product&gt; list = biz.query();</span><br><span class="line">        //引出out.print</span><br><span class="line">      PrintWriter out = response.getWriter();</span><br><span class="line">      Gson gson = new Gson();</span><br><span class="line">      //动态数组转成json格式</span><br><span class="line">      out.print(gson.toJson(list));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ProductBiz.java</p>
+<p>逻辑判断类</p>
+<p>（无逻辑）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.damai.biz;</span><br><span class="line"></span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">import com.yc.damai.bean.Product;</span><br><span class="line">import com.yc.damai.dao.ProductDao;</span><br><span class="line"></span><br><span class="line">public class ProductBiz &#123;</span><br><span class="line"></span><br><span class="line">    private ProductDao dao = new ProductDao();</span><br><span class="line">    </span><br><span class="line">    public List&lt;Product&gt; query() &#123;</span><br><span class="line">        return dao.selectAll();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>ProductDao.java</p>
+<p>操控数据库</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.damai.dao;</span><br><span class="line"></span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">import com.yc.damai.bean.Product;</span><br><span class="line">import com.yc.damai.util.DBHelper;</span><br><span class="line"></span><br><span class="line">public class ProductDao &#123;</span><br><span class="line"></span><br><span class="line">    public List&lt;Product&gt; selectAll() &#123;</span><br><span class="line">        String sql = &quot;select * from product&quot;;</span><br><span class="line">        List&lt;Map&lt;String,Object&gt;&gt; list = DBHelper.selectList(sql);</span><br><span class="line">        return DBHelper.populate(list,Product.class);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>DBHelper.java</p>
+<p>对现行的DBHelper进行了功能扩展</p>
+<p>加入了新方法<strong>populate</strong>，用于”Map对象”转化为”实体对象”。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static &lt;T&gt; List&lt;T&gt;  populate(List&lt;Map&lt;String, Object&gt;&gt; list,  Class&lt;T&gt; cls) &#123;</span><br><span class="line">       List&lt;T&gt; retList = new  ArrayList&lt;T&gt;();</span><br><span class="line">       for(Map&lt;String, Object&gt; row : list)  &#123;</span><br><span class="line">           try &#123;</span><br><span class="line">               T p = cls.newInstance();</span><br><span class="line">               BeanUtils.populate(p, row);</span><br><span class="line">               retList.add(p);</span><br><span class="line">           &#125; catch (Exception e) &#123;</span><br><span class="line">               throw new  RuntimeException(e);</span><br><span class="line">           &#125;</span><br><span class="line">           </span><br><span class="line">       &#125;</span><br><span class="line">       return retList;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC73%E6%AC%A1%E8%AF%BE%E7%A8%8B_%E7%9B%91%E5%90%AC%E5%99%A8%E4%B8%8E%E8%BF%87%E6%BB%A4%E5%99%A8/">第73次课程_监听器与过滤器<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC75%E6%AC%A1%E8%AF%BE%E7%A8%8B_EASYUI_2/">第75次课程_EASYUI_2<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

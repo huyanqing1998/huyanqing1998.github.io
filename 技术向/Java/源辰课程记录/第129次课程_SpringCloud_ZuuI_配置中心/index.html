@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第129次课程_SpringCloud_ZuuI_配置中心 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰76班 第129次课程 2020.03.21 内容 SpringCloud_Zuul_配置中心[廖彦] 项目路径： 1. 2.Zuul基本配置 配置Zuul后，直接可以通过服务名进行访问。 例如：http:&#x2F;&#x2F;127.0.0.1&#x2F;**sc-user**&#x2F;user&#x2F;way 1.加入以下依赖 C76-S3-Ply-sc-index&#x2F;pom.xml 1234           &lt;d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第129次课程_SpringCloud_ZuuI_配置中心">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC129%E6%AC%A1%E8%AF%BE%E7%A8%8B_SpringCloud_ZuuI_%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰76班 第129次课程 2020.03.21 内容 SpringCloud_Zuul_配置中心[廖彦] 项目路径： 1. 2.Zuul基本配置 配置Zuul后，直接可以通过服务名进行访问。 例如：http:&#x2F;&#x2F;127.0.0.1&#x2F;**sc-user**&#x2F;user&#x2F;way 1.加入以下依赖 C76-S3-Ply-sc-index&#x2F;pom.xml 1234           &lt;d">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.hooy.xyz/image/899d5eaab47d487249425ec3dbd70e4b.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/bc587e8c65491a456f2a26e87c08ad2e.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/f28d59482e3d98908b7ff675a34af088.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/86b6775fd208da22948f4d96f9b09f68.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/1dc69f3a41e5c491ebe8edd245af7426.png">
+<meta property="article:published_time" content="2020-03-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T01:36:34.575Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.hooy.xyz/image/899d5eaab47d487249425ec3dbd70e4b.png">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-03-20T16:00:00.000Z">2020-03-21</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第129次课程_SpringCloud_ZuuI_配置中心</span></h1>
+<p><strong>源辰76班</strong></p>
+<p><strong>第129次课程</strong></p>
+<p><strong>2020.03.21</strong></p>
+<p><strong>内容</strong></p>
+<p><strong>SpringCloud_Zuul_配置中心</strong><strong>[廖彦]</strong></p>
+<p><strong>项目路径：</strong></p>
+<p><strong>1.</strong></p>
+<p><strong>2.Zuul基本配置</strong></p>
+<p><strong>配置Zuul后</strong>，直接可以通过<strong>服务名</strong>进行访问。</p>
+<p>例如：<a target="_blank" rel="noopener" href="http://127.0.0.1/**sc-user**/user/way">http://127.0.0.1/**sc-user**/user/way</a></p>
+<p>1.加入以下依赖</p>
+<p>C76-S3-Ply-sc-index&#x2F;pom.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">           &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;spring-cloud-starter-netflix-zuul&lt;/artifactId&gt;</span><br><span class="line">           &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>2.Index启动类内加入注解</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/899d5eaab47d487249425ec3dbd70e4b.png" alt="899d5eaab47d487249425ec3dbd70e4b.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.index;</span><br><span class="line">import org.springframework.boot.SpringApplication;</span><br><span class="line">import  org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line">import  org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;</span><br><span class="line">import  org.springframework.cloud.client.loadbalancer.LoadBalanced;</span><br><span class="line">import org.springframework.cloud.netflix.zuul.EnableZuulProxy;</span><br><span class="line">import org.springframework.cloud.openfeign.EnableFeignClients;</span><br><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.web.client.RestTemplate;</span><br><span class="line">@SpringBootApplication</span><br><span class="line">//开启声明式远程服务调用</span><br><span class="line">@EnableFeignClients</span><br><span class="line">//服务熔断降级开关</span><br><span class="line">@EnableCircuitBreaker</span><br><span class="line">//开启zuul网络网关服务</span><br><span class="line">@EnableZuulProxy</span><br><span class="line">public class IndexApplication &#123;</span><br><span class="line">     public static void main(String[] args) &#123;</span><br><span class="line">           SpringApplication.run(IndexApplication.class, args);</span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line">     //负载均衡</span><br><span class="line">     @LoadBalanced</span><br><span class="line">     @Bean</span><br><span class="line">     public RestTemplate getRestTemplate() &#123;</span><br><span class="line">           return new RestTemplate();</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>C76-S3-Ply-sc-index -&gt; application.yml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">   port: 80</span><br><span class="line">spring:</span><br><span class="line">   application:</span><br><span class="line">      name: sc-index</span><br><span class="line">eureka:</span><br><span class="line">   client:</span><br><span class="line">      serviceUrl:</span><br><span class="line">         # 注册服务器的地址</span><br><span class="line">         defaultZone: http://127.0.0.1:8000/eureka</span><br><span class="line">         </span><br><span class="line">         </span><br><span class="line"># 开启声明式熔断降级开关</span><br><span class="line">feign:</span><br><span class="line">  hystrix:</span><br><span class="line">    enabled: true</span><br><span class="line">    </span><br><span class="line"># zuul</span><br><span class="line">zuul:</span><br><span class="line">  routes:</span><br><span class="line">    #定义路有名称</span><br><span class="line">    test:</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.路由配置</strong></p>
+<p>**3.1 ****简单路由 ****跳转路由 **<strong>Ribbon路由</strong></p>
+<p>C76-S3-Ply-sc-index -&gt; application.yml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">   port: 80</span><br><span class="line">spring:</span><br><span class="line">   application:</span><br><span class="line">      name: sc-index</span><br><span class="line">eureka:</span><br><span class="line">   client:</span><br><span class="line">      serviceUrl:</span><br><span class="line">         # 注册服务器的地址</span><br><span class="line">         defaultZone: http://127.0.0.1:8000/eureka</span><br><span class="line">         </span><br><span class="line">         </span><br><span class="line"># 开启声明式熔断降级开关</span><br><span class="line">feign:</span><br><span class="line">  hystrix:</span><br><span class="line">    enabled: true</span><br><span class="line">    </span><br><span class="line"># zuul</span><br><span class="line">zuul:</span><br><span class="line">  routes:</span><br><span class="line">    #定义路有名称 ，zuul会默认路由子系统，格式：zuul服务器地址（这里是index的80端口）/服务名/路径</span><br><span class="line">    </span><br><span class="line">    #1.简单路由，响应重定向（可访问服务器内/外部资源）</span><br><span class="line">    #http://127.0.0.1/baidu/index.html</span><br><span class="line">    test1:</span><br><span class="line">      path: /baidu/**</span><br><span class="line">      url: http://www.baidu.com</span><br><span class="line">      </span><br><span class="line">    #2.跳转路由，请求转发（仅访问服务器内部资源）</span><br><span class="line">    #注意：由于/user/way在IndexAction.java内的方法，方法内指定了服务名，因此可以正常跳转</span><br><span class="line">    #http://127.0.0.1/zuser/way</span><br><span class="line">    test2:</span><br><span class="line">      path: /zuser/**</span><br><span class="line">      url: forward:/user</span><br><span class="line">      </span><br><span class="line">    #3.1Ribbon路由</span><br><span class="line">    #http://127.0.0.1/ruser/user/way</span><br><span class="line">    test3:</span><br><span class="line">      path: /ruser/**</span><br><span class="line">      serviceId: sc-user</span><br><span class="line">      </span><br><span class="line">    #3.2以服务名作为路由名称</span><br><span class="line">    #http://127.0.0.1/rruser/user/way</span><br><span class="line">    sc-user:</span><br><span class="line">      path: /rruser/**</span><br></pre></td></tr></table></figure>
+
+<p>**3.2 ****配置忽略行为 ****默认路由 **<strong>去敏感头</strong></p>
+<p>C76-S3-Ply-sc-index -&gt; application.yml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">   port: 80</span><br><span class="line">spring:</span><br><span class="line">   application:</span><br><span class="line">      name: sc-index</span><br><span class="line">eureka:</span><br><span class="line">   client:</span><br><span class="line">      serviceUrl:</span><br><span class="line">         # 注册服务器的地址</span><br><span class="line">         defaultZone: http://127.0.0.1:8000/eureka</span><br><span class="line">         </span><br><span class="line">         </span><br><span class="line"># 开启声明式熔断降级开关</span><br><span class="line">feign:</span><br><span class="line">  hystrix:</span><br><span class="line">    enabled: true</span><br><span class="line">    </span><br><span class="line"># zuul</span><br><span class="line">zuul:</span><br><span class="line">  # 配置忽略行为，忽略所有的子系统的默认路由</span><br><span class="line">  ignoredServices: &#x27;*&#x27;</span><br><span class="line">  </span><br><span class="line">  routes:</span><br><span class="line">    #定义路有名称 ，zuul会默认路由子系统，格式：zuul服务器地址（这里是index的80端口）/服务名/路径</span><br><span class="line">    </span><br><span class="line">    #1.简单路由，响应重定向（可访问服务器内/外部资源）</span><br><span class="line">    #http://127.0.0.1/baidu/index.html</span><br><span class="line">    test1:</span><br><span class="line">      path: /baidu/**</span><br><span class="line">      url: http://www.baidu.com</span><br><span class="line">      </span><br><span class="line">    #2.跳转路由，请求转发（仅访问服务器内部资源）</span><br><span class="line">    #注意：由于/user/way在IndexAction.java内的方法，方法内指定了服务名，因此可以正常跳转</span><br><span class="line">    #http://127.0.0.1/zuser/way</span><br><span class="line">    test2:</span><br><span class="line">      path: /zuser/**</span><br><span class="line">      url: forward:/user</span><br><span class="line">      </span><br><span class="line">    #3.1Ribbon路由</span><br><span class="line">    #http://127.0.0.1/ruser/user/way</span><br><span class="line">    test3:</span><br><span class="line">      path: /ruser/**</span><br><span class="line">      serviceId: sc-user</span><br><span class="line">      #由于zuul有默认的敏感头设定，所以要忽略默认的的敏感头设置，必须将敏感头设置为空</span><br><span class="line">      sensitiveHeaders:</span><br><span class="line">      </span><br><span class="line">    #3.2以服务名作为路由名称</span><br><span class="line">    #http://127.0.0.1/rruser/user/way</span><br><span class="line">    sc-user:</span><br><span class="line">      path: /rruser/**</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">    #4.默认路由</span><br><span class="line">    #如果是不存在或者被忽略的访问路径，将会调用这个，相当于switch内的default</span><br><span class="line">    legacy:</span><br><span class="line">      path: /**</span><br><span class="line">      url: http://www.163.com</span><br><span class="line">    </span><br><span class="line">    #去敏感头</span><br><span class="line">    test4:</span><br><span class="line">      # /suser/user/way -&gt; /sc-user/user/way</span><br><span class="line">      path: /suser/**</span><br><span class="line">      serviceId: sc-user</span><br><span class="line">      #不是所有的头域字段都可以过滤</span><br><span class="line">      sensitiveHeaders: cookie,set-cookie  </span><br></pre></td></tr></table></figure>
+
+<p><strong>4.Zuul过滤器</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/bc587e8c65491a456f2a26e87c08ad2e.png" alt="bc587e8c65491a456f2a26e87c08ad2e.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/f28d59482e3d98908b7ff675a34af088.png" alt="f28d59482e3d98908b7ff675a34af088.png"></p>
+<p>（可能）在使用前需要配置一个路由，没有路由配置可能会报错。详见<strong>3</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># zuul</span><br><span class="line">zuul:</span><br><span class="line">  routes:</span><br><span class="line">    #定义路有名称</span><br><span class="line">    test:</span><br></pre></td></tr></table></figure>
+
+<p>TokenFilter.java</p>
+<p>需要继承<strong>ZuulFilter</strong>抽象类，实现里面的抽象方法（5个）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.index.web;</span><br><span class="line">import javax.servlet.http.HttpServletRequest;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line">import com.netflix.zuul.ZuulFilter;</span><br><span class="line">import com.netflix.zuul.context.RequestContext;</span><br><span class="line">import com.netflix.zuul.exception.ZuulException;</span><br><span class="line">@Component</span><br><span class="line">public class TokenFilter extends ZuulFilter&#123;</span><br><span class="line">     @Override</span><br><span class="line">     //判断是否执行该过滤器 true开 false关</span><br><span class="line">     public boolean shouldFilter() &#123;</span><br><span class="line">           return true;</span><br><span class="line">     &#125;</span><br><span class="line">     @Override</span><br><span class="line">     //所要执行的具体过滤动作</span><br><span class="line">     public Object run() throws ZuulException &#123;</span><br><span class="line">           //获取zuul上下文对象</span><br><span class="line">           RequestContext requestContext =  RequestContext.getCurrentContext();</span><br><span class="line">           //获取servlet请求</span><br><span class="line">           HttpServletRequest req = requestContext.getRequest();</span><br><span class="line">           //获取令牌</span><br><span class="line">           String token = req.getParameter(&quot;token&quot;);</span><br><span class="line">           if(token == null) &#123;</span><br><span class="line">                //设置是否发送zull响应</span><br><span class="line">                requestContext.setSendZuulResponse(false);</span><br><span class="line">                //设置结果码</span><br><span class="line">                requestContext.setResponseStatusCode(401);</span><br><span class="line">                //设置响应信息</span><br><span class="line">                requestContext.setResponseBody(&quot;&#123;\&quot;result\&quot;:\&quot;accessToken is  empty!\&quot;&#125;&quot;);</span><br><span class="line">           &#125;</span><br><span class="line">           return null;</span><br><span class="line">     &#125;</span><br><span class="line">     @Override</span><br><span class="line">     //pre前置，post后置，route路由中，error错误</span><br><span class="line">     public String filterType() &#123;</span><br><span class="line">           return &quot;pre&quot;;</span><br><span class="line">     &#125;</span><br><span class="line">     @Override</span><br><span class="line">     //拦截顺序，值越小优先级越高 0表示第一个</span><br><span class="line">     public int filterOrder() &#123;</span><br><span class="line">           return 0;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>测试方式</strong>：</p>
+<p>没有令牌参数</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/86b6775fd208da22948f4d96f9b09f68.png" alt="86b6775fd208da22948f4d96f9b09f68.png"></p>
+<p>有令牌参数</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/1dc69f3a41e5c491ebe8edd245af7426.png" alt="1dc69f3a41e5c491ebe8edd245af7426.png"></p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC128%E6%AC%A1%E8%AF%BE%E7%A8%8B_SpringCloud_Feign_Hystrix/">第128次课程_SpringCloud_Feign_Hystrix<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC130%E6%AC%A1%E8%AF%BE%E7%A8%8B_%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E6%A1%88%E4%BE%8BT1L1/">第130次课程_微服务架构案例T1L1<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

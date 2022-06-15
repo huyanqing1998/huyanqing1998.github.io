@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第八章_泛型程序设计 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="第八章 泛型程序设计 8.2 定义简单泛型类  规范：  E K T  8.3 泛型方法  编译器对一个泛型方法调用最终推断出那种类型？  8.4 类型变量的限定 要求进来的类型必须实现某个接口进行限制。没有实现的直接编译报错。   8.5.1 类型擦除 类型擦除 - 简书 Java的类型擦除 - 简书 Java虚拟机不认识泛型，因此在编译时根据泛型信息做类型变量替换，如果对泛型的引用还要做强制类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第八章_泛型程序设计">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/%E7%AC%AC%E5%85%AB%E7%AB%A0_%E6%B3%9B%E5%9E%8B%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="第八章 泛型程序设计 8.2 定义简单泛型类  规范：  E K T  8.3 泛型方法  编译器对一个泛型方法调用最终推断出那种类型？  8.4 类型变量的限定 要求进来的类型必须实现某个接口进行限制。没有实现的直接编译报错。   8.5.1 类型擦除 类型擦除 - 简书 Java的类型擦除 - 简书 Java虚拟机不认识泛型，因此在编译时根据泛型信息做类型变量替换，如果对泛型的引用还要做强制类">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.hooy.xyz/image/374e7eeebede6c2e8535bf41c4a2850b.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/0d2904720d4d9f1ef8a46b917549576b.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/5b9aa9146bccf7dd90ca486adc19b2bc.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/f7fb094483a5d46eef22f3651bd073e6.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/b6c486ef5d7edeaf60d2340d0fe7e86f.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/776e46cdc4406838b3eb995a43dfce37.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/fce2d90bc408bf637197c7d887ff3f8a.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/99011d14fd60bf171d4bd841527f5617.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/938d142675cfa346bf46ed6d13b7394d.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/6641f9a0abca7697f26dd08219bb661c.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/b79346920f25f6e9cb8399cc2a214c0b.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/d74312ad1315694c3088ab061e75a5fe.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/d8079b6ea9b1aba2a3ce4403dae9a1ed.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/e91aee11e168d3e6c97edc1aacab1565.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/e59627bb0e3faa341ad3c3ee7e765874.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/cae2763f2849cca7fc71f8196104a0e2.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/dd0140ca8a6bee02faa0be35eec22b9f.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/c9a48bfe5cbbee4184b2880adcd12d12.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/ce6d041c45625b84b6e5382b2ec14252.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/05caad2259a1c051fcea81084d4ece23.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/2b6595f033e553b8db81c0ed9e133a68.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/6077cf38f1c3711b48f21cc848a93423.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/85c3f62b1df32d3cb3b771c33fb85df1.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/e972315072d0d554a51e0b630d247bbc.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/752ce415e762b166b0883c136f0d8fed.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/f24899ac570ac81cad36022c60098651.png">
+<meta property="article:published_time" content="2020-06-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-10T09:58:01.882Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="Cay S.Horstmann">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.hooy.xyz/image/374e7eeebede6c2e8535bf41c4a2850b.png">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/">Java核心技术</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-06-04T16:00:00.000Z">2020-06-05</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第八章_泛型程序设计</span></h1>
+<p><strong>第八章 泛型程序设计</strong></p>
+<p><strong>8.2 定义简单泛型类</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/374e7eeebede6c2e8535bf41c4a2850b.png" alt="374e7eeebede6c2e8535bf41c4a2850b.png"></p>
+<p><strong>规范：</strong></p>
+<ul>
+<li><strong>E</strong></li>
+<li><strong>K</strong></li>
+<li><strong>T</strong></li>
+</ul>
+<p><strong>8.3 泛型方法</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/0d2904720d4d9f1ef8a46b917549576b.png" alt="0d2904720d4d9f1ef8a46b917549576b.png"></p>
+<p><strong>编译器对一个泛型方法调用最终推断出那种类型？</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/5b9aa9146bccf7dd90ca486adc19b2bc.png" alt="5b9aa9146bccf7dd90ca486adc19b2bc.png"></p>
+<p><strong>8.4 类型变量的限定</strong></p>
+<p>要求进来的类型必须实现某个接口进行限制。没有实现的直接编译报错。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/f7fb094483a5d46eef22f3651bd073e6.png" alt="f7fb094483a5d46eef22f3651bd073e6.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/b6c486ef5d7edeaf60d2340d0fe7e86f.png" alt="b6c486ef5d7edeaf60d2340d0fe7e86f.png"></p>
+<p><strong>8.5.1 类型擦除</strong></p>
+<p><a href="evernote:///view/12026981/s49/8d1016cc-d4d0-462c-8ed0-ee8f9bb1a177/8d1016cc-d4d0-462c-8ed0-ee8f9bb1a177/">类型擦除 - 简书</a></p>
+<p><a href="evernote:///view/12026981/s49/91613c1b-7201-4d27-893c-2869692abb39/91613c1b-7201-4d27-893c-2869692abb39/">Java的类型擦除 - 简书</a></p>
+<p><span style="background-color: #ffaaaa">Java虚拟机不认识泛型，因此在编译时根据泛型信息做类型变量替换，如果对泛型的引用还要做强制类型转换。</span></p>
+<p><strong>1.如果泛型T无限定变量，直接用Object替换。</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/776e46cdc4406838b3eb995a43dfce37.png" alt="776e46cdc4406838b3eb995a43dfce37.png"></p>
+<p><strong>2.如果泛型T有限定变量，则替换成父类的类型。</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/fce2d90bc408bf637197c7d887ff3f8a.png" alt="fce2d90bc408bf637197c7d887ff3f8a.png"></p>
+<p><strong>有关Java泛型转换的事实：</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/99011d14fd60bf171d4bd841527f5617.png" alt="99011d14fd60bf171d4bd841527f5617.png"></p>
+<p><strong>8.6 约束与局限性</strong></p>
+<p><strong>[没懂]</strong> 这一部分比较庞大且晦涩难懂。</p>
+<p>使用Java泛型时需要考虑的一些限制，大多数限制都是由类型擦除引起的。</p>
+<p>**<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/938d142675cfa346bf46ed6d13b7394d.png" alt="938d142675cfa346bf46ed6d13b7394d.png"></p>
+<p>**</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/6641f9a0abca7697f26dd08219bb661c.png" alt="6641f9a0abca7697f26dd08219bb661c.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/b79346920f25f6e9cb8399cc2a214c0b.png" alt="b79346920f25f6e9cb8399cc2a214c0b.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/d74312ad1315694c3088ab061e75a5fe.png" alt="d74312ad1315694c3088ab061e75a5fe.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/d8079b6ea9b1aba2a3ce4403dae9a1ed.png" alt="d8079b6ea9b1aba2a3ce4403dae9a1ed.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/e91aee11e168d3e6c97edc1aacab1565.png" alt="e91aee11e168d3e6c97edc1aacab1565.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/e59627bb0e3faa341ad3c3ee7e765874.png" alt="e59627bb0e3faa341ad3c3ee7e765874.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/cae2763f2849cca7fc71f8196104a0e2.png" alt="cae2763f2849cca7fc71f8196104a0e2.png"></p>
+<p><strong>8.7 泛型类型的继承规则</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/dd0140ca8a6bee02faa0be35eec22b9f.png" alt="dd0140ca8a6bee02faa0be35eec22b9f.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/c9a48bfe5cbbee4184b2880adcd12d12.png" alt="c9a48bfe5cbbee4184b2880adcd12d12.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/ce6d041c45625b84b6e5382b2ec14252.png" alt="ce6d041c45625b84b6e5382b2ec14252.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/05caad2259a1c051fcea81084d4ece23.png" alt="05caad2259a1c051fcea81084d4ece23.png"></p>
+<p><strong>8.8.1 通配符概念</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/2b6595f033e553b8db81c0ed9e133a68.png" alt="2b6595f033e553b8db81c0ed9e133a68.png"></p>
+<p><strong>&lt;? extends Employee&gt;限定Employee的子类，限定”上界”</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/6077cf38f1c3711b48f21cc848a93423.png" alt="6077cf38f1c3711b48f21cc848a93423.png"></p>
+<p><strong>&lt;? super Manager&gt;限定Manager的超类，限定”下界”</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/85c3f62b1df32d3cb3b771c33fb85df1.png" alt="85c3f62b1df32d3cb3b771c33fb85df1.png"></p>
+<p><strong>如何理解 Java 中的 &lt;T extends Comparable&lt;? super T&gt;&gt;</strong></p>
+<p><a href="evernote:///view/12026981/s49/633d1d1f-c92a-4a73-b2ef-4e856158a05c/633d1d1f-c92a-4a73-b2ef-4e856158a05c/">如何理解 Java 中的 &lt;T extends Comparable&lt;? super T&gt;&gt; - 小米干饭 - 博客园</a></p>
+<p><strong>8.8.3 无限定通配符</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/e972315072d0d554a51e0b630d247bbc.png" alt="e972315072d0d554a51e0b630d247bbc.png"></p>
+<p><strong>8.8.4 通配符捕获</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/752ce415e762b166b0883c136f0d8fed.png" alt="752ce415e762b166b0883c136f0d8fed.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/f24899ac570ac81cad36022c60098651.png" alt="f24899ac570ac81cad36022c60098651.png"></p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/%E7%AC%AC%E4%B8%83%E7%AB%A0_%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/">第七章_异常、断言和日志<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/%E5%B8%B8%E7%94%A8%E7%BB%A7%E6%89%BF%E7%B1%BB%E6%88%96%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3/">常用继承类或实现接口<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第123次课程_框架项目案例_T2L2 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰76班 第123次课程 2020.03.11 内容 框架项目案例_T2L2[廖彦] 项目路径： 1.分页查询 分页工具：pagehelper 引入以下依赖 pom.xml 123456&lt;!-- 分页工具 --&gt;           &lt;dependency&gt;                &lt;groupId&gt;com.github.pagehelper&lt;&#x2F;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第123次课程_框架项目案例_T2L2">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC123%E6%AC%A1%E8%AF%BE%E7%A8%8B_%E6%A1%86%E6%9E%B6%E9%A1%B9%E7%9B%AE%E6%A1%88%E4%BE%8B_T2L2/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰76班 第123次课程 2020.03.11 内容 框架项目案例_T2L2[廖彦] 项目路径： 1.分页查询 分页工具：pagehelper 引入以下依赖 pom.xml 123456&lt;!-- 分页工具 --&gt;           &lt;dependency&gt;                &lt;groupId&gt;com.github.pagehelper&lt;&#x2F;g">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.hooy.xyz/image/.png">
+<meta property="article:published_time" content="2020-03-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T01:35:18.550Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.hooy.xyz/image/.png">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-03-10T16:00:00.000Z">2020-03-11</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第123次课程_框架项目案例_T2L2</span></h1>
+<p><strong>源辰76班</strong></p>
+<p><strong>第123次课程</strong></p>
+<p><strong>2020.03.11</strong></p>
+<p><strong>内容</strong></p>
+<p><strong>框架项目案例_T2L2</strong><strong>[廖彦]</strong></p>
+<p><strong>项目路径：</strong></p>
+<p><strong>1.分页查询</strong></p>
+<p>分页工具：<strong>pagehelper</strong></p>
+<p>引入以下依赖</p>
+<p>pom.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 分页工具 --&gt;</span><br><span class="line">           &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;pagehelper-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;1.2.13&lt;/version&gt;</span><br><span class="line">           &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用方法</strong></p>
+<p>神奇的是，调用<strong>PageHelper.startPage(页码，每页多少行)<strong>静态方法，自动会根据</strong>接口对象</strong>查询。</p>
+<p>最后，将查询到的表数据以实体类数组的方式返回，再放入Model内，传送给前端。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.blog.web;</span><br><span class="line">import javax.annotation.Resource;</span><br><span class="line">import org.springframework.stereotype.Controller;</span><br><span class="line">import org.springframework.ui.Model;</span><br><span class="line">import org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line">import com.github.pagehelper.Page;</span><br><span class="line">import com.github.pagehelper.PageHelper;</span><br><span class="line">import com.yc.blog.bean.Article;</span><br><span class="line">import com.yc.blog.dao.ArticleMapper;</span><br><span class="line">@Controller</span><br><span class="line">public class IndexAction &#123;</span><br><span class="line">     </span><br><span class="line">     @Resource</span><br><span class="line">     private ArticleMapper am;</span><br><span class="line">     </span><br><span class="line">     @GetMapping(&#123;&quot;/&quot;,&quot;index&quot;,&quot;index.html&quot;&#125;)</span><br><span class="line">     public String index(@RequestParam(defaultValue = &quot;1&quot;)  Integer page,Model m) &#123;</span><br><span class="line">           Page&lt;Article&gt; pg = PageHelper.startPage(page, 5);</span><br><span class="line">           //注意：PageHelper.startPage(page, 5)必须在查询代码的前一行</span><br><span class="line">           //接口对象</span><br><span class="line">           am.selectByExampleWithBLOBs(null);</span><br><span class="line">           m.addAttribute(&quot;alist&quot;,pg);</span><br><span class="line">           return &quot;index&quot;;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.无限加载</strong></p>
+<p>当滚动条拉到某一位置时，列表将继续加载，一直向下延伸。应用于如百度首页，腾讯新闻评论区等。</p>
+<p><a href="./file/jquery-ias-min.js">jquery-ias-min.js</a></p>
+<p>所需js文件</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/.png" alt=".png"></p>
+<p>配置代码</p>
+<p>将以下代码加入工程js内</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">     var page = 1;</span><br><span class="line">     var ias = jQuery.ias(&#123;</span><br><span class="line">           container : &#x27;.content&#x27;,</span><br><span class="line">           item : &#x27;.excerpt&#x27;,</span><br><span class="line">           pagination : &#x27;.pagination&#x27;,</span><br><span class="line">           next : &#x27;.next-page a&#x27;</span><br><span class="line">     &#125;);</span><br><span class="line">     // 加分页查询参数</span><br><span class="line">     ias.on(    &quot;load&quot;, function(e)&#123;</span><br><span class="line">           e.ajaxOptions.data = &#123;page:++page&#125;;</span><br><span class="line">     &#125;);</span><br><span class="line">     // 加载图片</span><br><span class="line">     ias.extension(new IASSpinnerExtension(&#123;</span><br><span class="line">         src: &#x27;images/loading.gif&#x27;, // 图片地址</span><br><span class="line">     &#125;));</span><br><span class="line">     </span><br><span class="line">     ias.extension(new IASTriggerExtension(&#123;</span><br><span class="line">         text: &#x27;查看更多&#x27;,</span><br><span class="line">         offset: 5 // 第几页后开始</span><br><span class="line">     &#125;));</span><br></pre></td></tr></table></figure>
+
+<p>例：</p>
+<p><strong>container</strong>：新加载的数据放在哪里</p>
+<p><strong>item</strong>：ajax返回的data里的哪些数据</p>
+<p><strong>pagination</strong>：当滚动条到哪触发</p>
+<p><strong>next</strong>：触发什么，如a标签地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">&lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;title&gt;Insert title here&lt;/title&gt;</span><br><span class="line">&lt;script src=&quot;https://code.jquery.com/jquery-3.1.1.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;jquery-ias.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    // 官网 : https://plugins.jquery.com/ias/</span><br><span class="line">    // 文档 : https://docs.infiniteajaxscroll.com/getting-started</span><br><span class="line">    var page = 1;</span><br><span class="line">    $(function()&#123;</span><br><span class="line">        var ias = jQuery.ias(&#123;</span><br><span class="line">            container : &#x27;#posts&#x27;,</span><br><span class="line">            item : &#x27;.post&#x27;,</span><br><span class="line">            pagination : &#x27;#pagination&#x27;,</span><br><span class="line">            next : &#x27;.next&#x27;</span><br><span class="line">        &#125;);</span><br><span class="line">        // 加分页查询参数</span><br><span class="line">        ias.on(    &quot;load&quot;, function(e)&#123;</span><br><span class="line">            e.ajaxOptions.data = &#123;page:page++&#125;;</span><br><span class="line">        &#125;);</span><br><span class="line">        // 加载图片</span><br><span class="line">        ias.extension(new IASSpinnerExtension(&#123;</span><br><span class="line">            src: &#x27;loading.gif&#x27;, // 图片地址</span><br><span class="line">        &#125;));</span><br><span class="line">        </span><br><span class="line">        ias.extension(new IASTriggerExtension(&#123;</span><br><span class="line">            text: &#x27;查看更多&#x27;,</span><br><span class="line">            offset: 5 // 第几页后开始</span><br><span class="line">        &#125;));</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">.post &#123;</span><br><span class="line">    height: 200px;</span><br><span class="line">    background-color: #bbb;</span><br><span class="line">    margin: 10px</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div id=&quot;posts&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;post&quot;&gt;...&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;post&quot;&gt;...&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;post&quot;&gt;...&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;post&quot;&gt;...&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 分页条, 当滚动到该控件时, 触发加载 --&gt;</span><br><span class="line">    &lt;div id=&quot;pagination&quot;&gt;</span><br><span class="line">        &lt;a href=&quot;index.html&quot; class=&quot;next&quot;&gt;next&lt;/a&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.BLOBs和CLOBs数据</strong></p>
+<p>如果数据库字段类型属于标题两种之一，前端通过简单的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;x th:text=&quot;&#123;&#125;&quot;&gt;&lt;/x&gt;</span><br></pre></td></tr></table></figure>
+
+<p>是获取不到数据的，需要调用接口对象时候用以下方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">am.selectByExampleWithBLOBs(null);</span><br></pre></td></tr></table></figure>
+
+<p>来调取大量数据。</p>
+<p><strong>4.th:utext 和 th:id</strong></p>
+<p>th:utext 和 th:id都是thymeleaf的springEL语法。</p>
+<p><strong>th:utext</strong>：将获取到的字符串解析，把字符串内的html语言加载至页面。相当于js中的html()方法。th:text就是text()方法。</p>
+<p><strong>th:id</strong>：给元素加入id属性。</p>
+<p>紫色部分，通过text()方法先将数据流内的html标签洗掉，然后再通过html()方法加载至页面。当然使用正则表达式来清洗数据库数据更好。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;article th:each=&quot;a:$&#123;alist&#125;&quot; class=&quot;excerpt excerpt-1&quot;&gt;&lt;a  class=&quot;focus&quot; href=&quot;article.html&quot; title=&quot;&quot;&gt;&lt;img class=&quot;thumb&quot;  data-original=&quot;images/excerpt.jpg&quot; src=&quot;images/excerpt.jpg&quot;  alt=&quot;&quot;&gt;&lt;/a&gt;</span><br><span class="line">        &lt;header&gt;&lt;a class=&quot;cat&quot; href=&quot;program&quot;&gt;后端程序&lt;i&gt;&lt;/i&gt;&lt;/a&gt;</span><br><span class="line">          &lt;h2&gt;&lt;a th:text=&quot;$&#123;a.title&#125;&quot;  th:href=&quot;&#x27;article?id=&#x27;+$&#123;a.id&#125;&quot; title=&quot;&quot;&gt;php如何判断一个日期的格式是否正确&lt;/a&gt;&lt;/h2&gt;</span><br><span class="line">        &lt;/header&gt;</span><br><span class="line">        &lt;p class=&quot;meta&quot;&gt;</span><br><span class="line">          &lt;time class=&quot;time&quot;&gt;&lt;i class=&quot;glyphicon  glyphicon-time&quot;&gt;&lt;/i&gt;</span><br><span class="line">          &lt;span th:text=&quot;$&#123;a.createtime&#125;&quot;&gt;2016-1-4  10:29:39&lt;/span&gt;</span><br><span class="line">           &lt;/time&gt;</span><br><span class="line">          &lt;span class=&quot;views&quot;&gt;&lt;i class=&quot;glyphicon  glyphicon-eye-open&quot;&gt;&lt;/i&gt; 共120人围观&lt;/span&gt; &lt;a class=&quot;comment&quot;  th:href=&quot;&#x27;article?id=&#x27;+$&#123;a.id&#125;&quot; &gt;&lt;i class=&quot;glyphicon  glyphicon-comment&quot;&gt;&lt;/i&gt; 0个不明物体&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">        &lt;div th:utext=&quot;$&#123;a.content&#125;&quot; th:id=&quot;&#x27;p&#x27;+$&#123;a.id&#125;&quot;  class=&quot;note&quot;&gt;可以用strtotime()把日期（$date）转成时间戳，再用date()按需要验证的格式转成一个日期，来跟$date比较是否相同来验证这个日期的格式是否是正确的。所以要验证日期格式 ... &lt;/div&gt;</span><br><span class="line">        &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">            var id = &#x27;p[[$&#123;a.id&#125;]]&#x27;;</span><br><span class="line">            var text = $(&quot;#&quot; + id).text();</span><br><span class="line">            text = text.substr(0,100);</span><br><span class="line">            $(&quot;#&quot; + id).html(text);</span><br><span class="line">        &lt;/script&gt;</span><br><span class="line">&lt;/article&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.复习 地址参数</strong></p>
+<p>如：index.html?<strong>page&#x3D;1</strong></p>
+<p><strong>前端发送方式：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2&gt;&lt;a th:text=&quot;$&#123;a.title&#125;&quot; th:href=&quot;&#x27;article?id=&#x27;+$&#123;a.id&#125;&quot;  title=&quot;&quot;&gt;php如何判断一个日期的格式是否正确&lt;/a&gt;&lt;/h2&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>后台接收方式</strong>：</p>
+<p>根据SpringMVC的需要</p>
+<p>别忘记：@Controller、@Resource和@GetMapping注解的应用，否则报错。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.blog.web;</span><br><span class="line">import javax.annotation.Resource;</span><br><span class="line">import org.springframework.stereotype.Controller;</span><br><span class="line">import org.springframework.ui.Model;</span><br><span class="line">import org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line">import org.springframework.web.bind.annotation.RequestParam;</span><br><span class="line">import com.github.pagehelper.Page;</span><br><span class="line">import com.github.pagehelper.PageHelper;</span><br><span class="line">import com.yc.blog.bean.Article;</span><br><span class="line">import com.yc.blog.dao.ArticleMapper;</span><br><span class="line">@Controller</span><br><span class="line">public class IndexAction &#123;</span><br><span class="line">     </span><br><span class="line">     @Resource</span><br><span class="line">     private ArticleMapper am;</span><br><span class="line">     </span><br><span class="line">     @GetMapping(&#123;&quot;article&quot;&#125;)</span><br><span class="line">     public String article(Integer id,Model m) &#123;</span><br><span class="line">           Article a = am.selectByPrimaryKey(id);</span><br><span class="line">           m.addAttribute(a);</span><br><span class="line">           return &quot;article&quot;;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC122%E6%AC%A1%E8%AF%BE%E7%A8%8B_%E6%A1%86%E6%9E%B6%E9%A1%B9%E7%9B%AE%E6%A1%88%E4%BE%8B_T1L1/">第122次课程_框架项目案例_T1L1<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC124%E6%AC%A1%E8%AF%BE%E7%A8%8B_%E6%A1%86%E6%9E%B6%E9%A1%B9%E7%9B%AE%E6%A1%88%E4%BE%8B_T3L3/">第124次课程_框架项目案例_T3L3<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

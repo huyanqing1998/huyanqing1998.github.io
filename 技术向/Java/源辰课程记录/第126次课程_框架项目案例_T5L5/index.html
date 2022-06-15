@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第126次课程_框架项目案例_T5L5 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰76班 第126次课程 2020.03.15 内容 框架项目案例_T5L5[廖彦] 项目路径：****G:\YC74\200310_框架项目案例_T1L1\code 1.Ueditor 注意： 1.thymeleaf使用Ueditor的jsp版本。 2.表单本身不能将富文本内的数据提交，需要将富文本内的数据通过js转移至内再提交。通过style&#x3D;”display&#x3D;none;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第126次课程_框架项目案例_T5L5">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC126%E6%AC%A1%E8%AF%BE%E7%A8%8B_%E6%A1%86%E6%9E%B6%E9%A1%B9%E7%9B%AE%E6%A1%88%E4%BE%8B_T5L5/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰76班 第126次课程 2020.03.15 内容 框架项目案例_T5L5[廖彦] 项目路径：****G:\YC74\200310_框架项目案例_T1L1\code 1.Ueditor 注意： 1.thymeleaf使用Ueditor的jsp版本。 2.表单本身不能将富文本内的数据提交，需要将富文本内的数据通过js转移至内再提交。通过style&#x3D;”display&#x3D;none;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.hooy.xyz/image/01_%E5%8F%91%E8%A1%A8%E6%96%87%E7%AB%A01(edit).png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/b8e920ed5a95ea5511e732e22a25f5c7.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/62122e5a6b7745b9ed2ed14c85df6896.png">
+<meta property="article:published_time" content="2020-03-14T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T01:35:56.677Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.hooy.xyz/image/01_%E5%8F%91%E8%A1%A8%E6%96%87%E7%AB%A01(edit).png">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-03-14T16:00:00.000Z">2020-03-15</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第126次课程_框架项目案例_T5L5</span></h1>
+<p><strong>源辰76班</strong></p>
+<p><strong>第126次课程</strong></p>
+<p><strong>2020.03.15</strong></p>
+<p><strong>内容</strong></p>
+<p><strong>框架项目案例_T5L5</strong><strong>[廖彦]</strong></p>
+<p><strong>项目路径：****G:\YC74\200310_框架项目案例_T1L1\code</strong></p>
+<p><strong>1.Ueditor</strong></p>
+<p><strong>注意：</strong></p>
+<p>1.thymeleaf使用Ueditor的jsp版本。</p>
+<p>2.<form>表单本身不能将富文本内的数据提交，需要将富文本内的数据通过js转移至<textarea>内再提交。<textarea>通过style&#x3D;”display&#x3D;none;”隐藏。</p>
+<ol start="3">
+<li>onsubmit&#x3D;”” 事件处理函数在提交前将执行里面的js代码&#x2F;函数。</li>
+</ol>
+<p><strong>首先下载插件</strong></p>
+<p>Ueditor网址： <a target="_blank" rel="noopener" href="http://ueditor.baidu.com/website/download.html">http://ueditor.baidu.com/website/download.html</a></p>
+<p><strong>以下代码</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/01_%E5%8F%91%E8%A1%A8%E6%96%87%E7%AB%A01(edit).png" alt="01_发表文章1(edit).png"></p>
+<p><strong>效果</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/b8e920ed5a95ea5511e732e22a25f5c7.png" alt="b8e920ed5a95ea5511e732e22a25f5c7.png"></p>
+<p>demo.html</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot;</span><br><span class="line">        &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;title&gt;完整demo&lt;/title&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=utf-8&quot;/&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;ueditor.config.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;ueditor.all.min.js&quot;&gt; &lt;/script&gt;</span><br><span class="line">    &lt;!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败--&gt;</span><br><span class="line">    &lt;!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文--&gt;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;lang/zh-cn/zh-cn.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">    &lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">        div&#123;</span><br><span class="line">            width:100%;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;h1&gt;完整demo&lt;/h1&gt;</span><br><span class="line">    &lt;script id=&quot;editor&quot; type=&quot;text/plain&quot; style=&quot;width:1024px;height:500px;&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div id=&quot;btns&quot;&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;button onclick=&quot;getAllHtml()&quot;&gt;获得整个html的内容&lt;/button&gt;</span><br><span class="line">        &lt;button onclick=&quot;getContent()&quot;&gt;获得内容&lt;/button&gt;</span><br><span class="line">        &lt;button onclick=&quot;setContent()&quot;&gt;写入内容&lt;/button&gt;</span><br><span class="line">        &lt;button onclick=&quot;setContent(true)&quot;&gt;追加内容&lt;/button&gt;</span><br><span class="line">        &lt;button onclick=&quot;getContentTxt()&quot;&gt;获得纯文本&lt;/button&gt;</span><br><span class="line">        &lt;button onclick=&quot;getPlainTxt()&quot;&gt;获得带格式的纯文本&lt;/button&gt;</span><br><span class="line">        &lt;button onclick=&quot;hasContent()&quot;&gt;判断是否有内容&lt;/button&gt;</span><br><span class="line">        &lt;button onclick=&quot;setFocus()&quot;&gt;使编辑器获得焦点&lt;/button&gt;</span><br><span class="line">        &lt;button onmousedown=&quot;isFocus(event)&quot;&gt;编辑器是否获得焦点&lt;/button&gt;</span><br><span class="line">        &lt;button onmousedown=&quot;setblur(event)&quot; &gt;编辑器失去焦点&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;button onclick=&quot;getText()&quot;&gt;获得当前选中的文本&lt;/button&gt;</span><br><span class="line">        &lt;button onclick=&quot;insertHtml()&quot;&gt;插入给定的内容&lt;/button&gt;</span><br><span class="line">        &lt;button id=&quot;enable&quot; onclick=&quot;setEnabled()&quot;&gt;可以编辑&lt;/button&gt;</span><br><span class="line">        &lt;button onclick=&quot;setDisabled()&quot;&gt;不可编辑&lt;/button&gt;</span><br><span class="line">        &lt;button onclick=&quot; UE.getEditor(&#x27;editor&#x27;).setHide()&quot;&gt;隐藏编辑器&lt;/button&gt;</span><br><span class="line">        &lt;button onclick=&quot; UE.getEditor(&#x27;editor&#x27;).setShow()&quot;&gt;显示编辑器&lt;/button&gt;</span><br><span class="line">        &lt;button onclick=&quot; UE.getEditor(&#x27;editor&#x27;).setHeight(300)&quot;&gt;设置高度为300默认关闭了自动长高&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;button onclick=&quot;getLocalData()&quot; &gt;获取草稿箱内容&lt;/button&gt;</span><br><span class="line">        &lt;button onclick=&quot;clearLocalData()&quot; &gt;清空草稿箱&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;div&gt;</span><br><span class="line">    &lt;button onclick=&quot;createEditor()&quot;&gt;</span><br><span class="line">    创建编辑器&lt;/button&gt;</span><br><span class="line">    &lt;button onclick=&quot;deleteEditor()&quot;&gt;</span><br><span class="line">    删除编辑器&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line"></span><br><span class="line">    //实例化编辑器</span><br><span class="line">    //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor(&#x27;editor&#x27;)就能拿到相关的实例</span><br><span class="line">    var ue = UE.getEditor(&#x27;editor&#x27;);</span><br><span class="line"></span><br><span class="line">    function isFocus(e)&#123;</span><br><span class="line">        alert(UE.getEditor(&#x27;editor&#x27;).isFocus());</span><br><span class="line">        UE.dom.domUtils.preventDefault(e)</span><br><span class="line">    &#125;</span><br><span class="line">    function setblur(e)&#123;</span><br><span class="line">        UE.getEditor(&#x27;editor&#x27;).blur();</span><br><span class="line">        UE.dom.domUtils.preventDefault(e)</span><br><span class="line">    &#125;</span><br><span class="line">    function insertHtml() &#123;</span><br><span class="line">        var value = prompt(&#x27;插入html代码&#x27;, &#x27;&#x27;);</span><br><span class="line">        UE.getEditor(&#x27;editor&#x27;).execCommand(&#x27;insertHtml&#x27;, value)</span><br><span class="line">    &#125;</span><br><span class="line">    function createEditor() &#123;</span><br><span class="line">        enableBtn();</span><br><span class="line">        UE.getEditor(&#x27;editor&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">    function getAllHtml() &#123;</span><br><span class="line">        alert(UE.getEditor(&#x27;editor&#x27;).getAllHtml())</span><br><span class="line">    &#125;</span><br><span class="line">    function getContent() &#123;</span><br><span class="line">        var arr = [];</span><br><span class="line">        arr.push(&quot;使用editor.getContent()方法可以获得编辑器的内容&quot;);</span><br><span class="line">        arr.push(&quot;内容为：&quot;);</span><br><span class="line">        arr.push(UE.getEditor(&#x27;editor&#x27;).getContent());</span><br><span class="line">        alert(arr.join(&quot;\n&quot;));</span><br><span class="line">    &#125;</span><br><span class="line">    function getPlainTxt() &#123;</span><br><span class="line">        var arr = [];</span><br><span class="line">        arr.push(&quot;使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容&quot;);</span><br><span class="line">        arr.push(&quot;内容为：&quot;);</span><br><span class="line">        arr.push(UE.getEditor(&#x27;editor&#x27;).getPlainTxt());</span><br><span class="line">        alert(arr.join(&#x27;\n&#x27;))</span><br><span class="line">    &#125;</span><br><span class="line">    function setContent(isAppendTo) &#123;</span><br><span class="line">        var arr = [];</span><br><span class="line">        arr.push(&quot;使用editor.setContent(&#x27;欢迎使用ueditor&#x27;)方法可以设置编辑器的内容&quot;);</span><br><span class="line">        UE.getEditor(&#x27;editor&#x27;).setContent(&#x27;欢迎使用ueditor&#x27;, isAppendTo);</span><br><span class="line">        alert(arr.join(&quot;\n&quot;));</span><br><span class="line">    &#125;</span><br><span class="line">    function setDisabled() &#123;</span><br><span class="line">        UE.getEditor(&#x27;editor&#x27;).setDisabled(&#x27;fullscreen&#x27;);</span><br><span class="line">        disableBtn(&quot;enable&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function setEnabled() &#123;</span><br><span class="line">        UE.getEditor(&#x27;editor&#x27;).setEnabled();</span><br><span class="line">        enableBtn();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function getText() &#123;</span><br><span class="line">        //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容</span><br><span class="line">        var range = UE.getEditor(&#x27;editor&#x27;).selection.getRange();</span><br><span class="line">        range.select();</span><br><span class="line">        var txt = UE.getEditor(&#x27;editor&#x27;).selection.getText();</span><br><span class="line">        alert(txt)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function getContentTxt() &#123;</span><br><span class="line">        var arr = [];</span><br><span class="line">        arr.push(&quot;使用editor.getContentTxt()方法可以获得编辑器的纯文本内容&quot;);</span><br><span class="line">        arr.push(&quot;编辑器的纯文本内容为：&quot;);</span><br><span class="line">        arr.push(UE.getEditor(&#x27;editor&#x27;).getContentTxt());</span><br><span class="line">        alert(arr.join(&quot;\n&quot;));</span><br><span class="line">    &#125;</span><br><span class="line">    function hasContent() &#123;</span><br><span class="line">        var arr = [];</span><br><span class="line">        arr.push(&quot;使用editor.hasContents()方法判断编辑器里是否有内容&quot;);</span><br><span class="line">        arr.push(&quot;判断结果为：&quot;);</span><br><span class="line">        arr.push(UE.getEditor(&#x27;editor&#x27;).hasContents());</span><br><span class="line">        alert(arr.join(&quot;\n&quot;));</span><br><span class="line">    &#125;</span><br><span class="line">    function setFocus() &#123;</span><br><span class="line">        UE.getEditor(&#x27;editor&#x27;).focus();</span><br><span class="line">    &#125;</span><br><span class="line">    function deleteEditor() &#123;</span><br><span class="line">        disableBtn();</span><br><span class="line">        UE.getEditor(&#x27;editor&#x27;).destroy();</span><br><span class="line">    &#125;</span><br><span class="line">    function disableBtn(str) &#123;</span><br><span class="line">        var div = document.getElementById(&#x27;btns&#x27;);</span><br><span class="line">        var btns = UE.dom.domUtils.getElementsByTagName(div, &quot;button&quot;);</span><br><span class="line">        for (var i = 0, btn; btn = btns[i++];) &#123;</span><br><span class="line">            if (btn.id == str) &#123;</span><br><span class="line">                UE.dom.domUtils.removeAttributes(btn, [&quot;disabled&quot;]);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                btn.setAttribute(&quot;disabled&quot;, &quot;true&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    function enableBtn() &#123;</span><br><span class="line">        var div = document.getElementById(&#x27;btns&#x27;);</span><br><span class="line">        var btns = UE.dom.domUtils.getElementsByTagName(div, &quot;button&quot;);</span><br><span class="line">        for (var i = 0, btn; btn = btns[i++];) &#123;</span><br><span class="line">            UE.dom.domUtils.removeAttributes(btn, [&quot;disabled&quot;]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function getLocalData () &#123;</span><br><span class="line">        alert(UE.getEditor(&#x27;editor&#x27;).execCommand( &quot;getlocaldata&quot; ));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function clearLocalData () &#123;</span><br><span class="line">        UE.getEditor(&#x27;editor&#x27;).execCommand( &quot;clearlocaldata&quot; );</span><br><span class="line">        alert(&quot;已清空草稿箱&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.邮件</strong></p>
+<p><strong>找回密码</strong>功能</p>
+<p><strong>廖彦老师的邮箱信息</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/62122e5a6b7745b9ed2ed14c85df6896.png" alt="62122e5a6b7745b9ed2ed14c85df6896.png"></p>
+<p>所需依赖</p>
+<p>pom.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;spring-boot-starter-mail&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>application.yml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">#server.port=80</span><br><span class="line">#自定义配置参数</span><br><span class="line">myUploadPath: G:/YC74/200310_框架项目案例_T1L1/img/</span><br><span class="line">#服务器端口：80</span><br><span class="line">server:</span><br><span class="line">  port: 80</span><br><span class="line">spring:</span><br><span class="line">#连接数据库配置  </span><br><span class="line">  datasource:</span><br><span class="line">    url: jdbc:mysql://127.0.0.1:3306/c76-s3-phooy-blog</span><br><span class="line">    username: root</span><br><span class="line">    password: a</span><br><span class="line">    driver-class-name: com.mysql.jdbc.Driver</span><br><span class="line">  #静态资源映射</span><br><span class="line">  resources:</span><br><span class="line">    staticLocations:</span><br><span class="line">      - classpath:/resources/</span><br><span class="line">      - classpath:/static/</span><br><span class="line">      - file:d:$&#123;myUploadPath&#125;</span><br><span class="line">  #文件上传大小限制</span><br><span class="line">  servlet:</span><br><span class="line">    multipart:</span><br><span class="line">      maxFileSize: 10000000</span><br><span class="line">  mail:</span><br><span class="line">    #邮件服务器地址</span><br><span class="line">    host: smtp.qq.com</span><br><span class="line">    #用户名</span><br><span class="line">    username: 306529917@qq.com</span><br><span class="line">    #密码</span><br><span class="line">    password: sgbfaqcdhxdwbhda</span><br><span class="line">    #字符集</span><br><span class="line">    default-encoding: UTF-8</span><br><span class="line">#mybatis</span><br><span class="line">mybatis:</span><br><span class="line">  #实体类别名 com.yc.C76S3PlySpringBoot.bean -&gt; bean</span><br><span class="line">  type-aliases-package: com.yc.blog.bean</span><br><span class="line">  #驼峰命名法 类成员别名</span><br><span class="line">  configuration:</span><br><span class="line">    map-underscore-to-camel-case: true</span><br><span class="line">#测试类配置  </span><br><span class="line">logging:</span><br><span class="line">  level:</span><br><span class="line">    com:</span><br><span class="line">      yc:</span><br><span class="line">        blog:</span><br><span class="line">          dao: debug</span><br><span class="line">          web: warn</span><br><span class="line">#自定义配置参数         </span><br><span class="line">mail:</span><br><span class="line">  fromMail:</span><br><span class="line">    addr: 306529917@qq.com</span><br></pre></td></tr></table></figure>
+
+<p>MailService.java</p>
+<p>三参数：to发给谁，subject标题，content内容</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.blog.biz;</span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.beans.factory.annotation.Value;</span><br><span class="line">import org.springframework.mail.SimpleMailMessage;</span><br><span class="line">import org.springframework.mail.javamail.JavaMailSender;</span><br><span class="line">import org.springframework.stereotype.Component;</span><br><span class="line">@Component</span><br><span class="line">public class MailService &#123;</span><br><span class="line">     @Autowired</span><br><span class="line">     private JavaMailSender mailSender;</span><br><span class="line">     </span><br><span class="line">     @Value(&quot;$&#123;mail.fromMail.addr&#125;&quot;)</span><br><span class="line">     private String from;</span><br><span class="line">     </span><br><span class="line">     public void sendSimpleMail(String to,String subject,String  content) &#123;</span><br><span class="line">           SimpleMailMessage message = new SimpleMailMessage();</span><br><span class="line">           message.setFrom(from);</span><br><span class="line">           message.setTo(to);</span><br><span class="line">           message.setSubject(subject);</span><br><span class="line">           message.setText(content);</span><br><span class="line">           mailSender.send(message);</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>调用发送邮件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public void test2() &#123;</span><br><span class="line">       ms.sendSimpleMail(&quot;584945164@qq.com&quot;, &quot;测试邮件&quot;, &quot;申请; 请求; 申请书; 申请表&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC125%E6%AC%A1%E8%AF%BE%E7%A8%8B_%E6%A1%86%E6%9E%B6%E9%A1%B9%E7%9B%AE%E6%A1%88%E4%BE%8B_T4L4/">第125次课程_框架项目案例_T4L4<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC127%E6%AC%A1%E8%AF%BE%E7%A8%8B_SpringCloud_Helloworld_%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8E%E5%8F%91%E7%8E%B0/">第127次课程_SpringCloud_Helloworld_服务注册与发现<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

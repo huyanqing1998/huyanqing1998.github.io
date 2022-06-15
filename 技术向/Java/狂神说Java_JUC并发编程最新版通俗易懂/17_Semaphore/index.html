@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>17_Semaphore - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="17 Semaphore 狂神说Java JUC并发编程最新版通俗易懂  Semaphore 信号量多个共享资源互斥使用，并发限流，控制最大线程数目。 如果说 互斥锁 在同一时间仅让一个线程执行，那么 Semaphore 在同一时间仅让指定数量的线程并行执行，多余的等待，等待正在执行的线程执行完毕。 semaphore.acquire() 获得，假设已经满了，等待，等待有空位为止。 semapho">
+<meta property="og:type" content="article">
+<meta property="og:title" content="17_Semaphore">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/17_Semaphore/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="17 Semaphore 狂神说Java JUC并发编程最新版通俗易懂  Semaphore 信号量多个共享资源互斥使用，并发限流，控制最大线程数目。 如果说 互斥锁 在同一时间仅让一个线程执行，那么 Semaphore 在同一时间仅让指定数量的线程并行执行，多余的等待，等待正在执行的线程执行完毕。 semaphore.acquire() 获得，假设已经满了，等待，等待有空位为止。 semapho">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/png;base64,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">
+<meta property="article:published_time" content="2020-08-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-15T06:56:50.018Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="遇见狂神说">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEwAAADzCAIAAACjaWfcAAAMC0lEQVR4Ae1dQW7qOhR1vv4WEBnACh6IN4AVEKkTugIyg/mn4g3aFbTSf+jReZl8wQrKpFK6Ahi0IjuAQaIsgn9tY8cxDlDavjp+7qBJHDv43mM79sm91863b9+Q6X9/mS4glu+3ClnpXF93KpJat1uavJXSxctm77rX3GVQPkTMvH/+937SgRT4AR9N7+Ybmgd+24vTS0jcbpv9cbfuOOJDttvVbPCwzCamGarfa+UkWCOUKZTeh2c2aih+SlPeevY2IcWnAwBerVyu+Z2X2/lmV0HHWU6ulpBNUkfl8uYaTaesPKB3eTP03FQs//7eZ3fhuF1Nryb4OfBXvfRqcfiUrwWa7cB/tZC8EqvpP5MlrooA0Y+xh1bTn7HXLoez0WtjOOxHo4clk5NmvmgnwQA1+9ceCu5YdXk9HGczv7uaw2MrnZthOcjHGX73ol2On6fo8mbsuewJuA74hwRdsFuKo0JIIo8Xj0aBPyyzIhQiis/ti9v3h1jE28XGWY5Qzx/euLPpfLmh2Vt9r/Q8XTqbylOYDLu95iKvrUFTRTin0+z9arwOqELZb+Jjq48bf4QQaGUAWmF/22Zv3HjlaLNk9VEhJJUHg6ku4rYuvBKKHafO29g2WiWe34luH9ct2iejkn9dw+WTMC41Wm6seBZBCQBfo5zuinsEaCuoEdgyXaDqluIYZD/pTyHk4XKu53e30fNzAoMFVSRV6gS3SYf3SdwOYYy6fdwQAaC2ise2GnWnXue9sX4/Jv1yGwUjUhA36juQjWgLofVjkIwvmo8PC4RbQDg9tZu+QchKs+e3y7QbgGDtMnTUShWtUVap0PD8+m5E+XGPZYOOrWyuMEgNdoMLkpurClvQ4GvYbbTQInqTjOhUIQGZi0Y8naFhQ4Ck6l4MhzC8h7NUqXR4zSLpVDpCKTL2/khHEXaLIUmvo+Anf1exHGjxGnpuq9WoJcEtbSP81oGTU4WEljOZIABQfJaz2b0wct9xLDdpd9DwdtfSKAKpMpKsoHQE8G+hI1wEd2TMl+7mXSqEFN4WCPm4n/AXSd5T8CjV//7ygHsgbsNV1/1edt26f9N2XWe7CkbkVl7xE9LdznXmvTqm3Zf0hf0xWXqgQkg+eAhZcR+jnS0KaP+K41qX/xLcjVbTOUiI33ttaL9JEk+nT1G03pD35xbeBb+6UsMWnn/0NKLvVVW+dEahuovTHLsKyVNNwdJ/6yrkq3RjhfwqzX/071okP1qjX/U8i+RHa15Jz8AMiVA/luOxHM/RBqeYu0IZOgV18Ww7eh5hnkqYtRvC8VQufSCXBkC9QHcZ+pcveJ2OV1UmcTyw3JtQ3mUdJahdBpJsk7YJ4zge4ItQGIi8sGkcD/AAw3YyGywoqgZyPLg3Ygl39D4MRaZxPJKE0B+N43gqHaAeHcfl3LGJHA8Mrvg7hfhnOR5RG1qe21WIlrCcUSmL5BlK07KIRVJLWM6olEXyDKUdLAKzRWvHo9YQkBLWjketGjH1z+V4mn2ylIRP1oTR6kd4VWkWx4PA7iB+Hi2wIQCYkriOCwYXS2amgZARHA/mdZJX+PoP38+7pedgVa65VU5lGcXxYAnR7OpuCRY7NdKLjeJ4gIZ0PN8Lfl7NN/ChguC6BvMOsziexeuqW4pfiP1RC2wUwxnm68yy4wETl4eRezMce+wzgci7iu8ffl48Ox6oOjNHpVLsDGWsHQ8HVccTuwrREZVz6mSRPEdrOpaxSOqIyjl1skjmaw3Yml5T9rrKz37ojnZ2PLyy4L2AxsMekt1V8Pwu65/Ei9ATxVfAz/fVOtVymRu9SJUWL0UBiEkM+OzgD9W4rOAjAkWO6kL0T8JfhGsh9RSBsnApOsWJFcg7P5XjobNZ4ucSz+KyV4M1ZpigUg0lz0mptvO9O24OTuuhh6+WguORBAC/pFIJoTjBJ3kqPJr+Zb5ahzkep+75daHyrgtWPhFzxQKo74XbqYsSQtTbh7sowSOgSRPnvK/w1crjeHBH8krBz3+wFdpeN6Nyc8+kQ32Suyh9ua+WxPGQShMXV4oIkYmfchO8FOIT3OK4RqAU/FzGtZArIn0isBMf56ul5HhgqHgYRJdklORIBmHZBbeedRWnZ/+oW1yeOxWMkF/tq6XieFQOxzXs7tsG6ln2qSOdDYWj1EstqwHZ4xPuykhKBdglgP8xvlrHOJ5qB1wMS0kYBq8vEboYepevIasEHLcVIOCBzRxwR2fh5tmnH+2rBRVRcjysguv55I6b+VTiGOhm8KqkzoUwut6AF/NoILo4s4LvOVpfrWPas6uQYxoqyn2LZFGQOlZPi+QxDRXlvkUyHynL8WR85SVFiRTJ7pbleEARn8bxMNKNK95Ejmcsx+ORWh2QO8XmeGjECEx27EkGCYZwPCrRcJqBHI8kqmkcjyQevcR0gVEcj1JKRWKROZ60ZYJging8RnA8dHTNIid+I7AcT1Y3mlzZVYgmQLy7GhbJd6tQkwdYJDUB4t3VKDySY/J3WA9nCmk5Hu04HrWJyz76ajseMrPlmQlXsvPfJxNgpR0PniHu2/HwmAb0aaIdz6fFXCYhIcV4PNpyPFzFB04USGI1K+LxiHN0eKAuHI8YtDNPToWQxFwqNx6PgRyPGI/HTI5HjMeTrqS58Q4zsoJGUjw7HtqyMW8txOMxkOORJMzp0IXmeI7E49GL48kBIJOsGl1z4vGwcnpxPDB1ZRXLPZ5quZz7gK++QYUcDAYHKnLmBP3AEzW89UcIWfjmekrD+SOQtEKe0hSKkMci+dEowWzRxuNRKxUWQDYej1o1Yqpi7spvQ+sCxwZqypOuJ5ERMZepkHjFXEtW0W5nLfplFsTG7nMG7KsFQmLcIErNaIr8Gt8/jCFsRDweEAb2JQMRH9Zo317JkHg80FBxJB68NWHGodeoeDywSaDj1lM+07//5QX//rc1Kh4Pj9NLyXwI+073dDJqXy02wLzhiNVRrH21uHDU8xgHPSN/Nh4P14yOJ3YVoiMq59TJInmO1nQsY5HUEZVz6mSRPEdrh8pYjofPrGQ1WY5H1ojyWs3x0GkqFODGAAZyPHxnYuhFZu6rJSOeRNk4JaZwPLxxkhhBuy2nqPCGcDwgDHcNAb5nPO7TjaeM4ngyzRU2K+96EDx7i4zbVyuVE8dED59wFCuzYi7zDgmiinG7Usn3zorH8fAOuZOFhauyHM8euDol2FWITmi8py4WyfdoT6eyFkmd0HhPXSyS79GeqqzleCzHQxYJ7BuiqpEcTFNwPPQDs+fuPktS3zBh1m6QHQ8PN0R1ZKAdz0HwTeF4QMg68Y3klCQX2xCOhwcpB8EwJTmk28A5xnI865cwbuMN0kzmePC2WvHz1ESOJ91EwWCOJ+usZTkePurqfGJXITqj85a6WSTfoi2d81okdUbnLXWzSOZrCybudl8tKRpKqi1pLY5v2JjLoAS83PuMfbWo5uHp3FdL23g8V5N0L3Ba7f3/CiKLZpJ8tfZK6hKPZ69iigS1kJiby/HVMicej9JXC1OVxuyrpfTVSnlXM+LxKH21YNNAo2Iuq321gB/YSn26yPF4JFH2LvWKx6OYXezVWD260mySrxYrq1c8ntyPYay6cLQBTgRlFPrULrUKDZ9QeYukoIxCn1okCw2fUPkzkbQcj3Yxl0+d8ahjLgtNAk7FaSRZmiljLuMykhVN9jEkw2rKeY1P4XikGlA7HjM5HhGWfU3rE3NZVTc57dAqRM5LrovI8Sj6pNhcRTseko4DK/Edt6e3j1lftVQth/skzQc8i7ibPC8sGSpAn4RfvZtv+DMXiOzxTWrCSx04USCptONZQCCisUF7p4sq4XY8zsbcfbW4HY/KDLPIHE+mT0YB8HTZjmcExyP2Sdx0mR0Pa8aW42Ga0Op45gRdKxmOVsYKeVRFBclgkSwIUEeraZE8qqKCZDgTScvxWI6HtHBxeqxs8uK+Wp/C8cCv7sfjMZDjUcXjkSzJim/Hk2lC2Xg8hnA8ICE3aBHpFqM4HhCSh//g8XhM5ngQi8djMseDWDwe8zie5o59VMfjMYTj4W8QMspajifzstH14swJuq7iqOtlhVTrpXipFsniYaausUVSrZfipf4RSP4PDovxjlh748QAAAAASUVORK5CYII=">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#17-Semaphore"><span class="toc-text">17 Semaphore</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Semaphore-%E4%BF%A1%E5%8F%B7%E9%87%8F"><span class="toc-text">Semaphore 信号量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-text">案例</span></a></li></ol></li></ol></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java-JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/">狂神说Java_JUC并发编程最新版通俗易懂</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-08-26T16:00:00.000Z">2020-08-27</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>17_Semaphore</span></h1>
+<h2 id="17-Semaphore"><a href="#17-Semaphore" class="headerlink" title="17 Semaphore"></a>17 Semaphore</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1B7411L7tE">狂神说Java JUC并发编程最新版通俗易懂</a></p>
+</blockquote>
+<h3 id="Semaphore-信号量"><a href="#Semaphore-信号量" class="headerlink" title="Semaphore 信号量"></a>Semaphore 信号量</h3><p>多个共享资源互斥使用，并发限流，控制最大线程数目。</p>
+<p>如果说 <strong>互斥锁</strong> 在同一时间仅让一个线程执行，那么 <strong>Semaphore</strong> 在同一时间仅让指定数量的线程并行执行，多余的等待，等待正在执行的线程执行完毕。</p>
+<p><code>semaphore.acquire()</code> 获得，假设已经满了，等待，等待有空位为止。</p>
+<p><code>semaphore.release()</code> 释放，会将当前的信号量释放 +1，然后唤醒等待线程。</p>
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package add;</span><br><span class="line"></span><br><span class="line">import java.util.concurrent.Semaphore;</span><br><span class="line">import java.util.concurrent.TimeUnit;</span><br><span class="line"></span><br><span class="line">public class SemaphoreDemo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Semaphore semaphore = new Semaphore(3);</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; 6; i++) &#123;</span><br><span class="line">            new Thread(</span><br><span class="line">                    () -&gt; &#123;</span><br><span class="line">                        try &#123;</span><br><span class="line">                            // acquire() 得到</span><br><span class="line">                            semaphore.acquire();</span><br><span class="line">                            System.out.println(Thread.currentThread().getName() + &quot;抢到车位&quot;);</span><br><span class="line">                            TimeUnit.SECONDS.sleep(2);</span><br><span class="line">                            System.out.println(Thread.currentThread().getName() + &quot;离开车位&quot;);</span><br><span class="line">                        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                            e.printStackTrace();</span><br><span class="line">                        &#125; finally &#123;</span><br><span class="line">                            // release() 释放</span><br><span class="line">                            semaphore.release();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;,String.valueOf(i)</span><br><span class="line">            ).start();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<p><img src="data:image/png;base64,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"></p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/18_ReadWriteLock/">18_ReadWriteLock<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/31_Volatile%E5%8F%AF%E8%A7%81%E6%80%A7%E5%8F%8A%E9%9D%9E%E5%8E%9F%E5%AD%90%E6%80%A7%E9%AA%8C%E8%AF%81/">31_Volatile可见性及非原子性验证<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

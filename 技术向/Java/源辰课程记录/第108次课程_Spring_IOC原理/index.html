@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第108次课程_Spring_IOC原理 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰76班 第108次课程 2020.02.18 内容 Spring_IOC原理 项目路径： 1.创建工程 1.常规创建Maven工程 2.pom.xml导入Spring-Contents包 maven仓库网址： https:&#x2F;&#x2F;mvnrepository.com&#x2F; 1234567891011121314151617&lt;properties&gt;       &lt;maven.compil">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第108次课程_Spring_IOC原理">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC108%E6%AC%A1%E8%AF%BE%E7%A8%8B_Spring_IOC%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰76班 第108次课程 2020.02.18 内容 Spring_IOC原理 项目路径： 1.创建工程 1.常规创建Maven工程 2.pom.xml导入Spring-Contents包 maven仓库网址： https:&#x2F;&#x2F;mvnrepository.com&#x2F; 1234567891011121314151617&lt;properties&gt;       &lt;maven.compil">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T01:32:00.773Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-02-17T16:00:00.000Z">2020-02-18</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第108次课程_Spring_IOC原理</span></h1>
+<p><strong>源辰76班</strong></p>
+<p><strong>第108次课程</strong></p>
+<p><strong>2020.02.18</strong></p>
+<p><strong>内容</strong></p>
+<p><strong>Spring_IOC原理</strong></p>
+<p><strong>项目路径：</strong></p>
+<p><strong>1.创建工程</strong></p>
+<p>1.常规创建Maven工程</p>
+<p>2.pom.xml导入Spring-Contents包</p>
+<p>maven仓库网址： <a target="_blank" rel="noopener" href="https://mvnrepository.com/">https://mvnrepository.com/</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">       &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;</span><br><span class="line">       &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;</span><br><span class="line">       &lt;maven.compiler.compilerVersion&gt;1.8&lt;/maven.compiler.compilerVersion&gt;</span><br><span class="line">       &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br><span class="line">       &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt;</span><br><span class="line">&lt;/properties&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;dependencies&gt;</span><br><span class="line">    &lt;!--  https://mvnrepository.com/artifact/org.springframework/spring-context --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">         &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">         &lt;artifactId&gt;spring-context&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;5.1.3.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    </span><br><span class="line">  &lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+<p>3.工程内创建Beans.xml文件</p>
+<p>参考网址： <a target="_blank" rel="noopener" href="https://docs.spring.io/spring/docs/5.1.13.RELEASE/spring-framework-reference/core.html#spring-core">https://docs.spring.io/spring/docs/5.1.13.RELEASE/spring-framework-reference/core.html#spring-core</a></p>
+<p>Beans.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans  xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">     xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</span><br><span class="line">         https://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;</span><br><span class="line">    &lt;!--</span><br><span class="line">    &lt;bean id=&quot;...&quot; class=&quot;...&quot;&gt;   </span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    &lt;bean id=&quot;...&quot; class=&quot;...&quot;&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    --&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.Spring基础</strong></p>
+<p><strong><bean></bean></strong></p>
+<p><strong>set方法对bean对象设值</strong></p>
+<p><strong>构造方法对bean对象设置</strong></p>
+<p><strong>基础bean类</strong></p>
+<p>User.java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.mybatis.bean;</span><br><span class="line">import java.util.Date;</span><br><span class="line">public class User &#123;</span><br><span class="line">    private Integer id;</span><br><span class="line">    private String username;</span><br><span class="line">    private String password;</span><br><span class="line">    private String email;</span><br><span class="line">    private String headImg;</span><br><span class="line">    private String phone;</span><br><span class="line">    private Integer status;</span><br><span class="line">    private Date regtime;</span><br><span class="line">    </span><br><span class="line">    private Hall hall;</span><br><span class="line">    /*</span><br><span class="line">     * 构造方法(构造器)</span><br><span class="line">     */</span><br><span class="line">    public User() &#123;&#125;</span><br><span class="line">    </span><br><span class="line">    public User(Integer id,String  username,String password) &#123;</span><br><span class="line">        super();</span><br><span class="line">        System.out.println(&quot;===== Integer  id,String username,String password =====&quot;);</span><br><span class="line">        this.id = id;</span><br><span class="line">        this.username = username;</span><br><span class="line">        this.password = password;</span><br><span class="line">    &#125;</span><br><span class="line">    //重载</span><br><span class="line">    public User(String username,String  password,Integer id) &#123;</span><br><span class="line">        super();</span><br><span class="line">        System.out.println(&quot;===== String  username,String password,Integer id =====&quot;);</span><br><span class="line">        this.id = id;</span><br><span class="line">        this.username = username;</span><br><span class="line">        this.password = password;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /*</span><br><span class="line">     * 初始化方法</span><br><span class="line">     */</span><br><span class="line">    public void initA() &#123;</span><br><span class="line">        System.out.println(&quot;=====initA=====&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /*</span><br><span class="line">     * 销毁方法</span><br><span class="line">     */</span><br><span class="line">    public void close() &#123;</span><br><span class="line">        System.out.println(&quot;=====close=====&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /*</span><br><span class="line">     * 静态工厂方法</span><br><span class="line">     */</span><br><span class="line">    public static User create() &#123;</span><br><span class="line">        System.out.println(&quot;=====create=====&quot;);</span><br><span class="line">        return new User();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /*</span><br><span class="line">     * 动态工厂方法</span><br><span class="line">     */</span><br><span class="line">    public User create1() &#123;</span><br><span class="line">        System.out.println(&quot;=====create1=====&quot;);</span><br><span class="line">        return new User();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    public Integer getId() &#123;</span><br><span class="line">        return id;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setId(Integer id) &#123;</span><br><span class="line">        this.id = id;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getUsername() &#123;</span><br><span class="line">        return username;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setUsername(String username)  &#123;</span><br><span class="line">        this.username = username == null ?  null : username.trim();</span><br><span class="line">    &#125;</span><br><span class="line">    public String getPassword() &#123;</span><br><span class="line">        return password;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setPassword(String password)  &#123;</span><br><span class="line">        this.password = password == null ?  null : password.trim();</span><br><span class="line">    &#125;</span><br><span class="line">    public String getEmail() &#123;</span><br><span class="line">        return email;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setEmail(String email) &#123;</span><br><span class="line">        this.email = email == null ? null :  email.trim();</span><br><span class="line">    &#125;</span><br><span class="line">    public String getHeadImg() &#123;</span><br><span class="line">        return headImg;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setHeadImg(String headImg) &#123;</span><br><span class="line">        this.headImg = headImg == null ?  null : headImg.trim();</span><br><span class="line">    &#125;</span><br><span class="line">    public String getPhone() &#123;</span><br><span class="line">        return phone;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setPhone(String phone) &#123;</span><br><span class="line">        this.phone = phone == null ? null :  phone.trim();</span><br><span class="line">    &#125;</span><br><span class="line">    public Integer getStatus() &#123;</span><br><span class="line">        return status;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setStatus(Integer status) &#123;</span><br><span class="line">        this.status = status;</span><br><span class="line">    &#125;</span><br><span class="line">    public Date getRegtime() &#123;</span><br><span class="line">        return regtime;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setRegtime(Date regtime) &#123;</span><br><span class="line">        this.regtime = regtime;</span><br><span class="line">    &#125;</span><br><span class="line">    public Hall getHall() &#123;</span><br><span class="line">       return hall;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setHall(Hall hall) &#123;</span><br><span class="line">       this.hall = hall;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Hall.java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.mybatis.bean;</span><br><span class="line">public class Hall &#123;</span><br><span class="line">    private Integer id;</span><br><span class="line">    private String name;</span><br><span class="line">    private String hallType;</span><br><span class="line">    private Integer capacity;</span><br><span class="line">    private Integer cinemaId;</span><br><span class="line">    </span><br><span class="line">    private Cinema cinema;</span><br><span class="line">    public Cinema getCinema() &#123;</span><br><span class="line">       return cinema;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setCinema(Cinema cinema) &#123;</span><br><span class="line">       this.cinema = cinema;</span><br><span class="line">    &#125;</span><br><span class="line">    public Integer getId() &#123;</span><br><span class="line">        return id;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setId(Integer id) &#123;</span><br><span class="line">        this.id = id;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">        this.name = name == null ? null :  name.trim();</span><br><span class="line">    &#125;</span><br><span class="line">    public String getHallType() &#123;</span><br><span class="line">        return hallType;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setHallType(String hallType)  &#123;</span><br><span class="line">        this.hallType = hallType == null ?  null : hallType.trim();</span><br><span class="line">    &#125;</span><br><span class="line">    public Integer getCapacity() &#123;</span><br><span class="line">        return capacity;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setCapacity(Integer  capacity) &#123;</span><br><span class="line">        this.capacity = capacity;</span><br><span class="line">    &#125;</span><br><span class="line">    public Integer getCinemaId() &#123;</span><br><span class="line">        return cinemaId;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setCinemaId(Integer  cinemaId) &#123;</span><br><span class="line">        this.cinemaId = cinemaId;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Cinema.java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.mybatis.bean;</span><br><span class="line">import java.util.List;</span><br><span class="line">public class Cinema &#123;</span><br><span class="line">    private Integer id;</span><br><span class="line">    private String name;</span><br><span class="line">    private String address;</span><br><span class="line">    private String gps;</span><br><span class="line">    private String img;</span><br><span class="line">    </span><br><span class="line">    private List&lt;Hall&gt; halls;</span><br><span class="line">    public List&lt;Hall&gt; getHalls() &#123;</span><br><span class="line">       return halls;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setHalls(List&lt;Hall&gt; halls) &#123;</span><br><span class="line">       this.halls = halls;</span><br><span class="line">    &#125;</span><br><span class="line">    public Integer getId() &#123;</span><br><span class="line">        return id;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setId(Integer id) &#123;</span><br><span class="line">        this.id = id;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">        this.name = name == null ? null :  name.trim();</span><br><span class="line">    &#125;</span><br><span class="line">    public String getAddress() &#123;</span><br><span class="line">        return address;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setAddress(String address) &#123;</span><br><span class="line">        this.address = address == null ?  null : address.trim();</span><br><span class="line">    &#125;</span><br><span class="line">    public String getGps() &#123;</span><br><span class="line">        return gps;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setGps(String gps) &#123;</span><br><span class="line">        this.gps = gps == null ? null :  gps.trim();</span><br><span class="line">    &#125;</span><br><span class="line">    public String getImg() &#123;</span><br><span class="line">        return img;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setImg(String img) &#123;</span><br><span class="line">        this.img = img == null ? null :  img.trim();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Spring设置文件</strong></p>
+<p>Beans.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans  xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">     xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">     xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</span><br><span class="line">         https://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;</span><br><span class="line">    &lt;!-- bean详解 --&gt;</span><br><span class="line">    &lt;!--</span><br><span class="line">       id         bean对象标识</span><br><span class="line">       class      </span><br><span class="line">       scope      作用范围    &#123;   singleton(默认，单例公用唯一一个)</span><br><span class="line">                              prototype(原型，每次获取的bean都是一个新创建的bean)</span><br><span class="line">                              request(请求期间获取的bean 唯一的)</span><br><span class="line">                              session(会话期间获取的bean 唯一的)</span><br><span class="line">                              global(全局与一种特殊的应用有关 )</span><br><span class="line">                          &#125;</span><br><span class="line">       depends-on 值：另一个bean的id。依赖属性，表示当前的bean必须依赖其他的bean</span><br><span class="line">       destroy-method 用于指定销毁方法，会在对象被销毁时执行，也就是容器关闭时</span><br><span class="line">       init-method    用于指定初始化方法，会在对象创建的时被执行，也就是容器启动时</span><br><span class="line">       lazy-init  默认请求下所有的对象都在容器启动时创建(所以容器启动很慢)，可通过该属性设置延迟加载，延迟到getBean时加载</span><br><span class="line">       primary    主要bean配置，同一类型的bean出现多次，必须设置该属性为为true</span><br><span class="line">       factory-method 设置工厂方法(动态和静态之分)，如果单独使用factory-method，那么就是静态工厂</span><br><span class="line">       factory-bean 值：另一个bean的id   factory-method + factory-bean = 动态工厂</span><br><span class="line">    </span><br><span class="line">     --&gt;</span><br><span class="line">    &lt;bean id=&quot;user&quot;                          </span><br><span class="line">         class=&quot;com.yc.mybatis.bean.User&quot;</span><br><span class="line">         scope=&quot;prototype&quot;</span><br><span class="line">         init-method=&quot;initA&quot;</span><br><span class="line">         destroy-method=&quot;close&quot;   </span><br><span class="line">         lazy-init=&quot;true&quot;</span><br><span class="line">         primary=&quot;true&quot;</span><br><span class="line">         factory-method=&quot;create&quot;</span><br><span class="line">    &gt;&lt;/bean&gt;  </span><br><span class="line">    </span><br><span class="line">    &lt;bean id=&quot;user1&quot;</span><br><span class="line">         class=&quot;com.yc.mybatis.bean.User&quot;</span><br><span class="line">         factory-method=&quot;create1&quot;</span><br><span class="line">         factory-bean=&quot;user&quot;</span><br><span class="line">    &gt;&lt;/bean&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!--  ================================================================== --&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 向bean内set数据 --&gt;</span><br><span class="line">    &lt;!--</span><br><span class="line">       1.set方法注入</span><br><span class="line">       2.构造方法(构造器)注入</span><br><span class="line">       3.接口注入</span><br><span class="line">     --&gt;</span><br><span class="line">    &lt;bean id=&quot;user2&quot;  class=&quot;com.yc.mybatis.bean.User&quot;&gt;</span><br><span class="line">       &lt;!-- 1.set方法注入 --&gt;</span><br><span class="line">       &lt;property name=&quot;id&quot;  value=&quot;1&quot;&gt;&lt;/property&gt;</span><br><span class="line">       &lt;property name=&quot;username&quot; value=&quot;武松&quot;&gt;&lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;bean id=&quot;user3&quot;  class=&quot;com.yc.mybatis.bean.User&quot;&gt;</span><br><span class="line">       &lt;!-- 2.构造方法(构造器)注入 --&gt;</span><br><span class="line">       &lt;constructor-arg name=&quot;username&quot;  value=&quot;李逵&quot; index=&quot;1&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">       &lt;constructor-arg name=&quot;id&quot; value=&quot;1&quot;  index=&quot;0&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">       &lt;constructor-arg name=&quot;password&quot;  value=&quot;123&quot; index=&quot;2&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">       </span><br><span class="line">       &lt;property name=&quot;hall&quot;  ref=&quot;hall&quot;&gt;&lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- ref 表示引用其他bean，写bean的id --&gt;</span><br><span class="line">    &lt;bean id=&quot;user4&quot;  class=&quot;com.yc.mybatis.bean.User&quot;&gt;</span><br><span class="line">       &lt;property name=&quot;hall&quot;  ref=&quot;hall&quot;&gt;&lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    &lt;bean id=&quot;hall&quot;  class=&quot;com.yc.mybatis.bean.Hall&quot;&gt;</span><br><span class="line">       &lt;property name=&quot;name&quot; value=&quot;小象&quot;&gt;&lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- bean对象中放入list对象 --&gt;</span><br><span class="line">    &lt;bean id=&quot;cinema&quot;  class=&quot;com.yc.mybatis.bean.Cinema&quot;&gt;</span><br><span class="line">       &lt;property name=&quot;halls&quot;&gt;</span><br><span class="line">           &lt;list&gt;</span><br><span class="line">               &lt;bean  class=&quot;com.yc.mybatis.bean.Hall&quot;&gt;</span><br><span class="line">                  &lt;property name=&quot;name&quot;  value=&quot;红旗&quot;&gt;&lt;/property&gt;</span><br><span class="line">               &lt;/bean&gt;</span><br><span class="line">               &lt;bean  class=&quot;com.yc.mybatis.bean.Hall&quot;&gt;</span><br><span class="line">                  &lt;property name=&quot;name&quot;  value=&quot;万达&quot;&gt;&lt;/property&gt;</span><br><span class="line">               &lt;/bean&gt;</span><br><span class="line">               &lt;bean  class=&quot;com.yc.mybatis.bean.Hall&quot;&gt;</span><br><span class="line">                  &lt;property name=&quot;name&quot;  value=&quot;红色&quot;&gt;&lt;/property&gt;</span><br><span class="line">               &lt;/bean&gt;</span><br><span class="line">               &lt;bean  class=&quot;com.yc.mybatis.bean.Hall&quot;&gt;</span><br><span class="line">                  &lt;property name=&quot;name&quot;  value=&quot;进步&quot;&gt;&lt;/property&gt;</span><br><span class="line">               &lt;/bean&gt;</span><br><span class="line">           &lt;/list&gt;</span><br><span class="line">       &lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    </span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Junit测试类</strong></p>
+<p>Test1.java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.spring.bean;</span><br><span class="line"></span><br><span class="line">import org.junit.Assert;</span><br><span class="line">import org.junit.Test;</span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line">import com.yc.mybatis.bean.Cinema;</span><br><span class="line">import com.yc.mybatis.bean.User;</span><br><span class="line"></span><br><span class="line">public class Test1 &#123;</span><br><span class="line"></span><br><span class="line">    //导入Spring配置文件</span><br><span class="line">    private ApplicationContext context = new ClassPathXmlApplicationContext(&quot;Beans.xml&quot;);</span><br><span class="line">    </span><br><span class="line">    @Test</span><br><span class="line">    public void test() &#123;</span><br><span class="line">        System.out.println(&quot;-------------测试开始------------&quot;);</span><br><span class="line">        //使用id获取bean需要做强制类型转换</span><br><span class="line">        User user1 = (User) context.getBean(&quot;user&quot;);</span><br><span class="line">        Assert.assertNotNull(user1);</span><br><span class="line">        User user2 = context.getBean(User.class);</span><br><span class="line">        User user3 = context.getBean(User.class);</span><br><span class="line">        Assert.assertNotEquals(user1, user2);</span><br><span class="line">        Assert.assertNotEquals(user1, user3);</span><br><span class="line">        //默认情况下，getBean同一个bean，返回同一个对象 user1 == user2</span><br><span class="line">        </span><br><span class="line">        System.out.println(&quot;------------------------------&quot;);</span><br><span class="line">        //测试动态的工厂方法</span><br><span class="line">        User user4 = (User) context.getBean(&quot;user1&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @Test</span><br><span class="line">    public void test1() &#123;</span><br><span class="line">        User user = (User) context.getBean(&quot;user2&quot;);</span><br><span class="line">        Assert.assertEquals(&quot;武松&quot;,user.getUsername());</span><br><span class="line">        Assert.assertEquals((Integer)1,user.getId());</span><br><span class="line">        </span><br><span class="line">        User user1 = (User) context.getBean(&quot;user3&quot;);</span><br><span class="line">        Assert.assertEquals(&quot;李逵&quot;,user1.getUsername());</span><br><span class="line">        Assert.assertEquals((Integer)1,user.getId());</span><br><span class="line">        </span><br><span class="line">        Assert.assertEquals(&quot;小象&quot;,user1.getHall().getName());</span><br><span class="line">        </span><br><span class="line">        User user2 = (User) context.getBean(&quot;user4&quot;);</span><br><span class="line">        Assert.assertEquals(user1.getHall(),user2.getHall());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @Test</span><br><span class="line">    public void test2() &#123;</span><br><span class="line">        Cinema c = context.getBean(Cinema.class);</span><br><span class="line">        Assert.assertEquals(4, c.getHalls().size());</span><br><span class="line">        Assert.assertEquals(&quot;进步&quot;,c.getHalls().get(3).getName());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>附加：Maven导入包</strong></p>
+<p>pom.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;!--  https://mvnrepository.com/artifact/org.springframework/spring-context --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">         &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">         &lt;artifactId&gt;spring-context&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.3.17.RELEASE&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">       &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">       &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">       &lt;version&gt;4.13&lt;/version&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC107%E6%AC%A1%E8%AF%BE%E7%A8%8B_%E6%B3%A8%E8%A7%A3/">第107次课程_注解<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC109%E6%AC%A1%E8%AF%BE%E7%A8%8B_Spring_IOC%E5%8E%9F%E7%90%86/">第109次课程_Spring_IOC原理<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

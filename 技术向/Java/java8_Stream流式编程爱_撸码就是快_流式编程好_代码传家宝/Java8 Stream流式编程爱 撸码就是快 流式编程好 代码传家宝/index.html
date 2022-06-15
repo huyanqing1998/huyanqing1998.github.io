@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>Java8 Stream流式编程爱 撸码就是快 流式编程好 代码传家宝 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="视频源：java8 Stream流式编程爱 撸码就是快，流式编程好 代码传家宝  函数式接口接口内仅有一个声明的方法。 @FunctionalInterface该注解用于声明该接口为函数式接口，并无什么作用，顶多当接口内存在两个及以上方法时该注解无法通过编译。 1234@FunctionalInterfacepublic interface demo &amp;#123;    void method;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java8 Stream流式编程爱 撸码就是快 流式编程好 代码传家宝">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/java8_Stream%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%88%B1_%E6%92%B8%E7%A0%81%E5%B0%B1%E6%98%AF%E5%BF%AB_%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A5%BD_%E4%BB%A3%E7%A0%81%E4%BC%A0%E5%AE%B6%E5%AE%9D/Java8%20Stream%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%88%B1%20%E6%92%B8%E7%A0%81%E5%B0%B1%E6%98%AF%E5%BF%AB%20%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A5%BD%20%E4%BB%A3%E7%A0%81%E4%BC%A0%E5%AE%B6%E5%AE%9D/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="视频源：java8 Stream流式编程爱 撸码就是快，流式编程好 代码传家宝  函数式接口接口内仅有一个声明的方法。 @FunctionalInterface该注解用于声明该接口为函数式接口，并无什么作用，顶多当接口内存在两个及以上方法时该注解无法通过编译。 1234@FunctionalInterfacepublic interface demo &amp;#123;    void method;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.hooy.xyz/image%5Cimage-20220513094612366.png">
+<meta property="article:published_time" content="2022-05-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-15T06:56:50.122Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="鲁班大叔">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.hooy.xyz/image%5Cimage-20220513094612366.png">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3"><span class="toc-text">函数式接口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#FunctionalInterface"><span class="toc-text">@FunctionalInterface</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8"><span class="toc-text">方法引用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stream-%E6%89%A7%E8%A1%8C%E6%9C%BA%E5%88%B6%E8%A7%A3%E5%AF%86"><span class="toc-text">Stream 执行机制解密</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%B5%81"><span class="toc-text">创建流</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%B5%81%E7%9A%84%E7%94%9F%E6%88%90%E4%B8%8E%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E4%BD%BF%E7%94%A8"><span class="toc-text">1. 流的生成与不可重复使用</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8A%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9%E5%8F%AF%E4%BB%A5%E5%BD%B1%E5%93%8D%E4%B8%8B%E4%B8%80%E4%B8%AA%E8%8A%82%E7%82%B9"><span class="toc-text">上一个节点可以影响下一个节点</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Debug-%E6%96%B9%E6%B3%95"><span class="toc-text">Debug 方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%87%E9%9B%86"><span class="toc-text">采集</span></a></li></ol></li></ol></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/java8-Stream%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B%E7%88%B1-%E6%92%B8%E7%A0%81%E5%B0%B1%E6%98%AF%E5%BF%AB-%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%A5%BD-%E4%BB%A3%E7%A0%81%E4%BC%A0%E5%AE%B6%E5%AE%9D/">java8_Stream流式编程爱_撸码就是快_流式编程好_代码传家宝</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-05-12T16:00:00.000Z">2022-05-13</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>Java8 Stream流式编程爱 撸码就是快 流式编程好 代码传家宝</span></h1>
+<blockquote>
+<p>视频源：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Mp4y1S7Em">java8 Stream流式编程爱 撸码就是快，流式编程好 代码传家宝</a></p>
+</blockquote>
+<h3 id="函数式接口"><a href="#函数式接口" class="headerlink" title="函数式接口"></a>函数式接口</h3><p>接口内仅有一个声明的方法。</p>
+<h4 id="FunctionalInterface"><a href="#FunctionalInterface" class="headerlink" title="@FunctionalInterface"></a>@FunctionalInterface</h4><p>该注解用于声明该接口为函数式接口，并无什么作用，顶多当接口内存在两个及以上方法时该注解无法通过编译。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">demo</span> &#123;</span><br><span class="line">    <span class="keyword">void</span> method;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法引用"><a href="#方法引用" class="headerlink" title="方法引用"></a>方法引用</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">run(SimpleLamdba::doFormatStatic); <span class="comment">// 静态方法引用</span></span><br><span class="line">run(<span class="keyword">new</span> <span class="title class_">SimpleLamdba</span>()::doFormat); <span class="comment">// 普通方法引用</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title function_">doFormatStatic</span><span class="params">(String param)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;name&quot;</span> + param;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">doFormat</span><span class="params">(String param)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;name&quot;</span> + param;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Stream-执行机制解密"><a href="#Stream-执行机制解密" class="headerlink" title="Stream 执行机制解密"></a>Stream 执行机制解密</h3><ul>
+<li>Stream 不存储数据，不用担心内存溢出；</li>
+<li>Stream 不改变源数据；</li>
+<li>Stream 不可重复使用。</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image%5Cimage-20220513094612366.png" alt="image-20220513094612366"></p>
+<ul>
+<li>“过滤” 和 “排序” 可以拥有多个，“采集” 只能拥有一个。</li>
+<li>“过滤” 和 “排序” 是懒节点，只有当执行 “采集” 节点时，前面的节点才执行，否则将即便是写了 “过滤” 和 “排序” 代码也不执行。</li>
+</ul>
+<h4 id="创建流"><a href="#创建流" class="headerlink" title="创建流"></a>创建流</h4><p>用例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> List&lt;Apple&gt; appleStore = Arrays.asList(</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Apple</span>(<span class="number">1</span>, <span class="string">&quot;red&quot;</span>, <span class="number">500</span>, <span class="string">&quot;湖南&quot;</span>),</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Apple</span>(<span class="number">2</span>, <span class="string">&quot;red&quot;</span>, <span class="number">100</span>, <span class="string">&quot;天津&quot;</span>),</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Apple</span>(<span class="number">3</span>, <span class="string">&quot;green&quot;</span>, <span class="number">300</span>, <span class="string">&quot;湖南&quot;</span>),</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Apple</span>(<span class="number">4</span>, <span class="string">&quot;green&quot;</span>, <span class="number">200</span>, <span class="string">&quot;天津&quot;</span>),</span><br><span class="line">            <span class="keyword">new</span> <span class="title class_">Apple</span>(<span class="number">5</span>, <span class="string">&quot;green&quot;</span>, <span class="number">100</span>, <span class="string">&quot;湖南&quot;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>向 Stream 转换方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// list -&gt; stream</span></span><br><span class="line"><span class="comment">// Method 01:</span></span><br><span class="line">appleStore.stream();</span><br><span class="line"><span class="comment">// Method 02:</span></span><br><span class="line">Arrays.stream(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;);</span><br><span class="line"><span class="comment">// Method 03:</span></span><br><span class="line">Stream.of(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-流的生成与不可重复使用"><a href="#1-流的生成与不可重复使用" class="headerlink" title="1. 流的生成与不可重复使用"></a>1. 流的生成与不可重复使用</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;Apple&gt; stream1 = appleStore.stream();</span><br><span class="line">Stream&lt;Apple&gt; stream2 = stream1.filter(a -&gt; a.getColor().equals(<span class="string">&quot;red&quot;</span>));</span><br><span class="line">Stream&lt;Apple&gt; stream3 = stream1.filter(a -&gt; a.getWeight() &gt; <span class="number">100</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行结果报错</span></span><br></pre></td></tr></table></figure>
+
+<p>stream2 流使用了 stream1 流，stream1 流销毁，当 stream3 流使用 stream1 流时执行报错。</p>
+<h5 id="上一个节点可以影响下一个节点"><a href="#上一个节点可以影响下一个节点" class="headerlink" title="上一个节点可以影响下一个节点"></a>上一个节点可以影响下一个节点</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">appleStore.stream()</span><br><span class="line">    .fillter(a -&gt; a.getColor().equals(<span class="string">&quot;red&quot;</span>) || a.getColor().equals(<span class="string">&quot;green&quot;</span>)) <span class="comment">// 过滤</span></span><br><span class="line">    .map(a -&gt; a.getColor()) <span class="comment">// 将 Apple 对象转换为 String 字符串</span></span><br><span class="line">    .distinct() <span class="comment">// 去重</span></span><br><span class="line">    .peek(color -&gt; System.out.println(color)) <span class="comment">// 打印</span></span><br><span class="line">    .toArray();</span><br></pre></td></tr></table></figure>
+
+<h5 id="Debug-方法"><a href="#Debug-方法" class="headerlink" title="Debug 方法"></a>Debug 方法</h5><p>详见视频进度： <code>1:02:00</code></p>
+<h5 id="采集"><a href="#采集" class="headerlink" title="采集"></a>采集</h5><ol>
+<li>list</li>
+<li>map</li>
+<li>group by</li>
+<li>数组</li>
+<li>最大值</li>
+<li>求任意值</li>
+</ol>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P04%20-%20P06%20IOC%E5%AE%B9%E5%99%A8%EF%BC%88%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%EF%BC%89/">P04 - P06 IOC容器（底层原理）<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P25%20-%20P32%20AOP/">P24 - P32 AOP<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

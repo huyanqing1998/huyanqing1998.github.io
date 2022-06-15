@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第43次课程 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰74班 第43次课程 07.21.2019 **内容    ** Oracle_项目案例[张影] 1.案例_BBS –原始表结构及数据如下 create table tbl_user(   userid int primary key,  –账户   uname varchar2(20),      –用户名   upass varchar2(100),     –密码   head varc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第43次课程">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC43%E6%AC%A1%E8%AF%BE%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰74班 第43次课程 07.21.2019 **内容    ** Oracle_项目案例[张影] 1.案例_BBS –原始表结构及数据如下 create table tbl_user(   userid int primary key,  –账户   uname varchar2(20),      –用户名   upass varchar2(100),     –密码   head varc">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.hooy.xyz/image/1.PNG">
+<meta property="og:image" content="http://blog.hooy.xyz/image/1.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/2.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/342e6a440303710c436ca87eb2f2f843.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/564228a141cf0007a12c774fc4cb296c.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/4.png">
+<meta property="article:published_time" content="2019-07-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T01:16:36.421Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.hooy.xyz/image/1.PNG">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2019-07-20T16:00:00.000Z">2019-07-21</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第43次课程</span></h1>
+<p><strong>源辰74班</strong></p>
+<p><strong>第43次课程</strong></p>
+<p><strong>07.21.2019</strong></p>
+<p>**内容    **</p>
+<p><strong>Oracle_项目案例[张影]</strong></p>
+<p><strong>1.案例_BBS</strong></p>
+<p><em>–原始表结构及数据如下</em></p>
+<p>create table tbl_user(</p>
+<p>  userid int primary key,  <em>–账户</em></p>
+<p>  uname varchar2(20),      <em>–用户名</em></p>
+<p>  upass varchar2(100),     <em>–密码</em></p>
+<p>  head varchar2(100),      <em>–头像</em></p>
+<p>  regtime date,            <em>–注册时间</em></p>
+<p>  gender int <em>–性别</em></p>
+<p>);</p>
+<p>create sequence seq_tbl_user_uid;</p>
+<p>drop sequence seq_tbl_user_uid;</p>
+<p>insert into tbl_user (userid,uname,upass,head,regtime,gender) values(seq_tbl_user_uid.nextval,’a’,’a’,’1.gif’,sysdate,1);</p>
+<p>insert into tbl_user (userid,uname,upass,head,regtime,gender) values(seq_tbl_user_uid.nextval,’b’,’b’,’2.gif’,sysdate,1);</p>
+<p>select * from tbl_user;</p>
+<p>delete from tbl_user;</p>
+<p><em>–板块</em></p>
+<p>create table tbl_board(</p>
+<p>  boardid int primary key,    <em>–板块地址</em></p>
+<p>  boardname varchar2(50),     <em>–板块名称</em></p>
+<p>  parentid int <em>–父板块</em></p>
+<p>);</p>
+<p>create sequence seq_tabl_board_boardid;</p>
+<p>insert into tbl_board(boardid,boardname,parentid) values(seq_tabl_board_boardid.nextval,’.net’,0);</p>
+<p>insert into tbl_board(boardid,boardname,parentid) values(seq_tabl_board_boardid.nextval,’java’,0);</p>
+<p>insert into tbl_board(boardid,boardname,parentid) values(seq_tabl_board_boardid.nextval,’db’,0);</p>
+<p>insert into tbl_board(boardid,boardname,parentid) values(seq_tabl_board_boardid.nextval,’project’,0);</p>
+<p>insert into tbl_board(boardid,boardname,parentid) values(seq_tabl_board_boardid.nextval,’<a target="_blank" rel="noopener" href="http://ado.net/">ado.net</a>‘,1);</p>
+<p>insert into tbl_board(boardid,boardname,parentid) values(seq_tabl_board_boardid.nextval,’<a target="_blank" rel="noopener" href="http://asp.net/">asp.net</a>‘,1);</p>
+<p>insert into tbl_board(boardid,boardname,parentid) values(seq_tabl_board_boardid.nextval,’<a target="_blank" rel="noopener" href="http://vb.net/">vb.net</a>‘,1);</p>
+<p>insert into tbl_board(boardid,boardname,parentid) values(seq_tabl_board_boardid.nextval,’jsp’,2);</p>
+<p>insert into tbl_board(boardid,boardname,parentid) values(seq_tabl_board_boardid.nextval,’struts’,2);</p>
+<p>insert into tbl_board(boardid,boardname,parentid) values(seq_tabl_board_boardid.nextval,’hibernate’,2);</p>
+<p>insert into tbl_board(boardid,boardname,parentid) values(seq_tabl_board_boardid.nextval,’sql’,3);</p>
+<p>insert into tbl_board(boardid,boardname,parentid) values(seq_tabl_board_boardid.nextval,’oracle’,3);</p>
+<p>insert into tbl_board(boardid,boardname,parentid) values(seq_tabl_board_boardid.nextval,’mysql’,3);</p>
+<p>select * from tbl_board;</p>
+<p><em>–主题帖</em></p>
+<p>create table tbl_topic(</p>
+<p>  topicid int primary key ,</p>
+<p>  title varchar2(50),</p>
+<p> content varchar2(1000),</p>
+<p>  publishtime TIMESTAMP,</p>
+<p>  modifytime TIMESTAMP,</p>
+<p>  userid int,</p>
+<p>  boardid int</p>
+<p>);</p>
+<p>create sequence seq_tbl_topic_topicid;</p>
+<p>drop sequence seq_tbl_topic_topicid;</p>
+<p>alter table tbl_topic</p>
+<p> add constraint FK_topic_uid</p>
+<p> foreign key(userid) references tbl_user(userid);</p>
+<p>alter table tbl_topic</p>
+<p> add constraint FK_topic_boardid</p>
+<p> foreign key(boardid) references tbl_board(boardid);</p>
+<p>insert into tbl_topic(topicid,title,content,publishtime,modifytime,userid,boardid)</p>
+<p>values(seq_tbl_topic_topicid.nextval,’jsp  good’,’ good,i agree’,sysdate,sysdate,1,8);</p>
+<p>insert into tbl_topic(topicid,title,content,publishtime,modifytime,userid,boardid)</p>
+<p>values(seq_tbl_topic_topicid.nextval,’jsp is very good’,’very good,i agree’,sysdate,sysdate,1,8);</p>
+<p>select * from tbl_topic;</p>
+<p>delete from tbl_topic;</p>
+<p>create table tbl_reply(</p>
+<p>  replyid int primary key ,</p>
+<p>  title varchar2(50),</p>
+<p> content varchar2(1000),</p>
+<p>  publishtime TIMESTAMP,</p>
+<p>  modifytime TIMESTAMP,</p>
+<p>  userid int,</p>
+<p>  topicid int</p>
+<p>);</p>
+<p>create sequence seq_tbl_reply_replyid;</p>
+<p>alter table tbl_reply</p>
+<p> add constraint FK_reply_uid</p>
+<p> foreign key(userid) references tbl_user(userid);</p>
+<p>alter table tbl_reply</p>
+<p> add constraint FK_reply_topicid</p>
+<p> foreign key(topicid) references tbl_topic(topicid);</p>
+<p>_—————————————————————    _</p>
+<p><em>–需求二：求出某个板块下按分页条件查询的贴子</em></p>
+<p><em>–输出要求：1.分页 2.统计每个帖子下有多少回复数 3.某一个板块开始</em></p>
+<p><em>–图片二的效果</em></p>
+<p><em>—————————————————————</em></p>
+<p><em>–基础数据</em></p>
+<p>insert into tbl_reply(replyid,title,content,publishtime,modifytime,userid,topicid)</p>
+<p>values (seq_tbl_reply_replyid.nextval,’jsp is very good reply’,’very good,i agree reply’,sysdate,sysdate,2,2);</p>
+<p>select * from tbl_reply;</p>
+<p><em>—————-</em></p>
+<p><em>–自己练习，已废弃</em></p>
+<p>select a.boardid as 地址,a.parentid as 板块,a.boardname as 论坛,count(tbl_topic.topicid) as 发帖数,nvl(tbl_user.uname,’帖子的作者’)</p>
+<p>||’[‘||</p>
+<p>nvl(to_char(tbl_topic.publishtime,’yyyy-mm-dd hh:mm:ss’),’这个帖子最后发布的时间’)</p>
+<p>||’]’ as 最后发表</p>
+<p>from tbl_board a</p>
+<p>left join tbl_topic on tbl_topic.boardid &#x3D; a.boardid</p>
+<p>left join tbl_user on tbl_topic.userid &#x3D; tbl_user.userid</p>
+<p>where a.parentid !&#x3D; 0</p>
+<p>group by a.boardid,a.boardname,a.parentid,tbl_user.uname,tbl_topic.publishtime</p>
+<p>order by 板块 asc;</p>
+<p><em>—————-</em></p>
+<p><em>–&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;———————</em></p>
+<p><em>–1.先查出板块最新帖子的修改时间</em></p>
+<p>select boardid,max(modifytime) as modifytime</p>
+<p>from tbl_topic</p>
+<p>group by  boardid;</p>
+<p><em>–2.再查出每个帖子的信息，关键是发帖人的信息（名字，编号），贴子标题，贴子编号</em></p>
+<p>select topicid,title,modifytime,tbl_user.userid as userid,uname,boardid</p>
+<p>from tbl_topic</p>
+<p>left join tbl_user</p>
+<p>on tbl_topic.userid &#x3D; tbl_user.userid;</p>
+<p><em>–3.将上面两步整合，求每个板块最后一个贴子的信息</em></p>
+<p>select title,uname,a.modifytime,topicid,a.boardid</p>
+<p>from (</p>
+<p> select boardid,max(modifytime) as modifytime</p>
+<p> from tbl_topic</p>
+<p> group by  boardid</p>
+<p>     ) a,</p>
+<p>     (</p>
+<p> select topicid,title,modifytime,tbl_user.userid as userid,uname,boardid</p>
+<p> from tbl_topic</p>
+<p> left join tbl_user</p>
+<p> on tbl_topic.userid &#x3D; tbl_user.userid</p>
+<p>     ) b</p>
+<p>where a.boardid &#x3D; b.boardid and a.modifytime &#x3D; b.modifytime;</p>
+<p><em>–4.统计每个板块的贴子数</em></p>
+<p>select tbl_board.boardid as boardid,boardname,parentid,count(tbl_topic.topicid)</p>
+<p>from tbl_board</p>
+<p>left join tbl_topic</p>
+<p>on tbl_board.boardid &#x3D; tbl_topic.boardid</p>
+<p>group by tbl_board.boardid,boardname,parentid;</p>
+<p><em>–5.使用左外联将板块信息和板块下最新贴子信息整合</em></p>
+<p>select b.boardid as boardid,boardname,parentid,total,topicid,title,modifytime,userid,uname</p>
+<p>from (</p>
+<p> select title,uname,a.modifytime,topicid,a.boardid,userid</p>
+<p> from (</p>
+<p> select boardid,max(modifytime) as modifytime</p>
+<p> from tbl_topic</p>
+<p> group by  boardid</p>
+<p>           ) a,</p>
+<p>          (</p>
+<p> select topicid,title,modifytime,tbl_user.userid as userid,uname,boardid</p>
+<p> from tbl_topic</p>
+<p> left join tbl_user</p>
+<p> on tbl_topic.userid &#x3D; tbl_user.userid</p>
+<p>           ) b</p>
+<p> where a.boardid &#x3D; b.boardid and a.modifytime &#x3D; b.modifytime</p>
+<p>     ) a</p>
+<p>right join</p>
+<p>     (</p>
+<p> select tbl_board.boardid as boardid,boardname,parentid,count(tbl_topic.topicid) as total</p>
+<p> from tbl_board</p>
+<p> left join tbl_topic</p>
+<p> on tbl_board.boardid &#x3D; tbl_topic.boardid</p>
+<p> group by tbl_board.boardid,boardname,parentid</p>
+<p>     ) b</p>
+<p>on a.boardid &#x3D; b.boardid;</p>
+<p><em>—————&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;——</em></p>
+<p><em>–1.统计每个贴子的回复数量</em></p>
+<p>select topicid,count(replyid) as total</p>
+<p>from tbl_reply</p>
+<p>group by topicid;</p>
+<p><em>–2.按分页条件查这个boardid下当前页的贴子信息</em></p>
+<p><em>–boardid:以后由java程序传来的参数</em></p>
+<p><em>–pages：第几页</em></p>
+<p><em>–pagesize：每页几条</em></p>
+<p>select *</p>
+<p>from (</p>
+<p> select rownum as rn,a.*</p>
+<p> from(</p>
+<p> select topicid,title,content,publishtime,modifytime,tbl_user.userid as userid,uname,boardid</p>
+<p> from tbl_topic</p>
+<p> inner join tbl_user</p>
+<p> on tbl_topic.userid &#x3D; tbl_user.userid</p>
+<p> where boardid &#x3D; 8</p>
+<p> order by modifytime desc</p>
+<p>            ) a</p>
+<p> where rownum &lt;&#x3D; 5</p>
+<p>      )</p>
+<p>where rn &gt;&#x3D; 1;</p>
+<p><em>–3.合并以下</em></p>
+<p>select a.topicid,title,content,publishtime,modifytime,userid,uname,boardid,total</p>
+<p>from (</p>
+<p> select *</p>
+<p> from (</p>
+<p> select rownum as rn,a.*</p>
+<p> from(</p>
+<p> select topicid,title,content,publishtime,modifytime,tbl_user.userid as userid,uname,boardid</p>
+<p> from tbl_topic</p>
+<p> inner join tbl_user</p>
+<p> on tbl_topic.userid &#x3D; tbl_user.userid</p>
+<p> where boardid &#x3D; 8</p>
+<p> order by modifytime desc</p>
+<p>                  ) a</p>
+<p> where rownum &lt;&#x3D; 5</p>
+<p>            )</p>
+<p> where rn &gt;&#x3D; 1</p>
+<p>      ) a</p>
+<p>left join</p>
+<p>     (</p>
+<p> select topicid,count(replyid) as total</p>
+<p> from tbl_reply</p>
+<p> group by topicid</p>
+<p>     ) b</p>
+<p>on a.topicid &#x3D; b.topicid</p>
+<p>order by modifytime desc;</p>
+<p><em>–4.更高级：优化版</em></p>
+<p>select a.topicid,title,content,publishtime,modifytime,userid,uname,boardid,total</p>
+<p>from (</p>
+<p> select *</p>
+<p> from (</p>
+<p> select rownum as rn,a.*</p>
+<p> from(</p>
+<p> select topicid,title,content,publishtime,modifytime,tbl_user.userid as userid,uname,boardid</p>
+<p> from tbl_topic</p>
+<p> inner join tbl_user</p>
+<p> on tbl_topic.userid &#x3D; tbl_user.userid</p>
+<p> where boardid &#x3D; 8</p>
+<p> order by modifytime desc</p>
+<p>                  ) a</p>
+<p> where rownum &lt;&#x3D; 5</p>
+<p>            )</p>
+<p> where rn &gt;&#x3D; 1</p>
+<p>      ) a</p>
+<p>left join</p>
+<p>     (</p>
+<p> select topicid,count(replyid) as total</p>
+<p> from tbl_reply</p>
+<p> where topicid in(</p>
+<p> select topicid</p>
+<p> from (</p>
+<p> select rownum as rn,a.*</p>
+<p> from (</p>
+<p> select topicid</p>
+<p> from tbl_topic</p>
+<p> inner join tbl_user</p>
+<p> on tbl_topic.userid &#x3D; tbl_user.userid</p>
+<p> where boardid &#x3D; 8</p>
+<p> order by modifytime desc</p>
+<p>                                 ) a</p>
+<p> where rownum &lt;&#x3D; 5</p>
+<p>                            )</p>
+<p> where rn &gt;&#x3D; 1</p>
+<p>                       )</p>
+<p> group by topicid</p>
+<p>      ) b</p>
+<p>on a.topicid &#x3D; b.topicid</p>
+<p>order by modifytime desc;</p>
+<p><strong>目标</strong></p>
+<p>**<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/1.PNG" alt="1.PNG"></p>
+<p>**</p>
+<p><strong>讲师源码图</strong></p>
+<p>**<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/1.png" alt="1.png"></p>
+<p>**</p>
+<p>**<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/2.png" alt="2.png"></p>
+<p>**</p>
+<p><strong>2.奇偶行统计</strong></p>
+<p><em>&#x2F;*</em></p>
+<p><em>只能依靠标识列的值来进行判断和选取</em></p>
+<p><em>因为数据行可能存在增加、修改和删除，因此标识列的数据值并不“完全可靠”，例如标识列值为3，并不一定是第三行，因为如果第二行被删除了，它就是第二行，实际上也是偶数行</em></p>
+<p><em>根据我们前面使用过的SELECT…INTO，可以创建一张新表，顺便创建新的标识列，再在新的标识列上执行奇偶判断</em></p>
+<p><em>奇数判断依据：标识列值%2不等于0；偶数判断依据：标识列值%2等于0</em></p>
+<p><em>*&#x2F;</em></p>
+<p>create table test1(</p>
+<p>       tid int primary key,</p>
+<p>       tname varchar2(10),</p>
+<p>       price number(6)</p>
+<p>);</p>
+<p>insert into test1 values(1,’苹果’,56);</p>
+<p>insert into test1 values(3,’香蕉’,435);</p>
+<p>insert into test1 values(5,’橘子’,234);</p>
+<p>insert into test1 values(6,’火龙果’,187);</p>
+<p>insert into test1 values(7,’猕猴桃’,323);</p>
+<p>insert into test1 values(8,’樱桃’,450);</p>
+<p>insert into test1 values(10,’西瓜’,686);</p>
+<p>commit;</p>
+<p><em>–奇偶行统计</em></p>
+<p>select</p>
+<p>decode(rn,1,’奇数行统计’,’偶数行统计’),sum(a.price) as 结果</p>
+<p>from(</p>
+<p> select t.*,mod(rownum,2) rn</p>
+<p> from test1 t</p>
+<p>     ) a</p>
+<p>group by rn;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/342e6a440303710c436ca87eb2f2f843.png" alt="342e6a440303710c436ca87eb2f2f843.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/564228a141cf0007a12c774fc4cb296c.png" alt="564228a141cf0007a12c774fc4cb296c.png"></p>
+<p><strong>3.extract() 拆分日期类型</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/4.png" alt="4.png"></p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC42%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第42次课程<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC44%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第44次课程<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>18_Geospatial地理位置详解 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="18 Geospatial地理位置详解 Redis最新超详细版教程通俗易懂   特点 适用于 地理位置  Geospatial 简称 GEO GEOADD 向地图里添加一个位置 参数：地图名 经度 纬度 地名 1GEOADD china:city 121.47 31.23 shanghai   GEOPOS 根据地名查询具体位置 参数：地图名 地名 1234GEOPOS china:city be">
+<meta property="og:type" content="article">
+<meta property="og:title" content="18_Geospatial地理位置详解">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/18_Geospatial%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="18 Geospatial地理位置详解 Redis最新超详细版教程通俗易懂   特点 适用于 地理位置  Geospatial 简称 GEO GEOADD 向地图里添加一个位置 参数：地图名 经度 纬度 地名 1GEOADD china:city 121.47 31.23 shanghai   GEOPOS 根据地名查询具体位置 参数：地图名 地名 1234GEOPOS china:city be">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.hooy.xyz/image/d7a8f6f44150628a55d5be71ff680e61.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/f4ec73729070dfcc7466c923fcbfdb20.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/64997bd3e2584c9c1cc95cdec8038142.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/f552d41dc17a7982f883f437c0486f18.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/d5c0d5ac2fb141467812b7bfcb69a729.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/c92209411d1e8775381c69f1ec639074.png">
+<meta property="article:published_time" content="2020-08-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-15T07:03:48.955Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="遇见狂神说">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.hooy.xyz/image/d7a8f6f44150628a55d5be71ff680e61.png">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#18-Geospatial%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3"><span class="toc-text">18 Geospatial地理位置详解</span></a></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/">Redis</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/">Redis最新超详细版教程通俗易懂</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-08-15T16:00:00.000Z">2020-08-16</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>18_Geospatial地理位置详解</span></h1>
+<h2 id="18-Geospatial地理位置详解"><a href="#18-Geospatial地理位置详解" class="headerlink" title="18 Geospatial地理位置详解"></a>18 Geospatial地理位置详解</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1S54y1R7SB">Redis最新超详细版教程通俗易懂</a></p>
+</blockquote>
+<blockquote>
+<p>特点</p>
+<p>适用于 地理位置</p>
+</blockquote>
+<p>Geospatial 简称 <strong>GEO</strong></p>
+<p><code>GEOADD</code> 向地图里添加一个位置</p>
+<p>参数：地图名 经度 纬度 地名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GEOADD china:city 121.47 31.23 shanghai</span><br></pre></td></tr></table></figure>
+
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/d7a8f6f44150628a55d5be71ff680e61.png" alt="d7a8f6f44150628a55d5be71ff680e61.png"></p>
+<p><code>GEOPOS</code> 根据地名查询具体位置</p>
+<p>参数：地图名 地名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GEOPOS china:city beijing</span><br><span class="line"></span><br><span class="line"># 同时获取多个地点位置</span><br><span class="line">GEOPOS china:city beijing chongqing</span><br></pre></td></tr></table></figure>
+
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/f4ec73729070dfcc7466c923fcbfdb20.png" alt="f4ec73729070dfcc7466c923fcbfdb20.png"></p>
+<p><code>GEODIST</code> 返回两个给定位置的距离（直线距离）</p>
+<p>指定单位参数 unit 必须是以下单位的其中一个：</p>
+<ul>
+<li>m 表示单位为米</li>
+<li>km 表示单位为千米</li>
+<li>mi 表示单位为英里</li>
+<li>ft 表示单位为英尺</li>
+</ul>
+<p>默认使用米作为单位。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">GEODIST china:city beijing shanghai</span><br><span class="line"></span><br><span class="line"># 单位km千米</span><br><span class="line">GEODIST china:city beijing shanghai km</span><br></pre></td></tr></table></figure>
+
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/64997bd3e2584c9c1cc95cdec8038142.png" alt="64997bd3e2584c9c1cc95cdec8038142.png"></p>
+<p><code>GEORADIUS</code> 以给定的经纬度为中心，找出某一半径内的元素</p>
+<blockquote>
+<p>附近的人</p>
+</blockquote>
+<p>参数：地图名 中心点经度 中线点纬度 半径值 单位</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GEORADIUS china:city 110 30 500 km</span><br><span class="line"></span><br><span class="line"># 带上相距直线距离</span><br><span class="line">GEORADIUS china:city 110 30 500 km withdist</span><br><span class="line"></span><br><span class="line"># 带上经纬度</span><br><span class="line">GEORADIUS china:city 110 30 500 km withcoord</span><br><span class="line"></span><br><span class="line"># 限定返回个数使用 count</span><br><span class="line">GEORADIUS china:city 110 30 500 km withcoord count 1</span><br></pre></td></tr></table></figure>
+
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/f552d41dc17a7982f883f437c0486f18.png" alt="f552d41dc17a7982f883f437c0486f18.png"></p>
+<p><code>GEORADIUSBYMEMBER</code> 以某个元素为中心，找出半径内的元素</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GEORADIUSBYMEMBER china:city beijing 1000 km</span><br></pre></td></tr></table></figure>
+
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/d5c0d5ac2fb141467812b7bfcb69a729.png" alt="d5c0d5ac2fb141467812b7bfcb69a729.png"></p>
+<p><code>GEOHASH</code> 返回一个11位字符的字符串，代表某地位置，损失精度</p>
+<p>将二维的经纬度转换成一维的字符串，如果两个字符越接近，那么距离越近。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GEOHASH china:city beijing chongqing</span><br></pre></td></tr></table></figure>
+
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/c92209411d1e8775381c69f1ec639074.png" alt="c92209411d1e8775381c69f1ec639074.png"></p>
+<p>GEO 底层的实现原理其实是Zset，我们可以使用Zset命令操作GEO。</p>
+<p>因此，想要移除一个地点，可以使用 <code>ZREM</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZREM china:city beijing</span><br></pre></td></tr></table></figure>
+
+
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/19_Hyperloglog%E5%9F%BA%E6%95%B0%E7%BB%9F%E8%AE%A1/">19_Hyperloglog基数统计<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/17_Zset%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88%E8%AF%A6%E8%A7%A3/">17_Zset有序集合详解<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

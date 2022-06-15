@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第110次课程_Spring_AOP - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰76班 第110次课程 2020.02.21 内容 Spring_AOP 项目路径： 1.[注解方式]自动装配 和 [xml方式]包扫描 案例是以 注解方式 和 xml方式 混合 自动装配部分 方法注解： 123@Controller    &#x2F;&#x2F;Action 控制器@Service       &#x2F;&#x2F;Biz    @Repository    &#x2F;&#x2F;Dao  属性注解： 1@Autowired">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第110次课程_Spring_AOP">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC110%E6%AC%A1%E8%AF%BE%E7%A8%8B_Spring_AOP/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰76班 第110次课程 2020.02.21 内容 Spring_AOP 项目路径： 1.[注解方式]自动装配 和 [xml方式]包扫描 案例是以 注解方式 和 xml方式 混合 自动装配部分 方法注解： 123@Controller    &#x2F;&#x2F;Action 控制器@Service       &#x2F;&#x2F;Biz    @Repository    &#x2F;&#x2F;Dao  属性注解： 1@Autowired">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.hooy.xyz/image/.png">
+<meta property="article:published_time" content="2020-02-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T01:32:25.440Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.hooy.xyz/image/.png">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-02-20T16:00:00.000Z">2020-02-21</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第110次课程_Spring_AOP</span></h1>
+<p><strong>源辰76班</strong></p>
+<p><strong>第110次课程</strong></p>
+<p><strong>2020.02.21</strong></p>
+<p><strong>内容</strong></p>
+<p><strong>Spring_AOP</strong></p>
+<p><strong>项目路径：</strong></p>
+<p><strong>1.[注解方式]自动装配 和 [xml方式]包扫描</strong></p>
+<p><strong>案例是以 注解方式 和 xml方式 混合</strong></p>
+<p><strong>自动装配部分</strong></p>
+<p>方法注解：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@Controller    //Action 控制器</span><br><span class="line">@Service       //Biz    </span><br><span class="line">@Repository    //Dao</span><br></pre></td></tr></table></figure>
+
+<p>属性注解：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@Autowired    //private 属性</span><br></pre></td></tr></table></figure>
+
+<p><strong>例</strong>：</p>
+<p>BankAction.java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.spring.bank.action;</span><br><span class="line">import  org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import  org.springframework.stereotype.Controller;</span><br><span class="line">import com.yc.spring.bank.bean.Account;</span><br><span class="line">import com.yc.spring.bank.biz.AccountBiz;</span><br><span class="line">import com.yc.spring.bank.biz.RecordBiz;</span><br><span class="line">/**</span><br><span class="line">* SpringMVC 控制器</span><br><span class="line">*/</span><br><span class="line">@Controller</span><br><span class="line">public class BankAction &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private AccountBiz aBiz;</span><br><span class="line">    @Autowired</span><br><span class="line">    private RecordBiz rBiz;</span><br><span class="line">    /**</span><br><span class="line">     * 存款</span><br><span class="line">     * @param account</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public String deposit(Account account) &#123;</span><br><span class="line">       aBiz.deposit(account);</span><br><span class="line">       return &quot;details&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 取款</span><br><span class="line">     * @param account</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public String withdraw(Account account)  &#123;</span><br><span class="line">       aBiz.withdraw(account);</span><br><span class="line">       return &quot;details&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 转账</span><br><span class="line">     * @param account1</span><br><span class="line">     * @param account2</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public String transfer(Account account1,  Account account2) &#123;</span><br><span class="line">       aBiz.transfer(account1, account2);</span><br><span class="line">       return &quot;details&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    /**</span><br><span class="line">     * 查询交易明细</span><br><span class="line">     * @param accountId</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    public String details(int accountId) &#123;</span><br><span class="line">       rBiz.queryByAccountId(accountId);</span><br><span class="line">       return &quot;details&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>AccountBiz.java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.spring.bank.biz;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line">import com.yc.spring.bank.bean.Account;</span><br><span class="line">import com.yc.spring.bank.bean.Record;</span><br><span class="line">import com.yc.spring.bank.dao.AccountDao;</span><br><span class="line">import com.yc.spring.bank.dao.RecordDao;</span><br><span class="line"></span><br><span class="line">@Service</span><br><span class="line">public class AccountBiz &#123;</span><br><span class="line">    </span><br><span class="line">    @Autowired</span><br><span class="line">    private AccountDao aDao;</span><br><span class="line">    @Autowired</span><br><span class="line">    private RecordDao rDao;</span><br><span class="line">    </span><br><span class="line">    /**</span><br><span class="line">     *     存款业务</span><br><span class="line">     */</span><br><span class="line">    public void deposit(Account account) &#123;</span><br><span class="line">        System.out.println(&quot;模拟存款业务！&quot;);</span><br><span class="line">        aDao.update(account);</span><br><span class="line">        rDao.insert(new Record());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /**</span><br><span class="line">     *     取款业务</span><br><span class="line">     */</span><br><span class="line">    public void withdraw(Account account) &#123;</span><br><span class="line">        System.out.println(&quot;模拟取款业务！&quot;);</span><br><span class="line">        aDao.update(account);</span><br><span class="line">        rDao.insert(new Record());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /**</span><br><span class="line">     *     转账业务</span><br><span class="line">     */</span><br><span class="line">    public void transfer(Account account1, Account account2) &#123;</span><br><span class="line">        System.out.println(&quot;模拟转账业务！&quot;);</span><br><span class="line">        aDao.update(account1);</span><br><span class="line">        aDao.update(account2);</span><br><span class="line">        rDao.insert(new Record());</span><br><span class="line">        rDao.insert(new Record());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>包扫描部分</strong></p>
+<p>xml配置文件中使用</p>
+<p>bank-beans.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans  xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</span><br><span class="line">    xmlns:p=&quot;http://www.springframework.org/schema/p&quot;</span><br><span class="line">    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</span><br><span class="line">     http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">     http://www.springframework.org/schema/context</span><br><span class="line">      http://www.springframework.org/schema/context/spring-context.xsd&quot;&gt;</span><br><span class="line">     </span><br><span class="line">     &lt;!-- 相当于java注解：@ComponentScan(&quot;com.yc.spring.bank&quot;) 包扫描 --&gt;</span><br><span class="line">    &lt;context:component-scan  base-package=&quot;com.yc.spring.bank&quot;&gt;&lt;/context:component-scan&gt;</span><br><span class="line"></span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>测试部分</strong></p>
+<p>BankTest.java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.spring.bank;</span><br><span class="line">import org.junit.Test;</span><br><span class="line">import org.junit.runner.RunWith;</span><br><span class="line">import  org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import  org.springframework.test.context.ContextConfiguration;</span><br><span class="line">import  org.springframework.test.context.junit4.SpringRunner;</span><br><span class="line">import com.yc.spring.bank.action.BankAction;</span><br><span class="line">import com.yc.spring.bank.bean.Account;</span><br><span class="line"></span><br><span class="line">//引入SpringRunner驱动，让程序可以自动装载</span><br><span class="line">@RunWith(SpringRunner.class)</span><br><span class="line">//引入xml配置文件</span><br><span class="line">@ContextConfiguration(&quot;/bank-beans.xml&quot;)</span><br><span class="line">public class BankTest &#123;</span><br><span class="line">    </span><br><span class="line">    @Autowired</span><br><span class="line">    private BankAction bankAction;</span><br><span class="line">    </span><br><span class="line">    @Test</span><br><span class="line">    public void test1() &#123;</span><br><span class="line">       bankAction.deposit(new Account());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.AOP [XML方式]配置</strong></p>
+<p><strong>关系图</strong></p>
+<p><strong>切面 &#x3D; 切点 + 通知（增强）</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/.png" alt=".png"></p>
+<p>bank-beans.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans  xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">    xmlns:context=&quot;http://www.springframework.org/schema/context&quot;</span><br><span class="line">    xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;</span><br><span class="line">    xmlns:p=&quot;http://www.springframework.org/schema/p&quot;</span><br><span class="line">    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</span><br><span class="line">    http://www.springframework.org/schema/beans/spring-beans.xsd</span><br><span class="line">    http://www.springframework.org/schema/context</span><br><span class="line">    http://www.springframework.org/schema/context/spring-context.xsd</span><br><span class="line">    http://www.springframework.org/schema/aop</span><br><span class="line">    http://www.springframework.org/schema/aop/spring-aop.xsd&quot;&gt;</span><br><span class="line">     </span><br><span class="line">     &lt;!-- 相当于java注解：@ComponentScan(&quot;com.yc.spring.bank&quot;) 包扫描 --&gt;</span><br><span class="line">     &lt;context:component-scan  base-package=&quot;com.yc.spring.bank&quot;&gt;&lt;/context:component-scan&gt;</span><br><span class="line">     </span><br><span class="line">     &lt;!-- AOP XML 配置方案 --&gt;</span><br><span class="line">     &lt;aop:config&gt;</span><br><span class="line">        &lt;!-- 切点定义：aop:pointcut</span><br><span class="line">                   技术来源：AspectJ</span><br><span class="line">                   execution (*  com.xyz.myapp.service.*.*(..))</span><br><span class="line">                   执行方法           (返回值                   .包名.类名(所有参数列表))*表示所有</span><br><span class="line">        --&gt;</span><br><span class="line">        &lt;aop:pointcut expression=&quot;execution  (* com.yc.spring.bank.biz.*.*(..))&quot;  id=&quot;bankBiz&quot;/&gt;</span><br><span class="line">        &lt;!-- 切面定义：aop:aspect --&gt;</span><br><span class="line">        &lt;aop:aspect id=&quot;myAspect&quot;  ref=&quot;logAdvice&quot;&gt;</span><br><span class="line">           &lt;!-- 通知位置定义 --&gt;</span><br><span class="line">           &lt;aop:before  pointcut-ref=&quot;bankBiz&quot; method=&quot;before&quot;/&gt;</span><br><span class="line">        &lt;/aop:aspect&gt;      </span><br><span class="line">     &lt;/aop:config&gt;</span><br><span class="line">     </span><br><span class="line">     &lt;!-- 增强类/通知类定义 --&gt;</span><br><span class="line">     &lt;bean id=&quot;logAdvice&quot;  class=&quot;com.yc.spring.bank.aop.LogAdvice&quot;&gt;&lt;/bean&gt;</span><br><span class="line">     </span><br><span class="line">     &lt;!-- AspectJ自动代理 --&gt;</span><br><span class="line">     &lt;aop:aspectj-autoproxy /&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+
+<p>增强类&#x2F;通知类</p>
+<p>LogAdvice.java</p>
+<p><span style="background-color: #ffaaaa">[JoinPoint jp]</span>可以判断是那个方法来调用的增强类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.spring.bank.aop;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import org.aspectj.lang.JoinPoint;</span><br><span class="line">public class LogAdvice &#123;</span><br><span class="line">    </span><br><span class="line">    public void before(JoinPoint jp) &#123;</span><br><span class="line">       System.out.println(&quot;方法签名&quot; +  jp.getSignature());</span><br><span class="line">       System.out.println(&quot;方法参数列表&quot; +  Arrays.toString(jp.getArgs()));</span><br><span class="line">       System.out.println(&quot;=====before=====&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>AOP依赖</strong></p>
+<p>pom.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-aspects&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;4.3.17.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E6%8A%80%E6%9C%AF%E5%82%A8%E5%A4%87/%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE%E9%80%9A%E8%BF%87%E5%88%86%E6%94%AF%E5%85%AC%E7%94%A8%E5%90%8C%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">多个项目通过分支公用同一个仓库的解决方案<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC111%E6%AC%A1%E8%AF%BE%E7%A8%8B_Spring_AOP/">第111次课程_Spring_AOP<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

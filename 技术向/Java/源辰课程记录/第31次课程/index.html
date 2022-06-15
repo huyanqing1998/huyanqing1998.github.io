@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第31次课程 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰74班 第31次课程 07.07.2019 **内容    ** Java_API_Exception处理[蒋斌] 1.异常处理 1.1try：异常捕获 仅写一个，最开始的位置。内部放入可能产生异常的代码。 1.2catch：捕获后解决异常 可写多个，可对捕获的不同异常进行处理。最后catch（Exception）{代码}，用于捕获未预期的异常的通用处理方式。 1.3flinally：最终 仅">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第31次课程">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC31%E6%AC%A1%E8%AF%BE%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰74班 第31次课程 07.07.2019 **内容    ** Java_API_Exception处理[蒋斌] 1.异常处理 1.1try：异常捕获 仅写一个，最开始的位置。内部放入可能产生异常的代码。 1.2catch：捕获后解决异常 可写多个，可对捕获的不同异常进行处理。最后catch（Exception）{代码}，用于捕获未预期的异常的通用处理方式。 1.3flinally：最终 仅">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.hooy.xyz/image/8ad447710abb31a3bdca11276dcfbbf2.png">
+<meta property="article:published_time" content="2019-07-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T01:14:08.319Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.hooy.xyz/image/8ad447710abb31a3bdca11276dcfbbf2.png">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2019-07-06T16:00:00.000Z">2019-07-07</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第31次课程</span></h1>
+<p><strong>源辰74班</strong></p>
+<p><strong>第31次课程</strong></p>
+<p><strong>07.07.2019</strong></p>
+<p>**内容    **</p>
+<p><strong>Java_API_Exception处理[蒋斌]</strong></p>
+<p><strong>1.异常处理</strong></p>
+<p><strong>1.1try：异常捕获</strong></p>
+<p>仅写一个，最开始的位置。内部放入可能产生异常的代码。</p>
+<p><strong>1.2catch：捕获后解决异常</strong></p>
+<p>可写多个，可对捕获的不同异常进行处理。最后catch（Exception）{代码}，用于捕获未预期的异常的通用处理方式。</p>
+<p><strong>1.3flinally：最终</strong></p>
+<p>仅写一个，放在最后，无论是否报错都将执行内代码，通常用于写资源释放代码。</p>
+<p><strong>try{</strong></p>
+<p>**         可能产生异常的代码**</p>
+<p>**   }catch(异常类型){**</p>
+<p>**         异常后的处理代码**</p>
+<p>**   }finally{**</p>
+<p>**         &#x2F;&#x2F;多用于资源释放的代码**</p>
+<p>**         无论是否报异常，都将执行的代码**</p>
+<p>**   }**</p>
+<p><strong>程序运行时产生的常见异常位于：RuntimeException</strong></p>
+<p>**<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/8ad447710abb31a3bdca11276dcfbbf2.png" alt="8ad447710abb31a3bdca11276dcfbbf2.png"></p>
+<p>**</p>
+<p>详见：JDK_API文档</p>
+<p>异常（Exception）两类：运行异常 和 编译异常（非处理不可的异常）</p>
+<p>**2.**<strong>ArithmeticException（算数运算异常）</strong></p>
+<p>1.当除数为0时，这种情况比较常见，所以我们在进行除法运算之前先判断下除数是否为0</p>
+<p>2.如果运算的结果是无线循环的小数，并且在除的时候没有对结果设置精确的位数，这时就会抛出异常，这种情况比较容易被忽视，抛出异常后一般都会考虑是否为0，因此，要特别注意！！</p>
+<p>3.当我们设置了结果的舍入模式是：ROUND_UNNECESSARY模式时，如果确保了计算的结果是精确的，则不会抛出异常，否则，就会抛出ArithmeticException异常！</p>
+<p><strong>实验代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.exception;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line">public class SuanShu_exception &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       Scanner sc = new Scanner(System.in);</span><br><span class="line">       System.out.println(&quot;请输入两个数字：&quot;);</span><br><span class="line">       int a = sc.nextInt();</span><br><span class="line">       int b = sc.nextInt();</span><br><span class="line">       </span><br><span class="line">       try &#123;</span><br><span class="line">           //尝试：放入可能报异常的代码</span><br><span class="line">           System.out.println(&quot;值：&quot;+a/b);</span><br><span class="line">       &#125;catch(ArithmeticException e) &#123;  //ArithmeticException 异常的算数运算</span><br><span class="line">           //出现异常则执行catch中的代码，否则不执行</span><br><span class="line">           System.out.println(&quot;errer:除数不可为零&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">       System.out.println(&quot;程序正常结束&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.NullPointer****Exception（空指针异常）</strong></p>
+<p><strong>4.ArrayIndexOutOf<strong><strong>Bound</strong></strong>s<strong><strong>Exce</strong></strong>ption（越界异常）</strong></p>
+<p><strong>5.多异常捕获</strong></p>
+<p><strong>实验代码</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.exception;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line">public class Exception_Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       int[] arr = new int[2];</span><br><span class="line">       Scanner sc = new Scanner(System.in);</span><br><span class="line">       try &#123;</span><br><span class="line">           int count = 0;</span><br><span class="line">           while(count&lt;=arr.length) &#123;//&lt;= 触发越界异常</span><br><span class="line">               System.out.println(&quot;请输入第&quot;+(count+1)+&quot;个数&quot;);</span><br><span class="line">               //第二次键入0      触发除数为零异常</span><br><span class="line">               //键入非数字字符 触发数字转换异常</span><br><span class="line">               arr[count] =  Integer.parseInt(sc.nextLine());</span><br><span class="line">               count++;</span><br><span class="line">           &#125;</span><br><span class="line">           System.out.println(arr[0]+&quot;/&quot;+arr[1]+&quot;=&quot;+arr[0]/arr[1]);</span><br><span class="line">           //不同的catch用于捕获不同的异常</span><br><span class="line">       &#125;catch(ArithmeticException e)&#123;</span><br><span class="line">           System.out.println(&quot;除数为零异常&quot;);</span><br><span class="line">       &#125;catch(NumberFormatException e) &#123;</span><br><span class="line">           System.out.println(&quot;数字转化异常&quot;);</span><br><span class="line">       &#125;catch(ArrayIndexOutOfBoundsException e) &#123;</span><br><span class="line">           System.out.println(&quot;数组越界异常&quot;);</span><br><span class="line">       &#125;catch(Exception e) &#123;//Exception等级最高，包含各种异常，因此放在最后作为捕获异常的最后防线</span><br><span class="line">           System.out.println(&quot;最高级异常&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">       System.out.println(&quot;程序正常结束&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>6.throw（异常<strong><strong>抛出</strong></strong>）</strong></p>
+<p><strong>将异常抛给调用这个方法的类，让别人来处理。</strong></p>
+<p><strong>单个代码块中仅一条throw，执行到throw即刻停止继续执行当前方法。</strong></p>
+<p><strong>Class Person</strong></p>
+<p>&#x2F;&#x2F;含有throw的类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.exception;</span><br><span class="line">public class Person &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">    public Person() &#123;&#125;</span><br><span class="line">    public Person(String name,int age) &#123;</span><br><span class="line">       this.name = name;</span><br><span class="line">       this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getName() &#123;</span><br><span class="line">       return name;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">       this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    public int getAge() &#123;</span><br><span class="line">       return age;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setAge(int age) throws  Exception &#123;</span><br><span class="line">       if(age&lt;0 || age&gt;200) &#123;</span><br><span class="line">           //将异常抛出，让调用者处理这个异常</span><br><span class="line">           throw new Exception(&quot;年龄不合法&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">       this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Main Person_Test</strong></p>
+<p>&#x2F;&#x2F;处理捕获Person类中的异常</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.exception;</span><br><span class="line">public class Person_Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       Person p = new Person();</span><br><span class="line">       //由调用setAge方法的类来捕获异常，并做出处理方式</span><br><span class="line">       try &#123;</span><br><span class="line">           p.setAge(-1);</span><br><span class="line">       &#125; catch (Exception e) &#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">           System.out.println(&quot;异常&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>7.自定义异常</strong></p>
+<p>自定义一个异常，并继承Exception（相当于隶属于Exception旗下）</p>
+<p>**Class **<strong>AgeException</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.exception;</span><br><span class="line">public class AgeException extends Exception&#123;</span><br><span class="line">    public AgeException() &#123;&#125;</span><br><span class="line">    public AgeException(String msg) &#123;</span><br><span class="line">       super(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Main Person</strong></p>
+<p>可将用于Person类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">package com.hooy.exception;</span><br><span class="line">public class Person &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">    public Person() &#123;&#125;</span><br><span class="line">    public Person(String name,int age) &#123;</span><br><span class="line">       this.name = name;</span><br><span class="line">       this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getName() &#123;</span><br><span class="line">       return name;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">       this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    public int getAge() &#123;</span><br><span class="line">       return age;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setAge(int age) throws  AgeException &#123;</span><br><span class="line">       if(age&lt;0 || age&gt;200) &#123;</span><br><span class="line">           //将异常抛出，让调用者处理这个异常</span><br><span class="line">           throw new AgeException(&quot;年龄不合法&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">       this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>8.关于异常的Demo</strong></p>
+<p><strong>如果某异常继承RuntimeException，则该异常可以不被声明</strong></p>
+<p>**Class **<strong>LanPingException</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package Demo;</span><br><span class="line">public class LanPingException extends  Exception&#123;</span><br><span class="line">    public LanPingException() &#123;&#125;</span><br><span class="line">    public LanPingException(String msg) &#123;</span><br><span class="line">       super(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>**Class **<strong>MaoYanException</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">package Demo;</span><br><span class="line">public class MaoYanException extends  Exception&#123;</span><br><span class="line">    public MaoYanException() &#123;&#125;</span><br><span class="line">    public MaoYanException(String msg) &#123;</span><br><span class="line">       super(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>**Class **<strong>NoPlanException</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">package Demo;</span><br><span class="line">public class NoPlanException extends  Exception &#123;</span><br><span class="line">    public NoPlanException(String msg) &#123;</span><br><span class="line">       super(msg);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Class Computer</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package Demo;</span><br><span class="line">public class Computer &#123;</span><br><span class="line">    private int state = 1;</span><br><span class="line">    //电脑开机</span><br><span class="line">    public void run() throws  LanPingException, MaoYanException &#123;</span><br><span class="line">       if(state==1) &#123;</span><br><span class="line">           throw new LanPingException(&quot;蓝屏故障&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">       if(state==2) &#123;</span><br><span class="line">           throw new MaoYanException(&quot;机器冒烟&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">       System.out.println(&quot;电脑正常运行中！&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    //电脑重启</span><br><span class="line">    public void reset() &#123;</span><br><span class="line">       state = 2; //配置文件-&gt; 0:恢复正常 2：电脑冒烟 1：电脑蓝屏(陷入蓝屏重启循环，递归崩溃，不建议尝试)</span><br><span class="line">       System.out.println(&quot;已重启&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Class User</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">package Demo;</span><br><span class="line">public class User &#123;</span><br><span class="line">    private Computer computer;</span><br><span class="line">    public User(Computer com) &#123;</span><br><span class="line">       this.computer = com;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void prelect() throws  NoPlanException &#123;</span><br><span class="line">       try &#123;</span><br><span class="line">           computer.run();</span><br><span class="line">       &#125; catch (LanPingException e) &#123;</span><br><span class="line">           System.out.println(e.getMessage());</span><br><span class="line">           computer.reset();</span><br><span class="line">           //重启后尝试开机</span><br><span class="line">           prelect();</span><br><span class="line">       &#125; catch (MaoYanException e) &#123;</span><br><span class="line">           System.out.println(e.getMessage());</span><br><span class="line">           test();</span><br><span class="line">           throw new NoPlanException(&quot;尊敬的领导，电脑坏了，我要下班&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    private void test() &#123;</span><br><span class="line">       System.out.println(&quot;电脑冒烟，上自习&quot;);</span><br><span class="line">       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>**Main **<strong>Exception_Test</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">package Demo;</span><br><span class="line">public class Exception_Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       User user = new User(new  Computer());</span><br><span class="line">       try &#123;</span><br><span class="line">           user.prelect();</span><br><span class="line">       &#125; catch (NoPlanException e) &#123;</span><br><span class="line">           System.err.println(e.getMessage());</span><br><span class="line">           System.out.println(&quot;换台电脑继续上课&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC29%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第29次课程<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC32%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第32次课程<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

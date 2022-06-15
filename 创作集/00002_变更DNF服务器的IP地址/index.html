@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>00002_变更DNF服务器的IP地址 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="操作步骤Step01 替换服务地址在 “游戏服务根目录” 下执行命令，将地址替换。 12345# 注释：sed -i &quot;s&#x2F;旧IP地址&#x2F;新IP地址&#x2F;g&quot; &#96;find . -type f -name &quot;*.cfg&quot;&#96;# 例如：sed -i &quot;s&#x2F;192.168.200.131&#x2F;192.168.100.31&#x2F;g&quot; &#96;find . -type">
+<meta property="og:type" content="article">
+<meta property="og:title" content="00002_变更DNF服务器的IP地址">
+<meta property="og:url" content="http://blog.hooy.xyz/%E5%88%9B%E4%BD%9C%E9%9B%86/00002_%E5%8F%98%E6%9B%B4DNF%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84IP%E5%9C%B0%E5%9D%80/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="操作步骤Step01 替换服务地址在 “游戏服务根目录” 下执行命令，将地址替换。 12345# 注释：sed -i &quot;s&#x2F;旧IP地址&#x2F;新IP地址&#x2F;g&quot; &#96;find . -type f -name &quot;*.cfg&quot;&#96;# 例如：sed -i &quot;s&#x2F;192.168.200.131&#x2F;192.168.100.31&#x2F;g&quot; &#96;find . -type">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-10T01:02:13.441Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="hooy;hooyantsing;blog;胡燕卿;博客">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4"><span class="toc-text">操作步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Step01-%E6%9B%BF%E6%8D%A2%E6%9C%8D%E5%8A%A1%E5%9C%B0%E5%9D%80"><span class="toc-text">Step01 替换服务地址</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step02-%E6%9B%BF%E6%8D%A2%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%B0%E6%8D%AE"><span class="toc-text">Step02 替换数据库数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step03-%E6%9B%B4%E6%94%B9%E4%B8%BB%E6%9C%BA%E5%9C%B0%E5%9D%80"><span class="toc-text">Step03 更改主机地址</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A"><span class="toc-text">方法一：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A"><span class="toc-text">方法二：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step04-%E4%BF%AE%E6%94%B9%E6%9C%AC%E5%9C%B0%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">Step04 修改本地客户端配置文件</span></a></li></ol></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E5%88%9B%E4%BD%9C%E9%9B%86/">创作集</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-07-03T16:00:00.000Z">2020-07-04</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>00002_变更DNF服务器的IP地址</span></h1>
+<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><h4 id="Step01-替换服务地址"><a href="#Step01-替换服务地址" class="headerlink" title="Step01 替换服务地址"></a>Step01 替换服务地址</h4><p>在 “游戏服务根目录” 下执行命令，将地址替换。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 注释：</span><br><span class="line">sed -i &quot;s/旧IP地址/新IP地址/g&quot; `find . -type f -name &quot;*.cfg&quot;`</span><br><span class="line"></span><br><span class="line"># 例如：</span><br><span class="line">sed -i &quot;s/192.168.200.131/192.168.100.31/g&quot; `find . -type f -name &quot;*.cfg&quot;`</span><br></pre></td></tr></table></figure>
+<p>执行完毕，可打开任意 <code> .cfg</code> 文件查看替换情况。成功替换则继续。</p>
+<blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/4392204923">【极简操作】VM版本DNF单机+开服架设教学 百度贴吧最终版</a></p>
+</blockquote>
+<h4 id="Step02-替换数据库数据"><a href="#Step02-替换数据库数据" class="headerlink" title="Step02 替换数据库数据"></a>Step02 替换数据库数据</h4><p>使用 <strong>Navicat Premium</strong> 软件连接至服务器。</p>
+<p>将 <code>d_taiwan</code> 数据库的 <code>db_connect</code> 表的 <code>db_ip</code> 字段统一替换成新IP地址。</p>
+<blockquote>
+<p>解决报错：</p>
+</blockquote>
+<ul>
+<li>CONNECTION FAIL IP &#x3D;127.0.0.1, PORT &#x3D;20203, reason &#x3D;Connection refusedtcpSock.connect Fail!</li>
+<li>CONNECTION FAIL IP &#x3D;127.0.0.1, PORT &#x3D;20403, reason &#x3D;Connection refusedtcpSock.connect Fail!</li>
+</ul>
+<blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/4187673908">修改服务器ip或一直connect Fail的看过来</a></p>
+</blockquote>
+<h4 id="Step03-更改主机地址"><a href="#Step03-更改主机地址" class="headerlink" title="Step03 更改主机地址"></a>Step03 更改主机地址</h4><p>以下方法任选其一即可。</p>
+<h5 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h5><p>SSH命令窗口输入，并回车。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-eth0</span><br></pre></td></tr></table></figure>
+<p>修改 <code>BROADCAST</code> <code>IPADDR</code> <code>NETMASK</code> <code>NETWORK</code> 参数。</p>
+<p>然后，按 <code>ESC</code> 键，输入 <code>:wq</code> 并回车。</p>
+<p>输入，并回车执行重启网络配置服务。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service network restart</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考：<a target="_blank" rel="noopener" href="https://tieba.baidu.com/p/6397688087">192.168.200.131能否修改为其他ip</a></p>
+</blockquote>
+<h5 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h5><p>考虑到很多人对Linux很陌生，不擅长使用命令。</p>
+<p>可以使用 <strong>WinSCP</strong> 软件连接到服务器，通过可视化界面修改文件。</p>
+<p>文件路径：*&#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0*</p>
+<p>修改参数与 <em>方法1</em> 相同，这里不再赘述。</p>
+<h4 id="Step04-修改本地客户端配置文件"><a href="#Step04-修改本地客户端配置文件" class="headerlink" title="Step04 修改本地客户端配置文件"></a>Step04 修改本地客户端配置文件</h4><p>找到本地客户端所在位置。</p>
+<p>找到 <code>config.ini</code> 文件，将 <code>服务器地址</code> 参数修改成新IP地址。</p>
+<blockquote>
+<p>解决问题：</p>
+</blockquote>
+<ul>
+<li>解决了找不到频道的问题。</li>
+</ul>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Markdown/Markdown_%E6%95%99%E7%A8%8B_%E8%8F%9C%E9%B8%9F%E6%95%99%E7%A8%8B/Markdown_%E4%BB%A3%E7%A0%81-%E8%8F%9C%E9%B8%9F%E6%95%99%E7%A8%8B/">Markdown_代码-菜鸟教程<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringBoot/20%E5%B9%B4%E5%85%A8%E6%96%B0_Spring%20Boot%202.x_%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85%E4%B9%8B%E7%99%BD%E9%93%B6%E7%AF%87_%E6%89%93%E9%80%A0%E7%B2%BE%E5%93%81%E4%B8%AD%E7%9A%84%E7%B2%BE%E5%93%81_%E7%A8%8B%E5%BA%8F%E5%91%98_%E7%BC%96%E7%A8%8B_%E6%9E%B6%E6%9E%84%E5%B8%88_SpringBoot/%E9%9D%92%E9%93%9C%E7%AF%87_P8_RESTful%E9%A3%8E%E6%A0%BCAPI%E4%B8%8EHTTP%E5%8D%8F%E8%AE%AE/">青铜篇_P8_RESTful风格API与HTTP协议<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第34次课程 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰74班 第34次课程 07.11.2019 **内容    ** 案例解析[蒋斌] 0.List Set Map的区别  1.重复对象 list允许重复的对象，而set方法不允许重复对象 2.null元素 list可以插入多个null元素，而set只允许插入一个null元素 List：列表 Set：集合 Map：映射 1.HashMap类  例题分析： 1.List声明对ArrayList的引">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第34次课程">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC34%E6%AC%A1%E8%AF%BE%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰74班 第34次课程 07.11.2019 **内容    ** 案例解析[蒋斌] 0.List Set Map的区别  1.重复对象 list允许重复的对象，而set方法不允许重复对象 2.null元素 list可以插入多个null元素，而set只允许插入一个null元素 List：列表 Set：集合 Map：映射 1.HashMap类  例题分析： 1.List声明对ArrayList的引">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.hooy.xyz/image/b73f9ec541f933ad0b98a400e6272c7b.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/01e7a3f3f333f6ef5e682e49a4fb2556.png">
+<meta property="article:published_time" content="2019-07-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T01:14:44.269Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.hooy.xyz/image/b73f9ec541f933ad0b98a400e6272c7b.png">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2019-07-10T16:00:00.000Z">2019-07-11</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第34次课程</span></h1>
+<p><strong>源辰74班</strong></p>
+<p><strong>第34次课程</strong></p>
+<p><strong>07.11.2019</strong></p>
+<p>**内容    **</p>
+<p><strong>案例解析[蒋斌]</strong></p>
+<p><strong>0.List Set Map的区别</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/b73f9ec541f933ad0b98a400e6272c7b.png" alt="b73f9ec541f933ad0b98a400e6272c7b.png"></p>
+<p>1.重复对象</p>
+<p>list允许重复的对象，而set方法不允许重复对象</p>
+<p>2.null元素</p>
+<p>list可以插入多个null元素，而set只允许插入一个null元素</p>
+<p><strong>List：列表 Set：集合 Map：映射</strong></p>
+<p><strong>1.HashMap类</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/01e7a3f3f333f6ef5e682e49a4fb2556.png" alt="01e7a3f3f333f6ef5e682e49a4fb2556.png"></p>
+<p>例题分析：</p>
+<p>1.List声明对ArrayList的引用</p>
+<p>ArrayList类（Class）实现（implement）了List接口（interface）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//List接口名&lt;泛型&gt; 变量名 = new ArrayList类名&lt;泛型&gt;();</span><br><span class="line">List&lt;Student&gt; list = new ArrayList&lt;Student&gt;();</span><br></pre></td></tr></table></figure>
+
+<p>2.将元素添加到List中</p>
+<p><strong>List.add(对象)</strong></p>
+<p>3.创建一个HashMap</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//Map&lt;K（key值）,V（value值）&gt; 变量名 = new HashMap&lt;K,B&gt;(); </span><br><span class="line">Map&lt;String,List&lt;Student&gt;&gt; yc = new HashMap&lt;String,List&lt;Student&gt;&gt;();</span><br></pre></td></tr></table></figure>
+
+<p>4.将元素添加到HashMap中</p>
+<p><strong>HashMap.put(K,V)</strong>  -&gt;K和V都是泛型变量（数据类型的变量）</p>
+<p>5.获取HashMap中以Set打包好的Entry</p>
+<p>**Hash.entrySet() ** -&gt;返回的是Set</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//参考：</span><br><span class="line">Set&lt;Map.Entry&lt;String, List&lt;Student&gt;&gt;&gt; entrySet = yc.entrySet();</span><br></pre></td></tr></table></figure>
+
+<p>6.添加迭代器（）</p>
+<p><strong>Set</strong><strong>.iterator()</strong></p>
+<p>推断：Set是集合类，可以挨个遍历。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//迭代器接口名&lt;泛型&gt; 变量名 = Set.iterator()</span><br><span class="line">Iterator&lt;Entry&lt;String,List&lt;Student&gt;&gt;&gt; iterator = entrySet.iterator();</span><br></pre></td></tr></table></figure>
+
+<p>7.获取HashMap中以Set打包好的Key（Entry内部类中的Key）</p>
+<p><strong>HashMap.KeySet()</strong>  -&gt;返回的是Set</p>
+<p>8.获取Entry中的Key和Value</p>
+<p><strong>Entry.getKey()</strong></p>
+<p><strong>Entry.getValue()</strong></p>
+<p><strong>Main TestHashMap</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">package pm.map;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Iterator;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.Map;</span><br><span class="line">import java.util.Map.Entry;</span><br><span class="line">import java.util.Set;</span><br><span class="line"></span><br><span class="line">public class TestHashMap &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        List&lt;Student&gt; list1 = new ArrayList&lt;Student&gt;();</span><br><span class="line">        for(int i=0;i&lt;5;i++) &#123;</span><br><span class="line">            list1.add(new Student(&quot;张&quot;+i,i+1));</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;Student&gt; list2 = new ArrayList&lt;Student&gt;();</span><br><span class="line">        for(int i=0;i&lt;5;i++) &#123;</span><br><span class="line">            list2.add(new Student(&quot;李&quot;+i,i+1));</span><br><span class="line">        &#125;</span><br><span class="line">        List&lt;Student&gt; list3 = new ArrayList&lt;Student&gt;();</span><br><span class="line">        for(int i=0;i&lt;5;i++) &#123;</span><br><span class="line">            list3.add(new Student(&quot;王&quot;+i,i+1));</span><br><span class="line">        &#125;</span><br><span class="line">        Map&lt;String,List&lt;Student&gt;&gt; yc = new HashMap&lt;String,List&lt;Student&gt;&gt;();</span><br><span class="line">        yc.put(&quot;一班&quot;, list1);</span><br><span class="line">        yc.put(&quot;二班&quot;, list2);</span><br><span class="line">        yc.put(&quot;三班&quot;, list3);</span><br><span class="line">        System.out.println(&quot;班级共有&quot;+yc.size());</span><br><span class="line">        //循环遍历第一种方式</span><br><span class="line">        /*Map中包含内部类Entry,调用entrySet()方法时，将所有创建好的Entry元素打包成Set返回。Set是</span><br><span class="line">             种元素集合，可以通过Iterator迭代。因此，Set内部元素是Entry，Entry内部元素是Key和Value</span><br><span class="line">        */</span><br><span class="line">        int total = 0;</span><br><span class="line">        Set&lt;Map.Entry&lt;String, List&lt;Student&gt;&gt;&gt; entrySet = yc.entrySet();</span><br><span class="line">        Iterator&lt;Entry&lt;String,List&lt;Student&gt;&gt;&gt; iterator = entrySet.iterator();</span><br><span class="line">        while(iterator.hasNext()) &#123;</span><br><span class="line">            Entry&lt;String,List&lt;Student&gt;&gt; entry = iterator.next();</span><br><span class="line">            System.out.println(&quot;班级名&quot;+entry.getKey());</span><br><span class="line">            List&lt;Student&gt; value = entry.getValue();</span><br><span class="line">            for(Student s:value) &#123;</span><br><span class="line">                System.out.println(s);</span><br><span class="line">                total++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;总共有：&quot;+total+&quot;个学生&quot;);</span><br><span class="line">        System.out.println(&quot;总共有：&quot;+yc.size()+&quot;个班&quot;);</span><br><span class="line">        //循环遍历第二种方式</span><br><span class="line">        Set&lt;String&gt; keySet = yc.keySet();</span><br><span class="line">        Iterator&lt;String&gt; iterator2 = keySet.iterator();</span><br><span class="line">        while(iterator2.hasNext()) &#123;</span><br><span class="line">            String key = iterator2.next();</span><br><span class="line">            System.out.println(key);</span><br><span class="line">            List&lt;Student&gt; list = yc.get(key);</span><br><span class="line">            for(Student student : list) &#123;</span><br><span class="line">                System.out.println(student);</span><br><span class="line">            &#125;</span><br><span class="line">            if(yc.containsKey(&quot;一班&quot;)) &#123;</span><br><span class="line">                System.out.println(&quot;这个班存在&quot;);</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                System.out.println(&quot;班不存在&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Class Student</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">package pm.map;</span><br><span class="line">class Student implements Comparable &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private int age;</span><br><span class="line">    public Student() &#123;</span><br><span class="line">        super();</span><br><span class="line">    &#125;</span><br><span class="line">    public Student(String name, int age)  &#123;</span><br><span class="line">        super();</span><br><span class="line">        this.name = name;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;Student [name=&quot; + name +  &quot;,  age=&quot; + age + &quot;]&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public int hashCode() &#123;</span><br><span class="line">        final int prime = 31;</span><br><span class="line">        int result = 1;</span><br><span class="line">        result = prime * result + age;</span><br><span class="line">        result = prime * result + ((name  ==  null) ? 0 : name.hashCode());</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public boolean equals(Object obj) &#123;</span><br><span class="line">        if (this == obj)</span><br><span class="line">            return true;</span><br><span class="line">        if (obj == null)</span><br><span class="line">            return false;</span><br><span class="line">        if (getClass() != obj.getClass())</span><br><span class="line">            return false;</span><br><span class="line">        Student other = (Student) obj;</span><br><span class="line">        if (age != other.age)</span><br><span class="line">            return false;</span><br><span class="line">        if (name == null) &#123;</span><br><span class="line">            if (other.name != null)</span><br><span class="line">               return false;</span><br><span class="line">        &#125; else if  (!name.equals(other.name))</span><br><span class="line">            return false;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    public int getAge() &#123;</span><br><span class="line">        return age;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setAge(int age) &#123;</span><br><span class="line">        this.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public int compareTo(Object o) &#123;</span><br><span class="line">        if(!(o instanceof Student)) &#123;</span><br><span class="line">            throw new  RuntimeException(&quot;错误&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return   this.hashCode()-((Student)o).hashCode();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC33%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第33次课程<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC35%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第35次课程<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

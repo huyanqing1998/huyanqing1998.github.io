@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>22_池化技术及线程池使用 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="22 池化技术及线程池使用 狂神说Java JUC并发编程最新版通俗易懂  线程池的好处线程复用、可以控制最大并发数、管理线程。 线程池：3大方法、7大参数、4种拒绝策略3大方法 Executors.newSingleThreadExecutor() 单个线程 Executors.newFixedThreadPool(5) 创建一个固定线程数的线程池 Executors.newCachedThre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="22_池化技术及线程池使用">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/22_%E6%B1%A0%E5%8C%96%E6%8A%80%E6%9C%AF%E5%8F%8A%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="22 池化技术及线程池使用 狂神说Java JUC并发编程最新版通俗易懂  线程池的好处线程复用、可以控制最大并发数、管理线程。 线程池：3大方法、7大参数、4种拒绝策略3大方法 Executors.newSingleThreadExecutor() 单个线程 Executors.newFixedThreadPool(5) 创建一个固定线程数的线程池 Executors.newCachedThre">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-15T06:56:49.506Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="遇见狂神说">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#22-%E6%B1%A0%E5%8C%96%E6%8A%80%E6%9C%AF%E5%8F%8A%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%BD%BF%E7%94%A8"><span class="toc-text">22 池化技术及线程池使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-text">线程池的好处</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9A3%E5%A4%A7%E6%96%B9%E6%B3%95%E3%80%817%E5%A4%A7%E5%8F%82%E6%95%B0%E3%80%814%E7%A7%8D%E6%8B%92%E7%BB%9D%E7%AD%96%E7%95%A5"><span class="toc-text">线程池：3大方法、7大参数、4种拒绝策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E5%A4%A7%E6%96%B9%E6%B3%95"><span class="toc-text">3大方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E5%A4%A7%E6%96%B9%E6%B3%95-%E6%A1%88%E4%BE%8B"><span class="toc-text">3大方法 案例</span></a></li></ol></li></ol></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java-JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/">狂神说Java_JUC并发编程最新版通俗易懂</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-08-26T16:00:00.000Z">2020-08-27</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>22_池化技术及线程池使用</span></h1>
+<h2 id="22-池化技术及线程池使用"><a href="#22-池化技术及线程池使用" class="headerlink" title="22 池化技术及线程池使用"></a>22 池化技术及线程池使用</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1B7411L7tE">狂神说Java JUC并发编程最新版通俗易懂</a></p>
+</blockquote>
+<h4 id="线程池的好处"><a href="#线程池的好处" class="headerlink" title="线程池的好处"></a>线程池的好处</h4><p>线程复用、可以控制最大并发数、管理线程。</p>
+<h4 id="线程池：3大方法、7大参数、4种拒绝策略"><a href="#线程池：3大方法、7大参数、4种拒绝策略" class="headerlink" title="线程池：3大方法、7大参数、4种拒绝策略"></a>线程池：3大方法、7大参数、4种拒绝策略</h4><h4 id="3大方法"><a href="#3大方法" class="headerlink" title="3大方法"></a>3大方法</h4><ol>
+<li><code>Executors.newSingleThreadExecutor()</code> 单个线程</li>
+<li><code>Executors.newFixedThreadPool(5)</code> 创建一个固定线程数的线程池</li>
+<li><code>Executors.newCachedThreadPool()</code> 可伸缩线程池，遇强则强遇弱则弱。当任务量多时，扩充线程数<h4 id="3大方法-案例"><a href="#3大方法-案例" class="headerlink" title="3大方法 案例"></a>3大方法 案例</h4></li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">package pool;</span><br><span class="line"></span><br><span class="line">import java.util.concurrent.ExecutorService;</span><br><span class="line">import java.util.concurrent.Executors;</span><br><span class="line"></span><br><span class="line">public class Demo01 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        ExecutorService threadPool = null;</span><br><span class="line">        // 1.单个线程</span><br><span class="line">        threadPool = Executors.newSingleThreadExecutor();</span><br><span class="line">        // 2.创建一个固定线程数的线程池</span><br><span class="line">        // threadPool = Executors.newFixedThreadPool(5);</span><br><span class="line">        // 3.可伸缩线程池，遇强则强遇弱则弱。当任务量多时，扩充线程数。</span><br><span class="line">        // threadPool = Executors.newCachedThreadPool();</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            for (int i = 0; i &lt; 10; i++) &#123;</span><br><span class="line">                threadPool.execute(</span><br><span class="line">                        () -&gt; &#123;</span><br><span class="line">                            System.out.println(Thread.currentThread().getName());</span><br><span class="line">                        &#125;</span><br><span class="line">                );</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            // 线程池用完，关闭</span><br><span class="line">            threadPool.shutdown();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/23_7%E5%A4%A7%E5%8F%82%E6%95%B0%E5%8F%8A%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BA%BF%E7%A8%8B%E6%B1%A0/">23_7大参数及自定义线程池<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/20_BlockingQueue%E5%9B%9B%E7%BB%84API/">20_BlockingQueue四组API<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

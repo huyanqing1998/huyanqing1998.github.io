@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>青铜篇_P13_jackson-JSON数据格式的处理 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="jackson-JSON数据格式的处理 20年全新-Spring Boot 2.x从青铜到王者之青铜篇-打造精品中的精品-程序员-编程-架构师-SpringBoot  @JsonFormatpattern 时间格式 timezone 时区 域 用于对 JavaBean 时间域格式化。 12345678910111213141516package xyz.hooy.demo.bronze.p13;i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="青铜篇_P13_jackson-JSON数据格式的处理">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/SpringBoot/20%E5%B9%B4%E5%85%A8%E6%96%B0_Spring%20Boot%202.x_%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85%E4%B9%8B%E7%99%BD%E9%93%B6%E7%AF%87_%E6%89%93%E9%80%A0%E7%B2%BE%E5%93%81%E4%B8%AD%E7%9A%84%E7%B2%BE%E5%93%81_%E7%A8%8B%E5%BA%8F%E5%91%98_%E7%BC%96%E7%A8%8B_%E6%9E%B6%E6%9E%84%E5%B8%88_SpringBoot/%E9%9D%92%E9%93%9C%E7%AF%87_P13_jackson-JSON%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%A4%84%E7%90%86/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="jackson-JSON数据格式的处理 20年全新-Spring Boot 2.x从青铜到王者之青铜篇-打造精品中的精品-程序员-编程-架构师-SpringBoot  @JsonFormatpattern 时间格式 timezone 时区 域 用于对 JavaBean 时间域格式化。 12345678910111213141516package xyz.hooy.demo.bronze.p13;i">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-15T07:08:21.217Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="字母哥课堂">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#jackson-JSON%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%A4%84%E7%90%86"><span class="toc-text">jackson-JSON数据格式的处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#JsonFormat"><span class="toc-text">@JsonFormat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JsonPropertyOrder"><span class="toc-text">@JsonPropertyOrder</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JsonProperty"><span class="toc-text">@JsonProperty</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JsonInclude"><span class="toc-text">@JsonInclude</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#JsonIgnore"><span class="toc-text">@JsonIgnore</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%BA%8F%E5%88%97%E5%8C%96Json%EF%BC%8CJson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">对象序列化Json，Json反序列化对象的方法</span></a></li></ol></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/SpringBoot/">SpringBoot</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/SpringBoot/20%E5%B9%B4%E5%85%A8%E6%96%B0-Spring-Boot-2-x-%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85%E4%B9%8B%E7%99%BD%E9%93%B6%E7%AF%87-%E6%89%93%E9%80%A0%E7%B2%BE%E5%93%81%E4%B8%AD%E7%9A%84%E7%B2%BE%E5%93%81-%E7%A8%8B%E5%BA%8F%E5%91%98-%E7%BC%96%E7%A8%8B-%E6%9E%B6%E6%9E%84%E5%B8%88-SpringBoot/">20年全新_Spring Boot 2.x_从青铜到王者之白银篇_打造精品中的精品_程序员_编程_架构师_SpringBoot</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-07-13T16:00:00.000Z">2020-07-14</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>青铜篇_P13_jackson-JSON数据格式的处理</span></h1>
+<h2 id="jackson-JSON数据格式的处理"><a href="#jackson-JSON数据格式的处理" class="headerlink" title="jackson-JSON数据格式的处理"></a>jackson-JSON数据格式的处理</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1tt4y1y7sr">20年全新-Spring Boot 2.x从青铜到王者之青铜篇-打造精品中的精品-程序员-编程-架构师-SpringBoot</a></p>
+</blockquote>
+<h4 id="JsonFormat"><a href="#JsonFormat" class="headerlink" title="@JsonFormat"></a>@JsonFormat</h4><p><code>pattern</code> 时间格式</p>
+<p><code>timezone</code> 时区</p>
+<p><strong>域</strong> <em>用于对 JavaBean 时间域格式化。</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package xyz.hooy.demo.bronze.p13;</span><br><span class="line"></span><br><span class="line">import com.fasterxml.jackson.annotation.JsonFormat;</span><br><span class="line">import lombok.Data;</span><br><span class="line"></span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">@Data</span><br><span class="line">public class Article &#123;</span><br><span class="line">    private Long id;</span><br><span class="line">    private String author;</span><br><span class="line">    private String title;</span><br><span class="line">    private String content;</span><br><span class="line">    @JsonFormat(pattern = &quot;yyyy/MM//dd HH:mm:ss&quot;,timezone = &quot;GMT+8&quot;)</span><br><span class="line">    private Date createTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="JsonPropertyOrder"><a href="#JsonPropertyOrder" class="headerlink" title="@JsonPropertyOrder"></a>@JsonPropertyOrder</h4><p><code>value</code> 改变域排列顺序</p>
+<p><strong>类</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">package xyz.hooy.demo.bronze.p13;</span><br><span class="line"></span><br><span class="line">import com.fasterxml.jackson.annotation.JsonPropertyOrder;</span><br><span class="line">import lombok.Data;</span><br><span class="line"></span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">@Data</span><br><span class="line">// content 位于第一位，title 位于第二位，之后才从 id 向后排列。</span><br><span class="line">@JsonPropertyOrder(value = &#123;&quot;content&quot;,&quot;title&quot;&#125;)</span><br><span class="line">public class Article &#123;</span><br><span class="line">    private Long id;</span><br><span class="line">    private String author;</span><br><span class="line">    private String title;</span><br><span class="line">    private String content;</span><br><span class="line">    private Date createTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="JsonProperty"><a href="#JsonProperty" class="headerlink" title="@JsonProperty"></a>@JsonProperty</h4><p><code>value</code> 别名</p>
+<p><strong>域</strong> <em>在输出时，以注解的值为准，相当于给域换了一个名字。</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package xyz.hooy.demo.bronze.p13;</span><br><span class="line"></span><br><span class="line">import com.fasterxml.jackson.annotation.JsonProperty;</span><br><span class="line">import lombok.Data;</span><br><span class="line"></span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">@Data</span><br><span class="line">public class Article &#123;</span><br><span class="line">    private Long id;</span><br><span class="line">    @JsonProperty(&quot;auther&quot;)</span><br><span class="line">    private String author;</span><br><span class="line">    private String title;</span><br><span class="line">    private String content;</span><br><span class="line">    private Date createTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="JsonInclude"><a href="#JsonInclude" class="headerlink" title="@JsonInclude"></a>@JsonInclude</h4><p><strong>域</strong> <em>如果返回字段为空，即Null，则忽略这个字段，不返回这个字段值</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">package xyz.hooy.demo.bronze.p13;</span><br><span class="line"></span><br><span class="line">import com.fasterxml.jackson.annotation.JsonInclude;</span><br><span class="line">import lombok.Data;</span><br><span class="line"></span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">@Data</span><br><span class="line">public class Article &#123;</span><br><span class="line">    private Long id;</span><br><span class="line">    private String author;</span><br><span class="line">    private String title;</span><br><span class="line">    // 如果返回字段为空，即Null，则忽略这个字段，不返回这个字段值</span><br><span class="line">    @JsonInclude(JsonInclude.Include.NON_NULL)</span><br><span class="line">    private String content;</span><br><span class="line">    private Date createTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="JsonIgnore"><a href="#JsonIgnore" class="headerlink" title="@JsonIgnore"></a>@JsonIgnore</h4><p><strong>域</strong> <em>忽略字段</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">package xyz.hooy.demo.bronze.p13;</span><br><span class="line"></span><br><span class="line">import com.fasterxml.jackson.annotation.JsonIgnore;</span><br><span class="line">import lombok.Data;</span><br><span class="line"></span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">@Data</span><br><span class="line">public class Article &#123;</span><br><span class="line">    //忽略字段，比如一些敏感数据，不希望Json响应到前端，用此注解忽略</span><br><span class="line">    @JsonIgnore</span><br><span class="line">    private Long id;</span><br><span class="line">    private String author;</span><br><span class="line">    private String title;</span><br><span class="line">    private String content;</span><br><span class="line">    private Date createTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="对象序列化Json，Json反序列化对象的方法"><a href="#对象序列化Json，Json反序列化对象的方法" class="headerlink" title="对象序列化Json，Json反序列化对象的方法"></a>对象序列化Json，Json反序列化对象的方法</h3><p>使用 <code>ObjectMapper</code> 对象。</p>
+<p><code>.writeValueAsString</code> 方法将对象序列化成Json</p>
+<p><code>readValue</code> 方法将Json序列化成对象</p>
+<p><strong>注意：</strong> JavaBean类必须加上 <code>@NoArgsConstructor</code> 无参构造方法和 <code>@AllArgsConstructor</code> 全参构造方法两个注释，否则报错。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package xyz.hooy.demo.bronze.p13;</span><br><span class="line"></span><br><span class="line">import com.fasterxml.jackson.core.JsonProcessingException;</span><br><span class="line">import com.fasterxml.jackson.databind.ObjectMapper;</span><br><span class="line">import org.junit.jupiter.api.Test;</span><br><span class="line"></span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">public class JacksonTest &#123;</span><br><span class="line">    @Test</span><br><span class="line">    void contextLoads() throws JsonProcessingException &#123;</span><br><span class="line">        ObjectMapper mapper = new ObjectMapper();</span><br><span class="line">        //Object</span><br><span class="line">        Article article = Article.builder()</span><br><span class="line">                .id(1L)</span><br><span class="line">                .author(&quot;Hooy&quot;)</span><br><span class="line">                .content(&quot;从青铜到王者&quot;)</span><br><span class="line">                .createTime(new Date())</span><br><span class="line">                .title(&quot;t1&quot;).build();</span><br><span class="line"></span><br><span class="line">        //Object -&gt; Json</span><br><span class="line">        String json = mapper.writeValueAsString(article);</span><br><span class="line">        System.out.println(json);</span><br><span class="line"></span><br><span class="line">        //Json -&gt; Object</span><br><span class="line">        Article articleObject = mapper.readValue(&quot;&#123;\&quot;id\&quot;:1,\&quot;author\&quot;:\&quot;Hooy\&quot;,\&quot;title\&quot;:\&quot;t1\&quot;,\&quot;content\&quot;:\&quot;从青铜到王者\&quot;,\&quot;createTime\&quot;:1594733516341&#125;&quot;,Article.class);</span><br><span class="line">        System.out.println(articleObject.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringBoot/20%E5%B9%B4%E5%85%A8%E6%96%B0_Spring%20Boot%202.x_%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85%E4%B9%8B%E7%99%BD%E9%93%B6%E7%AF%87_%E6%89%93%E9%80%A0%E7%B2%BE%E5%93%81%E4%B8%AD%E7%9A%84%E7%B2%BE%E5%93%81_%E7%A8%8B%E5%BA%8F%E5%91%98_%E7%BC%96%E7%A8%8B_%E6%9E%B6%E6%9E%84%E5%B8%88_SpringBoot/%E9%9D%92%E9%93%9C%E7%AF%87_P14_%E9%92%88%E5%AF%B9%E6%8E%A5%E5%8F%A3%E7%BC%96%E5%86%99%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81/">青铜篇_P14_针对接口编写单元测试代码<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringBoot/20%E5%B9%B4%E5%85%A8%E6%96%B0_Spring%20Boot%202.x_%E4%BB%8E%E9%9D%92%E9%93%9C%E5%88%B0%E7%8E%8B%E8%80%85%E4%B9%8B%E7%99%BD%E9%93%B6%E7%AF%87_%E6%89%93%E9%80%A0%E7%B2%BE%E5%93%81%E4%B8%AD%E7%9A%84%E7%B2%BE%E5%93%81_%E7%A8%8B%E5%BA%8F%E5%91%98_%E7%BC%96%E7%A8%8B_%E6%9E%B6%E6%9E%84%E5%B8%88_SpringBoot/%E9%9D%92%E9%93%9C%E7%AF%87_P12_%E7%BB%93%E5%90%88Spring%E8%AF%B7%E6%B1%82%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B%E8%AE%B2%E8%A7%A3%E6%B3%A8%E8%A7%A3/">青铜篇_P12_结合Spring请求处理流程讲解注解<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

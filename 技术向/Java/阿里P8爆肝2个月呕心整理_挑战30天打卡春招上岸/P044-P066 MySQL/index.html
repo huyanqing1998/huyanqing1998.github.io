@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>P044-P066 MySQL - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="视频源：阿里P8爆肝2个月呕心整理，挑战30天打卡春招上岸！  P044 B 树和 B+ 树之间的区别B 树（B-Trees） B+ 树（B+Trees）  B 树和 B+ 树的结点有多个元素； B+ 树在叶子结点有非叶子结点的元素冗余； B+ 树的叶子节点有指针（MySQL是双向指针）。  P045 Innodb 中的 B+ 树是怎么产生的  INSERT 向 用户数据区域 插入数据时，会根据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P044-P066 MySQL">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E9%98%BF%E9%87%8CP8%E7%88%86%E8%82%9D2%E4%B8%AA%E6%9C%88%E5%91%95%E5%BF%83%E6%95%B4%E7%90%86_%E6%8C%91%E6%88%9830%E5%A4%A9%E6%89%93%E5%8D%A1%E6%98%A5%E6%8B%9B%E4%B8%8A%E5%B2%B8/P044-P066%20MySQL/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="视频源：阿里P8爆肝2个月呕心整理，挑战30天打卡春招上岸！  P044 B 树和 B+ 树之间的区别B 树（B-Trees） B+ 树（B+Trees）  B 树和 B+ 树的结点有多个元素； B+ 树在叶子结点有非叶子结点的元素冗余； B+ 树的叶子节点有指针（MySQL是双向指针）。  P045 Innodb 中的 B+ 树是怎么产生的  INSERT 向 用户数据区域 插入数据时，会根据">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.hooy.xyz/Images%5Cimage-20220309102113664.png">
+<meta property="og:image" content="http://blog.hooy.xyz/Images%5Cimage-20220309102206261.png">
+<meta property="og:image" content="http://blog.hooy.xyz/Images%5Cimage-20220309111722403.png">
+<meta property="og:image" content="http://blog.hooy.xyz/Images%5Cimage-20220309114224903.png">
+<meta property="og:image" content="http://blog.hooy.xyz/Images%5Cimage-20220309115545679.png">
+<meta property="og:image" content="http://blog.hooy.xyz/Images%5Cimage-20220310160101258.png">
+<meta property="og:image" content="http://blog.hooy.xyz/Images%5Cimage-20220310162702516.png">
+<meta property="og:image" content="http://blog.hooy.xyz/Images%5Cimage-20220310163453730.png">
+<meta property="article:published_time" content="2022-03-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-15T07:00:23.639Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="图灵课堂">
+<meta property="article:tag" content="周瑜">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.hooy.xyz/Images%5Cimage-20220309102113664.png">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#P044-B-%E6%A0%91%E5%92%8C-B-%E6%A0%91%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">P044 B 树和 B+ 树之间的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#B-%E6%A0%91%EF%BC%88B-Trees%EF%BC%89"><span class="toc-text">B 树（B-Trees）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#B-%E6%A0%91%EF%BC%88B-Trees%EF%BC%89-1"><span class="toc-text">B+ 树（B+Trees）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P045-Innodb-%E4%B8%AD%E7%9A%84-B-%E6%A0%91%E6%98%AF%E6%80%8E%E4%B9%88%E4%BA%A7%E7%94%9F%E7%9A%84"><span class="toc-text">P045 Innodb 中的 B+ 树是怎么产生的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P046-%E9%AB%98%E5%BA%A6%E4%B8%BA-3-%E7%9A%84-B-%E6%A0%91%E8%83%BD%E5%AD%98%E5%A4%9A%E5%B0%91%E6%9D%A1%E6%95%B0%E6%8D%AE"><span class="toc-text">P046 高度为 3 的 B+ 树能存多少条数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#MySQL-%E7%9A%84-B-%E6%A0%91%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-text">MySQL 的 B+ 树的结构</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P047-Innodb-%E6%98%AF%E5%A6%82%E4%BD%95%E6%94%AF%E6%8C%81%E8%8C%83%E5%9B%B4%E6%9F%A5%E6%89%BE%E8%83%BD%E8%B5%B0%E7%B4%A2%E5%BC%95%E7%9A%84"><span class="toc-text">P047 Innodb 是如何支持范围查找能走索引的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P054-MySQL-%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-text">P054 MySQL 中有哪些存储引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-InnoDB-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-text">1. InnoDB 存储引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-MyISAM-%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-text">2. MyISAM 存储引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Memory-%E5%BC%95%E6%93%8E"><span class="toc-text">3. Memory 引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Archive-%E5%BC%95%E6%93%8E"><span class="toc-text">4. Archive 引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-CSV-%E5%BC%95%E6%93%8E"><span class="toc-text">5. CSV 引擎</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P056-MyISAM-%E5%92%8C-InnoDB-%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">P056 MyISAM 和 InnoDB 的区别是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P057-%E6%95%B0%E6%8D%AE%E8%A1%A8%E8%AE%BE%E8%AE%A1%E6%97%B6%EF%BC%8C%E5%AD%97%E6%AE%B5%E4%BD%A0%E4%BC%9A%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9"><span class="toc-text">P057 数据表设计时，字段你会如何选择</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E6%AE%B5%E7%B1%BB%E5%9E%8B%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-text">字段类型优先级</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P059-%E8%AF%B7%E8%AF%B4%E4%B8%80%E4%B8%8B%E4%BA%8B%E7%89%A9%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%89%B9%E6%80%A7"><span class="toc-text">P059 请说一下事物的基本特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P060-%E4%BA%8B%E5%8A%A1%E5%B9%B6%E5%8F%91%E5%8F%AF%E8%83%BD%E4%BC%9A%E5%BC%95%E5%8F%91%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="toc-text">P060 事务并发可能会引发什么问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%84%8F%E8%AF%BB"><span class="toc-text">1. 脏读</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E8%AF%BB"><span class="toc-text">2. 不可重复读</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B9%BB%E8%AF%BB"><span class="toc-text">3. 幻读</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P061-%E7%AE%80%E5%8D%95%E6%8F%8F%E8%BF%B0%E4%B8%8B-MySQL-%E5%90%84%E7%A7%8D%E7%B4%A2%E5%BC%95"><span class="toc-text">P061 简单描述下 MySQL 各种索引</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%BB%E9%94%AE%E7%B4%A2%E5%BC%95"><span class="toc-text">1. 主键索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95"><span class="toc-text">2. 唯一索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%99%AE%E9%80%9A%E7%B4%A2%E5%BC%95"><span class="toc-text">3. 普通索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%89%8D%E7%BC%80%E7%B4%A2%E5%BC%95"><span class="toc-text">4. 前缀索引</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#P065-%E4%BB%80%E4%B9%88%E6%98%AF%E5%85%A8%E5%B1%80%E9%94%81%E3%80%81%E5%85%B1%E4%BA%AB%E9%94%81%E3%80%81%E6%8E%92%E4%BB%96%E9%94%81"><span class="toc-text">P065 什么是全局锁、共享锁、排他锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%A8%E5%B1%80%E9%94%81"><span class="toc-text">1. 全局锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%85%B1%E4%BA%AB%E9%94%81"><span class="toc-text">2. 共享锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%8E%92%E4%BB%96%E9%94%81"><span class="toc-text">3. 排他锁</span></a></li></ol></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E9%98%BF%E9%87%8CP8%E7%88%86%E8%82%9D2%E4%B8%AA%E6%9C%88%E5%91%95%E5%BF%83%E6%95%B4%E7%90%86-%E6%8C%91%E6%88%9830%E5%A4%A9%E6%89%93%E5%8D%A1%E6%98%A5%E6%8B%9B%E4%B8%8A%E5%B2%B8/">阿里P8爆肝2个月呕心整理_挑战30天打卡春招上岸</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-03-08T16:00:00.000Z">2022-03-09</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>P044-P066 MySQL</span></h1>
+<blockquote>
+<p>视频源：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vq4y187H8">阿里P8爆肝2个月呕心整理，挑战30天打卡春招上岸！</a></p>
+</blockquote>
+<h2 id="P044-B-树和-B-树之间的区别"><a href="#P044-B-树和-B-树之间的区别" class="headerlink" title="P044 B 树和 B+ 树之间的区别"></a>P044 B 树和 B+ 树之间的区别</h2><h4 id="B-树（B-Trees）"><a href="#B-树（B-Trees）" class="headerlink" title="B 树（B-Trees）"></a>B 树（B-Trees）</h4><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/Images%5Cimage-20220309102113664.png" alt="image-20220309102113664"></p>
+<h4 id="B-树（B-Trees）-1"><a href="#B-树（B-Trees）-1" class="headerlink" title="B+ 树（B+Trees）"></a>B+ 树（B+Trees）</h4><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/Images%5Cimage-20220309102206261.png" alt="image-20220309102206261"></p>
+<ul>
+<li>B 树和 B+ 树的结点有多个元素；</li>
+<li>B+ 树在叶子结点有非叶子结点的元素冗余；</li>
+<li>B+ 树的叶子节点有指针（MySQL是双向指针）。</li>
+</ul>
+<h2 id="P045-Innodb-中的-B-树是怎么产生的"><a href="#P045-Innodb-中的-B-树是怎么产生的" class="headerlink" title="P045 Innodb 中的 B+ 树是怎么产生的"></a>P045 Innodb 中的 B+ 树是怎么产生的</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/Images%5Cimage-20220309111722403.png" alt="image-20220309111722403"></p>
+<ul>
+<li><strong>INSERT</strong> 向 <strong>用户数据区域</strong> 插入数据时，会根据主键值排序，因此是有序的；</li>
+<li>为了加快查询速度，会对 <strong>用户数据区域</strong> 分组，将目录写到 <strong>页目录</strong>；</li>
+<li>当页（MySQL默认 16 KB）满了存不下数据时，会新建一个页，指针连接。</li>
+<li>从内存向磁盘写入，从磁盘向内存读取，都是按 <strong>页</strong> 作为单位操作。</li>
+</ul>
+<h2 id="P046-高度为-3-的-B-树能存多少条数据"><a href="#P046-高度为-3-的-B-树能存多少条数据" class="headerlink" title="P046 高度为 3 的 B+ 树能存多少条数据"></a>P046 高度为 3 的 B+ 树能存多少条数据</h2><h4 id="MySQL-的-B-树的结构"><a href="#MySQL-的-B-树的结构" class="headerlink" title="MySQL 的 B+ 树的结构"></a>MySQL 的 B+ 树的结构</h4><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/Images%5Cimage-20220309114224903.png" alt="image-20220309114224903"></p>
+<ul>
+<li>每个结点都是一页（MySQL默认 16 KB）。</li>
+</ul>
+<h2 id="P047-Innodb-是如何支持范围查找能走索引的"><a href="#P047-Innodb-是如何支持范围查找能走索引的" class="headerlink" title="P047 Innodb 是如何支持范围查找能走索引的"></a>P047 Innodb 是如何支持范围查找能走索引的</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/Images%5Cimage-20220309115545679.png" alt="image-20220309115545679"></p>
+<ul>
+<li>Innodb B+ 树结点分为：<strong>索引页</strong> 和 <strong>数据页</strong>；</li>
+<li>主键默认使用 <strong>主键索引</strong>，只有查询条件为主键才能使用主键索引加快查询速度。若查询条件为其他字段，则是全表扫描。<ul>
+<li>主键索引：从树的根结点开始向下查找数据；</li>
+<li>全表扫描：从树的左侧叶结点向右侧叶节点扫描。</li>
+</ul>
+</li>
+</ul>
+<h2 id="P054-MySQL-中有哪些存储引擎"><a href="#P054-MySQL-中有哪些存储引擎" class="headerlink" title="P054 MySQL 中有哪些存储引擎"></a>P054 MySQL 中有哪些存储引擎</h2><h3 id="1-InnoDB-存储引擎"><a href="#1-InnoDB-存储引擎" class="headerlink" title="1. InnoDB 存储引擎"></a>1. InnoDB 存储引擎</h3><p>InnoDB 是 MySQL 默认事务形引擎，也是最重要、使用最广泛的存储引擎。</p>
+<p>它被设计用来处理大量的短期（short-lived）事物，应该优先考虑 InnoDB 引擎。</p>
+<h3 id="2-MyISAM-存储引擎"><a href="#2-MyISAM-存储引擎" class="headerlink" title="2. MyISAM 存储引擎"></a>2. MyISAM 存储引擎</h3><p>在 MySQL 5.1 及之前的版本，MyISAM 是默认的存储引擎。</p>
+<p>但是 MyISAM 不支持事物和行级锁，而且崩溃后无法安全恢复。</p>
+<p>同时 MyISAM 对整张表加锁，很容易因为表锁的问题导致典型的性能问题。</p>
+<h3 id="3-Memory-引擎"><a href="#3-Memory-引擎" class="headerlink" title="3. Memory 引擎"></a>3. Memory 引擎</h3><h3 id="4-Archive-引擎"><a href="#4-Archive-引擎" class="headerlink" title="4. Archive 引擎"></a>4. Archive 引擎</h3><h3 id="5-CSV-引擎"><a href="#5-CSV-引擎" class="headerlink" title="5. CSV 引擎"></a>5. CSV 引擎</h3><h2 id="P056-MyISAM-和-InnoDB-的区别是什么"><a href="#P056-MyISAM-和-InnoDB-的区别是什么" class="headerlink" title="P056 MyISAM 和 InnoDB 的区别是什么"></a>P056 MyISAM 和 InnoDB 的区别是什么</h2><ol>
+<li>InnoDB 支持事物，MyISAM 不支持事物；</li>
+<li>InnoDB 支持外键，MyISAM 不支持外键；</li>
+<li>InnoDB 是聚集索引，MyISAM 是非聚集索引；</li>
+<li>InnoDB 不保存表的具体行数，执行 <code>select count(*) from table</code> 时需要全表扫描。MyISAM 用一个变量保存了整个表的行数，执行上述语句时只需要读出该变量即可，速度块；</li>
+<li>InnoDB 最小的锁粒度是行锁，MyISAM 最小的锁粒度是表锁。</li>
+</ol>
+<h2 id="P057-数据表设计时，字段你会如何选择"><a href="#P057-数据表设计时，字段你会如何选择" class="headerlink" title="P057 数据表设计时，字段你会如何选择"></a>P057 数据表设计时，字段你会如何选择</h2><h4 id="字段类型优先级"><a href="#字段类型优先级" class="headerlink" title="字段类型优先级"></a>字段类型优先级</h4><p>整型 &gt; date,time &gt; enum,char &gt; varchar &gt; blob,text</p>
+<blockquote>
+<p>选用字段长度最小、优先使用定长型、数值型字段中避免使用 “ZEROFILL” ；</p>
+</blockquote>
+<h2 id="P059-请说一下事物的基本特性"><a href="#P059-请说一下事物的基本特性" class="headerlink" title="P059 请说一下事物的基本特性"></a>P059 请说一下事物的基本特性</h2><p>ACID：原子性、一致性、隔离性、持久性。</p>
+<ul>
+<li>原子性：一个事物中的操作要么全部成功，要么全部失败；</li>
+<li>一致性：数据库总是从一个一致性的状态转换到另一个一致性的状态；<ul>
+<li>eg：比如 A 转账给 B 100 块钱，假设中间sql执行过程中系统崩溃 A 也不会损失 100 块钱，因为事物没有提交，修改也就不会保存到数据库。</li>
+</ul>
+</li>
+<li>隔离性：一个事务的修改在提交之前，对其他事物是不可见的；</li>
+<li>持久性：一旦事务提交，所做的修改就会永久保存到数据库中。</li>
+</ul>
+<h2 id="P060-事务并发可能会引发什么问题"><a href="#P060-事务并发可能会引发什么问题" class="headerlink" title="P060 事务并发可能会引发什么问题"></a>P060 事务并发可能会引发什么问题</h2><h3 id="1-脏读"><a href="#1-脏读" class="headerlink" title="1. 脏读"></a>1. 脏读</h3><p>1、在事物 A 执行过程中，事物 A 对数据资源进行了修改，事物 B 读取了事物 A 修改后的数据；</p>
+<p>2、由于某些原因，事物 A 并没有完成提交，发生了 RollBack 操作，则事物 B 读取的数据就是脏读数据。</p>
+<p>这种 <strong>读取到另一个事物未提交的数据的现象</strong> 就是脏读（Dirty Read）。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/Images%5Cimage-20220310160101258.png" alt="image-20220310160101258"></p>
+<h3 id="2-不可重复读"><a href="#2-不可重复读" class="headerlink" title="2. 不可重复读"></a>2. 不可重复读</h3><p>事物 B 读取了两次数据资源，在这两次读取的过程中事物  A 修改了数据，导致事物 B 在这两次读取出来的数据不一致。</p>
+<p>这种在 <strong>同一事物中，前后两次读取的数据不一致的现象</strong> 就是不可重复读（Nonrepeatable Read）。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/Images%5Cimage-20220310162702516.png" alt="image-20220310162702516"></p>
+<h3 id="3-幻读"><a href="#3-幻读" class="headerlink" title="3. 幻读"></a>3. 幻读</h3><p>事物 B 前后两次读取同一个范围的数据，在事物 B 两次读取的过程中事物 A 新增了数据，导致事物 B 后一次读取到前一次查询没有看到的行。</p>
+<p>幻读和不可重复读有些类似，但是 <strong>幻读强调的是集合的增减，而不是单条数据的更新</strong>。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/Images%5Cimage-20220310163453730.png" alt="image-20220310163453730"></p>
+<h2 id="P061-简单描述下-MySQL-各种索引"><a href="#P061-简单描述下-MySQL-各种索引" class="headerlink" title="P061 简单描述下 MySQL 各种索引"></a>P061 简单描述下 MySQL 各种索引</h2><h3 id="1-主键索引"><a href="#1-主键索引" class="headerlink" title="1. 主键索引"></a>1. 主键索引</h3><p>建立在主键上的索引被称为主键索引，一张数据表只能有一个主键索引，索引列值不允许有空值，通常在创建表时一起创建。</p>
+<h3 id="2-唯一索引"><a href="#2-唯一索引" class="headerlink" title="2. 唯一索引"></a>2. 唯一索引</h3><p>建立在 UNIQUE 字段上的索引被成为唯一索引，一张表可以有多个唯一索引，索引列值允许为空，列值中出现多个空值不会发生重复冲突。</p>
+<h3 id="3-普通索引"><a href="#3-普通索引" class="headerlink" title="3. 普通索引"></a>3. 普通索引</h3><p>建立在普通字段上的索引被称为普通索引。</p>
+<h3 id="4-前缀索引"><a href="#4-前缀索引" class="headerlink" title="4. 前缀索引"></a>4. 前缀索引</h3><p>前缀索引是指对字符类型字段的前几个字符或对二进制类型字段的前几个 bytes 建立的索引，而不是在整个字段上建立索引。前缀索引可以建立在类型为 char、varchar、binary、varbinary 的列上，可以大大减少索引占用的存储空间，也能提升索引查询效率。</p>
+<p>前缀索引是一种能使索引更小更快的有效方法，但是也包含缺点：MySQL 无法使用前缀索引做 order by 和 group by。</p>
+<h2 id="P065-什么是全局锁、共享锁、排他锁"><a href="#P065-什么是全局锁、共享锁、排他锁" class="headerlink" title="P065 什么是全局锁、共享锁、排他锁"></a>P065 什么是全局锁、共享锁、排他锁</h2><h3 id="1-全局锁"><a href="#1-全局锁" class="headerlink" title="1. 全局锁"></a>1. 全局锁</h3><p>对整个数据库实例加锁，它的典型使用场景就是做全库逻辑备份。这个命令可以使整个库处于只读状态。使用该命令之后，数据更新语句、数据定义语句、更新类事物的提交语句等操作都会被阻塞。</p>
+<h3 id="2-共享锁"><a href="#2-共享锁" class="headerlink" title="2. 共享锁"></a>2. 共享锁</h3><p>又称读锁（read lock），是读取操作创建的锁。其他用户可以并发的读取数据，但任何事物都不能对数据进行修改（获取数据上的排他锁），直到已释放所有共享锁。当如果事物对读锁进行修改操作，很可能会造成死锁。</p>
+<h3 id="3-排他锁"><a href="#3-排他锁" class="headerlink" title="3. 排他锁"></a>3. 排他锁</h3><p>又称写锁（writer lock），若某个事物对某一行加上了排他锁，只能这个事物对其进行读写，在此事物结束之前，其他事物不能对其进行加任何锁，其他进程可以读取，不能进行写操作，需等待其释放。排他锁是悲观锁的一种实现。</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E9%98%BF%E9%87%8CP8%E7%88%86%E8%82%9D2%E4%B8%AA%E6%9C%88%E5%91%95%E5%BF%83%E6%95%B4%E7%90%86_%E6%8C%91%E6%88%9830%E5%A4%A9%E6%89%93%E5%8D%A1%E6%98%A5%E6%8B%9B%E4%B8%8A%E5%B2%B8/P001%20%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">P001 面向对象<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E9%98%BF%E9%87%8CP8%E7%88%86%E8%82%9D2%E4%B8%AA%E6%9C%88%E5%91%95%E5%BF%83%E6%95%B4%E7%90%86_%E6%8C%91%E6%88%9830%E5%A4%A9%E6%89%93%E5%8D%A1%E6%98%A5%E6%8B%9B%E4%B8%8A%E5%B2%B8/P097%20%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3HashMap%E4%B8%8EHash%E7%AE%97%E6%B3%95/">P097 深入理解HashMap与Hash算法<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

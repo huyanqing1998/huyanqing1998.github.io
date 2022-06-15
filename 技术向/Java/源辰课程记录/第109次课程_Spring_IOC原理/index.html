@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第109次课程_Spring_IOC原理 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰76班 第109次课程 2020.02.19 内容 Spring_IOC原理 项目路径： 1.XML方式 IOC01.xml 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第109次课程_Spring_IOC原理">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC109%E6%AC%A1%E8%AF%BE%E7%A8%8B_Spring_IOC%E5%8E%9F%E7%90%86/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰76班 第109次课程 2020.02.19 内容 Spring_IOC原理 项目路径： 1.XML方式 IOC01.xml 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T01:32:11.877Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-02-18T16:00:00.000Z">2020-02-19</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第109次课程_Spring_IOC原理</span></h1>
+<p><strong>源辰76班</strong></p>
+<p><strong>第109次课程</strong></p>
+<p><strong>2020.02.19</strong></p>
+<p><strong>内容</strong></p>
+<p><strong>Spring_IOC原理</strong></p>
+<p><strong>项目路径：</strong></p>
+<p><strong>1.XML方式</strong></p>
+<p>IOC01.xml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;beans   xmlns=&quot;http://www.springframework.org/schema/beans&quot;</span><br><span class="line">      xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">      xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</span><br><span class="line">          https://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;</span><br><span class="line">    &lt;!-- 1 --&gt;</span><br><span class="line">    &lt;bean id=&quot;myUser&quot;  class=&quot;com.yc.spring.bbs.bean.User&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;uname&quot; value=&quot;武松&quot;&gt;&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;upass&quot;  value=&quot;abc123&quot;&gt;&lt;/property&gt;   </span><br><span class="line">        &lt;property name=&quot;head&quot;  value=&quot;20.gif&quot;&gt;&lt;/property&gt;   </span><br><span class="line">        &lt;property name=&quot;gender&quot;  value=&quot;1&quot;&gt;&lt;/property&gt;       </span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 2 --&gt;</span><br><span class="line">    &lt;bean primary=&quot;true&quot;  class=&quot;com.yc.spring.bbs.bean.User&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;uname&quot; value=&quot;石秀&quot;&gt;&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;upass&quot;  value=&quot;XYZ890&quot;&gt;&lt;/property&gt;   </span><br><span class="line">        &lt;property name=&quot;head&quot;  value=&quot;345.gif&quot;&gt;&lt;/property&gt;   </span><br><span class="line">        &lt;property name=&quot;gender&quot;  value=&quot;0&quot;&gt;&lt;/property&gt;       </span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 3 --&gt;</span><br><span class="line">    &lt;bean id=&quot;page1&quot;  class=&quot;com.yc.spring.bbs.bean.Page&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;total&quot;  value=&quot;100&quot;&gt;&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;rows&quot;&gt;</span><br><span class="line">           &lt;list&gt;</span><br><span class="line">               &lt;value&gt;湖南&lt;/value&gt;   </span><br><span class="line">               &lt;value&gt;广东&lt;/value&gt;</span><br><span class="line">               &lt;value&gt;&lt;/value&gt;       </span><br><span class="line">               &lt;value  type=&quot;java.lang.Integer&quot;&gt;100&lt;/value&gt;</span><br><span class="line">           &lt;/list&gt;</span><br><span class="line">        &lt;/property&gt;   </span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 4 --&gt;</span><br><span class="line">    &lt;bean id=&quot;board&quot; primary=&quot;true&quot;  class=&quot;com.yc.spring.bbs.bean.Board&quot;&gt;</span><br><span class="line">        &lt;constructor-arg name=&quot;boardid&quot;  value=&quot;100&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">        &lt;constructor-arg name=&quot;parentid&quot;  value=&quot;200&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">        &lt;constructor-arg name=&quot;boardname&quot;  value=&quot;jsp&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">        &lt;property name=&quot;parent&quot;  ref=&quot;boardparent&quot;&gt;&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;topicList&quot;&gt;</span><br><span class="line">           &lt;list&gt;</span><br><span class="line">               &lt;null/&gt;</span><br><span class="line">               &lt;null/&gt;</span><br><span class="line">               &lt;null/&gt;</span><br><span class="line">               &lt;bean  class=&quot;com.yc.spring.bbs.bean.Topic&quot;&gt;</span><br><span class="line">                   &lt;property name=&quot;uid&quot;  value=&quot;400&quot;&gt;&lt;/property&gt;</span><br><span class="line">               &lt;/bean&gt;</span><br><span class="line">               &lt;null/&gt;</span><br><span class="line">           &lt;/list&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    &lt;bean id=&quot;boardparent&quot; scope=&quot;prototype&quot;  class=&quot;com.yc.spring.bbs.bean.Board&quot;&gt;</span><br><span class="line">        &lt;constructor-arg name=&quot;boardid&quot;  value=&quot;300&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">        &lt;constructor-arg name=&quot;parentid&quot;  value=&quot;0&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">        &lt;constructor-arg name=&quot;boardname&quot;  value=&quot;java&quot;&gt;&lt;/constructor-arg&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 5 --&gt;</span><br><span class="line">    &lt;bean id=&quot;page2&quot;  class=&quot;com.yc.spring.bbs.bean.Page&quot;&gt;</span><br><span class="line">        &lt;property name=&quot;total&quot;  value=&quot;200&quot;&gt;&lt;/property&gt;</span><br><span class="line">        &lt;property name=&quot;rows&quot;&gt;</span><br><span class="line">           &lt;list&gt;</span><br><span class="line">               &lt;bean  class=&quot;com.yc.spring.bbs.bean.User&quot;&gt;</span><br><span class="line">                   &lt;property name=&quot;uname&quot;  value=&quot;华荣&quot;&gt;&lt;/property&gt;</span><br><span class="line">               &lt;/bean&gt;</span><br><span class="line">               &lt;map&gt;</span><br><span class="line">                   &lt;entry key=&quot;0734&quot;  value=&quot;衡阳&quot;&gt;&lt;/entry&gt;</span><br><span class="line">                   &lt;entry key=&quot;0731&quot;  value=&quot;长沙&quot;&gt;&lt;/entry&gt;</span><br><span class="line">               &lt;/map&gt;</span><br><span class="line">               &lt;set&gt;</span><br><span class="line">                   &lt;value  type=&quot;java.lang.Integer&quot;&gt;100&lt;/value&gt;</span><br><span class="line">                   &lt;value&gt;呵呵&lt;/value&gt;</span><br><span class="line">                   &lt;ref bean=&quot;myUser&quot;&gt;&lt;/ref&gt;</span><br><span class="line">               &lt;/set&gt;</span><br><span class="line">           &lt;/list&gt;</span><br><span class="line">        &lt;/property&gt;</span><br><span class="line">    &lt;/bean&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+
+<p>E01locForXmlTest.java</p>
+<p>测试文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.spring.test.ioc;</span><br><span class="line"></span><br><span class="line">import java.util.Map;</span><br><span class="line">import java.util.Set;</span><br><span class="line"></span><br><span class="line">import org.junit.Assert;</span><br><span class="line">import org.junit.Test;</span><br><span class="line">import org.springframework.context.support.ClassPathXmlApplicationContext;</span><br><span class="line"></span><br><span class="line">import com.yc.spring.bbs.bean.Board;</span><br><span class="line">import com.yc.spring.bbs.bean.Page;</span><br><span class="line">import com.yc.spring.bbs.bean.User;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* 配置Spring，让测试方法全部测试通过</span><br><span class="line">*/</span><br><span class="line">public class E01IocForXmlTest &#123;</span><br><span class="line"></span><br><span class="line">    ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(&quot;IOC01.xml&quot;);</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void test1() &#123;</span><br><span class="line">        User user = (User) context.getBean(&quot;myUser&quot;);</span><br><span class="line">        Assert.assertNotNull(user);</span><br><span class="line">        Assert.assertEquals(&quot;武松&quot;, user.getUname());</span><br><span class="line">        Assert.assertEquals(&quot;abc123&quot;, user.getUpass());</span><br><span class="line">        Assert.assertEquals(&quot;20.gif&quot;, user.getHead());</span><br><span class="line">        Assert.assertEquals(Integer.valueOf(1), user.getGender());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 必须设置主bean primary=true</span><br><span class="line">    @Test</span><br><span class="line">    public void test2() &#123;</span><br><span class="line">        User user = (User) context.getBean(User.class);</span><br><span class="line">        Assert.assertNotNull(user);</span><br><span class="line">        Assert.assertEquals(&quot;石秀&quot;, user.getUname());</span><br><span class="line">        Assert.assertEquals(&quot;XYZ890&quot;, user.getUpass());</span><br><span class="line">        Assert.assertEquals(&quot;345.gif&quot;, user.getHead());</span><br><span class="line">        Assert.assertEquals(Integer.valueOf(0), user.getGender());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void test3() &#123;</span><br><span class="line">        Page page = (Page) context.getBean(&quot;page1&quot;);</span><br><span class="line">        Assert.assertNotNull(page);</span><br><span class="line">        Assert.assertEquals(100, page.getTotal());</span><br><span class="line">        Assert.assertNotNull(page.getRows());</span><br><span class="line">        Assert.assertEquals(&quot;湖南&quot;, page.getRows().get(0));</span><br><span class="line">        Assert.assertEquals(&quot;广东&quot;, page.getRows().get(1));</span><br><span class="line">        Assert.assertEquals(100, page.getRows().get(3));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Test</span><br><span class="line">    public void test4() &#123;</span><br><span class="line">        Board board = (Board) context.getBean(&quot;board&quot;);</span><br><span class="line">        Assert.assertEquals((Integer) 100, board.getBoardid());</span><br><span class="line">        Assert.assertEquals((Integer) 200, board.getParentid());</span><br><span class="line">        Assert.assertEquals(&quot;jsp&quot;, board.getBoardname());</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        Assert.assertEquals((Integer) 300, board.getParent().getBoardid());</span><br><span class="line">        Assert.assertEquals(&quot;java&quot;, board.getParent().getBoardname());</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        Assert.assertEquals(5, board.getTopicList().size());</span><br><span class="line">        Assert.assertEquals(null, board.getTopicList().get(0));</span><br><span class="line">        Assert.assertNull(board.getTopicList().get(1));</span><br><span class="line">        Assert.assertEquals((Integer) 400, board.getTopicList().get(3).getUid());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">    @Test</span><br><span class="line">    public void test5() &#123;</span><br><span class="line">        Page page = (Page) context.getBean(&quot;page2&quot;);</span><br><span class="line">        Assert.assertNotNull(page);</span><br><span class="line">        Assert.assertEquals(200, page.getTotal());</span><br><span class="line">        Assert.assertNotNull(page.getRows());</span><br><span class="line"></span><br><span class="line">        /**</span><br><span class="line">         * 测试实体对象</span><br><span class="line">         */</span><br><span class="line">        User user = (User) page.getRows().get(0);</span><br><span class="line">        Assert.assertEquals(&quot;华荣&quot;, user.getUname());</span><br><span class="line">        /**</span><br><span class="line">         * 测试Map集合</span><br><span class="line">         */</span><br><span class="line">        Map&lt;String, Object&gt; map = (Map&lt;String, Object&gt;) page.getRows().get(1);</span><br><span class="line">        Assert.assertEquals(&quot;衡阳&quot;, map.get(&quot;0734&quot;));</span><br><span class="line">        Assert.assertEquals(&quot;长沙&quot;, map.get(&quot;0731&quot;));</span><br><span class="line">        /**</span><br><span class="line">         * 测试Set集合</span><br><span class="line">         */</span><br><span class="line">        User wuSong = (User) context.getBean(&quot;myUser&quot;);</span><br><span class="line">        Set&lt;Object&gt; set = (Set&lt;Object&gt;) page.getRows().get(2);</span><br><span class="line">        Assert.assertEquals(true, set.contains(100));</span><br><span class="line">        Assert.assertEquals(true, set.contains(wuSong));</span><br><span class="line">        Assert.assertEquals(true, set.contains(&quot;呵呵&quot;));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.注解方式</strong></p>
+<p>BeanConfig.java</p>
+<p>相当于XML配置文件</p>
+<p>自动装配</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.spring;</span><br><span class="line"></span><br><span class="line">import org.springframework.beans.factory.config.ConfigurableBeanFactory;</span><br><span class="line">import org.springframework.context.annotation.Bean;</span><br><span class="line">import org.springframework.context.annotation.ComponentScan;</span><br><span class="line">import org.springframework.context.annotation.Configuration;</span><br><span class="line">import org.springframework.context.annotation.Primary;</span><br><span class="line">import org.springframework.context.annotation.Scope;</span><br><span class="line"></span><br><span class="line">import com.yc.spring.bank.bean.Account;</span><br><span class="line">import com.yc.spring.bank.biz.impl.AccountBizImpl;</span><br><span class="line">import com.yc.spring.bbs.bean.User;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line">* 注解配置bean 类</span><br><span class="line">*/</span><br><span class="line">    </span><br><span class="line">    /*</span><br><span class="line">     * 自动装配</span><br><span class="line">     * 1.组件注解：Component 注解，加在类上，相当于Bean</span><br><span class="line">     *     (如果说Configuration注解的类内部为本地居民Bean，那么Component注解标记为属于本地居民却在外地的Bean)</span><br><span class="line">     *         Component    通用 组件</span><br><span class="line">     *         Service        biz类</span><br><span class="line">     *         Repository    dao类</span><br><span class="line">     *         Controller    控制器</span><br><span class="line">     * 2.属性上面加上@Autowired注解，可以让spring容器自动的注入一个对象，实现自动装配</span><br><span class="line">     * 3.在配置类加上@ComponentScan，是对某个包下的所有类进行扫描，扫描到加了&quot;1.组件注解&quot;的bean，自动添加到IOC中并完成装载</span><br><span class="line">     *</span><br><span class="line">     */</span><br><span class="line"></span><br><span class="line">@Configuration   // -&gt;  &lt;beans&gt;</span><br><span class="line">@ComponentScan(&quot;com.yc.spring&quot;)  // 配置spring扫描的包路径</span><br><span class="line">public class BeanConfig &#123;</span><br><span class="line">    </span><br><span class="line">    /*</span><br><span class="line">     * @Bean(#name)        == &lt;bean id=&quot;#name&quot;&gt;&lt;/bean&gt;         //设置实体类名</span><br><span class="line">     * @Primary            == &lt;bean primary=&quot;ture&quot;&gt;&lt;/bean&gt;     //.Class唯一</span><br><span class="line">     * @Scope(&quot;prototype&quot;) == &lt;bean scope=&quot;prototype&quot;&gt;&lt;/bean&gt;//单例，调用一次创建一个新对象</span><br><span class="line">     *            prototype   -&gt; ConfigurableBeanFactory.SCOPE_PROTOTYPE</span><br><span class="line">     */</span><br><span class="line">    </span><br><span class="line">    /**</span><br><span class="line">     * 创建 Account 对象的方法</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    @Bean(&quot;accountBiz&quot;)</span><br><span class="line">    public AccountBizImpl createAcountBiz() &#123;</span><br><span class="line">        return new AccountBizImpl();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @Bean(&quot;account&quot;)</span><br><span class="line">    @Primary</span><br><span class="line">    public Account createAcount() &#123;</span><br><span class="line">        return new Account();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @Bean(&quot;account1&quot;)</span><br><span class="line">    @Scope(&quot;prototype&quot;)</span><br><span class="line">    public Account createAcount1() &#123;</span><br><span class="line">        return new Account();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @Bean(&quot;account2&quot;)</span><br><span class="line">    public Account createAcount2() &#123;</span><br><span class="line">        // 必须与 createAcount3 方法一样</span><br><span class="line">        // 单例模式</span><br><span class="line">        return Account.getInstance();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @Bean(&quot;account3&quot;)</span><br><span class="line">    public Account createAcount3() &#123;</span><br><span class="line">        // 必须与 createAcount2 方法一样</span><br><span class="line">        // 单例模式</span><br><span class="line">        return Account.getInstance();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    int count;</span><br><span class="line">    @Bean(&quot;account4&quot;)</span><br><span class="line">    @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)</span><br><span class="line">    public Account create1() &#123;</span><br><span class="line">        return count++ &lt; 3 ? new Account() : Account.getInstance();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @Bean(&quot;myUser&quot;)</span><br><span class="line">    public User createUser() &#123;</span><br><span class="line">        User user = new User();</span><br><span class="line">        /**</span><br><span class="line">         * 使用java代码设置属性</span><br><span class="line">         */</span><br><span class="line">        user.setUname(&quot;武松&quot;);</span><br><span class="line">        user.setUpass(&quot;abc123&quot;);</span><br><span class="line">        user.setHead(&quot;20.gif&quot;);</span><br><span class="line">        user.setGender(1);</span><br><span class="line">        return user;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>UserBiz.java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.spring.taobao;</span><br><span class="line">import  org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line">import  org.springframework.stereotype.Service;</span><br><span class="line">/*</span><br><span class="line">* 业务类</span><br><span class="line">* @Component =&gt; @Bean</span><br><span class="line">*/</span><br><span class="line">@Service</span><br><span class="line">public class UserBiz &#123;</span><br><span class="line">    @Autowired</span><br><span class="line">    private UserDao udao;</span><br><span class="line">    public UserDao getUdao() &#123;</span><br><span class="line">       return udao;</span><br><span class="line">    &#125;</span><br><span class="line">    public void setUdao(UserDao udao) &#123;</span><br><span class="line">       this.udao = udao;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>UserDao.java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">package com.yc.spring.taobao;</span><br><span class="line">import  org.springframework.stereotype.Repository;</span><br><span class="line">@Repository</span><br><span class="line">public class UserDao &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>E03locForAnnoTest.java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Class&lt;?&gt; beanConfigClass;</span><br><span class="line">&#123;</span><br><span class="line">       try &#123;</span><br><span class="line">           beanConfigClass =  Class.forName(&quot;com.yc.spring.BeanConfig&quot;);</span><br><span class="line">           //相当于：beanConfigClass =  BeanConfig.class;</span><br><span class="line">       &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">           throw new RuntimeException(&quot;请定义注解配置类 (BeanConfig) !!!!&quot;,e);</span><br><span class="line">       &#125;</span><br><span class="line">&#125;</span><br><span class="line">             // 创建注解容器上下文对象</span><br><span class="line">          ApplicationContext cxt = new AnnotationConfigApplicationContext(beanConfigClass);</span><br><span class="line">//相当于：ApplicationContext cxt = new AnnotationConfigApplicationContext(BeanConfig.class);</span><br><span class="line">    </span><br><span class="line">    //=====================================================================//</span><br><span class="line">    @Test</span><br><span class="line">    public void testUserBiz() &#123;</span><br><span class="line">       com.yc.spring.taobao.UserBiz ubiz =  cxt.getBean(com.yc.spring.taobao.UserBiz.class);</span><br><span class="line">       </span><br><span class="line">       Assert.assertNotNull(ubiz);</span><br><span class="line">       </span><br><span class="line">       Assert.assertNotNull(ubiz.getUdao());</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC108%E6%AC%A1%E8%AF%BE%E7%A8%8B_Spring_IOC%E5%8E%9F%E7%90%86/">第108次课程_Spring_IOC原理<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E6%8A%80%E6%9C%AF%E5%82%A8%E5%A4%87/%E5%A4%9A%E4%B8%AA%E9%A1%B9%E7%9B%AE%E9%80%9A%E8%BF%87%E5%88%86%E6%94%AF%E5%85%AC%E7%94%A8%E5%90%8C%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">多个项目通过分支公用同一个仓库的解决方案<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

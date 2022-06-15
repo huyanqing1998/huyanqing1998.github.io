@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第42次课程 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰74班 第42次课程 07.20.2019 **内容    ** Oracle_高级查询[张影] create table stuinfo (    stuid int primary key,    sname varchar2(50) unique,    sage int not null  constraint CK_age check(sage&gt;&#x3D;18 and sag">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第42次课程">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC42%E6%AC%A1%E8%AF%BE%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰74班 第42次课程 07.20.2019 **内容    ** Oracle_高级查询[张影] create table stuinfo (    stuid int primary key,    sname varchar2(50) unique,    sage int not null  constraint CK_age check(sage&gt;&#x3D;18 and sag">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T01:16:26.730Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2019-07-19T16:00:00.000Z">2019-07-20</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第42次课程</span></h1>
+<p><strong>源辰74班</strong></p>
+<p><strong>第42次课程</strong></p>
+<p><strong>07.20.2019</strong></p>
+<p>**内容    **</p>
+<p><strong>Oracle_高级查询[张影]</strong></p>
+<p>create table stuinfo</p>
+<p>(</p>
+<p>   stuid int primary key,</p>
+<p>   sname varchar2(50) unique,</p>
+<p>   sage int not null</p>
+<p> constraint CK_age check(sage&gt;&#x3D;18 and sage&lt;&#x3D;30),</p>
+<p>   saddress varchar2(50)</p>
+<p>);</p>
+<p>create table course(</p>
+<p>      cid int primary key,</p>
+<p>      cname varchar2(50)     </p>
+<p>);</p>
+<p>create sequence seq_score_id;</p>
+<p>create table score(</p>
+<p>      scoreid int primary key,</p>
+<p>      studentid int ,</p>
+<p>      courseid int ,</p>
+<p>      score int</p>
+<p>);</p>
+<p>insert into course(cid,cname) values(1,’j2se精讲’);</p>
+<p>insert into course(cid,cname) values(3,’sql server’);</p>
+<p>insert into course (cid,cname) values(9,’html网页设计’);</p>
+<p>insert into stuinfo(stuid,sname,sage,saddress) values(31,’张果老’,22,null);</p>
+<p>insert into stuinfo(stuid,sname,sage,saddress) values(29,’张三在’,20,null);</p>
+<p>insert into stuinfo(stuid,sname,sage,saddress) values(13,’李豹’,22,null);</p>
+<p>insert into stuinfo(stuid,sname,sage,saddress) values(15,’老胡’,22,’北京’);</p>
+<p>insert into stuinfo(stuid,sname,sage,saddress) values(17,’老江’,24,’湖南’);</p>
+<p>insert into stuinfo(stuid,sname,sage,saddress) values(19,’张无忌’,26,’衡阳’);</p>
+<p>insert into stuinfo(stuid,sname,sage,saddress) values(32,’二师兄’,28,’长沙’);</p>
+<p>insert into stuinfo(stuid,sname,sage,saddress) values(1,’韦小宝’,27,’上海’);</p>
+<p>insert into score values(seq_score_id.nextval,31,1,95);</p>
+<p>insert into score values(seq_score_id.nextval,29,1,67);</p>
+<p>insert into score values(seq_score_id.nextval,13,1,56);</p>
+<p>insert into score values(seq_score_id.nextval,15,1,81);</p>
+<p>insert into score values(seq_score_id.nextval,17,1,82);</p>
+<p>insert into score values(seq_score_id.nextval,19,1,78);</p>
+<p>insert into score values(seq_score_id.nextval,13,3,81);</p>
+<p>insert into score values(seq_score_id.nextval,15,3,92);</p>
+<p>insert into score values(seq_score_id.nextval,17,3,81);</p>
+<p>insert into score values(seq_score_id.nextval,19,3,66);</p>
+<p>insert into score values(seq_score_id.nextval,29,3,36);</p>
+<p>insert into score values(seq_score_id.nextval,31,3,73);</p>
+<p>insert into score values(seq_score_id.nextval,31,9,57);</p>
+<p>insert into score values(seq_score_id.nextval,29,9,76);</p>
+<p>insert into score values(seq_score_id.nextval,13,9,78);</p>
+<p>insert into score values(seq_score_id.nextval,15,9,89);</p>
+<p>insert into score values(seq_score_id.nextval,19,9,93);</p>
+<p>insert into score values(seq_score_id.nextval,13,1,80);</p>
+<p>insert into score values(seq_score_id.nextval,29,3,88);</p>
+<p>insert into score values(seq_score_id.nextval,31,9,69);</p>
+<p>select * from stuinfo;</p>
+<p>select * from course;</p>
+<p>select * from score;</p>
+<p><em>–查出所姓’张’的学员信息</em></p>
+<p>select * from stuinfo where sname like ‘张%’;</p>
+<p><em>–查出所有saddress字段为’NULL’值的学员的信息</em></p>
+<p>select * from stuinfo where saddress is null;</p>
+<p><em>–查出成绩在60到70分之间的学员的id号</em></p>
+<p>select *</p>
+<p>from score</p>
+<p>where score between 60 and 70;</p>
+<p>select stuinfo.stuid as 学生编号,stuinfo.sname as 姓名,course.cid as 课程编号,course.cname as 课程名,score.score as 成绩</p>
+<p>from score,stuinfo,course</p>
+<p>where score.studentid &#x3D; stuinfo.stuid and score.courseid &#x3D; course.cid and score between 60 and 70;</p>
+<p>select stuinfo.stuid as 学生编号,stuinfo.sname as 姓名,course.cid as 课程编号,course.cname as 课程名,score.score as 成绩</p>
+<p>from score</p>
+<p>inner join stuinfo on stuinfo.stuid &#x3D; score.studentid</p>
+<p>inner join course on course.cid &#x3D; score.courseid</p>
+<p>where score.studentid &#x3D; stuinfo.stuid and score.courseid &#x3D; course.cid and score between 60 and 70;</p>
+<p><em>–查出地址是北京和上海的学生的信息</em></p>
+<p>select * from stuinfo</p>
+<p>where saddress in(‘北京’,’上海’);</p>
+<p>select * from stuinfo</p>
+<p>where saddress &#x3D; ‘北京’ or saddress &#x3D; ‘上海’;</p>
+<p><em>–查出学员在’sql server’这门课程中的总成绩和平均成绩,最高分数，最低分数</em></p>
+<p>select course.cname as 统计的课程,sum(score) as 总成绩,avg(score) as 平均分,max(score) as 最高分,min(score) as 最低分</p>
+<p>from score</p>
+<p>left join course on course.cid &#x3D; score.courseid</p>
+<p>where course.cname &#x3D; ‘sql server’</p>
+<p>group by course.cname;</p>
+<p><em>–查出学员在’j2se精讲’这门课程中不及格的学生人数</em></p>
+<p>select course.cname as 课程名,count(scoreid) as 不及格人数</p>
+<p>from score</p>
+<p>left join course on course.cid &#x3D; score.courseid</p>
+<p>where course.cname &#x3D; ‘j2se精讲’ and score.score &lt; 60</p>
+<p>group by course.cname;</p>
+<p><em>–深入思考: 以上只求出了某一特定的课目的平均成绩，那如何一次性求出每一门课程的平均成绩呢？</em></p>
+<p><em>–解决方案: 对课程进行分组,形成多个虚拟的数据集，对分组之后的结果再来求平均值</em></p>
+<p><em>–语法: select 列名  from 表名   where 条件   group by 分组列</em></p>
+<p>select course.cname as 课程名,avg(score.score) as 平均成绩</p>
+<p>from score</p>
+<p>left join course on course.cid &#x3D; score.courseid</p>
+<p>group by course.cname;</p>
+<p><em>–特别提醒: 分组后，select 子句后的查询的结果要不就是分组的列，要不必须是聚合函数的列，而不能是其它的列.</em></p>
+<p><em>–如下所示: 错误示范：group by 所获得的是 聚合集</em></p>
+<p>select stuinfo.stuid as 学生编号,course.cname as 课程名,avg(score.score) as 平均成绩</p>
+<p>from score</p>
+<p>left join course on course.cid &#x3D; score.courseid</p>
+<p>left join stuinfo on stuinfo.stuid &#x3D; score.studentid</p>
+<p>group by stuinfo.stuid,course.cname;</p>
+<p><em>–多列分组的情况: 需求描述: 要求求出每次测试不同学员的不同课目的成绩(如果有补考，则为多次成绩的平均值)</em></p>
+<p>select score.studentid as 学生编号,stuinfo.sname as 学生名,score.courseid as 课程编号,course.cname as 课程名,avg(score.score) as 平均成绩</p>
+<p>from score</p>
+<p>left join stuinfo on stuinfo.stuid &#x3D; score.studentid</p>
+<p>left join course on course.cid &#x3D; score.courseid</p>
+<p>group by score.studentid,score.courseid,stuinfo.sname,course.cname;</p>
+<p><em>–在上面基础上，只想查看参加过补考的学员的补考课目的平均成绩.</em></p>
+<p><em>–分析，这时要对分组后的数据进行分析，如果是补考的课目，则分组后会有多条记录，</em></p>
+<p><em>–having 对子集进行删选  where 对原表数据进行筛选</em></p>
+<p>select score.studentid as 学生编号,stuinfo.sname as 学生名,score.courseid as 课程编号,course.cname as 课程名,avg(score.score) as 平均成绩</p>
+<p>from score</p>
+<p>left join stuinfo on stuinfo.stuid &#x3D; score.studentid</p>
+<p>left join course on course.cid &#x3D; score.courseid</p>
+<p>group by score.studentid,score.courseid,stuinfo.sname,course.cname</p>
+<p>having count(scoreid)&gt;1;</p>
+<p><em>–总结：select 语法</em></p>
+<p><em>– select 列名</em></p>
+<p><em>–from 表名</em></p>
+<p><em>–where 原表条件</em></p>
+<p><em>–group by 分组列</em></p>
+<p><em>–having 子集条件.</em></p>
+<p><em>–从多个表中取数据场景:</em></p>
+<p><em>–需求: 显示学生姓名，课程名及成绩</em></p>
+<p><em>–解决方案1. 普通查询+多个主外键相等判断</em></p>
+<p><em>–解决方案2: 使用多表联接查询</em></p>
+<p><em>–种类:1. 内联结(inner join):   仅当至少有一个同属于两表的行符合联接条件时，内联接才返回行. 内联接消除与另一个表中任何不匹配的行.</em></p>
+<p><em>–     2. 外联结    ： 外联接会返回from 子句中提到的至少一个表的所有行，只要这些行符合任何where或having条件。</em></p>
+<p><em>–            左外联接   left join ： 左边表中所有的行，右边表中没有的字段用null代替</em></p>
+<p><em>–            右外联接   right join : 右边表中所有的行, 左边表中没有的字段用null代替</em></p>
+<p><em>–            完整外联结  full join : 两表数据都返回，没有的地方用null代替.</em></p>
+<p><em>–     3. 交叉联结  (cross join)</em></p>
+<p><em>–1. 内联结语法:  select 列名  from 表名</em></p>
+<p><em>–                  inner join 表名2</em></p>
+<p><em>–                  on 联结条件</em></p>
+<p>_–案例:   显示学生姓名，课程名及成绩 _</p>
+<p><em>–深入观察: 以下两条语句查询出来的结果数分别为多少，为什么?</em></p>
+<p>select c.cname,s.score</p>
+<p>from score s</p>
+<p>inner join course c</p>
+<p>on    s.courseid&#x3D;&#x3D;c.cid</p>
+<p> _–结果为:     _<em>20____条记录</em></p>
+<p>select c.cname,s.score</p>
+<p>from score s</p>
+<p>inner join course c</p>
+<p>on    s.courseid&lt;&gt;c.cid    _–结果为:  _<em>40_______条记录  3*20-20</em></p>
+<p><em>–左外联接: 语法:  select 列名 from 表名1  left join 表名2 on 联结条件</em></p>
+<p><em>–特点:  优先查出表名1中所有的符合条件的数据，如果表名2中没有这个对应的数据，则用nULL填充值</em></p>
+<p><em>–案例描述: 学生表中有一位学员’韦小宝’， 1号，没有参加过任何考试，下面请求出所有没有参加过任何考试的学员</em></p>
+<p>select stuinfo.sname as 缺考人员</p>
+<p>from stuinfo</p>
+<p>left join score on score.studentid &#x3D; stuinfo.stuid</p>
+<p>where score.score is null;</p>
+<p><em>–右外联接与左外联接正好相反:</em></p>
+<p>select stuinfo.sname as 缺考人员</p>
+<p>from stuinfo</p>
+<p>right join score on score.studentid &#x3D; stuinfo.stuid</p>
+<p>where score.score is null;</p>
+<p><em>–完整外联接</em></p>
+<p>select * from stuinfo</p>
+<p>full join score</p>
+<p>on stuinfo.stuid&#x3D;score.studentid   _–结果:    ___<em>22_______条记录:   20+缺考2</em></p>
+<p>select * from stuinfo</p>
+<p>left join score</p>
+<p>on stuinfo.stuid&#x3D;score.studentid</p>
+<p><em>–交叉联接:  左表中的每一行与右表中的每行都组合成。   笛卡尔乘积&#x3D;左表数据行*右表数据行</em></p>
+<p>select * from stuinfo</p>
+<p>cross join score;</p>
+<p><em>—综合案例一:</em></p>
+<p><em>–需求描述:在数据库表中，数据行位置并不重要，但是一个单位中要根据奇数行和偶数行的数据来汇总，在这个汇总的基础上再得到一个数值，</em></p>
+<p><em>–因此，要查询数据库表的奇数行和偶数行的总数, 但原表中的id列的值并不是完全连续的，其中有一些数据已经删除了.</em></p>
+<p>create table tab1(</p>
+<p> id int primary key,</p>
+<p>    total int</p>
+<p>)</p>
+<p>insert into tab1 values(1,33);</p>
+<p>insert into tab1 values(3,44);</p>
+<p>insert into tab1 values(4,2);</p>
+<p>insert into tab1 values(5,6);</p>
+<p>insert into tab1 values(8,88);</p>
+<p>insert into tab1 values(9,3);</p>
+<p>insert into tab1 values(15,33);</p>
+<p>insert into tab1 values(17,34);</p>
+<p>insert into tab1 values(19,34);</p>
+<p>insert into tab1 values(20,29);</p>
+<p>select * from tab1;</p>
+<p><em>–解决方案: 只能依靠标识列的值来进行判断和选取, 但原有主键列已经不能用，所以必须生成一个新表，将原表的total列的数据插过去，并新增加标识列</em></p>
+<p><em>–然后再在新表中通过新标识列来求奇数列值和偶数列值</em></p>
+<p><em>–将一个表的数据插入到另一个表语法:  select 列名, identity(种子，自增)  into 新表名 from 源表名</em></p>
+<p>create sequence seq_tab1_id2;</p>
+<p>create table newtable1 AS select seq_tab1_id2.nextval as id,total from tab1;</p>
+<p>select * from newtable1;</p>
+<p>select sum(total)</p>
+<p>from newtable1</p>
+<p>where MOD(id,2)&#x3D;1;</p>
+<p>select sum(total)</p>
+<p>from newtable1</p>
+<p>where MOD(id,2)&#x3D;0;</p>
+<p><em>–案例二:</em></p>
+<p><em>–一家银行发行了新的信用卡，刚开始的时候推广得很好，但是逐渐废卡也越来越多（卡上的余额少于2元，并且用户长时间不使用该卡），</em></p>
+<p><em>–因此银行在二月份把这些少于2元的卡从都数据库表中删除了，但是很快问题就来了，用户发现他的卡再也不能使用而投诉，因此只能再把这些卡恢复。</em></p>
+<p>create table cust(</p>
+<p>   cardid int primary key,</p>
+<p>   cname varchar2(50)</p>
+<p>);</p>
+<p>create table accounts(</p>
+<p>   accountid int primary key ,</p>
+<p>   cardid int ,</p>
+<p>   score int</p>
+<p>);</p>
+<p>create sequence seq_account_aid;</p>
+<p>insert into cust values(16,’张三’);</p>
+<p>insert into cust values(23,’李四’);</p>
+<p>insert into cust values(25,’王五’);</p>
+<p>insert into cust values(29,’刘六’);</p>
+<p>insert into cust values(30,’杨七’);</p>
+<p>insert into accounts values(seq_account_aid.nextval,16,3400);</p>
+<p>insert into accounts values(seq_account_aid.nextval,25,4565);</p>
+<p>insert into accounts values(seq_account_aid.nextval,29,456);</p>
+<p><em>–分析: 1. 可以用left join找出cust表中有而account没有的记录（这种记录的特征是account.cardid is null)</em></p>
+<p><em>–      2. 再将找到的cardid号插入到account表中即可.  因为account表已经存在，这是将一些数据从一个表中提取</em></p>
+<p><em>–再插入到另一个已存在的表中，所以可以使用insert into 表名1 select 值 from 源表名</em></p>
+<p>insert into accounts (accountid,cardid,score)</p>
+<p>(select seq_account_aid.nextval,cust.cardid,2</p>
+<p>from cust</p>
+<p>left join accounts on accounts.cardid &#x3D; cust.cardid</p>
+<p>where accounts.cardid is null);</p>
+<p>select * from accounts;</p>
+<p><em>–重置</em></p>
+<p>drop table account;</p>
+<p>drop table cust;</p>
+<p>drop sequence seq_account_aid;</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC41%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第41次课程<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC43%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第43次课程<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

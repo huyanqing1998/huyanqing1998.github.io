@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第六章_接口、lambda表达式与内部类 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="第六章 接口、lambda表达式与内部类 6.1.1 接口概念  不同子类之间进行比较的解决方式。  6.1.2 接口的特性    6.1.4 静态方法 同类一样，static修饰将属于类。也就是属于该接口。  InterfaceDemo.java 在接口实现方法过程，是不符合接口规范的。 12345678910public interface InterfaceDemo &amp;#123;    &#x2F;&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第六章_接口、lambda表达式与内部类">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/%E7%AC%AC%E5%85%AD%E7%AB%A0_%E6%8E%A5%E5%8F%A3%E3%80%81lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E5%86%85%E9%83%A8%E7%B1%BB/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="第六章 接口、lambda表达式与内部类 6.1.1 接口概念  不同子类之间进行比较的解决方式。  6.1.2 接口的特性    6.1.4 静态方法 同类一样，static修饰将属于类。也就是属于该接口。  InterfaceDemo.java 在接口实现方法过程，是不符合接口规范的。 12345678910public interface InterfaceDemo &amp;#123;    &#x2F;&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.hooy.xyz/image/92a935db6b63e56bd0223f84e958fb2d.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/5290d20f3b562fab1b4eae9817d2a8bc.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/eba1ddc43569baeafaded636410ac3b9.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/b1b52a2c0074c6c6fb5bb51ba3365390.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/eaa28d9e1bc60c0c061bb7851028ec94.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/b355f9656f9307bf0d591c5ee801c645.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/79619fd8423965eeddb4fb81c5b06546.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/1df2886ee3e62275a7017bea73b29435.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/9d7f02ec01bfabeac530189129e61176.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/0c12cb93f4fcdbab74e88a2268cdf68c.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/8e5d556bdceba68b05ba31f07be2c7d2.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/90f75a221fc47a52328f739528da7425.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/748f55a04ba95803878362409076824b.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/1465f56b2621144187b21bbfbca0d020.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/a8eae4bd5b0b8c95c12c3a5b398eca46.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/1e6cfd3bb3ecc7f9b4988fbce8b17bcc.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/f190e122434bb30817165612814e74ba.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/98bedee3f435e3059768a8b6b0aeec6d.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/986c045779027b1310505ca75f75165a.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/9a154da4b8a11aebb0116a31f41ad89e.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/49facc3cc13a38f24a31d4aa3338bd31.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/336f8490ffbce891925f5eb9a2bd1a81.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/13aa46070864a4b2a092525573b6c8a2.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/f91b442f833a5f623cddf17a1cdbb563.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/b9ad03e8e3efbc5eec693a075a7efe0d.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/5188f9df0b3865484dfcd6608b152dbe.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/c9b00e9b9a7344a7c494797c8b272a88.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/aa1c0084975da4a3bda6d9f0d3db8005.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/578b940a0b2ab8915525ac5d24d716e9.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/17b16e9ae6eed16f8d753096735e74bc.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/563d2da25cc8aebb519e845f285ee1ea.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/071ee9afdc38e70839e33acaf7fa9e5e.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/b69879ae48002e49b9c06eabb65d6aab.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/c0c104b75438157014a9dc5064551181.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/4a940093b9c4be7aa961e9d9e08e7e1b.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/b5e7e95d6d5aff8d88f5e03bc7fb6abd.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/8c211e43808b6ea98c536851b5407da3.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/4605d695729640bcf659b149a4ab5ed1.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/a538158d71a29e70e6003f27236b4934.png">
+<meta property="og:image" content="http://blog.hooy.xyz/image/ab7616bacb0dc514feedb0a888b8bbbc.png">
+<meta property="article:published_time" content="2020-06-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-10T09:58:31.572Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="Cay S.Horstmann">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.hooy.xyz/image/92a935db6b63e56bd0223f84e958fb2d.png">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/">Java核心技术</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-06-01T16:00:00.000Z">2020-06-02</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第六章_接口、lambda表达式与内部类</span></h1>
+<p><strong>第六章 接口、lambda表达式与内部类</strong></p>
+<p><strong>6.1.1 接口概念</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/92a935db6b63e56bd0223f84e958fb2d.png" alt="92a935db6b63e56bd0223f84e958fb2d.png"></p>
+<p><strong>不同子类之间进行比较的解决方式。</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/5290d20f3b562fab1b4eae9817d2a8bc.png" alt="5290d20f3b562fab1b4eae9817d2a8bc.png"></p>
+<p><strong>6.1.2 接口的特性</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/eba1ddc43569baeafaded636410ac3b9.png" alt="eba1ddc43569baeafaded636410ac3b9.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/b1b52a2c0074c6c6fb5bb51ba3365390.png" alt="b1b52a2c0074c6c6fb5bb51ba3365390.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/eaa28d9e1bc60c0c061bb7851028ec94.png" alt="eaa28d9e1bc60c0c061bb7851028ec94.png"></p>
+<p><strong>6.1.4 静态方法</strong></p>
+<p>同类一样，static修饰将属于类。也就是属于该接口。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/b355f9656f9307bf0d591c5ee801c645.png" alt="b355f9656f9307bf0d591c5ee801c645.png"></p>
+<p>InterfaceDemo.java</p>
+<p>在接口实现方法过程，是不符合接口规范的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public interface InterfaceDemo &#123;</span><br><span class="line">    //接口里的静态方法需要实现。</span><br><span class="line">    static int getInt1() &#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //常规</span><br><span class="line">    int getInt2(); //public int getInt2();</span><br><span class="line">    int INTNUM = 1; //private static final int INTNUM = 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>6.1.5 默认方法</strong></p>
+<p>DefaultInterface.java</p>
+<p>接口，default修饰的方法，在实现此接口的子类里是可选择实现的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public interface DefaultInterface &#123;</span><br><span class="line">    int getInt();</span><br><span class="line">    double getDouble();</span><br><span class="line">    //加入default关键字，此方法作为可选。没有该关键字修饰的方法，继承接口后将必须实现方法。</span><br><span class="line">    default byte getByte()&#123;return 0;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>DefaultInterfaceDemo.java</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">public class DefaultInterfaceDemo implements DefaultInterface &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public int getInt() &#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public double getDouble() &#123;</span><br><span class="line">        return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //可以不实现getByte()方法。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>6.1.6 解决默认方法冲突</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/79619fd8423965eeddb4fb81c5b06546.png" alt="79619fd8423965eeddb4fb81c5b06546.png"></p>
+<p><strong>1.超类优先 [类优先原则]</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/1df2886ee3e62275a7017bea73b29435.png" alt="1df2886ee3e62275a7017bea73b29435.png"></p>
+<p><strong>2.接口冲突</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/9d7f02ec01bfabeac530189129e61176.png" alt="9d7f02ec01bfabeac530189129e61176.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/0c12cb93f4fcdbab74e88a2268cdf68c.png" alt="0c12cb93f4fcdbab74e88a2268cdf68c.png"></p>
+<p><strong>浅拷贝</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/8e5d556bdceba68b05ba31f07be2c7d2.png" alt="8e5d556bdceba68b05ba31f07be2c7d2.png"></p>
+<p>可以看出，clone方法仅克隆第一层，第一次引用的对象（实际上是原封不动的复制地址）不变。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/90f75a221fc47a52328f739528da7425.png" alt="90f75a221fc47a52328f739528da7425.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/748f55a04ba95803878362409076824b.png" alt="748f55a04ba95803878362409076824b.png"></p>
+<p><strong>术语：标记接口</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/1465f56b2621144187b21bbfbca0d020.png" alt="1465f56b2621144187b21bbfbca0d020.png"></p>
+<p><strong>深拷贝的clone方法的例子：</strong></p>
+<p>实现Cloneable接口，最好也重写下clone()方法，调用super.clone()就行。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/a8eae4bd5b0b8c95c12c3a5b398eca46.png" alt="a8eae4bd5b0b8c95c12c3a5b398eca46.png"></p>
+<p><strong>6.3.2 lambda表达式的语法</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/1e6cfd3bb3ecc7f9b4988fbce8b17bcc.png" alt="1e6cfd3bb3ecc7f9b4988fbce8b17bcc.png"></p>
+<p><strong>6.3.3 函数式接口</strong></p>
+<p><strong>术语：函数式接口</strong></p>
+<p>最好把lambda表达式看作是一个<strong>函数</strong>，而不是一个<strong>对象</strong>。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/f190e122434bb30817165612814e74ba.png" alt="f190e122434bb30817165612814e74ba.png"></p>
+<p><a href="evernote:///view/12026981/s49/8f1e6b56-d0f5-4f3f-b369-059802c5c1d6/8f1e6b56-d0f5-4f3f-b369-059802c5c1d6/">P1 1.lambda表达式会用了么</a></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/98bedee3f435e3059768a8b6b0aeec6d.png" alt="98bedee3f435e3059768a8b6b0aeec6d.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/986c045779027b1310505ca75f75165a.png" alt="986c045779027b1310505ca75f75165a.png"></p>
+<p><strong>6.3.4 方法引用</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/9a154da4b8a11aebb0116a31f41ad89e.png" alt="9a154da4b8a11aebb0116a31f41ad89e.png"></p>
+<p><strong>6.3.5 构造器引用</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/49facc3cc13a38f24a31d4aa3338bd31.png" alt="49facc3cc13a38f24a31d4aa3338bd31.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/336f8490ffbce891925f5eb9a2bd1a81.png" alt="336f8490ffbce891925f5eb9a2bd1a81.png"></p>
+<p><strong>6.3.6 变量作用域</strong></p>
+<p>lambda包含3个部分</p>
+<ul>
+<li>参数；</li>
+<li>代码块；</li>
+<li>自由变量的值，这里指非参数而且不在代码中定义的变量。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">自由变量</span><br><span class="line"></span><br><span class="line">参数 -&gt; &#123;</span><br><span class="line">    代码块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>术语：闭包</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/13aa46070864a4b2a092525573b6c8a2.png" alt="13aa46070864a4b2a092525573b6c8a2.png"></p>
+<p>什么是闭包？</p>
+<p>TODO:</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/f91b442f833a5f623cddf17a1cdbb563.png" alt="f91b442f833a5f623cddf17a1cdbb563.png"></p>
+<p>lambda表达式所<strong>捕获的自由变量</strong>必须是个<strong>死值</strong>，不会被重新赋值或者改变。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/b9ad03e8e3efbc5eec693a075a7efe0d.png" alt="b9ad03e8e3efbc5eec693a075a7efe0d.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/5188f9df0b3865484dfcd6608b152dbe.png" alt="5188f9df0b3865484dfcd6608b152dbe.png"></p>
+<p><strong>6.3.7 处理lambda表达式</strong></p>
+<p>[没懂]</p>
+<p><strong>6.4.1 使用内部类访问对象状态</strong></p>
+<p>内部类可以直接访问到外围类的域。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/c9b00e9b9a7344a7c494797c8b272a88.png" alt="c9b00e9b9a7344a7c494797c8b272a88.png"></p>
+<p>源码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">import javax.swing.*;</span><br><span class="line">import java.awt.*;</span><br><span class="line">import java.awt.event.ActionEvent;</span><br><span class="line">import java.awt.event.ActionListener;</span><br><span class="line">import java.util.Date;</span><br><span class="line"></span><br><span class="line">public class InnerClassTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        TalkingClock clock = new TalkingClock(1000,true);</span><br><span class="line">        clock.start();</span><br><span class="line"></span><br><span class="line">        JOptionPane.showMessageDialog(null,&quot;Quit program ?&quot;);</span><br><span class="line">        System.exit(0);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class TalkingClock&#123;</span><br><span class="line">    private int interval;</span><br><span class="line">    private boolean beep;</span><br><span class="line"></span><br><span class="line">    //构造器</span><br><span class="line">    public TalkingClock(int interval,boolean beep)&#123;</span><br><span class="line">        this.interval = interval;</span><br><span class="line">        this.beep = beep;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void start()&#123;</span><br><span class="line">        ActionListener listener = new TimePrinter();</span><br><span class="line">        Timer t = new Timer(interval,listener);</span><br><span class="line">        t.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public class TimePrinter implements ActionListener&#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void actionPerformed(ActionEvent e) &#123;</span><br><span class="line">            System.out.println(&quot;At the tone,the time is &quot; + new Date());</span><br><span class="line">            if(beep) Toolkit.getDefaultToolkit().beep();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>6.4.2 内部类的特殊语法规则</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/aa1c0084975da4a3bda6d9f0d3db8005.png" alt="aa1c0084975da4a3bda6d9f0d3db8005.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/578b940a0b2ab8915525ac5d24d716e9.png" alt="578b940a0b2ab8915525ac5d24d716e9.png"></p>
+<p><strong>6.4.3 内部类是否有用、必要和安全</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/17b16e9ae6eed16f8d753096735e74bc.png" alt="17b16e9ae6eed16f8d753096735e74bc.png"></p>
+<p><strong>6.4.4 局部内部类</strong></p>
+<p>内部类和局部内部类的区别。</p>
+<p>内部类，内部类和外部类的方法在同一级。</p>
+<p>局部内部类，局部内部类在外部类的方法里面。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/563d2da25cc8aebb519e845f285ee1ea.png" alt="563d2da25cc8aebb519e845f285ee1ea.png"></p>
+<p><strong>6.4.6 匿名内部类</strong></p>
+<p>习惯做法是用<strong>匿名内部类</strong>实现<strong>事件监听器</strong>和<strong>其他回调</strong>。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/071ee9afdc38e70839e33acaf7fa9e5e.png" alt="071ee9afdc38e70839e33acaf7fa9e5e.png"></p>
+<p>lambda表达式的应用。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/b69879ae48002e49b9c06eabb65d6aab.png" alt="b69879ae48002e49b9c06eabb65d6aab.png"></p>
+<p><strong>技巧：双括号初始化</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/c0c104b75438157014a9dc5064551181.png" alt="c0c104b75438157014a9dc5064551181.png"></p>
+<p><strong>注意：</strong>这个技巧是为ArrayList类并入了新的代码块，所以被执行。因此和原生ArrayList再做Class类对比的时候，会失败。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/4a940093b9c4be7aa961e9d9e08e7e1b.png" alt="4a940093b9c4be7aa961e9d9e08e7e1b.png"></p>
+<p><strong>getClass()在静态方法里遇到的问题。</strong></p>
+<p>[没懂]</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/b5e7e95d6d5aff8d88f5e03bc7fb6abd.png" alt="b5e7e95d6d5aff8d88f5e03bc7fb6abd.png"></p>
+<p><strong>6.5.2 创建代理对象</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/8c211e43808b6ea98c536851b5407da3.png" alt="8c211e43808b6ea98c536851b5407da3.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//参数：加载器 接口 处理器</span><br><span class="line">Proxy.newProxyInstance(target.getClass().getClassLoader(),target.getClass().getInterfaces(),invocationHandler);</span><br></pre></td></tr></table></figure>
+
+<p>代理Proxy详解： <a href="evernote:///view/12026981/s49/2dde9b24-00b9-4dc9-b844-5d5b996b1ec0/2dde9b24-00b9-4dc9-b844-5d5b996b1ec0/">代理 Proxy</a></p>
+<p><strong>6.5.3 代理类的特性</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/4605d695729640bcf659b149a4ab5ed1.png" alt="4605d695729640bcf659b149a4ab5ed1.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/a538158d71a29e70e6003f27236b4934.png" alt="a538158d71a29e70e6003f27236b4934.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/ab7616bacb0dc514feedb0a888b8bbbc.png" alt="ab7616bacb0dc514feedb0a888b8bbbc.png"></p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/%E4%BB%A3%E7%90%86_Proxy/">代理_Proxy<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF/%E7%AC%AC%E4%B8%83%E7%AB%A0_%E5%BC%82%E5%B8%B8%E3%80%81%E6%96%AD%E8%A8%80%E5%92%8C%E6%97%A5%E5%BF%97/">第七章_异常、断言和日志<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第48次课程 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰74班 第48次课程 07.27.2019 内容 Java.swt包一[廖彦] 1.关于多选框联动 Class ShengShi 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第48次课程">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC48%E6%AC%A1%E8%AF%BE%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰74班 第48次课程 07.27.2019 内容 Java.swt包一[廖彦] 1.关于多选框联动 Class ShengShi 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T01:17:41.490Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2019-07-26T16:00:00.000Z">2019-07-27</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第48次课程</span></h1>
+<p><strong>源辰74班</strong></p>
+<p><strong>第48次课程</strong></p>
+<p><strong>07.27.2019</strong></p>
+<p><strong>内容</strong></p>
+<p><strong>Java.swt包一[廖彦]</strong></p>
+<p><strong>1.关于多选框联动</strong></p>
+<p>Class ShengShi</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">package pm.swt;</span><br><span class="line">public class ShengShi &#123;</span><br><span class="line">    </span><br><span class="line">    public static final String[] PROVINCE =  &#123;&quot;北京市&quot;,&quot;上海市&quot;,&quot;天津市&quot;,&quot;重庆市&quot;,&quot;河北省&quot;,&quot;山西省&quot;,&quot;辽宁省&quot;,&quot;吉林省&quot;,&quot;河南省&quot;,&quot;江苏省&quot;,&quot;浙江省&quot;,&quot;安徽省&quot;,&quot;福建省&quot;,&quot;江西省&quot;,&quot;山东省&quot;,&quot;湖北省&quot;,&quot;湖南省&quot;,&quot;广东省&quot;,&quot;海南省&quot;,&quot;四川省&quot;,&quot;贵州省&quot;,&quot;云南省&quot;,&quot;陕西省&quot;,&quot;甘肃省&quot;,&quot;青海省&quot;,&quot;黑龙江省&quot;,&quot;内蒙古自治区&quot;,&quot;广西壮族自治区&quot;,&quot;西藏自治区&quot;,&quot;宁夏回族自治区&quot;,&quot;新疆维吾尔自治区&quot;,&quot;台湾省&quot;,&quot;香港特别行政区&quot;,&quot;澳门特别行政区&quot;&#125;;</span><br><span class="line">    </span><br><span class="line">    public static final String[][] CITY = &#123;</span><br><span class="line">    //北京市辖区名称</span><br><span class="line">            &#123;&quot;东城区&quot;,&quot;西城区&quot;,&quot;崇文区&quot;,&quot;宣武区&quot;,&quot;朝阳区&quot;,&quot;海淀区&quot;,&quot;丰台区&quot;,&quot;石景山区&quot;,&quot;房山区&quot;,&quot;通州区&quot;,&quot;顺义区&quot;,&quot;门头沟区&quot;,&quot;昌平区&quot;,&quot;大兴区&quot;,&quot;怀柔区&quot;,&quot;平谷区&quot;,&quot;密云县&quot;,&quot;延庆县&quot;&#125;,</span><br><span class="line">    //上海市辖区名称</span><br><span class="line">            &#123;&quot;黄浦区&quot;,&quot;卢湾区&quot;,&quot;徐汇区&quot;,&quot;长宁区&quot;,&quot;静安区&quot;,&quot;普陀区&quot;,&quot;闸北区&quot;,&quot;虹口区&quot;,&quot;杨浦区&quot;,&quot;宝山区&quot;,&quot;闵行区&quot;,&quot;嘉定区&quot;,&quot;浦东新区&quot;,&quot;金山区&quot;,&quot;松江区&quot;,&quot;青浦区&quot;,&quot;南汇区&quot;,&quot;奉贤区&quot;,&quot;崇明县&quot;&#125;,</span><br><span class="line">    //天津市辖区名称</span><br><span class="line">            &#123;&quot;和平区&quot;,&quot;河东区&quot;,&quot;河西区&quot;,&quot;南开区&quot;,&quot;河北区&quot;,&quot;红桥区&quot;,&quot;塘沽区&quot;,&quot;汉沽区&quot;,&quot;大港区&quot;,&quot;东丽区&quot;,&quot;西青区&quot;,&quot;津南区&quot;,&quot;北辰区&quot;,&quot;武清区&quot;,&quot;宝坻区&quot;,&quot;宁河县&quot;,&quot;静海县&quot;,&quot;蓟县&quot;&#125;,</span><br><span class="line">    //重庆市辖区名称</span><br><span class="line">            &#123;&quot;渝中区&quot;,&quot;大渡口区&quot;,&quot;江北区&quot;,&quot;沙坪坝区&quot;,&quot;九龙坡区&quot;,&quot;南岸区&quot;,&quot;北碚区&quot;,&quot;万盛区&quot;,&quot;双桥区&quot;,&quot;渝北区&quot;,&quot;巴南区&quot;,&quot;万县区&quot;,&quot;涪陵区&quot;,&quot;永川市&quot;,&quot;合川市&quot;,&quot;江津市&quot;,&quot;南川市&quot;,&quot;长寿县&quot;,&quot;綦江县&quot;,&quot;潼南县&quot;,&quot;荣昌县&quot;,&quot;壁山县&quot;,&quot;大足县&quot;,&quot;铜梁县&quot;,&quot;梁平县&quot;,&quot;城口县&quot;,&quot;垫江县&quot;,&quot;武隆县&quot;,&quot;丰都县&quot;,&quot;忠 县&quot;,&quot;开 县&quot;,&quot;云阳县&quot;,&quot;青龙镇青龙嘴&quot;,&quot;奉节县&quot;,&quot;巫山县&quot;,&quot;巫溪县&quot;,&quot;南宾镇&quot;,&quot;中和镇&quot;,&quot;钟多镇&quot;,&quot;联合镇&quot;,&quot;汉葭镇&quot;&#125;,</span><br><span class="line">    //河北省主要城市名称</span><br><span class="line">            &#123;&quot;石家庄市&quot;,&quot;唐山市&quot;,&quot;秦皇岛市&quot;,&quot;邯郸市&quot;,&quot;邢台市&quot;,&quot;保定市&quot;,&quot;张家口市&quot;,&quot;承德市&quot;,&quot;沧州市&quot;,&quot;廊坊市&quot;,&quot;衡水市&quot;&#125;,</span><br><span class="line">    //山西省主要城市名称</span><br><span class="line">            &#123;&quot;太原市&quot;,&quot;大同市&quot;,&quot;阳泉市&quot;,&quot;长治市&quot;,&quot;晋城市&quot;,&quot;朔州市&quot;,&quot;晋中市&quot;,&quot;运城市&quot;,&quot;忻州市&quot;,&quot;临汾市&quot;,&quot;吕梁市&quot;&#125;,</span><br><span class="line">    //辽宁省主要城市名称</span><br><span class="line">            &#123;&quot;沈阳市&quot;,&quot;大连市&quot;,&quot;鞍山市&quot;,&quot;抚顺市&quot;,&quot;本溪市&quot;,&quot;丹东市&quot;,&quot;锦州市&quot;,&quot;营口市&quot;,&quot;阜新市&quot;,&quot;辽阳市&quot;,&quot;盘锦市&quot;,&quot;铁岭市&quot;,&quot;朝阳市&quot;,&quot;葫芦岛市&quot;&#125;,</span><br><span class="line">    //吉林省主要城市名称</span><br><span class="line">            &#123;&quot;长春市&quot;,&quot;吉林市&quot;,&quot;四平市&quot;,&quot;辽源市&quot;,&quot;通化市&quot;,&quot;白山市&quot;,&quot;松原市&quot;,&quot;白城市&quot;,&quot;延边朝鲜族自治州&quot;&#125;,</span><br><span class="line">    //河南省主要城市名称</span><br><span class="line">            &#123;&quot;郑州市&quot;,&quot;开封市&quot;,&quot;洛阳市&quot;,&quot;平顶山市&quot;,&quot;安阳市&quot;,&quot;鹤壁市&quot;,&quot;新乡市&quot;,&quot;焦作市&quot;,&quot;濮阳市&quot;,&quot;许昌市&quot;,&quot;漯河市&quot;,&quot;三门峡市&quot;,&quot;南阳市&quot;,&quot;商丘市&quot;,&quot;信阳市&quot;,&quot;周口市&quot;,&quot;驻马店市&quot;,&quot;济源市&quot;&#125;,</span><br><span class="line">    //江苏省主要城市名称</span><br><span class="line">            &#123;&quot;南京市&quot;,&quot;无锡市&quot;,&quot;徐州市&quot;,&quot;常州市&quot;,&quot;苏州市&quot;,&quot;南通市&quot;,&quot;连云港市&quot;,&quot;淮安市&quot;,&quot;盐城市&quot;,&quot;扬州市&quot;,&quot;镇江市&quot;,&quot;泰州市&quot;,&quot;宿迁市&quot;&#125;,</span><br><span class="line">    //浙江省主要城市名称</span><br><span class="line">            &#123;&quot;杭州市&quot;,&quot;宁波市&quot;,&quot;温州市&quot;,&quot;嘉兴市&quot;,&quot;湖州市&quot;,&quot;绍兴市&quot;,&quot;金华市&quot;,&quot;衢州市&quot;,&quot;舟山市&quot;,&quot;台州市&quot;,&quot;丽水市&quot;&#125;,</span><br><span class="line">    //安徽省主要城市名称</span><br><span class="line">            &#123;&quot;合肥市&quot;,&quot;芜湖市&quot;,&quot;蚌埠市&quot;,&quot;淮南市&quot;,&quot;马鞍山市&quot;,&quot;淮北市&quot;,&quot;铜陵市&quot;,&quot;安庆市&quot;,&quot;黄山市&quot;,&quot;滁州市&quot;,&quot;阜阳市&quot;,&quot;宿州市&quot;,&quot;巢湖市&quot;,&quot;六安市&quot;,&quot;亳州市&quot;,&quot;池州市&quot;,&quot;宣城市&quot;&#125;,</span><br><span class="line">    //福建省主要城市名称</span><br><span class="line">            &#123;&quot;福州市&quot;,&quot;厦门市&quot;,&quot;莆田市&quot;,&quot;三明市&quot;,&quot;泉州市&quot;,&quot;漳州市&quot;,&quot;南平市&quot;,&quot;龙岩市&quot;,&quot;宁德市&quot;&#125;,</span><br><span class="line">    //江西省主要城市名称</span><br><span class="line">            &#123;&quot;南昌市&quot;,&quot;景德镇市&quot;,&quot;萍乡市&quot;,&quot;九江市&quot;,&quot;新余市&quot;,&quot;鹰潭市&quot;,&quot;赣州市&quot;,&quot;吉安市&quot;,&quot;宜春市&quot;,&quot;抚州市&quot;,&quot;上饶市&quot;&#125;,</span><br><span class="line">    //山东省主要城市名称</span><br><span class="line">            &#123;&quot;济南市&quot;,&quot;青岛市&quot;,&quot;淄博市&quot;,&quot;枣庄市&quot;,&quot;东营市&quot;,&quot;烟台市&quot;,&quot;潍坊市&quot;,&quot;威海市&quot;,&quot;济宁市&quot;,&quot;泰安市&quot;,&quot;日照市&quot;,&quot;莱芜市&quot;,&quot;临沂市&quot;,&quot;德州市&quot;,&quot;聊城市&quot;,&quot;滨州市&quot;,&quot;菏泽市&quot;&#125;,</span><br><span class="line">    //湖北省主要城市名称</span><br><span class="line">            &#123;&quot;武汉市&quot;,&quot;黄石市&quot;,&quot;襄樊市&quot;,&quot;十堰市&quot;,&quot;荆州市&quot;,&quot;宜昌市&quot;,&quot;荆门市&quot;,&quot;鄂州市&quot;,&quot;孝感市&quot;,&quot;黄冈市&quot;,&quot;咸宁市&quot;,&quot;随州市&quot;,&quot;恩施州&quot;,&quot;仙桃市&quot;,&quot;潜江市&quot;,&quot;天门市&quot;,&quot;神农架林区&quot;&#125;,</span><br><span class="line">    //湖南省主要城市名称</span><br><span class="line">            &#123;&quot;长沙市&quot;,&quot;株洲市&quot;,&quot;湘潭市&quot;,&quot;衡阳市&quot;,&quot;邵阳市&quot;,&quot;岳阳市&quot;,&quot;常德市&quot;,&quot;张家界市&quot;,&quot;益阳市&quot;,&quot;郴州市&quot;,&quot;永州市&quot;,&quot;怀化市&quot;,&quot;娄底市&quot;,&quot;湘西州&quot;&#125;,</span><br><span class="line">    //广东省主要城市名称</span><br><span class="line">            &#123;&quot;广州市&quot;,&quot;深圳市&quot;,&quot;珠海市&quot;,&quot;汕头市&quot;,&quot;韶关市&quot;,&quot;佛山市&quot;,&quot;江门市&quot;,&quot;湛江市&quot;,&quot;茂名市&quot;,&quot;肇庆市&quot;,&quot;惠州市&quot;,&quot;梅州市&quot;,&quot;汕尾市&quot;,&quot;河源市&quot;,&quot;阳江市&quot;,&quot;清远市&quot;,&quot;东莞市&quot;,&quot;中山市&quot;,&quot;潮州市&quot;,&quot;揭阳市&quot;,&quot;云浮市&quot;&#125;,</span><br><span class="line">    //海南省主要城市名称</span><br><span class="line">            &#123;&quot;海口市&quot;,&quot;龙华区&quot;,&quot;秀英区&quot;,&quot;琼山区&quot;,&quot;美兰区&quot;,&quot;三亚市&quot;&#125;,</span><br><span class="line">    //四川省主要城市名称</span><br><span class="line">            &#123;&quot;成都市&quot;,&quot;自贡市&quot;,&quot;攀枝花市&quot;,&quot;泸州市&quot;,&quot;德阳市&quot;,&quot;绵阳市&quot;,&quot;广元市&quot;,&quot;遂宁市&quot;,&quot;内江市&quot;,&quot;乐山市&quot;,&quot;南充市&quot;,&quot;宜宾市&quot;,&quot;广安市&quot;,&quot;达州市&quot;,&quot;眉山市&quot;,&quot;雅安市&quot;,&quot;巴中市&quot;,&quot;资阳市&quot;,&quot;阿坝州&quot;,&quot;甘孜州&quot;,&quot;凉山州&quot;&#125;,</span><br><span class="line">    //贵州省主要城市名称</span><br><span class="line">            &#123;&quot;贵阳市&quot;,&quot;六盘水市&quot;,&quot;遵义市&quot;,&quot;安顺市&quot;,&quot;铜仁地区&quot;,&quot;毕节地区&quot;,&quot;黔西南州&quot;,&quot;黔东南州&quot;,&quot;黔南州&quot;&#125;,</span><br><span class="line">    //云南省主要城市名称</span><br><span class="line">            &#123;&quot;昆明市&quot;,&quot;大理市&quot;,&quot;曲靖市&quot;,&quot;玉溪市&quot;,&quot;昭通市&quot;,&quot;楚雄市&quot;,&quot;红河市&quot;,&quot;文山市&quot;,&quot;思茅市&quot;,&quot;西双版纳市&quot;,&quot;保山市&quot;,&quot;德宏市&quot;,&quot;丽江市&quot;,&quot;怒江市&quot;,&quot;迪庆市&quot;,&quot;临沧市&quot;&#125;,</span><br><span class="line">    //陕西省主要城市名称</span><br><span class="line">            &#123;&quot;西安市&quot;,&quot;铜川市&quot;,&quot;宝鸡市&quot;,&quot;咸阳市&quot;,&quot;渭南市&quot;,&quot;延安市&quot;,&quot;汉中市&quot;,&quot;榆林市&quot;,&quot;安康市&quot;,&quot;商洛市&quot;&#125;,</span><br><span class="line">    //甘肃省主要城市名称</span><br><span class="line">            &#123;&quot;兰州市&quot;,&quot;嘉峪关市&quot;,&quot;金昌市&quot;,&quot;白银市&quot;,&quot;天水市&quot;,&quot;武威市&quot;,&quot;张掖市&quot;,&quot;平凉市&quot;,&quot;酒泉市&quot;,&quot;庆阳市&quot;,&quot;定西市&quot;,&quot;陇南市&quot;,&quot;临夏州&quot;,&quot;甘南州&quot;&#125;,</span><br><span class="line">    //青海省主要城市名称</span><br><span class="line">            &#123;&quot;西宁市&quot;,&quot;海东地区&quot;,&quot;海北州&quot;,&quot;黄南州&quot;,&quot;海南州&quot;,&quot;果洛州&quot;,&quot;玉树州&quot;,&quot;海西州&quot;&#125;,</span><br><span class="line">    //黑龙江省主要城市名称</span><br><span class="line">            &#123;&quot;哈尔滨市&quot;,&quot;齐齐哈尔市&quot;,&quot;鸡西市&quot;,&quot;鹤岗市&quot;,&quot;双鸭山市&quot;,&quot;大庆市&quot;,&quot;伊春市&quot;,&quot;佳木斯市&quot;,&quot;七台河市&quot;,&quot;牡丹江市&quot;,&quot;黑河市&quot;,&quot;绥化市&quot;,&quot;大兴安岭地区&quot;&#125;,</span><br><span class="line">    //内蒙古自治区主要城市名称</span><br><span class="line">            &#123;&quot;呼和浩特市&quot;,&quot;包头市&quot;,&quot;乌海市&quot;,&quot;赤峰市&quot;,&quot;通辽市&quot;,&quot;鄂尔多斯市&quot;,&quot;呼伦贝尔市&quot;,&quot;巴彦淖尔市&quot;,&quot;乌兰察布市&quot;,&quot;兴安盟&quot;,&quot;锡林郭勒盟&quot;,&quot;阿拉善盟&quot;&#125;,</span><br><span class="line">    //广西壮族自治区主要城市名称</span><br><span class="line">            &#123;&quot;南宁市&quot;,&quot;柳州市&quot;,&quot;桂林市&quot;,&quot;梧州市&quot;,&quot;北海市&quot;,&quot;防城港市&quot;,&quot;钦州市&quot;,&quot;贵港市&quot;,&quot;玉林市&quot;,&quot;百色市&quot;,&quot;贺州市&quot;,&quot;河池市&quot;,&quot;来宾市&quot;,&quot;崇左市&quot;&#125;,</span><br><span class="line">    //西藏自治区主要城市名称</span><br><span class="line">            &#123;&quot;拉萨市&quot;,&quot;昌都地区&quot;,&quot;山南地区&quot;,&quot;日喀则地区&quot;,&quot;那曲地区&quot;,&quot;阿里地区&quot;,&quot;林芝地区&quot;&#125;,</span><br><span class="line">    //宁夏回族自治区主要城市名称</span><br><span class="line">            &#123;&quot;银川市&quot;,&quot;石嘴山市&quot;,&quot;吴忠市&quot;,&quot;固原市&quot;,&quot;中卫市&quot;&#125;,</span><br><span class="line">    //新疆维吾尔自治区主要城市名称</span><br><span class="line">            &#123;&quot;乌鲁木齐市&quot;,&quot;克拉玛依市&quot;,&quot;吐鲁番地区&quot;,&quot;哈密地区&quot;,&quot;和田地区&quot;,&quot;阿克苏地区&quot;,&quot;喀什地区&quot;,&quot;克孜勒苏柯尔克孜自治州&quot;,&quot;巴音郭楞蒙古自治州&quot;,&quot;昌吉回族自治州&quot;,&quot;博尔塔拉蒙古自治州&quot;,&quot;伊犁哈萨克自治州&quot;,&quot;塔城地区&quot;,&quot;阿勒泰地区&quot;,&quot;石河子市&quot;,&quot;阿拉尔市&quot;,&quot;图木舒克市&quot;,&quot;五家渠市&quot;&#125;,</span><br><span class="line">    //台湾省主要城市名称</span><br><span class="line">            &#123;&quot;台北市&quot;,&quot;高雄市&quot;,&quot;基隆市&quot;,&quot;台中市&quot;,&quot;台南市&quot;,&quot;新竹市&quot;,&quot;嘉义市&quot;,&quot;台北县&quot;,&quot;宜兰县&quot;,&quot;桃园县&quot;,&quot;新竹县&quot;,&quot;苗栗县&quot;,&quot;台中县&quot;,&quot;彰化县&quot;,&quot;南投县&quot;,&quot;云林县&quot;,&quot;嘉义县&quot;,&quot;台南县&quot;,&quot;高雄县&quot;,&quot;屏东县&quot;,&quot;澎湖县&quot;,&quot;台东县&quot;,&quot;花莲县&quot;&#125;,</span><br><span class="line">    //香港特别行政区主要辖区名称</span><br><span class="line">            &#123;&quot;中西区&quot;,&quot;东区&quot;,&quot;九龙城区&quot;,&quot;观塘区&quot;,&quot;南区&quot;,&quot;深水埗区&quot;,&quot;黄大仙区&quot;,&quot;湾仔区&quot;,&quot;油尖旺区&quot;,&quot;离岛区&quot;,&quot;葵青区&quot;,&quot;北区&quot;,&quot;西贡区&quot;,&quot;沙田区&quot;,&quot;屯门区&quot;,&quot;大埔区&quot;,&quot;荃湾区&quot;,&quot;元朗区&quot;&#125;,</span><br><span class="line">    //澳门地区</span><br><span class="line">            &#123;&quot;澳门地区&quot;&#125;</span><br><span class="line">            &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Class SwtHelper</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package pm.swt;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">import org.eclipse.swt.widgets.Button;</span><br><span class="line"></span><br><span class="line">public class SwtHelper &#123;</span><br><span class="line">    public static List&lt;String&gt; getSelection(Button...btns)&#123;</span><br><span class="line">        List&lt;String&gt; list = new ArrayList&lt;&gt;();</span><br><span class="line">        for(Button btn : btns) &#123;</span><br><span class="line">            list.add(btn.getText());</span><br><span class="line">        &#125;</span><br><span class="line">        return list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Class TestWin</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br></pre></td><td class="code"><pre><span class="line">package pm.swt;</span><br><span class="line"></span><br><span class="line">import org.eclipse.swt.widgets.Display;</span><br><span class="line">import org.eclipse.swt.widgets.Shell;</span><br><span class="line">import org.eclipse.swt.widgets.Label;</span><br><span class="line">import org.eclipse.swt.widgets.MessageBox;</span><br><span class="line"></span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">import org.eclipse.swt.SWT;</span><br><span class="line">import org.eclipse.swt.widgets.Text;</span><br><span class="line">import org.eclipse.swt.widgets.Combo;</span><br><span class="line">import org.eclipse.wb.swt.SWTResourceManager;</span><br><span class="line">import org.eclipse.swt.widgets.Button;</span><br><span class="line">import org.eclipse.swt.widgets.Spinner;</span><br><span class="line">import org.eclipse.swt.events.SelectionAdapter;</span><br><span class="line">import org.eclipse.swt.events.SelectionEvent;</span><br><span class="line">import org.eclipse.swt.widgets.DateTime;</span><br><span class="line">import org.eclipse.swt.widgets.Table;</span><br><span class="line">import org.eclipse.swt.widgets.Tree;</span><br><span class="line">import org.eclipse.swt.widgets.TabFolder;</span><br><span class="line"></span><br><span class="line">public class TestWin &#123;</span><br><span class="line"></span><br><span class="line">    protected Shell shell;</span><br><span class="line">    private Text name;</span><br><span class="line">    private Text pwd;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Launch the application.</span><br><span class="line">     * @param args</span><br><span class="line">     */</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            TestWin window = new TestWin();</span><br><span class="line">            window.open();</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Open the window.</span><br><span class="line">     */</span><br><span class="line">    public void open() &#123;</span><br><span class="line">        Display display = Display.getDefault();</span><br><span class="line">        createContents();</span><br><span class="line">        shell.open();</span><br><span class="line">        shell.layout();</span><br><span class="line">        while (!shell.isDisposed()) &#123;</span><br><span class="line">            if (!display.readAndDispatch()) &#123;</span><br><span class="line">                display.sleep();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Create contents of the window.</span><br><span class="line">     */</span><br><span class="line">    protected void createContents() &#123;</span><br><span class="line">        shell = new Shell();</span><br><span class="line">        shell.setText(&quot;\u5B66\u751F\u6CE8\u518C\u7CFB\u7EDF&quot;);</span><br><span class="line">        shell.setSize(453, 416);</span><br><span class="line">        </span><br><span class="line">        Label label = new Label(shell, SWT.NONE);</span><br><span class="line">        label.setBounds(95, 30, 61, 17);</span><br><span class="line">        label.setText(&quot;\u59D3\u540D&quot;);</span><br><span class="line">        </span><br><span class="line">        name = new Text(shell, SWT.BORDER);</span><br><span class="line">        name.addSelectionListener(new SelectionAdapter() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void widgetDefaultSelected(SelectionEvent e) &#123;</span><br><span class="line">                if(name.getText().length()&lt;6||name.getText().length()&gt;10)&#123;</span><br><span class="line">                    MessageBox mb = new MessageBox(shell,SWT.ICON_WARNING | SWT.OK);</span><br><span class="line">                    mb.setText(&quot;系统提示&quot;);</span><br><span class="line">                    mb.setMessage(&quot;用户名必须是6~10位！&quot;);</span><br><span class="line">                    mb.open();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        name.setBounds(164, 27, 165, 23);</span><br><span class="line">        </span><br><span class="line">        Label label_1 = new Label(shell, SWT.NONE);</span><br><span class="line">        label_1.setBounds(95, 81, 61, 17);</span><br><span class="line">        label_1.setText(&quot;\u5BC6\u7801&quot;);</span><br><span class="line">        </span><br><span class="line">        pwd = new Text(shell, SWT.BORDER);</span><br><span class="line">        pwd.setBounds(164, 80, 166, 23);</span><br><span class="line">        </span><br><span class="line">        Label label_2 = new Label(shell, SWT.NONE);</span><br><span class="line">        label_2.setBounds(95, 133, 61, 17);</span><br><span class="line">        label_2.setText(&quot;\u7231\u597D&quot;);</span><br><span class="line">        </span><br><span class="line">        Button likeBtn4 = new Button(shell, SWT.CHECK);</span><br><span class="line">        likeBtn4.setBounds(285, 133, 47, 17);</span><br><span class="line">        likeBtn4.setText(&quot;\u7BEE\u7403&quot;);</span><br><span class="line">        </span><br><span class="line">        Button likeBtn1 = new Button(shell, SWT.CHECK);</span><br><span class="line">        likeBtn1.setBounds(164, 133, 33, 17);</span><br><span class="line">        likeBtn1.setText(&quot;\u5531&quot;);</span><br><span class="line">        </span><br><span class="line">        Button likeBtn2 = new Button(shell, SWT.CHECK);</span><br><span class="line">        likeBtn2.setBounds(202, 133, 33, 17);</span><br><span class="line">        likeBtn2.setText(&quot;\u8DF3&quot;);</span><br><span class="line">        </span><br><span class="line">        Button likeBtn3 = new Button(shell, SWT.CHECK);</span><br><span class="line">        likeBtn3.setBounds(241, 133, 44, 17);</span><br><span class="line">        likeBtn3.setText(&quot;Rap&quot;);</span><br><span class="line">        </span><br><span class="line">        Combo combo = new Combo(shell, SWT.NONE);</span><br><span class="line"></span><br><span class="line">        combo.setItems(ShengShi.PROVINCE);</span><br><span class="line">        combo.setBounds(163, 178, 72, 25);</span><br><span class="line">        </span><br><span class="line">        Label label_3 = new Label(shell, SWT.NONE);</span><br><span class="line">        label_3.setBounds(95, 181, 33, 17);</span><br><span class="line">        label_3.setText(&quot;\u7C4D\u8D2F&quot;);</span><br><span class="line">        </span><br><span class="line">        Label label_4 = new Label(shell, SWT.NONE);</span><br><span class="line">        label_4.setBounds(95, 238, 61, 17);</span><br><span class="line">        label_4.setText(&quot;\u6027\u522B&quot;);</span><br><span class="line">        </span><br><span class="line">        Button button_2 = new Button(shell, SWT.RADIO);</span><br><span class="line">        button_2.setBounds(164, 238, 61, 17);</span><br><span class="line">        button_2.setText(&quot;\u7537\u751F&quot;);</span><br><span class="line">        </span><br><span class="line">        Button button_3 = new Button(shell, SWT.RADIO);</span><br><span class="line">        button_3.setBounds(232, 238, 97, 17);</span><br><span class="line">        button_3.setText(&quot;\u5973\u751F&quot;);</span><br><span class="line">        </span><br><span class="line">        DateTime dateTime = new DateTime(shell, SWT.BORDER);</span><br><span class="line">        dateTime.setBounds(164, 280, 165, 24);</span><br><span class="line">        </span><br><span class="line">        Button button_5 = new Button(shell, SWT.NONE);</span><br><span class="line">        button_5.addSelectionListener(new SelectionAdapter() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void widgetSelected(SelectionEvent e) &#123;</span><br><span class="line">                //当鼠标点击按钮(或键盘回车),则会执行该方法的代码</span><br><span class="line">                //获取文本框的值</span><br><span class="line">                System.out.println(&quot;用户名&quot;+name.getText());</span><br><span class="line">                System.out.println(&quot;密码：&quot;+pwd.getText());</span><br><span class="line">                //获取下拉框的值</span><br><span class="line">                System.out.println(&quot;学历：&quot;+combo.getText());</span><br><span class="line">                //获取单选框、多选框的值</span><br><span class="line">                List&lt;String&gt; likes = SwtHelper.getSelection(likeBtn1,likeBtn2,likeBtn3,likeBtn4);</span><br><span class="line">                System.out.println(&quot;爱好：&quot;+likes);</span><br><span class="line">                List&lt;String&gt; sexs = SwtHelper.getSelection(button_2,button_2);</span><br><span class="line">                System.out.println(&quot;性别：&quot;+sexs);</span><br><span class="line">                //获取日期</span><br><span class="line">                System.out.printf(&quot;生日：%s年%s月%s日&quot;,</span><br><span class="line">                        dateTime.getYear(),</span><br><span class="line">                        dateTime.getMonth(),</span><br><span class="line">                        dateTime.getDay());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        button_5.setBounds(117, 332, 80, 27);</span><br><span class="line">        button_5.setText(&quot;\u786E\u8BA4&quot;);</span><br><span class="line">        </span><br><span class="line">        Button button_6 = new Button(shell, SWT.NONE);</span><br><span class="line">        button_6.addSelectionListener(new SelectionAdapter() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void widgetSelected(SelectionEvent e) &#123;</span><br><span class="line">                //关闭窗口</span><br><span class="line">                shell.close();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        button_6.setBounds(232, 332, 80, 27);</span><br><span class="line">        button_6.setText(&quot;\u53D6\u6D88&quot;);</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        Label label_5 = new Label(shell, SWT.NONE);</span><br><span class="line">        label_5.setBounds(95, 287, 61, 17);</span><br><span class="line">        label_5.setText(&quot;\u751F\u65E5&quot;);</span><br><span class="line">        </span><br><span class="line">        Combo combo_1 = new Combo(shell, SWT.NONE);</span><br><span class="line">        combo_1.setBounds(257, 178, 72, 25);</span><br><span class="line">        </span><br><span class="line">        combo.addSelectionListener(new SelectionAdapter() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void widgetSelected(SelectionEvent e) &#123;</span><br><span class="line">                //获取选中的选项的下标值(索引)</span><br><span class="line">                int index = combo.getSelectionIndex();</span><br><span class="line">                //更新城市下拉框的选项列表</span><br><span class="line">                combo_1.setItems(ShengShi.CITY[index]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.上下左右键位 移动</strong></p>
+<p>Class Move</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">package pm.swt;</span><br><span class="line"></span><br><span class="line">import org.eclipse.swt.widgets.Display;</span><br><span class="line"></span><br><span class="line">import org.eclipse.swt.widgets.Shell;</span><br><span class="line">import org.eclipse.swt.widgets.Label;</span><br><span class="line"></span><br><span class="line">import org.eclipse.swt.SWT;</span><br><span class="line">import org.eclipse.wb.swt.SWTResourceManager;</span><br><span class="line">import org.eclipse.swt.events.KeyAdapter;</span><br><span class="line">import org.eclipse.swt.events.KeyEvent;</span><br><span class="line">import org.eclipse.swt.graphics.Point;</span><br><span class="line"></span><br><span class="line">public class Move &#123;</span><br><span class="line"></span><br><span class="line">    protected Shell shell;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Launch the application.</span><br><span class="line">     * @param args</span><br><span class="line">     */</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Move window = new Move();</span><br><span class="line">            window.open();</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Open the window.</span><br><span class="line">     */</span><br><span class="line">    public void open() &#123;</span><br><span class="line">        Display display = Display.getDefault();</span><br><span class="line">        createContents();</span><br><span class="line">        shell.open();</span><br><span class="line">        shell.layout();</span><br><span class="line">        while (!shell.isDisposed()) &#123;</span><br><span class="line">            if (!display.readAndDispatch()) &#123;</span><br><span class="line">                display.sleep();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    /**</span><br><span class="line">     * Create contents of the window.</span><br><span class="line">     */</span><br><span class="line">    protected void createContents() &#123;</span><br><span class="line">        shell = new Shell();</span><br><span class="line">        shell.setSize(686, 685);</span><br><span class="line">        shell.setText(&quot;SWT Application&quot;);</span><br><span class="line">        </span><br><span class="line">        Label label = new Label(shell, SWT.NONE);</span><br><span class="line">        label.setImage(SWTResourceManager.getImage(Move.class, &quot;/pm/swt/timg.png&quot;));</span><br><span class="line">        label.setBounds(207, 196, 246, 250);</span><br><span class="line">        shell.addKeyListener(new KeyAdapter() &#123;</span><br><span class="line">            </span><br><span class="line">            @Override</span><br><span class="line">            public void keyPressed(KeyEvent e) &#123;</span><br><span class="line">                int top = 16777217;</span><br><span class="line">                int down = 16777218;</span><br><span class="line">                int left = 16777219;</span><br><span class="line">                int right = 16777220;</span><br><span class="line">                System.out.println(e.keyCode);</span><br><span class="line">                if(e.keyCode==top) &#123;</span><br><span class="line">                    Point p = label.getLocation();</span><br><span class="line">                    p.y -= 5;</span><br><span class="line">                    label.setLocation(p);</span><br><span class="line">                &#125;</span><br><span class="line">                if(e.keyCode==down) &#123;</span><br><span class="line">                    Point p = label.getLocation();</span><br><span class="line">                    p.y += 5;</span><br><span class="line">                    label.setLocation(p);</span><br><span class="line">                &#125;</span><br><span class="line">                if(e.keyCode==left) &#123;</span><br><span class="line">                    Point p = label.getLocation();</span><br><span class="line">                    p.x -= 5;</span><br><span class="line">                    label.setLocation(p);</span><br><span class="line">                &#125;</span><br><span class="line">                if(e.keyCode==right) &#123;</span><br><span class="line">                    Point p = label.getLocation();</span><br><span class="line">                    p.y += 5;</span><br><span class="line">                    label.setLocation(p);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC47%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第47次课程<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC49%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第49次课程<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

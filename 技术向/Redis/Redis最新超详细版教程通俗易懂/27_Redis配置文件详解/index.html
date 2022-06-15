@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>27_Redis配置文件详解 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="27 Redis配置文件详解 Redis最新超详细版教程通俗易懂   网络  123bind 127.0.0.1  # 绑定的IP，允许访问的IP。设置为 * 允许所有计算机访问。protected-mode yes  # 保护模式port 6379  # 端口号   GENERAL 通用  123456789101112131415daemonize yes  # 以守护进程的方式运行，默认是n">
+<meta property="og:type" content="article">
+<meta property="og:title" content="27_Redis配置文件详解">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/27_Redis%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="27 Redis配置文件详解 Redis最新超详细版教程通俗易懂   网络  123bind 127.0.0.1  # 绑定的IP，允许访问的IP。设置为 * 允许所有计算机访问。protected-mode yes  # 保护模式port 6379  # 端口号   GENERAL 通用  123456789101112131415daemonize yes  # 以守护进程的方式运行，默认是n">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-15T07:03:49.127Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="遇见狂神说">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#27-Redis%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3"><span class="toc-text">27 Redis配置文件详解</span></a></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/">Redis</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/">Redis最新超详细版教程通俗易懂</a></div><div id="post-meta">发布于&nbsp;<time datetime="2020-08-17T16:00:00.000Z">2020-08-18</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>27_Redis配置文件详解</span></h1>
+<h2 id="27-Redis配置文件详解"><a href="#27-Redis配置文件详解" class="headerlink" title="27 Redis配置文件详解"></a>27 Redis配置文件详解</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1S54y1R7SB">Redis最新超详细版教程通俗易懂</a></p>
+</blockquote>
+<blockquote>
+<p>网络</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bind 127.0.0.1  # 绑定的IP，允许访问的IP。设置为 * 允许所有计算机访问。</span><br><span class="line">protected-mode yes  # 保护模式</span><br><span class="line">port 6379  # 端口号</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>GENERAL 通用</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">daemonize yes  # 以守护进程的方式运行，默认是no，需要自己改为yes。否则退出，Redis就关了。</span><br><span class="line">pidfile /var/run/redis_6379.pid  # 如果以后台的方式运行，我们需要指定一个pid文件</span><br><span class="line"></span><br><span class="line"># 日志</span><br><span class="line"># Specify the server verbosity level.</span><br><span class="line"># This can be one of:</span><br><span class="line"># debug (a lot of information, useful for development/testing)</span><br><span class="line"># verbose (many rarely useful info, but not a mess like the debug level)</span><br><span class="line"># notice (moderately verbose, what you want in production probably)</span><br><span class="line"># warning (only very important / critical messages are logged)</span><br><span class="line">loglevel notice</span><br><span class="line"></span><br><span class="line">logfile &quot;&quot;  # 日志文件位置</span><br><span class="line">databases 16  # 数据库的数量，默认是16个数据库</span><br><span class="line">always-show-loge yes  # 是否总是显示LOGO</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>SNAPSHOTTING 快照</p>
+</blockquote>
+<p>持久化，在规定的时间内，执行了多少次操作，则会持久化到文件 .rdb .aof。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 如果 900s 内至少有1个key发生了修改，就持久化操作。</span><br><span class="line">save 900 1</span><br><span class="line"># 如果 300 内至少有10个key发生了修改，就持久化操作。</span><br><span class="line">save 300 10</span><br><span class="line"># 如果 60 内至少有10000个key发生了修改，就持久化操作。</span><br><span class="line">save 60 10000</span><br><span class="line"></span><br><span class="line">stop-writes-on-bgsave-error yes  # 持久化发生错误后是否还继续工作</span><br><span class="line"></span><br><span class="line">rdbcompression yes  # 是否压缩 rdb 文件，需要消耗cpu资源</span><br><span class="line"></span><br><span class="line">rdbchecksum yes  # 保存 rdb 文件的时候，进行错误的检查校验</span><br><span class="line"></span><br><span class="line">dir ./  # rdb 文件保存的目录，默认当前目录下</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>REPLICATION 复制</p>
+</blockquote>
+<p><em>具体配置在 主从复制 中详解。</em></p>
+<blockquote>
+<p>SECURITY 安全</p>
+</blockquote>
+<p>可以在这里设置 redis 密码，默认是没有密码的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">requirepass 123456</span><br></pre></td></tr></table></figure>
+
+<p>如果设置了密码，将使用以下命令认证。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">auth 123456</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>LIMITS 限制</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">maxclients 10000  # 限制连接数</span><br><span class="line"></span><br><span class="line">maxmemory &lt;bytes&gt;  # 最大内存上限值，单位字节</span><br><span class="line"></span><br><span class="line">maxmemory-policy noeviction  # 如果内存满了，该怎么做策略</span><br></pre></td></tr></table></figure>
+
+<p>maxmemory-policy：</p>
+<ul>
+<li>noeviction: 不删除策略, 达到最大内存限制时, 如果需要更多内存, 直接返回错误信息。（默认值）</li>
+<li>allkeys-lru: 所有key通用; 优先删除最近最少使用(less recently used ,LRU) 的 key。</li>
+<li>volatile-lru: 只限于设置了 expire 的部分; 优先删除最近最少使用(less recently used ,LRU) 的 key。</li>
+<li>allkeys-random: 所有key通用; 随机删除一部分 key。</li>
+<li>volatile-random: 只限于设置了 expire 的部分; 随机删除一部分 key。</li>
+<li>volatile-ttl: 只限于设置了 expire 的部分; 优先删除剩余时间(time to live,TTL) 短的key。<blockquote>
+<p>APPEND ONLY MODE AOF模式配置</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">appendonly no  # 默认是不开启 aof 模式的，默认使用的是 rdb 方式持久化，在大部分情况下，rdb完全够用。</span><br><span class="line"></span><br><span class="line">appendfilename &quot;appendonly.aof&quot;  # 持久化的文件名</span><br><span class="line"></span><br><span class="line"># appendfsync always  # 每次修改都会 sync，消耗性能</span><br><span class="line">appendfsync everysec  # 每秒执行一次 sync，可能会丢失1s的数据</span><br><span class="line"># appendfsync no  # 不执行sync，这个时候操作系统自己同步数据，速度最快。</span><br></pre></td></tr></table></figure>
+
+<p><em>具体配置在 Redis持久化 中详解。</em></p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/28_%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8BRDB%E6%93%8D%E4%BD%9C/">28_持久化之RDB操作<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/26_%E8%87%AA%E5%AE%9A%E4%B9%89RedisTemplate/">26_自定义RedisTemplate<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

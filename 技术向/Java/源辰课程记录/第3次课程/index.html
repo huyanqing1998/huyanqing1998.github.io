@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第3次课程 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰74班 第3次课程 04.13.2019 导图  内容 1.数据类型：基本型 |类型   |占用空间|范围                  ||boolean|1bit    |true&#x2F;false            ||byte   |1Byte   |-128~127              ||short  |2Byte   |-32768~32767">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第3次课程">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC3%E6%AC%A1%E8%AF%BE%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰74班 第3次课程 04.13.2019 导图  内容 1.数据类型：基本型 |类型   |占用空间|范围                  ||boolean|1bit    |true&#x2F;false            ||byte   |1Byte   |-128~127              ||short  |2Byte   |-32768~32767">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.hooy.xyz/image/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.png">
+<meta property="article:published_time" content="2019-04-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-12T01:24:14.469Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.hooy.xyz/image/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.png">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2019-04-09T16:00:00.000Z">2019-04-10</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第3次课程</span></h1>
+<p><strong>源辰74班</strong></p>
+<p><strong>第3次课程</strong></p>
+<p><strong>04.13.2019</strong></p>
+<p><strong>导图</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/image/%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE.png" alt="思维导图.png"></p>
+<p><strong>内容</strong></p>
+<p><strong>1.数据类型：基本型</strong></p>
+<p>|<strong>类型</strong>   |<strong>占用空间</strong>|<strong>范围</strong>                  |<br>|<strong>boolean</strong>|<strong>1bit</strong>    |<strong>true&#x2F;false</strong>            |<br>|<strong>byte</strong>   |<strong>1Byte</strong>   |<strong>-128~127</strong>              |<br>|<strong>short</strong>  |<strong>2Byte</strong>   |<strong>-32768~32767</strong>          |<br>|<strong>char</strong>   |<strong>2Byte</strong>   |<strong>0~65545</strong>               |<br>|<strong>int</strong>    |<strong>4Byte</strong>   |<strong>-2147483648~2147483647</strong>|<br>|<strong>long</strong>   |<strong>8Byte</strong>   |<strong>-263 ~ 263-1</strong>          |<br>|<strong>float</strong>  |<strong>4Byte</strong>   |                          |<br>|<strong>double</strong> |<strong>8byte</strong>   |                          |</p>
+<p><strong>实验题1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package Test0413;</span><br><span class="line">public class Test1 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       int ia = 0x55;</span><br><span class="line">       int ib = 011;</span><br><span class="line">       //byte占2个字节，8bit。强制转换后将保留原数值(如：int型)的二进制的后8bit赋值给新byte型。</span><br><span class="line">       /*</span><br><span class="line">        *  例：</span><br><span class="line">        *  十六进制： 0x771 -&gt; 十进制：771</span><br><span class="line">           int二进制时：011101110001</span><br><span class="line">           byte二进制时：   01110001</span><br><span class="line">           得：                十进制：113</span><br><span class="line">       */</span><br><span class="line">       byte ba = (byte)0x771;</span><br><span class="line">       long la = 123456789;</span><br><span class="line">       long lb = 12345678987654321L;</span><br><span class="line">       System.out.println(ia+&quot;\t&quot;+ib+&quot;\t&quot;+ba+&quot;\t&quot;+la+&quot;\t&quot;+lb);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>实验题2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">package Test0413;</span><br><span class="line">public class Test2 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       //符号f与F，d与D，e与E不区分大小写，效果一样</span><br><span class="line">       //浮点型默认是double打印。</span><br><span class="line">       float fa = 123.4f;</span><br><span class="line">       //fb等价于fc。</span><br><span class="line">       float fb = 12.5E3F;</span><br><span class="line">       float fc = (float)12.5E3;</span><br><span class="line">       </span><br><span class="line">       double da = 123D;</span><br><span class="line">       double db = 123.456D;</span><br><span class="line">       double dc = 123.45e301;</span><br><span class="line">       </span><br><span class="line">       System.out.println(fa+&quot; &quot;+fb+&quot;  &quot;+fc+&quot; &quot;+da+&quot; &quot;+db+&quot; &quot;+dc);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2.数据类型：引用型</strong></p>
+<p>|<strong>class（类）</strong>      |<br>|<strong>interface（接口）</strong>|<br>|<strong>数组</strong>             |</p>
+<p><strong>数组实验：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//创建数组的方式</span><br><span class="line">int[] x = new int[4];</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">package Test0413;</span><br><span class="line">public class Test4 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       //定义一个数组x，系统默认赋值为0(安全)</span><br><span class="line">       int[] x = new int[4];</span><br><span class="line">       </span><br><span class="line">       //打印数组中每一个元素</span><br><span class="line">       for(int i=0;i&lt;4;i++) &#123;</span><br><span class="line">       System.out.println(x[i]);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>运算优先级实验：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">package Test0413;</span><br><span class="line">public class Test4 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       // + 运算数为 数字型 则为 加法运算</span><br><span class="line">       // + 运算数为 字符串 则为 联接</span><br><span class="line">       System.out.println(&quot;book&quot;+3+4+&quot;price&quot;);</span><br><span class="line">       System.out.println(3+4+&quot;book&quot;+&quot;price&quot;);</span><br><span class="line">       System.out.println(&quot;book&quot;+&quot;price&quot;+3+4);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">结果：</span><br><span class="line">book34price</span><br><span class="line">7bookprice</span><br><span class="line">bookprice34</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.作用域</strong></p>
+<p><strong>实验：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">package Test0413;</span><br><span class="line">public class Test6 &#123;</span><br><span class="line">    static int x;</span><br><span class="line">    int y;</span><br><span class="line">    </span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       int zz = 90;</span><br><span class="line">       System.out.println(x);</span><br><span class="line">       //System.out.println(y);  //在&quot;静态区&quot;中只能访问静态成员</span><br><span class="line">       </span><br><span class="line">       &#123;//用&#123;&#125;创建一个作用域</span><br><span class="line">           int z = 10;</span><br><span class="line">           System.out.println(z);</span><br><span class="line">           System.out.println(zz);</span><br><span class="line">           //System.out.println(yy);</span><br><span class="line">       &#125;</span><br><span class="line">       //int yy = 70;    //系统从上向下读取，在调用yy之前应该声明yy</span><br><span class="line">       //System.out.println(z);  //在一个作用域定义的变量，在这个作用域外无法访问</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.Scanner类：</strong></p>
+<p>作用：输入</p>
+<p><strong>Scanner实验：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//调用Scanner的方式</span><br><span class="line">Scanner sc = new Scanner(System.in);</span><br><span class="line">//输入数字</span><br><span class="line">String s1 = sc.nextInt();</span><br><span class="line">//输入字符</span><br><span class="line">String s2 = sc.nextLine();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">package Test0413;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line">public class Test7 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       Scanner sc = new Scanner(System.in);</span><br><span class="line">       System.out.println(&quot;请输入姓名&quot;);</span><br><span class="line">       String s = sc.nextLine();</span><br><span class="line">       </span><br><span class="line">       System.out.println(&quot;请输入年龄&quot;);</span><br><span class="line">       </span><br><span class="line">       int age = sc.nextInt();</span><br><span class="line">       //输入年龄数值后，回车符会被下一行吸收，导致下一行未输入就跳过</span><br><span class="line">       /*</span><br><span class="line">        * 解决方案一：</span><br><span class="line">        * int age = sc.nextInt();</span><br><span class="line">        * sc.nextLine(); \\将多余的回车符用nextLine吸收</span><br><span class="line">        * 解决方案二：</span><br><span class="line">        * int age =  Integer.parseInt(sc.nextLine);  //输入的部分，最后强制转换为数字赋值给age</span><br><span class="line">        *</span><br><span class="line">       */</span><br><span class="line">       System.out.println(&quot;请输入性别&quot;);</span><br><span class="line">       String sex = sc.nextLine();</span><br><span class="line">       </span><br><span class="line">       System.out.println(&quot;姓名为：&quot;+s+&quot;年龄为：&quot;+age+&quot;性别为：&quot;+sex);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>5.Rammod类：</strong></p>
+<p>**** 作用：生成随机数</p>
+<p><strong>Rammod实验：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">调用Rammod的方式</span><br><span class="line">Random r = new Random();</span><br><span class="line">int x1 = r.nextInt();</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package Test0413;</span><br><span class="line">import java.util.Random;</span><br><span class="line">public class Test9 &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       Random r = new Random();</span><br><span class="line">       //随机范围为：0~2147483647</span><br><span class="line">       int x1 = r.nextInt();</span><br><span class="line">       System.out.println(x1);</span><br><span class="line">       //随机范围为：0~9</span><br><span class="line">       int x2 = r.nextInt(10);</span><br><span class="line">       System.out.println(x2);</span><br><span class="line">       //随机范围为：5~9</span><br><span class="line">       int x3 = r.nextInt(5)+5;</span><br><span class="line">       System.out.println(x3);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>6.[项目]扑克牌发牌系统</strong></p>
+<p>****<strong>我的算法：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">package Test0413;</span><br><span class="line">import java.util.Random;</span><br><span class="line">public class Test_pukepai &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       Random r = new Random();</span><br><span class="line">       String[] puke = &#123;&quot;方片A&quot;,&quot;方片2&quot;,&quot;方片3&quot;,&quot;方片4&quot;,&quot;方片5&quot;,&quot;方片6&quot;,&quot;方片7&quot;,&quot;方片8&quot;,&quot;方片9&quot;,&quot;方片10&quot;,&quot;方片J&quot;,&quot;方片Q&quot;,&quot;方片K&quot;,</span><br><span class="line">                      &quot;梅花A&quot;,&quot;梅花2&quot;,&quot;梅花3&quot;,&quot;梅花4&quot;,&quot;梅花5&quot;,&quot;梅花6&quot;,&quot;梅花7&quot;,&quot;梅花8&quot;,&quot;梅花9&quot;,&quot;梅花10&quot;,&quot;梅花J&quot;,&quot;梅花Q&quot;,&quot;梅花K&quot;,</span><br><span class="line">                      &quot;红桃A&quot;,&quot;红桃2&quot;,&quot;红桃3&quot;,&quot;红桃4&quot;,&quot;红桃5&quot;,&quot;红桃6&quot;,&quot;红桃7&quot;,&quot;红桃8&quot;,&quot;红桃9&quot;,&quot;红桃10&quot;,&quot;红桃J&quot;,&quot;红桃Q&quot;,&quot;红桃K&quot;,</span><br><span class="line">                      &quot;黑桃A&quot;,&quot;黑桃2&quot;,&quot;黑桃3&quot;,&quot;黑桃4&quot;,&quot;黑桃5&quot;,&quot;黑桃6&quot;,&quot;黑桃7&quot;,&quot;黑桃8&quot;,&quot;黑桃9&quot;,&quot;黑桃10&quot;,&quot;黑桃J&quot;,&quot;黑桃Q&quot;,&quot;黑桃K&quot;,</span><br><span class="line">       &#125;;</span><br><span class="line">       for(int i=1;i&lt;14;i++) &#123;</span><br><span class="line">           int a = r.nextInt(52);</span><br><span class="line">           System.out.println(puke[a]);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>**    老师算法：**</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">package Test0413;</span><br><span class="line"></span><br><span class="line">import java.util.Random;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class puke_teacher &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Random r = new Random();</span><br><span class="line">        Scanner sc = new Scanner(System.in);</span><br><span class="line">        System.out.println(&quot;请输入牌的套数&quot;);</span><br><span class="line">        int a = sc.nextInt();</span><br><span class="line">        </span><br><span class="line">        int total = 52*a;</span><br><span class="line">        int index = r.nextInt(total);</span><br><span class="line">        String card = genFlower(index);</span><br><span class="line">        card = card + genCardNum(index);</span><br><span class="line">        System.out.println(index+&quot;对应的牌为：&quot;+card);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    //获取花色</span><br><span class="line">    public static String genFlower(int index) &#123;</span><br><span class="line">        String flower = &quot;&quot;;</span><br><span class="line">        int flowerindex = index/13%4;</span><br><span class="line">        switch(flowerindex) &#123;</span><br><span class="line">        case 0:flower = &quot;方片&quot;;break;</span><br><span class="line">        case 1:flower = &quot;梅花&quot;;break;</span><br><span class="line">        case 2:flower = &quot;红桃&quot;;break;</span><br><span class="line">        case 3:flower = &quot;黑桃&quot;;break;</span><br><span class="line">        &#125;</span><br><span class="line">        return flower;</span><br><span class="line">    &#125;</span><br><span class="line">    //获取牌数值</span><br><span class="line">    public static String genCardNum(int index) &#123;</span><br><span class="line">        String cardNum = &quot;&quot;;</span><br><span class="line">        int card = index%13+1;</span><br><span class="line">        cardNum=card+&quot;&quot;;</span><br><span class="line">        switch(card) &#123;</span><br><span class="line">        case 1:cardNum = &quot;A&quot;;break;</span><br><span class="line">        case 11:cardNum = &quot;J&quot;;break;</span><br><span class="line">        case 12:cardNum = &quot;Q&quot;;break;</span><br><span class="line">        case 13:cardNum = &quot;K&quot;;break;</span><br><span class="line">        &#125;</span><br><span class="line">        return cardNum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>其他</strong></p>
+<p>****作业附件：</p>
+<p><a href="./file/Java%E7%AC%94%E8%AF%95%E9%A2%98%EF%BC%9AJava%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5_%E5%AD%A6%E7%94%9F%E7%94%A8.doc">Java笔试题：Java基础概念_学生用.doc</a></p>
+<p><a href="./file/%E4%BD%9C%E4%B8%9A%E9%A2%98-%E5%AD%A6%E7%94%9F%E7%94%A8.doc">作业题-学生用.doc</a></p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC1%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第1次课程<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第64次课程 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰76班 第64次课程 10.14.2019 内容 JSP动态交互技术[廖彦] 1.要点 JSP语法元素 JSP脚本：一段java代码 JSP表达式：java表达式，必须有返回结果 JSP内置对象：     1.请求对象    request（用于接收浏览器的信息）     2.响应对象    response （用于输出信息给浏览器）     3.会话对象    session （交互）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第64次课程">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC64%E6%AC%A1%E8%AF%BE%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰76班 第64次课程 10.14.2019 内容 JSP动态交互技术[廖彦] 1.要点 JSP语法元素 JSP脚本：一段java代码 JSP表达式：java表达式，必须有返回结果 JSP内置对象：     1.请求对象    request（用于接收浏览器的信息）     2.响应对象    response （用于输出信息给浏览器）     3.会话对象    session （交互）">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T01:22:05.730Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2019-10-13T16:00:00.000Z">2019-10-14</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第64次课程</span></h1>
+<p><strong>源辰76班</strong></p>
+<p><strong>第64次课程</strong></p>
+<p><strong>10.14.2019</strong></p>
+<p><strong>内容</strong></p>
+<p><strong>JSP动态交互技术</strong><strong>[廖彦]</strong></p>
+<p><strong>1.要点</strong></p>
+<p><strong>JSP语法元素</strong></p>
+<p><strong>JSP脚本</strong>：一段java代码</p>
+<p><strong>JSP表达式</strong>：java表达式，必须有返回结果</p>
+<p><strong>JSP内置对象</strong>：</p>
+<p>    1.请求对象    request（用于接收浏览器的信息）</p>
+<p>    2.响应对象    response （用于输出信息给浏览器）</p>
+<p>    3.会话对象    session （交互）</p>
+<p>    4.应用上下文对象  application （工程的环境）</p>
+<p>    5.页面上下文对象  pageContext （页面的环境）</p>
+<p>    6.页面输出流    out （JSP脚本输出内容）</p>
+<p>7.配置对象    config （跟Servlet有关）</p>
+<p>    8.页面对象    page      （最没用的）</p>
+<p>    9.异常对象    exception  （需要将页面设置为错误页面才可以调用方法）</p>
+<p><strong>JSP指令</strong>：</p>
+<p>    1.page指令：用于设置页面属性</p>
+<p>    errorPage &#x3D; “url”    （用于设定如果jsp页面出现异常，将会跳转到url目标页面）</p>
+<p>    isErrorPage &#x3D; “true” (用户用于设置当前页面是错误页面，可使用exception对象及方法)</p>
+<p>    2.include指令：用于将子页面导入到当前页面</p>
+<p>    3.taglib指令</p>
+<p><strong>2.JSP脚本和JSP表达式的区别</strong></p>
+<p>01.jsp</p>
+<p>|&lt;%@**page** import&#x3D;”java.util.Date”%&gt;</p>
+<p>&lt;%@ <strong>page</strong> language&#x3D;”java” contentType&#x3D;”text&#x2F;html; charset&#x3D;utf-8”</p>
+<p> pageEncoding&#x3D;”utf-8”%&gt;</p>
+<p>&lt;!**DOCTYPE** html PUBLIC “-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTD HTML 4.01 Transitional&#x2F;&#x2F;EN” “<a target="_blank" rel="noopener" href="http://www.w3.org/TR/html4/loose.dtd">http://www.w3.org/TR/html4/loose.dtd</a>“&gt;</p>
+<p>&lt;**html**&gt;</p>
+<p>&lt;**head**&gt;</p>
+<p>&lt;**meta** http-equiv&#x3D;_”Content-Type”_ content&#x3D;_”text&#x2F;html; charset&#x3D;utf-8”_&gt;</p>
+<p>&lt;**title**&gt;Insert title here&lt;&#x2F;**title**&gt;</p>
+<p>&lt;&#x2F;**head**&gt;</p>
+<p>&lt;**body**&gt;</p>
+<!-- JSP脚本  -->
+
+<p>&lt;%</p>
+<p><strong>int</strong> i &#x3D; 100;</p>
+<p>Date date &#x3D; <strong>new</strong> Date();</p>
+<p>%&gt;</p>
+<!-- JSP表达式  -->
+
+<p>当前日期：&lt;%&#x3D;date %&gt;&lt;**br**&gt;</p>
+<p>当前日期：&lt;%&#x3D;**new** SimpleDateFormat(“yyyy年MM月dd日 HH:mm:ss”).format(date) %&gt;&lt;**br**&gt;</p>
+<p>&lt;&#x2F;**body**&gt;</p>
+<p>&lt;&#x2F;**html**&gt;<br>&lt;%@|</p>
+<p><strong>3.request对象、exception对象和page指令、include指令</strong></p>
+<p>hello.jsp</p>
+<p>主页面</p>
+<p><span style="background-color: #ffaaaa">request对象</span>的应用</p>
+<p><span style="background-color: #ffaaaa">page指令</span>：<span style="background-color: #ffaaaa">errorPage</span> &#x3D; “url”</p>
+<p><span style="background-color: #ffaaaa">include指令</span></p>
+<p>|&lt;%@**page** import&#x3D;”java.util.Date”%&gt;</p>
+<p>&lt;%@**page** import&#x3D;”java.util.Calendar”%&gt;</p>
+<p>&lt;%@ <strong>page</strong> language&#x3D;”java” contentType&#x3D;”text&#x2F;html; charset&#x3D;utf-8”</p>
+<p> pageEncoding&#x3D;”utf-8”</p>
+<p> errorPage&#x3D;”error.jsp”%&gt;</p>
+<p>&lt;!**DOCTYPE** html PUBLIC “-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTD HTML 4.01 Transitional&#x2F;&#x2F;EN” “<a target="_blank" rel="noopener" href="http://www.w3.org/TR/html4/loose.dtd">http://www.w3.org/TR/html4/loose.dtd</a>“&gt;</p>
+<p>&lt;**html**&gt;</p>
+<p>&lt;**head**&gt;</p>
+<p>&lt;**meta** http-equiv&#x3D;_”Content-Type”_ content&#x3D;_”text&#x2F;html; charset&#x3D;utf-8”_&gt;</p>
+<p>&lt;**title**&gt;Insert title here&lt;&#x2F;**title**&gt;</p>
+<p>&lt;&#x2F;**head**&gt;</p>
+<p>&lt;**body**&gt;</p>
+<p>&lt;**p**&gt;127.0.0.1&#x2F;191013_Tomcat&#x2F;1014&#x2F;hello.jsp?name&#x3D;张三&amp;sex&#x3D;男&amp;age&#x3D;16&lt;&#x2F;**p**&gt;</p>
+<p>&lt;**p**&gt;URL地址格式：<a target="_blank" rel="noopener" href="http://127.0.0.1/">http://127.0.0.1:80/</a>工程名&#x2F;资源路径(目录+文件名)?参数名&#x3D;变量值  &amp;多参隔开&lt;&#x2F;**p**&gt;</p>
+<p>&lt;%</p>
+<p>&#x2F;&#x2F;request 请求对象</p>
+<p>&#x2F;&#x2F;URL内的参数整体放入request对象中，可以使用getParameter方法传入参数名获取其中的对应的参数值。</p>
+<p>String name &#x3D; request.getParameter(“name”);</p>
+<p><strong>int</strong> age &#x3D; Integer.parseInt(request.getParameter(“age”));</p>
+<p>Calendar c &#x3D; Calendar.getInstance();</p>
+<p>c.add(Calendar.YEAR, -age);</p>
+<p>Date date &#x3D; c.getTime();</p>
+<p>%&gt;</p>
+<p>姓名：&lt;%&#x3D;name %&gt;&lt;**br**&gt;</p>
+<p>性别：&lt;%&#x3D;request.getParameter(“sex”) %&gt;&lt;**br**&gt;</p>
+<p>年龄：&lt;%&#x3D;age %&gt;&lt;**br**&gt;</p>
+<p>出生年份：&lt;%&#x3D;**new** SimpleDateFormat(“yyyy年”).format(date) %&gt;&lt;**br**&gt;</p>
+<p>&lt;%**if**(age&lt;&#x3D;14){ %&gt;</p>
+<p>&lt;**img** src&#x3D;_”xjj.jpg”_ height&#x3D;_”200px”_&gt;</p>
+<p>&lt;%}**else**{ %&gt;</p>
+<p>&lt;**img** src&#x3D;_”xjj_freedom.jpg”_ height&#x3D;_”200px”_&gt;</p>
+<p>&lt;%} %&gt;</p>
+<p>&lt;**h1**&gt;海盗旗&lt;&#x2F;**h1**&gt;</p>
+<p>&lt;%**for**(**int** i&#x3D;0;i&lt;5;i++){ %&gt;</p>
+<p>&lt;%**for**(**int** j&#x3D;0;j&lt;&#x3D;i;j++){ %&gt;</p>
+<p>&lt;%&#x3D;”*” %&gt;</p>
+<p>&lt;%} %&gt;</p>
+<p>&lt;%&#x3D;”<br>“ %&gt;</p>
+<p>&lt;%} %&gt;</p>
+<!-- JSP指令
+
+     include file = "路径" 引入子页面 -->
+
+<p>&lt;%@**include** file&#x3D;”sub.jsp” %&gt;</p>
+<p>&lt;&#x2F;**body**&gt;</p>
+<p>&lt;&#x2F;**html**&gt;<br>&lt;%@|</p>
+<p>sub.jsp</p>
+<p>子页面</p>
+<p><strong>注意</strong>：子页面将默认生成的标签删除，以免拼接到主页面时出现标签重复异常</p>
+<p>| pageEncoding&#x3D;”utf-8”%&gt;</p>
+<p>&lt;!**DOCTYPE** html PUBLIC “-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTD HTML 4.01 Transitional&#x2F;&#x2F;EN” “<a target="_blank" rel="noopener" href="http://www.w3.org/TR/html4/loose.dtd">http://www.w3.org/TR/html4/loose.dtd</a>“&gt;</p>
+<!-- 子页面将默认生成的标签删除，以免拼接到主页面时出现标签重复异常 -->
+
+<p>&lt;**p**&gt;这是一个子页面&lt;&#x2F;**p**&gt;<br>&lt;%@|</p>
+<p>error.jsp</p>
+<p>错误页面</p>
+<p><span style="background-color: #ffaaaa">page指令</span>：<span style="background-color: #ffaaaa">isErrorPage</span>&#x3D;”true”</p>
+<p><strong>注意</strong>：当参数为true时，JSP对象exception才可以调用方法</p>
+<p>| pageEncoding&#x3D;”utf-8” isErrorPage&#x3D;”true”%&gt;</p>
+<p>&lt;!**DOCTYPE** html PUBLIC “-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTD HTML 4.01 Transitional&#x2F;&#x2F;EN” “<a target="_blank" rel="noopener" href="http://www.w3.org/TR/html4/loose.dtd">http://www.w3.org/TR/html4/loose.dtd</a>“&gt;</p>
+<p>&lt;**html**&gt;</p>
+<p>&lt;**head**&gt;</p>
+<p>&lt;**meta** http-equiv&#x3D;_”Content-Type”_ content&#x3D;_”text&#x2F;html; charset&#x3D;ISO-8859-1”_&gt;</p>
+<p>&lt;**title**&gt;Insert title here&lt;&#x2F;**title**&gt;</p>
+<p>&lt;&#x2F;**head**&gt;</p>
+<p>&lt;**body**&gt;</p>
+<!-- JSP指令   
+
+     errorPage = "url" 如果页面出现错误，跳转至url页面
+
+     isErrorPage = "true" 
+
+       这是一个出现错误后跳转至的页面，当参数为true时，JSP对象exception才可以调用方法
+
+ -->
+
+<p>&lt;**h1**&gt;这是一个错误页面&lt;&#x2F;**h1**&gt;</p>
+<!-- exception 异常对象 -->
+
+<p>    错误信息：&lt;%&#x3D;exception.getMessage() %&gt;</p>
+<p>&lt;&#x2F;**body**&gt;</p>
+<p>&lt;&#x2F;**html**&gt;<br>&lt;%@|</p>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC63%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第63次课程<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC65%E6%AC%A1%E8%AF%BE%E7%A8%8B_%E9%87%8D%E5%AE%9A%E5%90%91%E5%92%8C%E8%BD%AC%E5%8F%91/">第65次课程_重定向和转发<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

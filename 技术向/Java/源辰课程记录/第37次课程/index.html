@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>第37次课程 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="源辰74班 第37次课程 07.14.2019 **内容    ** API部分作业检查、复习及指导[蒋斌] 1.作业检查 双向链表的实现 **Class Node ** 12345678910111213package ShuangXiangLinkedList;public class Node&lt;E&gt; &amp;#123;    E item;    Node&lt;E&gt; paren">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第37次课程">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC37%E6%AC%A1%E8%AF%BE%E7%A8%8B/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="源辰74班 第37次课程 07.14.2019 **内容    ** API部分作业检查、复习及指导[蒋斌] 1.作业检查 双向链表的实现 **Class Node ** 12345678910111213package ShuangXiangLinkedList;public class Node&lt;E&gt; &amp;#123;    E item;    Node&lt;E&gt; paren">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-07-13T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-05-11T01:15:19.868Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="源辰">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/">Java</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/">源辰课程记录</a></div><div id="post-meta">发布于&nbsp;<time datetime="2019-07-13T16:00:00.000Z">2019-07-14</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>第37次课程</span></h1>
+<p><strong>源辰74班</strong></p>
+<p><strong>第37次课程</strong></p>
+<p><strong>07.14.2019</strong></p>
+<p>**内容    **</p>
+<p><strong>API部分作业检查、复习及指导[蒋斌]</strong></p>
+<p><strong>1.作业检查</strong></p>
+<p><strong>双向链表的实现</strong></p>
+<p>**Class Node</p>
+<p>**</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">package ShuangXiangLinkedList;</span><br><span class="line">public class Node&lt;E&gt; &#123;</span><br><span class="line">    E item;</span><br><span class="line">    Node&lt;E&gt; parent;</span><br><span class="line">    Node&lt;E&gt; next;</span><br><span class="line">    public Node() &#123;</span><br><span class="line">       super();</span><br><span class="line">    &#125;</span><br><span class="line">    public Node(E o) &#123;</span><br><span class="line">       super();</span><br><span class="line">       this.item = o;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Class DoubleLinkedList<E></strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">package ShuangXiangLinkedList;</span><br><span class="line">public class DoubleLinkedList&lt;E&gt; &#123;</span><br><span class="line">    Node&lt;E&gt; first;</span><br><span class="line">    Node&lt;E&gt; last;</span><br><span class="line">    int size;</span><br><span class="line">    </span><br><span class="line">    public boolean add(E item) &#123;</span><br><span class="line">       Node&lt;E&gt; l = last;</span><br><span class="line">       Node&lt;E&gt; node = new Node&lt;E&gt;();</span><br><span class="line">       node.item = item;</span><br><span class="line">       if(l!=null) &#123;</span><br><span class="line">           l.next = node;</span><br><span class="line">           node.parent = l;</span><br><span class="line">       &#125;</span><br><span class="line">       if(first==null) &#123;</span><br><span class="line">           first=node;</span><br><span class="line">       &#125;</span><br><span class="line">       last = node;</span><br><span class="line">       size++;</span><br><span class="line">       return true;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void addFirst(E item) &#123;</span><br><span class="line">       Node&lt;E&gt; node = new Node&lt;E&gt;();</span><br><span class="line">       node.item = item;</span><br><span class="line">       node.next = first;</span><br><span class="line">       first.parent = node;</span><br><span class="line">       first = node;</span><br><span class="line">       size++;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void remove(int index) &#123;</span><br><span class="line">       if(index&lt;0 || index&gt;=size) &#123;</span><br><span class="line">           throw new  IndexOutOfBoundsException(&quot;index&quot;+index+&quot;size&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">       Node&lt;E&gt; pre = first;</span><br><span class="line">       if(index==0) &#123;</span><br><span class="line">           first = first.next;</span><br><span class="line">           first.parent = null;</span><br><span class="line">           size--;</span><br><span class="line">           return;</span><br><span class="line">       &#125;</span><br><span class="line">       for(int i=0;i&lt;index-1;i++) &#123;</span><br><span class="line">           pre = pre.next;</span><br><span class="line">       &#125;</span><br><span class="line">       Node&lt;E&gt; self = pre.next;</span><br><span class="line">       Node&lt;E&gt; next = self.next;</span><br><span class="line">       if(next==null) &#123;</span><br><span class="line">           pre.next = null;</span><br><span class="line">           self = null;</span><br><span class="line">           last = pre;</span><br><span class="line">       &#125;else &#123;</span><br><span class="line">           pre.next = next;</span><br><span class="line">           next.parent = pre;</span><br><span class="line">           self = null;</span><br><span class="line">       &#125;</span><br><span class="line">       size--;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public E removeLast() &#123;</span><br><span class="line">       if(size==0 || first==null ||  last==null) &#123;</span><br><span class="line">           throw new  IndexOutOfBoundsException(&quot;请先创建链表&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">       Node&lt;E&gt; pre = first;</span><br><span class="line">       for(int i=0;i&lt;size-1;i++) &#123;</span><br><span class="line">           pre = pre.next;</span><br><span class="line">       &#125;</span><br><span class="line">       pre.parent.next = null;</span><br><span class="line">       size--;</span><br><span class="line">       return pre.item;</span><br><span class="line">    &#125;</span><br><span class="line">    public int getSize() &#123;</span><br><span class="line">       return size;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public E get(int index) &#123;</span><br><span class="line">       if(index&lt;0 || index&gt;=size) &#123;</span><br><span class="line">           throw new  IndexOutOfBoundsException(&quot;index&quot;+index+&quot;size&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">       Node&lt;E&gt; result = first;</span><br><span class="line">       for(int i=0;i&lt;index;i++) &#123;</span><br><span class="line">           result = result.next;</span><br><span class="line">       &#125;</span><br><span class="line">       return result.item;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int indexOf(Object o) &#123;</span><br><span class="line">       if(o==null) &#123;</span><br><span class="line">           throw new RuntimeException(&quot;不能为空&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">       if(!(o instanceof Node))  &#123;//o.getClass().equals(Node.class</span><br><span class="line">           throw new RuntimeException(&quot;类型异常&quot;);</span><br><span class="line">       &#125;</span><br><span class="line">       int index = 0;</span><br><span class="line">       //Node&lt;E&gt; node = new Node&lt;E&gt;((E)o);</span><br><span class="line">       Node&lt;E&gt; node = (Node&lt;E&gt;)o;</span><br><span class="line">       Node&lt;E&gt; flag = first;</span><br><span class="line">       for(int i=0;i&lt;size;i++) &#123;</span><br><span class="line">           if(node.item==flag.item) &#123;</span><br><span class="line">               return index;</span><br><span class="line">           &#125;</span><br><span class="line">           flag = flag.next;</span><br><span class="line">           index++;</span><br><span class="line">       &#125;</span><br><span class="line">       return -1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>Main Test</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package ShuangXiangLinkedList;</span><br><span class="line">import java.util.Random;</span><br><span class="line">public class Test &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       DoubleLinkedList&lt;Integer&gt; dll = new  DoubleLinkedList&lt;Integer&gt;();</span><br><span class="line">       dll.add(11); //0</span><br><span class="line">       dll.add(22); //1</span><br><span class="line">       dll.add(33); //2</span><br><span class="line">       dll.add(44); //3</span><br><span class="line">       dll.add(55); //4</span><br><span class="line">       dll.add(66); //5</span><br><span class="line">       dll.add(77); //6</span><br><span class="line">       //删除下标元素</span><br><span class="line">       dll.remove(3);</span><br><span class="line">       //将元素添加到表头</span><br><span class="line">       dll.addFirst(9);</span><br><span class="line">       //删除最后一个元素并返回其值</span><br><span class="line">       int test1 = dll.removeLast();</span><br><span class="line">       System.out.println(&quot;删除最后一个元素并返回值：&quot;+test1);</span><br><span class="line">       //通过节点node查找位置</span><br><span class="line">       Random r = new Random();</span><br><span class="line">       Node&lt;Integer&gt; test2 = new  Node&lt;Integer&gt;(55);</span><br><span class="line">       int test3 = dll.indexOf(test2);</span><br><span class="line">       System.out.println(&quot;查找第几个元素：&quot;+test3);</span><br><span class="line">       //打印双向链表</span><br><span class="line">       for(int i = 0;i&lt;dll.size;i++) &#123;</span><br><span class="line">           System.out.print(dll.get(i)+&quot; &quot;);</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>基于Calendar类实现万年历</strong></p>
+<p><strong>Main WanNianLi</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">package course.pm.dos.homework;</span><br><span class="line">import java.text.*;</span><br><span class="line">import java.util.*;</span><br><span class="line">public class WanNianLi &#123;</span><br><span class="line">    public static void main(String[] args)  throws ParseException &#123;</span><br><span class="line">       Scanner sc = new Scanner(System.in);</span><br><span class="line">       Calendar cal =  Calendar.getInstance();</span><br><span class="line">       System.out.println(&quot;请输入年份：&quot;);</span><br><span class="line">       int year = sc.nextInt();</span><br><span class="line">       System.out.println(&quot;请输入月份：&quot;);</span><br><span class="line">       int month = sc.nextInt();</span><br><span class="line">       Calendar calendar =  Calendar.getInstance();</span><br><span class="line">       calendar.set(year, month-1, 1);</span><br><span class="line">       int day =  calendar.get(calendar.DAY_OF_WEEK);//获取某年某月开始的第一天是周几</span><br><span class="line">       int month_of_day =  calendar.getActualMaximum(calendar.DAY_OF_MONTH);//获取每个月有多少天</span><br><span class="line">       System.out.println(&quot;星期日&quot; + &quot;\t&quot; +  &quot;星期一&quot; + &quot;\t&quot; + &quot;星期二&quot; + &quot;\t&quot; + &quot;星期三&quot;  + &quot;\t&quot; + &quot;星期四&quot; + &quot;\t&quot; + &quot;星期五&quot; + &quot;\t&quot; +  &quot;星期六&quot;);  </span><br><span class="line">       int num = 1;</span><br><span class="line">       for(int i=1;i&lt;day+month_of_day;i++)  &#123;</span><br><span class="line">           if(i&lt;day) &#123;</span><br><span class="line">               System.out.print(&quot;\t&quot;);</span><br><span class="line">               continue;</span><br><span class="line">           &#125;</span><br><span class="line">           System.out.print((num++)+&quot;\t&quot;);</span><br><span class="line">           if(i%7==0) &#123;</span><br><span class="line">               System.out.println();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>文件夹（目录）复制</strong></p>
+<p><strong>Main WenJianFuZhi</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">package course.pm.dos.homework;</span><br><span class="line">import java.io.*;</span><br><span class="line">public class WenJianFuZhi &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">       copyDir(&quot;G:\\YC74\\190713\\code\\cs&quot;,&quot;G:\\YC74\\190713\\code\\cd&quot;);</span><br><span class="line">       System.out.println(&quot;复制完成&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public static void copyDir(String  ob,String obCopy) &#123;</span><br><span class="line">       File obf = new File(ob);</span><br><span class="line">       File obfCopy = new File (obCopy);</span><br><span class="line">       if(obf.exists()) &#123;</span><br><span class="line">           //存在</span><br><span class="line">           if(obf.isDirectory()) &#123;</span><br><span class="line">               //是目录</span><br><span class="line">               if(!(obfCopy.exists())) &#123;</span><br><span class="line">                  obfCopy.mkdirs();</span><br><span class="line">               &#125;</span><br><span class="line">               File[] listFile =  obf.listFiles();</span><br><span class="line">               for(int  i=0;i&lt;listFile.length;i++) &#123;</span><br><span class="line">                  copyDir(listFile[i].getPath(),obCopy+&quot;\\&quot;+listFile[i].getName());</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;else &#123;</span><br><span class="line">               //是文件</span><br><span class="line">               Reader r = null;</span><br><span class="line">               Writer w = null;</span><br><span class="line">               try &#123;</span><br><span class="line">                  r = new FileReader(ob);</span><br><span class="line">                  w = new  FileWriter(obCopy);</span><br><span class="line">                  BufferedReader br = new  BufferedReader(r);</span><br><span class="line">                  BufferedWriter bw = new  BufferedWriter(w);</span><br><span class="line">                  String value = null;</span><br><span class="line">                  while((value=br.readLine())!=null) &#123;</span><br><span class="line">                      bw.write(value);</span><br><span class="line">                      bw.newLine();</span><br><span class="line">                  &#125;</span><br><span class="line">                  bw.flush();</span><br><span class="line">                  r.close();</span><br><span class="line">                  w.close();</span><br><span class="line">               &#125; catch (IOException e) &#123;</span><br><span class="line">                  e.printStackTrace();</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>DOS copy方法的实现</strong></p>
+<p><strong>Main DOS</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br></pre></td><td class="code"><pre><span class="line">package course.pm.dos.homework;</span><br><span class="line"></span><br><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.BufferedWriter;</span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileNotFoundException;</span><br><span class="line">import java.io.FileReader;</span><br><span class="line">import java.io.FileWriter;</span><br><span class="line">import java.io.IOException;</span><br><span class="line">import java.io.Reader;</span><br><span class="line">import java.io.Writer;</span><br><span class="line">import java.text.SimpleDateFormat;</span><br><span class="line">import java.util.Date;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class DOS &#123;</span><br><span class="line">    public static void main(String[] args) throws IOException &#123;</span><br><span class="line">        System.out.println(&quot;HooySkyNet-DOS[Version : 1.0]&quot;);</span><br><span class="line">        System.out.println(&quot;(c) 2019 Hooyantsing 保留所有权利&quot;);</span><br><span class="line">        System.out.println(&quot;&quot;);</span><br><span class="line">        //展示盘符</span><br><span class="line">        showRoot();</span><br><span class="line">        System.out.println(&quot;\n&quot;);</span><br><span class="line">        //获取C盘</span><br><span class="line">        File[] listRoots = File.listRoots();</span><br><span class="line">        String path = listRoots[1].getPath();</span><br><span class="line">        while(true) &#123;</span><br><span class="line">            showCRoot(path);</span><br><span class="line">            String cmd = getCmd();</span><br><span class="line">            if(cmd.equalsIgnoreCase(&quot;help&quot;)) &#123;</span><br><span class="line">                helpOp();</span><br><span class="line">            &#125;</span><br><span class="line">            if(cmd.equalsIgnoreCase(&quot;dir&quot;))&#123;</span><br><span class="line">                dirOp(path);</span><br><span class="line">            &#125;</span><br><span class="line">            if(cmd.endsWith(&quot;:&quot;)) &#123;</span><br><span class="line">                if(new File(cmd).exists()) &#123;</span><br><span class="line">                    path = cmd+&quot;\\&quot;.toUpperCase();</span><br><span class="line">                &#125;else &#123;</span><br><span class="line">                    System.out.println(&quot;找不到指定的驱动器&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if(cmd.startsWith(&quot;cd &quot;) || cmd.startsWith(&quot;CD &quot;)) &#123;</span><br><span class="line">                path = cdop(cmd,path);</span><br><span class="line">            &#125;</span><br><span class="line">            if(cmd.startsWith(&quot;copy &quot;))&#123;</span><br><span class="line">                copy(cmd,path);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    //DOS copy的实现</span><br><span class="line">    private static void copy(String cmd, String path) &#123;</span><br><span class="line">        String[] address = cmd.split(&quot; &quot;);</span><br><span class="line">        File str = new File(address[1]);</span><br><span class="line">        File strCopy = new File(address[2]);</span><br><span class="line">        if(!(str.exists()))&#123;</span><br><span class="line">            System.out.println(&quot;不存在 &quot;+str.getName()+&quot; 文件&quot;);</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">        Reader re = null;</span><br><span class="line">        Writer wr = null;</span><br><span class="line">            Scanner sc = new Scanner(System.in);</span><br><span class="line">            System.out.print(&quot;改写 &quot;+strCopy.getName()+&quot; 吗?&lt;yes/no/all&gt;&quot;);</span><br><span class="line">            String flag = sc.nextLine();</span><br><span class="line">            if(flag.equals(&quot;yes&quot;) || flag.equals(&quot;y&quot;)) &#123;</span><br><span class="line">                try &#123;</span><br><span class="line">                    re = new FileReader(path+&quot;\\&quot;+str);</span><br><span class="line">                    wr = new FileWriter(path+&quot;\\&quot;+strCopy);</span><br><span class="line">                    BufferedReader br = new BufferedReader(re);</span><br><span class="line">                    BufferedWriter bw = new BufferedWriter(wr);</span><br><span class="line">                    String value = null;</span><br><span class="line">                    while((value=br.readLine())!=null) &#123;</span><br><span class="line">                        bw.write(value);</span><br><span class="line">                        bw.newLine();</span><br><span class="line">                &#125;</span><br><span class="line">                    bw.flush();</span><br><span class="line">                &#125; catch (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125; finally &#123;</span><br><span class="line">                    if(re!=null) &#123;</span><br><span class="line">                        try &#123;</span><br><span class="line">                            re.close();</span><br><span class="line">                        &#125; catch (IOException e) &#123;</span><br><span class="line">                            e.printStackTrace();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    if(wr!=null) &#123;</span><br><span class="line">                        try &#123;</span><br><span class="line">                            wr.close();</span><br><span class="line">                        &#125; catch (IOException e) &#123;</span><br><span class="line">                            e.printStackTrace();</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(&quot;已经复制\t 1个文件。&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    private static String cdop(String cmd, String path) &#123;</span><br><span class="line">        //cd .</span><br><span class="line">        if(cmd.equals(&quot;cd .&quot;)) &#123;</span><br><span class="line">            return path;</span><br><span class="line">        &#125;else if(cmd.equals(&quot;cd ..&quot;))&#123; //cd ..</span><br><span class="line">            File f = new File(path);</span><br><span class="line">            String parent = f.getParent();</span><br><span class="line">            if(parent!=null) &#123;</span><br><span class="line">                return parent;</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                return path;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else &#123;//cd D:\AA</span><br><span class="line">            String[] ss = cmd.split(&quot; &quot;);</span><br><span class="line">            File f = new File(ss[1]);</span><br><span class="line">            if(f.exists() &amp;&amp; f.isDirectory()) &#123;</span><br><span class="line">                return f.getPath();</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                System.out.println(&quot;未能找到&quot;+f.getName()+&quot;目录&quot;);</span><br><span class="line">                return path;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    private static void dirOp(String path) &#123;</span><br><span class="line">        int dirCount = 0;</span><br><span class="line">        int fileCount = 0;</span><br><span class="line">        File f = new File(path);</span><br><span class="line">        File[] childFiles = f.listFiles();</span><br><span class="line">        for(int i=0;i&lt;childFiles.length;i++) &#123;</span><br><span class="line">            File file = childFiles[i];</span><br><span class="line">            if(file.isDirectory()) &#123;</span><br><span class="line">                dirCount++;</span><br><span class="line">            &#125;</span><br><span class="line">            long time = file.lastModified();</span><br><span class="line">            Date d = new Date(time);</span><br><span class="line">            SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy.MM.dd hh:mm:ss&quot;);</span><br><span class="line">            System.out.print(sdf.format(d)+&quot;\t&quot;+(file.isFile()?&quot;   &quot;:&quot;&lt;DIR&gt;&quot;));</span><br><span class="line">            if(file.isFile()) &#123;</span><br><span class="line">                fileCount++;</span><br><span class="line">                long len = file.length();</span><br><span class="line">                String changLength = changeLength(len);</span><br><span class="line">                System.out.print(&quot;\t    &quot;+changLength);    </span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                System.out.print(&quot;\t&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.print(&quot;\t\t&quot;+file.getName());</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;\n\t\t文件：&quot;+fileCount+&quot;\t目录：&quot;+dirCount+&quot;\n\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    private static String changeLength(long len) &#123;</span><br><span class="line">        String s = &quot;&quot;;</span><br><span class="line">        if(len/1024/1024==0) &#123;</span><br><span class="line">            if(len/1024==0) &#123;</span><br><span class="line">                s = len + &quot;B&quot;;</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                s = len/1024 + &quot;K&quot;;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else &#123;</span><br><span class="line">            s = len/1024/1024 + &quot;M&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        return s;</span><br><span class="line">    &#125;</span><br><span class="line">    private static void helpOp() throws IOException &#123;</span><br><span class="line">        BufferedReader br = new BufferedReader(new FileReader(&quot;help.txt&quot;)) ;</span><br><span class="line">        String value = null;</span><br><span class="line">        StringBuffer sb = new StringBuffer();</span><br><span class="line">        while((value=br.readLine())!=null) &#123;</span><br><span class="line">            sb.append(value+&quot;\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(sb.toString());</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    private static String getCmd() &#123;</span><br><span class="line">        Scanner sc = new Scanner(System.in);</span><br><span class="line">        return sc.nextLine();</span><br><span class="line">    &#125;</span><br><span class="line">    private static void showCRoot(String path) &#123;</span><br><span class="line">        System.out.print(path+&quot;&gt;&quot;);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    private static void showRoot() &#123;</span><br><span class="line">        File[] listRoots = File.listRoots();</span><br><span class="line">        for(int i=0;i&lt;listRoots.length;i++) &#123;</span><br><span class="line">            System.out.print(listRoots[i].getPath()+&quot;  &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC36%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第36次课程<span class="note">较早</span></a><div class="line"></div><a id="prev" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E6%BA%90%E8%BE%B0%E8%AF%BE%E7%A8%8B%E8%AE%B0%E5%BD%95/%E7%AC%AC38%E6%AC%A1%E8%AF%BE%E7%A8%8B/">第38次课程<span class="note">较新</span></a></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>

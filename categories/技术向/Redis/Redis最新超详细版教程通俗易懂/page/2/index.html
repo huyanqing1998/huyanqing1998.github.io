@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex,follow">
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>分类：Redis最新超详细版教程通俗易懂 - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="君何不随风起，抟扶摇上者九万里">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hooy&#39;s Blog">
+<meta property="og:url" content="http://blog.hooy.xyz/categories/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/page/2/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="君何不随风起，抟扶摇上者九万里">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="hooy;hooyantsing;blog;胡燕卿;博客">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout=''>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+<div class="widget-wrap" id="markdown"><div class="widget-header cap dis-select"><span class="name">Stellar 入门指南</span></div><div class="widget-body fs14"><p>欢迎使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/">Stellar</a> 主题，下面是您的入门指南，祝您使用愉快！<br><br><br><strong>第一步</strong><br>创建 <code>blog/_config.stellar.yml</code> 文件，在此文件中填写需要自定义的主题配置。<br><br><br><strong>第二步</strong><br>创建 <code>blog/source/_data/widgets.yml</code> 文件，此文件中填写需要自定义的侧边栏组件，例如 <code>welcome</code> 组件。<br><br><br>如果有任何疑问，请先查阅<a target="_blank" rel="noopener" href="https://xaoxuu.com/wiki/stellar/">文档</a>，如果文档中没有提供，请提 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/issues/">issue</a> 向开发中询问。</p>
+</div></div>
+
+<div class="widget-wrap" id="recent"><div class="widget-header cap dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/XPath/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/20%E5%88%86%E9%92%9F%E5%B8%A6%E4%BD%A0%E6%90%9E%E6%87%82XPath-Scrapy%E6%95%B0%E6%8D%AE%E8%A7%A3%E6%9E%90%E7%A5%9E%E5%99%A8/">20分钟带你搞懂XPath-Scrapy数据解析神器</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P09%20devServer%20/">P09 devServer</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P33%20-%20P39%20JdbcTemplate/">P33 - P39 JdbcTemplate</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P22%20oneOf/">P22 oneOf</a></div><div class="more-item"><a class="title" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringFramework/%E5%B0%9A%E7%A1%85%E8%B0%B7Spring%E6%A1%86%E6%9E%B6%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B%EF%BC%88spring5%E6%BA%90%E7%A0%81%E7%BA%A7%E8%AE%B2%E8%A7%A3%EF%BC%89/P40%20-%20P49%20%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C/">P40 - P49 事务操作</a></div></div></div>
+</div>
+
+
+    </aside>
+    <div class='l_main list'>
+      
+  
+
+<header class="header mobile-only">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+</header>
+
+
+
+      
+
+  
+
+
+  <div class='nav-wrap'>
+  <nav class='sub post cap'>
+    
+      <a href='/'>近期发布</a>
+    
+    
+      
+        <a class='active' href='/categories'>分类：Redis最新超详细版教程通俗易懂</a>
+      
+    
+    
+      
+        <a href='/tags'>标签</a>
+      
+    
+    
+      
+        <a href='/archives'>归档</a>
+      
+    
+  </nav>
+</div>
+
+  <div class="post-list post"><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/21_Redis%E5%9F%BA%E6%9C%AC%E7%9A%84%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BF%9D%E5%AD%98/">
+<article class="md"><h2 class="post-title">21_Redis基本的事务操保存</h2><div class="excerpt"><p>21 Redis基本的事务操保存
+Redis最新超详细版教程通俗易懂
+
+原子性：要么都成功，要么都失败。
+Redis事务本质：一组命令的集合。一个事务中的所有命令都会被序列化，在事务执行过程中，会按照顺序执行。
+一次性，顺序性，排他性。
+Redis事务没有隔离级别的概念
+所有的命令在事务中，并没有直接被执行。只有发起执行命令的时候才会被执行。
+Redis单条命令是原子性的，但是事务不保证原子...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-16T16:00:00.000Z">2020-08-17</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/22_Redis%E5%AE%9E%E7%8E%B0%E4%B9%90%E8%A7%82%E9%94%81/">
+<article class="md"><h2 class="post-title">22_Redis实现乐观锁</h2><div class="excerpt"><p>22 Redis实现乐观锁
+Redis最新超详细版教程通俗易懂
+
+
+监控 Watch
+
+悲观锁
+很悲观，什么时候都会出问题，无论做什么都加锁。
+乐观锁
+很乐观，认为什么时候都不会出问题，所以不会上锁。更新数据的时候去判断一下，在此期间是否有人修改过这个数据。
+
+获取 version
+
+更新的时候比较 version
+
+Redis监视测试
+
+
+
+多线程修改值，使用 watch 可以当作 red...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-16T16:00:00.000Z">2020-08-17</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/23_%E9%80%9A%E8%BF%87Jedis%E6%93%8D%E4%BD%9CRedis/">
+<article class="md"><h2 class="post-title">23_通过Jedis操作Redis</h2><div class="excerpt"><p>23 通过Jedis操作Redis
+Redis最新超详细版教程通俗易懂
+
+什么是Jedis，是Redis官方推荐的java连接开发工具，使用Java操作Redis中间件。
+使用导入 Maven 依赖
+123456789101112131415&lt;dependencies&gt;        &lt;!--导入 jedis 包--&gt;        &lt;!-- https://m...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-16T16:00:00.000Z">2020-08-17</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/24_%E9%80%9A%E8%BF%87Jedis%E5%86%8D%E6%AC%A1%E7%90%86%E8%A7%A3%E4%BA%8B%E5%8A%A1/">
+<article class="md"><h2 class="post-title">24_通过Jedis再次理解事务</h2><div class="excerpt"><p>24 通过Jedis再次理解事务
+Redis最新超详细版教程通俗易懂
+
+Ctrl + Alt + t 快速加入代码块。
+
+使用 Jedis 事务
+123456789101112131415161718192021222324252627282930313233343536package com.kuang;import com.alibaba.fastjson.JSONObject;impo...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-16T16:00:00.000Z">2020-08-17</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/25_SpringBoot%E9%9B%86%E6%88%90Redis/">
+<article class="md"><h2 class="post-title">25_SpringBoot集成Redis</h2><div class="excerpt"><p>25 SpringBoot集成Redis
+Redis最新超详细版教程通俗易懂
+
+SpringBoot整合在 SpringBoot2.x 以后，原来使用的 jedis 被替换为 lettuce。
+jedis 和 lettuce 区别：
+
+jedis：采用的直连，多个线程操作的话，是不安全的，如果想要避免不安全，使用 jedis pool 连接池。更像 BIO 模式
+lettuce：采用nett...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-16T16:00:00.000Z">2020-08-17</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/17_Zset%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88%E8%AF%A6%E8%A7%A3/">
+<article class="md"><h2 class="post-title">17_Zset有序集合详解</h2><div class="excerpt"><p>17 Zset有序集合详解
+Redis最新超详细版教程通俗易懂
+
+Zset（有序集合）在set（无序集合）的基础上，增加了一个值，score（相当于权值）。
+ZADD 向有序集合里加入元素
+参数：集合名 score 值
+12ZADD salary 2500 xiaohongZADD salay 5000 zhangsan
+
+可以用于工资信息，将scope作为工资值，方便排序
+ZRANGEBY...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-15T16:00:00.000Z">2020-08-16</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/18_Geospatial%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/">
+<article class="md"><h2 class="post-title">18_Geospatial地理位置详解</h2><div class="excerpt"><p>18 Geospatial地理位置详解
+Redis最新超详细版教程通俗易懂
+
+
+特点
+适用于 地理位置
+
+Geospatial 简称 GEO
+GEOADD 向地图里添加一个位置
+参数：地图名 经度 纬度 地名
+1GEOADD china:city 121.47 31.23 shanghai
+
+
+GEOPOS 根据地名查询具体位置
+参数：地图名 地名
+1234GEOPOS china:city...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-15T16:00:00.000Z">2020-08-16</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/19_Hyperloglog%E5%9F%BA%E6%95%B0%E7%BB%9F%E8%AE%A1/">
+<article class="md"><h2 class="post-title">19_Hyperloglog基数统计</h2><div class="excerpt"><p>19 Hyperloglog基数统计
+Redis最新超详细版教程通俗易懂
+
+Hyperloglog
+特点
+像set，将元素放入里面会自动去重，本身占用空间小。
+
+
+简介
+
+Redis 2.8.9 版本更新了 Hyperloglog 数据结构。
+Reids Hyperloglog 基数统计的算法。
+优点：占用内存是固定的，2^64，占用12kb内存。
+缺点：0.81%错误率，统计UV任务，可以...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-15T16:00:00.000Z">2020-08-16</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/20_Bitmap%E4%BD%8D%E5%9B%BE%E5%9C%BA%E6%99%AF%E8%AF%A6%E8%A7%A3/">
+<article class="md"><h2 class="post-title">20_Bitmap位图场景详解</h2><div class="excerpt"><p>20 Bitmap位图场景详解
+Redis最新超详细版教程通俗易懂
+
+
+特点
+用于判断只有两面的事物，比如true和false。通过1和0来表示。
+
+统计用户信息，活跃&#x2F;不活跃，登录&#x2F;未登录，打卡&#x2F;未打卡。两个状态的，都可以使用Bitmap。
+SETBIT 向bitmap添加元素
+参数：bitmap名 序号 值
+例子，使用bitmap来记录周一到周日的打卡情况。...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-15T16:00:00.000Z">2020-08-16</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/15_Set%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8B%E8%AF%A6%E8%A7%A3/">
+<article class="md"><h2 class="post-title">15_Set集合类型详解</h2><div class="excerpt"><p>15 Set集合类型详解
+Redis最新超详细版教程通俗易懂
+
+Set（集合）set中的值是不能重复的。
+SADD 向集合里添加一个值
+1SADD myset hello
+
+SMEMBERS 查看集合里面的值
+1SMEMBERS myset
+
+
+SISMEMBER 集合内是否存在某个值
+1SISMEMBER myset hello
+
+
+SCARD 获取集合内容元素的个数
+1scard mys...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-14T16:00:00.000Z">2020-08-15</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a></div>
+  
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
