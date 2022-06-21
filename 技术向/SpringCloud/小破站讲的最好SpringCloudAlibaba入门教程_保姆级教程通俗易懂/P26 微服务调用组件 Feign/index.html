@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.1.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  <title>P26 微服务调用组件 Feign - Hooy's Blog</title>
+
+  
+
+  
+    <meta name="description" content="视频源：小破站讲的最好SpringCloudAlibaba入门教程，保姆级教程通俗易懂  Java 项目中如何实现接口调用？ Httpclient Httpclient 是 Apache Jakarta Common 下的子项目，用来提供高效的、最新的、功能丰富的支持  http 协议的客户端编程工具包，并且它支持 HTTP 协议最新版本和建议。Httpclient 相比传统 JDK 自带的 U">
+<meta property="og:type" content="article">
+<meta property="og:title" content="P26 微服务调用组件 Feign">
+<meta property="og:url" content="http://blog.hooy.xyz/%E6%8A%80%E6%9C%AF%E5%90%91/SpringCloud/%E5%B0%8F%E7%A0%B4%E7%AB%99%E8%AE%B2%E7%9A%84%E6%9C%80%E5%A5%BDSpringCloudAlibaba%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B_%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/P26%20%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E7%BB%84%E4%BB%B6%20Feign/index.html">
+<meta property="og:site_name" content="Hooy&#39;s Blog">
+<meta property="og:description" content="视频源：小破站讲的最好SpringCloudAlibaba入门教程，保姆级教程通俗易懂  Java 项目中如何实现接口调用？ Httpclient Httpclient 是 Apache Jakarta Common 下的子项目，用来提供高效的、最新的、功能丰富的支持  http 协议的客户端编程工具包，并且它支持 HTTP 协议最新版本和建议。Httpclient 相比传统 JDK 自带的 U">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-21T08:00:33.102Z">
+<meta property="article:author" content="Hooyantsing">
+<meta property="article:tag" content="图灵架构师周瑜">
+<meta property="article:tag" content="图灵学院">
+<meta property="article:tag" content="徐庶">
+<meta name="twitter:card" content="summary">
+  
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="Hooy's Blog" type="application/atom+xml">
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+
+<header class="header">
+
+<div class="logo-wrap"><a class="title" href="/"><div class="main">Hooy's Blog</div></a></div>
+<nav class="menu dis-select"></nav></header>
+
+<div class="widgets">
+
+<div class="widget-wrap single" id="toc"><div class="widget-header cap dis-select"><span class="name">本文目录</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Java-%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%EF%BC%9F"><span class="toc-text">Java 项目中如何实现接口调用？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF-Feign"><span class="toc-text">1. 什么是 Feign</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E4%BC%98%E5%8A%BF"><span class="toc-text">1.1 优势</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Spring-Cloud-Alibaba-%E5%BF%AB%E9%80%9F%E6%95%B4%E5%90%88-OpenFeign"><span class="toc-text">2. Spring Cloud Alibaba 快速整合 OpenFeign</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Spring-Cloud-Feign-%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E9%85%8D%E7%BD%AE%E5%8F%8A%E4%BD%BF%E7%94%A8"><span class="toc-text">3. Spring Cloud Feign 的自定义配置及使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E6%97%A5%E5%BF%97%E9%85%8D%E7%BD%AE"><span class="toc-text">3.1 日志配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4%E9%85%8D%E7%BD%AE"><span class="toc-text">3.2 超时时间配置</span></a></li></ol></li></ol></div></div></div>
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/">技术向</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/SpringCloud/">SpringCloud</a> <span class="sep"></span> <a class="cap breadcrumb-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%90%91/SpringCloud/%E5%B0%8F%E7%A0%B4%E7%AB%99%E8%AE%B2%E7%9A%84%E6%9C%80%E5%A5%BDSpringCloudAlibaba%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B-%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/">小破站讲的最好SpringCloudAlibaba入门教程_保姆级教程通俗易懂</a></div><div id="post-meta">发布于&nbsp;<time datetime="2022-06-20T16:00:00.000Z">2022-06-21</time></div></div>
+
+<article class='content md post'>
+<h1 class="article-title"><span>P26 微服务调用组件 Feign</span></h1>
+<blockquote>
+<p>视频源：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1bR4y1L724">小破站讲的最好SpringCloudAlibaba入门教程，保姆级教程通俗易懂</a></p>
+</blockquote>
+<h3 id="Java-项目中如何实现接口调用？"><a href="#Java-项目中如何实现接口调用？" class="headerlink" title="Java 项目中如何实现接口调用？"></a>Java 项目中如何实现接口调用？</h3><ol>
+<li><p><strong>Httpclient</strong></p>
+<p>Httpclient 是 Apache Jakarta Common 下的子项目，用来提供高效的、最新的、功能丰富的支持  http 协议的客户端编程工具包，并且它支持 HTTP 协议最新版本和建议。Httpclient 相比传统 JDK 自带的 URL Connection，提升了易用性和灵活性，使客户端发送 http 请求变得容易，提高了开发的效率。</p>
+</li>
+<li><p><strong>Okhttp</strong></p>
+<p>一个处理网络请求的开源项目，是安卓端最火的轻量级框架，由 Square 公司贡献，用于代替 HttpUrlConnection 和 Apache HttpClient。Okhttp拥有简介的 API、高效的性能，并支持多种协议（HTTP&#x2F;2 和 SPDY）。</p>
+</li>
+<li><p><strong>HttpURLConnection</strong></p>
+<p>HttpURLConnection 是 Java 的标准类，它继承自 URLConnection，可用于向指定网站发送 GET 请求、POST 请求。HttpURLConnection 使用比较复杂，不像 HttpClient 那样容易使用。</p>
+</li>
+<li><p><strong>RestTemplate WebClient</strong></p>
+<p>RestTemplate  是 Spring 提供的用于访问 Rest 服务的客户端，RestTemplate 提供了多种便捷访问远程 HTTP 服务的方法，能够大大提高客户端的编写效率。</p>
+</li>
+</ol>
+<p>上面介绍的是最常见的集中调用接口的方法，我们下面要介绍的方法比上面的更简单、方便，他就是 Feign。</p>
+<h3 id="1-什么是-Feign"><a href="#1-什么是-Feign" class="headerlink" title="1. 什么是 Feign"></a>1. 什么是 Feign</h3><p>Feign 是 Netflix 开发的声明式、模板化的 HTTP 客户端。</p>
+<p>Spring Cloud openfeign 对 Feign 进行了增强，使其支持 Spring MVC 注解，另外还整合了 Ribbon 和 Nacos，从而使得 Feign 的使用更加方便。</p>
+<h4 id="1-1-优势"><a href="#1-1-优势" class="headerlink" title="1.1 优势"></a>1.1 优势</h4><p>Feign 可以做到 <strong>使用 HTTP 请求远程服务时就像是调用本地方法一样的体验</strong> 。开发者完全感知不到这是远程方法，更改知不道这是一个 HTTP 请求。它像 Dubbo 一样，consumer 直接调用接口方法调用 provider，而不需要通过常规的 Httpclient 构造请求再解析返回数据，它解决了让开发者调用远程接口就像调用本地方法一样，无需关注与远程的交互细节，更无需关注分布式环境开发。</p>
+<h3 id="2-Spring-Cloud-Alibaba-快速整合-OpenFeign"><a href="#2-Spring-Cloud-Alibaba-快速整合-OpenFeign" class="headerlink" title="2. Spring Cloud Alibaba 快速整合 OpenFeign"></a>2. Spring Cloud Alibaba 快速整合 OpenFeign</h3><p><em>Step 01</em> 引入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--添加 openfeign 依赖--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><em>Step 02</em> 添加 feign 接口和方法</p>
+<p><em>order-openfeign 服务</em> feign.StockFeignService</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// name 服务名 , path 对应服务 Controller @RequestMapping 路径</span></span><br><span class="line"><span class="meta">@FeignClient(name = &quot;stock-service&quot;, path = &quot;/stock&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">StockFeignService</span> &#123;</span><br><span class="line">    <span class="comment">// 声明 Controller 是怎么样的就怎么样复制过来</span></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/reduct&quot;)</span></span><br><span class="line">    String <span class="title function_">reduct</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>stock-nacos 服务</em> controller.StockController</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/stock&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StockController</span> &#123;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/reduct&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">reduct</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;扣减库存&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;扣减库存&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>Step 03</em> 消费者服务调用生产者服务</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/order&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderController</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    StockFeignService stockFeignService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/add&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">add</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;下单成功&quot;</span>);</span><br><span class="line">        <span class="type">String</span> <span class="variable">msg</span> <span class="operator">=</span> stockFeignService.reduct();</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Hello Feign&quot;</span> + msg;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>Step 04</em> 消费者服务开启 OpenFeign，使用 <code>@EnableFeignClients</code> 注解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableFeignClients</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderApplication</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        SpringApplication.run(OrderApplication.class,args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-Spring-Cloud-Feign-的自定义配置及使用"><a href="#3-Spring-Cloud-Feign-的自定义配置及使用" class="headerlink" title="3. Spring Cloud Feign 的自定义配置及使用"></a>3. Spring Cloud Feign 的自定义配置及使用</h3><h4 id="3-1-日志配置"><a href="#3-1-日志配置" class="headerlink" title="3.1 日志配置"></a>3.1 日志配置</h4><h4 id="3-2-超时时间配置"><a href="#3-2-超时时间配置" class="headerlink" title="3.2 超时时间配置"></a>3.2 超时时间配置</h4>
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="header cap theme"><span>接下来阅读</span></section><section class="body fs14"><a id="next" href="/%E6%8A%80%E6%9C%AF%E5%90%91/SpringCloud/%E5%B0%8F%E7%A0%B4%E7%AB%99%E8%AE%B2%E7%9A%84%E6%9C%80%E5%A5%BDSpringCloudAlibaba%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B_%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/P21%20%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%99%A8%20Ribbon/">P21 微服务负载均衡器 Ribbon<span class="note">较早</span></a><div class="line"></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="text"><p>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<p>本站由 <a href="http://blog.hooy.xyz/">@Hooyantsing</a> 创建，使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0" title="v1.7.0">Stellar</a> 作为主题。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.7.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js',
+    sitesjs: '/js/plugins/sites.js',
+    friendsjs: '/js/plugins/friends.js',
+  };
+
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.3.1/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@6/swiper-bundle.min.css","js":"https://unpkg.com/swiper@6/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti/umd/heti.min.css","js":"https://unpkg.com/heti/umd/heti-addon.min.js"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+</body>
+</html>
