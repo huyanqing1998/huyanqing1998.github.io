@@ -128,6 +128,20 @@
 缺点：效率太低，每个线程在想获取实例时候，执行getInstance()方法都要进行同步。而其实这个方法只执行一次实例化就够了，后面想获得该实例，直接return就行了。方法进行同步效率太低。
 结论：在实际开发中，不推荐使用这种方式。
 123456789101112131415cla...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P33%20%E5%8D%95%E4%BE%8B%EF%BC%88%E5%90%8C%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%9D%97%E6%87%92%E6%B1%89%E5%BC%8F%EF%BC%89/">
+<article class="md"><h2 class="post-title">P33 单例（同步代码块懒汉式）</h2><div class="excerpt"><p>
+尚硅谷Java设计模式（图解+框架源码剖析）
+
+懒汉式（线程不安全，同步代码块）这种同步并不能起到线程同步的作用。问题所在见代码。
+结论：在实际开发中，不能使用这种方式。
+123456789101112131415161718class Singleton &#123;    // 1.构造器私有化，防止外部new    private Singleton()&#123;&#125;   ...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P34%20%E5%8D%95%E4%BE%8B%EF%BC%88DoubleCheck%EF%BC%89/">
+<article class="md"><h2 class="post-title">P34 单例（DoubleCheck）</h2><div class="excerpt"><p>
+尚硅谷Java设计模式（图解+框架源码剖析）
+
+双重检查优点：线程安全；延迟加载；效率较高
+结论：在实际开发中，推荐使用这种单例设计模式
+12345678910111213141516171819class Singleton &#123;    // 1.构造器私有化，防止外部new    private Singleton()&#123;&#125;    // 2.类本身内部创建对象...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P35%20%E5%8D%95%E4%BE%8B%EF%BC%88%E9%9D%99%E6%80%81%E5%86%85%E9%83%A8%E7%B1%BB%EF%BC%89/">
 <article class="md"><h2 class="post-title">P35 单例（静态内部类）</h2><div class="excerpt"><p>
 尚硅谷Java设计模式（图解+框架源码剖析）
@@ -144,20 +158,6 @@
 结论：推荐使用
 [本节内容建议查阅相关博客]
 </p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P33%20%E5%8D%95%E4%BE%8B%EF%BC%88%E5%90%8C%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%9D%97%E6%87%92%E6%B1%89%E5%BC%8F%EF%BC%89/">
-<article class="md"><h2 class="post-title">P33 单例（同步代码块懒汉式）</h2><div class="excerpt"><p>
-尚硅谷Java设计模式（图解+框架源码剖析）
-
-懒汉式（线程不安全，同步代码块）这种同步并不能起到线程同步的作用。问题所在见代码。
-结论：在实际开发中，不能使用这种方式。
-123456789101112131415161718class Singleton &#123;    // 1.构造器私有化，防止外部new    private Singleton()&#123;&#125;   ...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P34%20%E5%8D%95%E4%BE%8B%EF%BC%88DoubleCheck%EF%BC%89/">
-<article class="md"><h2 class="post-title">P34 单例（DoubleCheck）</h2><div class="excerpt"><p>
-尚硅谷Java设计模式（图解+框架源码剖析）
-
-双重检查优点：线程安全；延迟加载；效率较高
-结论：在实际开发中，推荐使用这种单例设计模式
-12345678910111213141516171819class Singleton &#123;    // 1.构造器私有化，防止外部new    private Singleton()&#123;&#125;    // 2.类本身内部创建对象...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P11%20%E4%BE%9D%E8%B5%96%E5%80%92%E8%BD%AC%E5%8E%9F%E5%88%99/">
 <article class="md"><h2 class="post-title">P11 依赖倒转原则</h2><div class="excerpt"><p>
 尚硅谷Java设计模式（图解+框架源码剖析）
@@ -171,6 +171,12 @@
 在子类中尽量不要重写父类的方法。
 继承实际上让两个类耦合性增强了，在适当的情况下，可以通过聚合、组合、依赖来解决问题。
 </p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-06T16:00:00.000Z">2020-11-07</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P16%20%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99/">
+<article class="md"><h2 class="post-title">P16 开闭原则</h2><div class="excerpt"><p>
+尚硅谷Java设计模式（图解+框架源码剖析）
+
+开闭原则类、模块和函数应该对扩展开放，修改关闭。用抽象构建框架，用实现扩展细节。
+非开闭原则123456789101112131415161718192021222324252627282930313233343536373839404142package xyz.hooy.principle.ocp;public class Ocp &#1...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-06T16:00:00.000Z">2020-11-07</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P19%20%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99/">
 <article class="md"><h2 class="post-title">P19 迪米特法则</h2><div class="excerpt"><p>
 尚硅谷Java设计模式（图解+框架源码剖析）
@@ -179,12 +185,6 @@
 迪米特法则又叫最少知道原则，即一个类对自己依赖的类知道的越少越好。也就是说，对于被依赖的类不管多么复杂，都尽量将逻辑封装在类的内部。对外除了提供public方法，不对外泄露任何信息。
 更简单的定义：只与直接朋友通信。
 什么是直接朋友？每个对象都会与其他对象有耦合关系，只要两个对象之间有耦合关系，...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-06T16:00:00.000Z">2020-11-07</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P16%20%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99/">
-<article class="md"><h2 class="post-title">P16 开闭原则</h2><div class="excerpt"><p>
-尚硅谷Java设计模式（图解+框架源码剖析）
-
-开闭原则类、模块和函数应该对扩展开放，修改关闭。用抽象构建框架，用实现扩展细节。
-非开闭原则123456789101112131415161718192021222324252627282930313233343536373839404142package xyz.hooy.principle.ocp;public class Ocp &#1...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-06T16:00:00.000Z">2020-11-07</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a></div>
   
   <div class='paginator-wrap dis-select'>

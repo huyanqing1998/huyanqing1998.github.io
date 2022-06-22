@@ -114,14 +114,7 @@
   </nav>
 </div>
 
-  <div class="post-list post"><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/21_CopyOnWriteArrayList/">
-<article class="md"><h2 class="post-title">21_CopyOnWriteArrayList</h2><div class="excerpt"><p>21 CopyOnWriteArrayList
-狂神说Java 多线程详解
-
-学习前面的章节，知道 ArrayList 是线程不安全的。
-CopyOnWriteArrayList 是线程安全的。属于JUC（java.util.concurrent）
-1234567891011121314151617package sync;import java.util.concurrent.CopyOn...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-21T16:00:00.000Z">2020-08-22</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/22_%E6%AD%BB%E9%94%81/">
+  <div class="post-list post"><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/22_%E6%AD%BB%E9%94%81/">
 <article class="md"><h2 class="post-title">22_死锁</h2><div class="excerpt"><p>22 死锁
 狂神说Java 多线程详解
 
@@ -130,6 +123,13 @@ CopyOnWriteArrayList 是线程安全的。属于JUC（java.util.concurrent）
 
 一般 嵌套同步代码块 容易引发死锁，因为一个线程占用两个或多个共享资源。
 123456789101112131415161718192021...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-21T16:00:00.000Z">2020-08-22</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/23_Lock%E9%94%81/">
+<article class="md"><h2 class="post-title">23_Lock锁</h2><div class="excerpt"><p>23 Lock锁
+狂神说Java 多线程详解
+
+Lock（锁）
+从 JDK 5.0 开始，Java提供了更强大的线程同步机制——通过显式定义同步锁对象实现同步。同步锁使用Lock对象填充。
+java.util.concurrent.locks.Lock接口是控制多个线程对共享资源进行访问的工具。锁提供了对共享资源的独占访问，每次只能有一个线程对Lock对象加锁，线程开始访问共享资源之前应先获...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-21T16:00:00.000Z">2020-08-22</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/24_%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98/">
 <article class="md"><h2 class="post-title">24_生产者消费者问题</h2><div class="excerpt"><p>24 生产者消费者问题
 狂神说Java 多线程详解
@@ -147,6 +147,12 @@ CopyOnWriteArrayList 是线程安全的。属于JUC（java.util.concurrent）
 
 狂神在这里讲了一个
 </p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-21T16:00:00.000Z">2020-08-22</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/26_%E4%BF%A1%E5%8F%B7%E7%81%AF%E6%B3%95/">
+<article class="md"><h2 class="post-title">26_信号灯法</h2><div class="excerpt"><p>26 信号灯法
+狂神说Java 多线程详解
+
+管程法、信号灯法和线程池讲的都非常浅显，这里三个都是重难点，请
+</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-21T16:00:00.000Z">2020-08-22</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/27_%E7%BA%BF%E7%A8%8B%E6%B1%A0/">
 <article class="md"><h2 class="post-title">27_线程池</h2><div class="excerpt"><p>27 线程池
 狂神说Java 多线程详解
@@ -159,12 +165,6 @@ CopyOnWriteArrayList 是线程安全的。属于JUC（java.util.concurrent）
 好处：    * 提高响应速度（减少了创建新线程的时间）
 
 降低资源消耗（重复利用线程池中的线程，不需要每次都创建）...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-21T16:00:00.000Z">2020-08-22</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/26_%E4%BF%A1%E5%8F%B7%E7%81%AF%E6%B3%95/">
-<article class="md"><h2 class="post-title">26_信号灯法</h2><div class="excerpt"><p>26 信号灯法
-狂神说Java 多线程详解
-
-管程法、信号灯法和线程池讲的都非常浅显，这里三个都是重难点，请
-</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-21T16:00:00.000Z">2020-08-22</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/12_%E7%BA%BF%E7%A8%8B%E4%BC%91%E7%9C%A0_sleep/">
 <article class="md"><h2 class="post-title">12_线程休眠_sleep</h2><div class="excerpt"><p>12 线程休眠_sleep
 狂神说Java 多线程详解

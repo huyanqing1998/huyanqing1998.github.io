@@ -149,24 +149,11 @@ main() 称之为主线程，为系统的入口，用于执行整个程序。
 
 创建线程方式一： 继承 Thread 类，重写 run() 方法，调用 start 开启线程。
 123456789101112131415161718192021222324252627package d...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-19T16:00:00.000Z">2020-08-20</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/5_%E5%AE%9E%E7%8E%B0Runnable%E6%8E%A5%E5%8F%A3/">
-<article class="md"><h2 class="post-title">5_实现Runnable接口</h2><div class="excerpt"><p>5 实现Runnable接口
-狂神说Java 多线程详解
-
-实现 Runnable 接口实现多线程推荐使用 Runnable 实现线程。
-创建线程方式二： 实现 Runnable 接口，重写 run 方法，执行线程需要丢入 Runnable实现类（如 Thread 类），调用 start 方法。
-123456789101112131415161718192021222324/** * 创建线...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-19T16:00:00.000Z">2020-08-20</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/4_%E7%BD%91%E5%9B%BE%E4%B8%8B%E8%BD%BD/">
 <article class="md"><h2 class="post-title">4_网图下载</h2><div class="excerpt"><p>4 网图下载
 狂神说Java 多线程详解
 
 12345678910111213141516171819202122232425262728293031323334353637383940414243import org.apache.commons.io.FileUtils;import java.io.File;import java.io.IOException;import java....</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-19T16:00:00.000Z">2020-08-20</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/7_%E9%BE%9F%E5%85%94%E8%B5%9B%E8%B7%91/">
-<article class="md"><h2 class="post-title">7_龟兔赛跑</h2><div class="excerpt"><p>7 龟兔赛跑
-狂神说Java 多线程详解
-
-龟兔赛跑
-123456789101112131415161718192021222324252627282930313233public class Race implements Runnable &#123;    private static String winner;    @Override    public void run() &...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-19T16:00:00.000Z">2020-08-20</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/6_%E5%88%9D%E8%AF%86%E5%B9%B6%E5%8F%91%E9%97%AE%E9%A2%98/">
 <article class="md"><h2 class="post-title">6_初识并发问题</h2><div class="excerpt"><p>6 初识并发问题
 狂神说Java 多线程详解
@@ -184,6 +171,19 @@ main() 称之为主线程，为系统的入口，用于执行整个程序。
 启动线程：传入目标对象 + Thread对象 .start()
 
 推荐使用：避免单继承的局限性，灵活方便，方便同一个对象被多...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-19T16:00:00.000Z">2020-08-20</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/5_%E5%AE%9E%E7%8E%B0Runnable%E6%8E%A5%E5%8F%A3/">
+<article class="md"><h2 class="post-title">5_实现Runnable接口</h2><div class="excerpt"><p>5 实现Runnable接口
+狂神说Java 多线程详解
+
+实现 Runnable 接口实现多线程推荐使用 Runnable 实现线程。
+创建线程方式二： 实现 Runnable 接口，重写 run 方法，执行线程需要丢入 Runnable实现类（如 Thread 类），调用 start 方法。
+123456789101112131415161718192021222324/** * 创建线...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-19T16:00:00.000Z">2020-08-20</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/7_%E9%BE%9F%E5%85%94%E8%B5%9B%E8%B7%91/">
+<article class="md"><h2 class="post-title">7_龟兔赛跑</h2><div class="excerpt"><p>7 龟兔赛跑
+狂神说Java 多线程详解
+
+龟兔赛跑
+123456789101112131415161718192021222324252627282930313233public class Race implements Runnable &#123;    private static String winner;    @Override    public void run() &...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-19T16:00:00.000Z">2020-08-20</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/8_%E5%AE%9E%E7%8E%B0Callable%E6%8E%A5%E5%8F%A3/">
 <article class="md"><h2 class="post-title">8_实现Callable接口</h2><div class="excerpt"><p>8 实现Callable接口
 狂神说Java 多线程详解
@@ -201,21 +201,19 @@ main() 称之为主线程，为系统的入口，用于执行整个程序。
 Thread 和 Runnable 关系，静态代理。Thread是代理类，Runnable是被代理类。
 通过案例理解 静态代理模式，辅助理解Thread和Runnable的关系。
 12345678910111213141516171819202122232425262728293031323334353637383940414243444546...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-19T16:00:00.000Z">2020-08-20</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/32_%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E4%B9%8B%E5%A4%8D%E5%88%B6%E5%8E%9F%E7%90%86/">
-<article class="md"><h2 class="post-title">32_主从复制之复制原理</h2><div class="excerpt"><p>32 主从复制之复制原理
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Redis/Redis%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/30_Redis%E8%AE%A2%E9%98%85%E5%8F%91%E5%B8%83/">
+<article class="md"><h2 class="post-title">30_Redis订阅发布</h2><div class="excerpt"><p>30 Redis订阅发布
 Redis最新超详细版教程通俗易懂
 
-接上节。
-默认情况下，三台启动的Redis服务器都是主机（Master）。
-认老大，去 从机 上配置 谁是老大。
-通过命令配置从机，只是暂时的，服务器重启就失效了。永久配置请修改配置文件
-在从机上执行命令：
-SLAVEOF 设定谁是主机。
-参数：IP地址 端口号
-1SLAVEOF 127.0.0.1 6379
+Redis发布订阅Redis发布订阅（pub&#x2F;sub）是一种消息通信模式：发送者（pub）发送消息，订阅者（sub）接收消息。微信、微博、关注系统。
+Redis客户端可以订阅任意数量的频道。
+订阅&#x2F;发布消息图：
 
+消息发布者
+队列
+消息订阅者
 
-当从机连上主机...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-18T16:00:00.000Z">2020-08-19</time></span><span class="cap breadcrumb">技术向</span></div></article>
+下图展示了频道 channel1 ，以及订阅这个频道的三个客户端...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-18T16:00:00.000Z">2020-08-19</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a></div>
   
 

@@ -112,7 +112,14 @@
   </nav>
 </div>
 
-  <div class="post-list post"><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P23%20UML%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/">
+  <div class="post-list post"><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P22%20%E5%90%88%E6%88%90%E5%A4%8D%E7%94%A8%E5%8E%9F%E5%88%99/">
+<article class="md"><h2 class="post-title">P22 合成复用原则</h2><div class="excerpt"><p>
+尚硅谷Java设计模式（图解+框架源码剖析）
+
+合成复用原则继承耦合性很高。
+尽量使用依赖&#x2F;聚合&#x2F;组合的方式，而不是使用继承。
+</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-06T16:00:00.000Z">2020-11-07</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P23%20UML%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D/">
 <article class="md"><h2 class="post-title">P23 UML基本介绍</h2><div class="excerpt"><p>
 尚硅谷Java设计模式（图解+框架源码剖析）
 
@@ -135,13 +142,12 @@ Composite 组合
 
 
 </p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-06T16:00:00.000Z">2020-11-07</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P22%20%E5%90%88%E6%88%90%E5%A4%8D%E7%94%A8%E5%8E%9F%E5%88%99/">
-<article class="md"><h2 class="post-title">P22 合成复用原则</h2><div class="excerpt"><p>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P25%20%E7%B1%BB%E7%9A%84%E4%BE%9D%E8%B5%96%E3%80%81%E6%B3%9B%E5%8C%96%E5%92%8C%E5%AE%9E%E7%8E%B0/">
+<article class="md"><h2 class="post-title">P25 类的依赖、泛化和实现</h2><div class="excerpt"><p>
 尚硅谷Java设计模式（图解+框架源码剖析）
 
-合成复用原则继承耦合性很高。
-尽量使用依赖&#x2F;聚合&#x2F;组合的方式，而不是使用继承。
-</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-06T16:00:00.000Z">2020-11-07</time></span><span class="cap breadcrumb">技术向</span></div></article>
+依赖关系只要是在类中用到了对方，那么他们之间就存在依赖关系。如果没有对方，连编译都通过不了。
+123456789101112131415classDiagramclass PersonServiceBean&#123;	-PersonDao persionDao	+save(Person person) void	+getDCard(Inte...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-06T16:00:00.000Z">2020-11-07</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P26%20%E7%B1%BB%E7%9A%84%E5%85%B3%E8%81%94%E3%80%81%E8%81%9A%E5%90%88%E5%92%8C%E7%BB%84%E5%90%88/">
 <article class="md"><h2 class="post-title">P26 类的关联、聚合和组合</h2><div class="excerpt"><p>
 尚硅谷Java设计模式（图解+框架源码剖析）
@@ -150,12 +156,6 @@ Composite 组合
 单向一对一关系1234classDiagramclass Personclass IDCardIDCard &quot;1&quot;&lt;--&quot;1&quot; Person
 
 双向一对一关系1234classDiagramclass Personclass IDCa...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-06T16:00:00.000Z">2020-11-07</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P25%20%E7%B1%BB%E7%9A%84%E4%BE%9D%E8%B5%96%E3%80%81%E6%B3%9B%E5%8C%96%E5%92%8C%E5%AE%9E%E7%8E%B0/">
-<article class="md"><h2 class="post-title">P25 类的依赖、泛化和实现</h2><div class="excerpt"><p>
-尚硅谷Java设计模式（图解+框架源码剖析）
-
-依赖关系只要是在类中用到了对方，那么他们之间就存在依赖关系。如果没有对方，连编译都通过不了。
-123456789101112131415classDiagramclass PersonServiceBean&#123;	-PersonDao persionDao	+save(Person person) void	+getDCard(Inte...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-06T16:00:00.000Z">2020-11-07</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P6%20%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99/">
 <article class="md"><h2 class="post-title">P6 单一职责原则</h2><div class="excerpt"><p>
 尚硅谷Java设计模式（图解+框架源码剖析）
@@ -183,6 +183,12 @@ Composite 组合
 展开语法... 三个点，代表展开语法。
 案例 两个数组合并将数组 hd 追加到 arr 的后面。
 12let arr = [&quot;hdcms&quot;,&quot;houdunren&quot;];let hd = [&quot;js&quot;,&quot;css&quot;...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-04T16:00:00.000Z">2020-11-05</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/JavaScript/%E6%B5%B7%E8%B1%9A%E6%97%A5%E8%AE%B0_%E5%AD%A6%E4%B9%A0JS%E7%9C%8B%E8%BF%99%E4%B8%AA%E5%B0%B1%E5%A4%9F%E4%BA%86_%E5%85%A8%E9%9D%A2%E6%89%93%E9%80%9A_JAVASCRIPT_%E7%9F%A5%E8%AF%86%E7%82%B9/P59_%E7%82%B9%E8%AF%AD%E6%B3%95%E6%93%8D%E4%BD%9CDOM%E8%8A%82%E7%82%B9%E5%85%83%E7%B4%A0/">
+<article class="md"><h2 class="post-title">P59_点语法操作DOM节点元素</h2><div class="excerpt"><p>点语法操作DOM节点元素
+海豚日记 学习JS看这个就够了，全面打通 JAVASCRIPT 知识点（更新到17章）
+
+DOM节点转成数组DOM节点不能直接使用 map() 方法，因为节点原型链没有这个方法。而数组有。
+12345678910111213141516const div = document.querySelectorAll(&quot;div&quot;);// 1.Array....</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-04T16:00:00.000Z">2020-11-05</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/JavaScript/%E6%B5%B7%E8%B1%9A%E6%97%A5%E8%AE%B0_%E5%AD%A6%E4%B9%A0JS%E7%9C%8B%E8%BF%99%E4%B8%AA%E5%B0%B1%E5%A4%9F%E4%BA%86_%E5%85%A8%E9%9D%A2%E6%89%93%E9%80%9A_JAVASCRIPT_%E7%9F%A5%E8%AF%86%E7%82%B9/P60_%E4%BD%BF%E7%94%A8%E8%A7%A3%E6%9E%84%E8%B5%8B%E5%80%BC%E6%8F%90%E9%AB%98%E6%95%88%E7%8E%87/">
 <article class="md"><h2 class="post-title">P60_使用解构赋值提高效率</h2><div class="excerpt"><p>使用解构赋值提高效率
 海豚日记 学习JS看这个就够了，全面打通 JAVASCRIPT 知识点（更新到17章）
@@ -193,12 +199,6 @@ Composite 组合
 执行结果：
 后盾人 2010
 123456// 也适用于函数，返回值为...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-04T16:00:00.000Z">2020-11-05</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/JavaScript/%E6%B5%B7%E8%B1%9A%E6%97%A5%E8%AE%B0_%E5%AD%A6%E4%B9%A0JS%E7%9C%8B%E8%BF%99%E4%B8%AA%E5%B0%B1%E5%A4%9F%E4%BA%86_%E5%85%A8%E9%9D%A2%E6%89%93%E9%80%9A_JAVASCRIPT_%E7%9F%A5%E8%AF%86%E7%82%B9/P59_%E7%82%B9%E8%AF%AD%E6%B3%95%E6%93%8D%E4%BD%9CDOM%E8%8A%82%E7%82%B9%E5%85%83%E7%B4%A0/">
-<article class="md"><h2 class="post-title">P59_点语法操作DOM节点元素</h2><div class="excerpt"><p>点语法操作DOM节点元素
-海豚日记 学习JS看这个就够了，全面打通 JAVASCRIPT 知识点（更新到17章）
-
-DOM节点转成数组DOM节点不能直接使用 map() 方法，因为节点原型链没有这个方法。而数组有。
-12345678910111213141516const div = document.querySelectorAll(&quot;div&quot;);// 1.Array....</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-04T16:00:00.000Z">2020-11-05</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/JavaScript/%E6%B5%B7%E8%B1%9A%E6%97%A5%E8%AE%B0_%E5%AD%A6%E4%B9%A0JS%E7%9C%8B%E8%BF%99%E4%B8%AA%E5%B0%B1%E5%A4%9F%E4%BA%86_%E5%85%A8%E9%9D%A2%E6%89%93%E9%80%9A_JAVASCRIPT_%E7%9F%A5%E8%AF%86%E7%82%B9/P61_%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0%E7%9A%84%E5%A4%9A%E7%A7%8D%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7/">
 <article class="md"><h2 class="post-title">P61_添加元素的多种操作技巧</h2><div class="excerpt"><p>添加元素的多种操作技巧
 海豚日记 学习JS看这个就够了，全面打通 JAVASCRIPT 知识点（更新到17章）

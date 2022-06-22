@@ -114,27 +114,32 @@
   </nav>
 </div>
 
-  <div class="post-list post"><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P30%20%E5%8D%95%E4%BE%8B%EF%BC%88%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%9D%97%E9%A5%BF%E6%B1%89%E5%BC%8F%EF%BC%89/">
+  <div class="post-list post"><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P29%20%E5%8D%95%E4%BE%8B%EF%BC%88%E9%9D%99%E6%80%81%E5%B8%B8%E9%87%8F%E9%A5%BF%E6%B1%89%E5%BC%8F%EF%BC%89/">
+<article class="md"><h2 class="post-title">P29 单例（静态常量饿汉式）</h2><div class="excerpt"><p>
+尚硅谷Java设计模式（图解+框架源码剖析）
+
+什么是单例？所谓的类单例设计模式，就是采取一定的方法保证在整个的软件系统中，对某个类只能存在一个对象实例，并且该类只提供一个取得其对象实例的静态方法。
+比如Hibernate的SessionFactory，它充当数据存储源的代理，并负责创建Session对象，SessionFactory并不是轻量级的，一般情况下，一个项目通常只需要一个Ses...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P21%20%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82/">
+<article class="md"><h2 class="post-title">P21 抽象工厂</h2><div class="excerpt"><p>
+Java设计模式-Mr.high
+
+应用场景如果业务里出现了固定规格的“套餐”，并且产品簇不会经常发生变化。
+抽象工厂由于工厂方法设计模式在产品种类特别多的情况下，产品类和工厂类过多。通过抽象工厂设计模式来合并工厂，减少工厂类。
+如果一个工厂仅生产一种产品叫工厂方法设计模式，一个工厂生产多种产品叫抽象工厂设计模式。
+优点：
+
+仍然具有简单工厂和工厂方法的优点。
+工厂数量减少了。
+
+产品簇套...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P30%20%E5%8D%95%E4%BE%8B%EF%BC%88%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E5%9D%97%E9%A5%BF%E6%B1%89%E5%BC%8F%EF%BC%89/">
 <article class="md"><h2 class="post-title">P30 单例（静态代码块饿汉式）</h2><div class="excerpt"><p>
 尚硅谷Java设计模式（图解+框架源码剖析）
 
 饿汉式（静态代码块）和饿汉式（静态常量）是一样的，只不过将类实例化的过程放在了静态代码块中，也就是类加载的时候，就执行静态代码块中的代码，初始化类的实例。优缺点和上面是一样的。
 结论：这种单例模式可用，可能造成内存浪费。
 12345678910111213141516class Singleton &#123;    // 1.构造器私有化，...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P28%20%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%A6%82%E8%BF%B0%E5%92%8C%E5%88%86%E7%B1%BB/">
-<article class="md"><h2 class="post-title">P28 设计模式概述和分类</h2><div class="excerpt"><p>
-尚硅谷Java设计模式（图解+框架源码剖析）
-
-设计模式分三种类型，共23种
-创建型模式：单例模式、抽象工厂模式、原型模式、建造者模式、工厂模式。
-结构性模式：适配器模式、桥接模式、装饰模式、组合模式、外观模式、享元模式、代理模式。
-行为型模式：模板方法模式、命令模式、访问者模式、迭代器模式、观察者模式、中介者模式、备忘录模式、解释器模式（Interpreter模式）、状态模式、策略模式、...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P29%20%E5%8D%95%E4%BE%8B%EF%BC%88%E9%9D%99%E6%80%81%E5%B8%B8%E9%87%8F%E9%A5%BF%E6%B1%89%E5%BC%8F%EF%BC%89/">
-<article class="md"><h2 class="post-title">P29 单例（静态常量饿汉式）</h2><div class="excerpt"><p>
-尚硅谷Java设计模式（图解+框架源码剖析）
-
-什么是单例？所谓的类单例设计模式，就是采取一定的方法保证在整个的软件系统中，对某个类只能存在一个对象实例，并且该类只提供一个取得其对象实例的静态方法。
-比如Hibernate的SessionFactory，它充当数据存储源的代理，并负责创建Session对象，SessionFactory并不是轻量级的，一般情况下，一个项目通常只需要一个Ses...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P31%20%E5%8D%95%E4%BE%8B%EF%BC%88%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8%E6%87%92%E6%B1%89%E5%BC%8F%EF%BC%89/">
 <article class="md"><h2 class="post-title">P31 单例（线程不安全懒汉式）</h2><div class="excerpt"><p>
 尚硅谷Java设计模式（图解+框架源码剖析）
@@ -151,6 +156,20 @@
 缺点：效率太低，每个线程在想获取实例时候，执行getInstance()方法都要进行同步。而其实这个方法只执行一次实例化就够了，后面想获得该实例，直接return就行了。方法进行同步效率太低。
 结论：在实际开发中，不推荐使用这种方式。
 123456789101112131415cla...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P33%20%E5%8D%95%E4%BE%8B%EF%BC%88%E5%90%8C%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%9D%97%E6%87%92%E6%B1%89%E5%BC%8F%EF%BC%89/">
+<article class="md"><h2 class="post-title">P33 单例（同步代码块懒汉式）</h2><div class="excerpt"><p>
+尚硅谷Java设计模式（图解+框架源码剖析）
+
+懒汉式（线程不安全，同步代码块）这种同步并不能起到线程同步的作用。问题所在见代码。
+结论：在实际开发中，不能使用这种方式。
+123456789101112131415161718class Singleton &#123;    // 1.构造器私有化，防止外部new    private Singleton()&#123;&#125;   ...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P34%20%E5%8D%95%E4%BE%8B%EF%BC%88DoubleCheck%EF%BC%89/">
+<article class="md"><h2 class="post-title">P34 单例（DoubleCheck）</h2><div class="excerpt"><p>
+尚硅谷Java设计模式（图解+框架源码剖析）
+
+双重检查优点：线程安全；延迟加载；效率较高
+结论：在实际开发中，推荐使用这种单例设计模式
+12345678910111213141516171819class Singleton &#123;    // 1.构造器私有化，防止外部new    private Singleton()&#123;&#125;    // 2.类本身内部创建对象...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P35%20%E5%8D%95%E4%BE%8B%EF%BC%88%E9%9D%99%E6%80%81%E5%86%85%E9%83%A8%E7%B1%BB%EF%BC%89/">
 <article class="md"><h2 class="post-title">P35 单例（静态内部类）</h2><div class="excerpt"><p>
 尚硅谷Java设计模式（图解+框架源码剖析）
@@ -167,20 +186,6 @@
 结论：推荐使用
 [本节内容建议查阅相关博客]
 </p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P33%20%E5%8D%95%E4%BE%8B%EF%BC%88%E5%90%8C%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%9D%97%E6%87%92%E6%B1%89%E5%BC%8F%EF%BC%89/">
-<article class="md"><h2 class="post-title">P33 单例（同步代码块懒汉式）</h2><div class="excerpt"><p>
-尚硅谷Java设计模式（图解+框架源码剖析）
-
-懒汉式（线程不安全，同步代码块）这种同步并不能起到线程同步的作用。问题所在见代码。
-结论：在实际开发中，不能使用这种方式。
-123456789101112131415161718class Singleton &#123;    // 1.构造器私有化，防止外部new    private Singleton()&#123;&#125;   ...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P34%20%E5%8D%95%E4%BE%8B%EF%BC%88DoubleCheck%EF%BC%89/">
-<article class="md"><h2 class="post-title">P34 单例（DoubleCheck）</h2><div class="excerpt"><p>
-尚硅谷Java设计模式（图解+框架源码剖析）
-
-双重检查优点：线程安全；延迟加载；效率较高
-结论：在实际开发中，推荐使用这种单例设计模式
-12345678910111213141516171819class Singleton &#123;    // 1.构造器私有化，防止外部new    private Singleton()&#123;&#125;    // 2.类本身内部创建对象...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-07T16:00:00.000Z">2020-11-08</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E5%B0%9A%E7%A1%85%E8%B0%B7Java%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%9B%BE%E8%A7%A3+%E6%A1%86%E6%9E%B6%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%EF%BC%89/P11%20%E4%BE%9D%E8%B5%96%E5%80%92%E8%BD%AC%E5%8E%9F%E5%88%99/">
 <article class="md"><h2 class="post-title">P11 依赖倒转原则</h2><div class="excerpt"><p>
 尚硅谷Java设计模式（图解+框架源码剖析）

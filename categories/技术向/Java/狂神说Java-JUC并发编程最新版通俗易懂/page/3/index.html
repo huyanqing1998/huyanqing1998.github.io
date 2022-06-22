@@ -120,13 +120,6 @@
 
 像 Runnable 一样执行 Callable 线程中间有个适配类 FutureTask，他实现了 Runnable 接口，而他的构造参数是 Callable 接口。
 案例12345678910111213141516171819202122232425262728package callable;import j...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-25T16:00:00.000Z">2020-08-26</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/16_CyclicBarrier/">
-<article class="md"><h2 class="post-title">16_CyclicBarrier</h2><div class="excerpt"><p>16 CyclicBarrier
-狂神说Java JUC并发编程最新版通俗易懂
-
-多个线程到达预定代码位置，将执行 CyclicBarrier 构造器参数线程，之后多个线程再继续执行。
-加法计数器
-案例1234567891011121314151617181920212223242526272829303132package add;import java.util.concurrent.B...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-25T16:00:00.000Z">2020-08-26</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/15_CountDownLatch/">
 <article class="md"><h2 class="post-title">15_CountDownLatch</h2><div class="excerpt"><p>15 CountDownLatch
 狂神说Java JUC并发编程最新版通俗易懂
@@ -134,6 +127,13 @@
 当需要多个线程的业务执行完毕后再向下执行，可以使用 CountDownLatch
 减法计数器
 案例123456789101112131415161718192021222324252627package add;import java.util.concurrent.CountDownLatch;/** * ...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-25T16:00:00.000Z">2020-08-26</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/16_CyclicBarrier/">
+<article class="md"><h2 class="post-title">16_CyclicBarrier</h2><div class="excerpt"><p>16 CyclicBarrier
+狂神说Java JUC并发编程最新版通俗易懂
+
+多个线程到达预定代码位置，将执行 CyclicBarrier 构造器参数线程，之后多个线程再继续执行。
+加法计数器
+案例1234567891011121314151617181920212223242526272829303132package add;import java.util.concurrent.B...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-25T16:00:00.000Z">2020-08-26</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/3_%E5%94%A0%E5%97%91%EF%BC%9A%E5%9B%9E%E9%A1%BE%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
 <article class="md"><h2 class="post-title">3_唠嗑：回顾多线程</h2><div class="excerpt"><p>3 唠嗑：回顾多线程
 狂神说Java 多线程详解
@@ -145,15 +145,6 @@ sleep 睡觉了，抱着锁睡觉
 3、使用范围不同wait 必须在同步代码块中使用
 sleep 可以在任何地方睡
 </p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-23T16:00:00.000Z">2020-08-24</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/8_Lock%E7%89%88%E7%9A%84%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E7%A8%8B/">
-<article class="md"><h2 class="post-title">8_Lock版的生产者消程</h2><div class="excerpt"><p>8 Lock版的生产者消程
-狂神说Java JUC并发编程最新版通俗易懂
-
-synchronized 替换成 Lock
-JDK 手册说明使用方式：
-
-案例生产者消费者 Lock版。
-1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-23T16:00:00.000Z">2020-08-24</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/7_%E4%BC%A0%E7%BB%9F%E7%9A%84%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E9%97%AE%E9%A2%98%EF%BC%8C%E9%98%B2%E6%AD%A2%E8%99%9A%E5%81%87%E5%94%A4%E9%86%92/">
 <article class="md"><h2 class="post-title">7_传统的生产者消费者问题，防止虚假唤醒</h2><div class="excerpt"><p>7 传统的生产者消费者问题，防止虚假唤醒
 狂神说Java JUC并发编程最新版通俗易懂
@@ -161,6 +152,14 @@ JDK 手册说明使用方式：
 虚假唤醒当使用 if 代码块内部含有 wait() 方法，线程被阻塞了，当被唤醒时并不会再次去判断是否需要被阻塞的条件，因此就直接向下执行了。
 评论说：
 用if判断的话，唤醒后线程会从wait之后的代码开始运行，但是不会重新判断if条件，直接继续运行if代码块之后的代码，而如果使用while的话，也会从...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-23T16:00:00.000Z">2020-08-24</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/9_Condition%E5%AE%9E%E7%8E%B0%E7%B2%BE%E5%87%86%E9%80%9A%E7%9F%A5%E5%94%A4%E9%86%92/">
+<article class="md"><h2 class="post-title">9_Condition实现精准通知唤醒</h2><div class="excerpt"><p>9 Condition实现精准通知唤醒
+狂神说Java JUC并发编程最新版通俗易懂
+
+Condition 可以精准的唤醒或等待某个线程。
+相互通信的线程共用同一个 Condition。
+案例线程按照顺序执行，A -&gt; B -&gt; C 。
+123456789101112131415161718192021222324252627282930313233343536373839404...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-23T16:00:00.000Z">2020-08-24</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/Maven%E5%B7%A5%E7%A8%8B%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83_JDK8_%E7%9A%84%E8%AE%BE%E5%AE%9A%E6%96%B9%E5%BC%8F/">
 <article class="md"><h2 class="post-title">Maven工程开发环境_JDK8_的设定方式</h2><div class="excerpt"><p>Maven工程开发环境 JDK8 的设定方式
 狂神说Java JUC并发编程最新版通俗易懂
@@ -176,14 +175,15 @@ Project 选择 项目 SDK 和 项目语言级别 均为 JDK8。
 Java 编译器 选择 JDK8。
 
 </p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-23T16:00:00.000Z">2020-08-24</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/9_Condition%E5%AE%9E%E7%8E%B0%E7%B2%BE%E5%87%86%E9%80%9A%E7%9F%A5%E5%94%A4%E9%86%92/">
-<article class="md"><h2 class="post-title">9_Condition实现精准通知唤醒</h2><div class="excerpt"><p>9 Condition实现精准通知唤醒
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E6%9C%80%E6%96%B0%E7%89%88%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/8_Lock%E7%89%88%E7%9A%84%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E7%A8%8B/">
+<article class="md"><h2 class="post-title">8_Lock版的生产者消程</h2><div class="excerpt"><p>8 Lock版的生产者消程
 狂神说Java JUC并发编程最新版通俗易懂
 
-Condition 可以精准的唤醒或等待某个线程。
-相互通信的线程共用同一个 Condition。
-案例线程按照顺序执行，A -&gt; B -&gt; C 。
-123456789101112131415161718192021222324252627282930313233343536373839404...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-23T16:00:00.000Z">2020-08-24</time></span><span class="cap breadcrumb">技术向</span></div></article>
+synchronized 替换成 Lock
+JDK 手册说明使用方式：
+
+案例生产者消费者 Lock版。
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-23T16:00:00.000Z">2020-08-24</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a></div>
   
 

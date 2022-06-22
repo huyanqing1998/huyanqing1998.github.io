@@ -112,22 +112,12 @@
   </nav>
 </div>
 
-  <div class="post-list post"><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P13%20css%E5%85%BC%E5%AE%B9%E6%80%A7%E5%A4%84%E7%90%86/">
-<article class="md"><h2 class="post-title">P13 css兼容性处理</h2><div class="excerpt"><p>
+  <div class="post-list post"><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P12%20%E6%8F%90%E5%8F%96css%E6%88%90%E5%8D%95%E7%8B%AC%E6%96%87%E4%BB%B6/">
+<article class="md"><h2 class="post-title">P12 提取css成单独文件</h2><div class="excerpt"><p>
 尚硅谷2020最新版Webpack5实战教程
 
-#### 步骤下载包：
-1npm i postcss-loader postcss-preset-env -D
-
-编写配置文件：
-webpack.config.js
-12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-28T16:00:00.000Z">2020-11-29</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P10%20%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">
-<article class="md"><h2 class="post-title">P10 开发环境基本配置</h2><div class="excerpt"><p>
-尚硅谷2020最新版Webpack5实战教程
-
-通用配置文件以下可作为开发时webpack配置文件：
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566/** * 开发环境配置：能让代码运行即可 ...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-28T16:00:00.000Z">2020-11-29</time></span><span class="cap breadcrumb">技术向</span></div></article>
+编写webpack配置文件之前的css样式直接写到html中。现在要将css单独以文件的形式输出。
+12345678910111213141516171819202122232425262728293031323334353637383940414243const HtmlWebpackPlugin = require(&#x27;html-...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-28T16:00:00.000Z">2020-11-29</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P14%20%E5%8E%8B%E7%BC%A9css/">
 <article class="md"><h2 class="post-title">P14 压缩css</h2><div class="excerpt"><p>
 尚硅谷2020最新版Webpack5实战教程
@@ -137,6 +127,16 @@ webpack.config.js
 
 编写配置文件：
 123456789101112131415161718192021222324252627282930313233343536373839404142434445const &#123; resolve &#12...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-28T16:00:00.000Z">2020-11-29</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P13%20css%E5%85%BC%E5%AE%B9%E6%80%A7%E5%A4%84%E7%90%86/">
+<article class="md"><h2 class="post-title">P13 css兼容性处理</h2><div class="excerpt"><p>
+尚硅谷2020最新版Webpack5实战教程
+
+#### 步骤下载包：
+1npm i postcss-loader postcss-preset-env -D
+
+编写配置文件：
+webpack.config.js
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-28T16:00:00.000Z">2020-11-29</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Webpack/%E5%B0%9A%E7%A1%85%E8%B0%B72020%E6%9C%80%E6%96%B0%E7%89%88Webpack5%E5%AE%9E%E6%88%98%E6%95%99%E7%A8%8B/P05%20%E6%89%93%E5%8C%85%E6%A0%B7%E5%BC%8F%E8%B5%84%E6%BA%90/">
 <article class="md"><h2 class="post-title">P05 打包样式资源</h2><div class="excerpt"><p>
 尚硅谷2020最新版Webpack5实战教程

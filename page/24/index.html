@@ -112,14 +112,7 @@
   </nav>
 </div>
 
-  <div class="post-list post"><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/18_%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/">
-<article class="md"><h2 class="post-title">18_线程同步机制</h2><div class="excerpt"><p>18 线程同步机制
-狂神说Java 多线程详解
-
-线程同步
-由于同一进程的多个线程共享同一块储存空间，在带来方便的同时，也带来了访问冲突问题，为了保证数据在方法中被访问时的正确性，在访问时加入 锁机制 synchronized ，当一个线程获取对象的排他锁，独占资源，其他线程必须等待，使用后释放锁即可，存在以下问题：    * 一个线程持有锁会导致其他所有需要此锁的线程挂起。
-在多线程竞争下...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-20T16:00:00.000Z">2020-08-21</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/17_%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/">
+  <div class="post-list post"><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/17_%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B/">
 <article class="md"><h2 class="post-title">17_守护线程</h2><div class="excerpt"><p>17 守护线程
 狂神说Java 多线程详解
 
@@ -129,6 +122,13 @@
 虚拟机必须确保 用户线程 执行完毕
 虚拟机不用等待 守护线程 执行完毕
 守护线程如：后台记录操作日志，监控内存，垃圾回收等通过 setDaemon(boolean flag) 来设置。默认 f...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-20T16:00:00.000Z">2020-08-21</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/18_%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E6%9C%BA%E5%88%B6/">
+<article class="md"><h2 class="post-title">18_线程同步机制</h2><div class="excerpt"><p>18 线程同步机制
+狂神说Java 多线程详解
+
+线程同步
+由于同一进程的多个线程共享同一块储存空间，在带来方便的同时，也带来了访问冲突问题，为了保证数据在方法中被访问时的正确性，在访问时加入 锁机制 synchronized ，当一个线程获取对象的排他锁，独占资源，其他线程必须等待，使用后释放锁即可，存在以下问题：    * 一个线程持有锁会导致其他所有需要此锁的线程挂起。
+在多线程竞争下...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-20T16:00:00.000Z">2020-08-21</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/19_%E4%B8%89%E5%A4%A7%E4%B8%8D%E5%AE%89%E5%85%A8%E6%A1%88%E4%BE%8B/">
 <article class="md"><h2 class="post-title">19_三大不安全案例</h2><div class="excerpt"><p>19 三大不安全案例
 狂神说Java 多线程详解
@@ -186,18 +186,28 @@ main() 称之为主线程，为系统的入口，用于执行整个程序。
 
 创建线程方式一： 继承 Thread 类，重写 run() 方法，调用 start 开启线程。
 123456789101112131415161718192021222324252627package d...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-19T16:00:00.000Z">2020-08-20</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/5_%E5%AE%9E%E7%8E%B0Runnable%E6%8E%A5%E5%8F%A3/">
-<article class="md"><h2 class="post-title">5_实现Runnable接口</h2><div class="excerpt"><p>5 实现Runnable接口
-狂神说Java 多线程详解
-
-实现 Runnable 接口实现多线程推荐使用 Runnable 实现线程。
-创建线程方式二： 实现 Runnable 接口，重写 run 方法，执行线程需要丢入 Runnable实现类（如 Thread 类），调用 start 方法。
-123456789101112131415161718192021222324/** * 创建线...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-19T16:00:00.000Z">2020-08-20</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/4_%E7%BD%91%E5%9B%BE%E4%B8%8B%E8%BD%BD/">
 <article class="md"><h2 class="post-title">4_网图下载</h2><div class="excerpt"><p>4 网图下载
 狂神说Java 多线程详解
 
 12345678910111213141516171819202122232425262728293031323334353637383940414243import org.apache.commons.io.FileUtils;import java.io.File;import java.io.IOException;import java....</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-19T16:00:00.000Z">2020-08-20</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Java/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AF%A6%E8%A7%A3/6_%E5%88%9D%E8%AF%86%E5%B9%B6%E5%8F%91%E9%97%AE%E9%A2%98/">
+<article class="md"><h2 class="post-title">6_初识并发问题</h2><div class="excerpt"><p>6 初识并发问题
+狂神说Java 多线程详解
+
+继承 Thread 类
+
+子类继承 Thread 类具备多线程能力
+
+启动线程：子类对象 .start()
+
+不建议使用：避免OOP单继承局限性实现 Runnable 接口
+
+实现接口 Runnable 具有多线程能力
+
+启动线程：传入目标对象 + Thread对象 .start()
+
+推荐使用：避免单继承的局限性，灵活方便，方便同一个对象被多...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-08-19T16:00:00.000Z">2020-08-20</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a></div>
   
   <div class='paginator-wrap dis-select'>

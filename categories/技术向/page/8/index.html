@@ -114,7 +114,16 @@
   </nav>
 </div>
 
-  <div class="post-list post"><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Docker/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_Docker%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/P32%20%E5%8F%91%E5%B8%83%E9%95%9C%E5%83%8F%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1/">
+  <div class="post-list post"><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Docker/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_Docker%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/P31%20%E5%8F%91%E5%B8%83%E9%95%9C%E5%83%8F%E5%88%B0DockerHub/">
+<article class="md"><h2 class="post-title">P31 发布镜像到DockerHub</h2><div class="excerpt"><p>
+【狂神说Java】Docker最新超详细版教程通俗易懂
+
+推送到DockerHub登录帮助1docker login --help
+
+登录123# docker login -u 用户名docker login -u kuangshen# 回车后输入密码
+
+推送123456# 首先规范化# docker tag 镜像ID 用户名字/镜像名字:版本号docker tag f8559daf1f...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-23T16:00:00.000Z">2020-11-24</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Docker/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_Docker%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/P32%20%E5%8F%91%E5%B8%83%E9%95%9C%E5%83%8F%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1/">
 <article class="md"><h2 class="post-title">P32 发布镜像到阿里云容器服务</h2><div class="excerpt"><p>
 【狂神说Java】Docker最新超详细版教程通俗易懂
 
@@ -126,15 +135,6 @@
 
 完成后，根据阿里云提供的文档操作即可。
 </p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-23T16:00:00.000Z">2020-11-24</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Docker/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_Docker%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/P31%20%E5%8F%91%E5%B8%83%E9%95%9C%E5%83%8F%E5%88%B0DockerHub/">
-<article class="md"><h2 class="post-title">P31 发布镜像到DockerHub</h2><div class="excerpt"><p>
-【狂神说Java】Docker最新超详细版教程通俗易懂
-
-推送到DockerHub登录帮助1docker login --help
-
-登录123# docker login -u 用户名docker login -u kuangshen# 回车后输入密码
-
-推送123456# 首先规范化# docker tag 镜像ID 用户名字/镜像名字:版本号docker tag f8559daf1f...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-23T16:00:00.000Z">2020-11-24</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Docker/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_Docker%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/P34%20Docker0%E7%BD%91%E7%BB%9C%E8%AF%A6%E8%A7%A3/">
 <article class="md"><h2 class="post-title">P34 Docker0网络详解</h2><div class="excerpt"><p>
 【狂神说Java】Docker最新超详细版教程通俗易懂
@@ -149,6 +149,13 @@ lo：回环，eth0：本机网卡，docker0：docker网卡
 什么是veth-pair就是一对对虚拟设备接口，他们都是成对出现。
 
 测...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-23T16:00:00.000Z">2020-11-24</time></span><span class="cap breadcrumb">技术向</span></div></article>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Docker/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_Docker%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/P24%20%E6%95%B0%E6%8D%AE%E5%8D%B7%E4%B9%8BDockerfile/">
+<article class="md"><h2 class="post-title">P24 数据卷之Dockerfile</h2><div class="excerpt"><p>
+【狂神说Java】Docker最新超详细版教程通俗易懂
+
+什么是Dockerfile就是用来构建docker镜像的构建文件，命令脚本。
+通过这个脚本可以生成镜像，镜像是一层一层的，脚本就是一个一个命令。
+12345# VOLUME 创建两个匿名挂载，分别是 volume01 volume02FROM centosVOLUME [&quot;volume01&quot;,&quot;volu...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-22T16:00:00.000Z">2020-11-23</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Docker/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_Docker%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/P23%20%E5%85%B7%E5%90%8D%E6%8C%82%E8%BD%BD%E5%92%8C%E5%8C%BF%E5%90%8D%E6%8C%82%E8%BD%BD/">
 <article class="md"><h2 class="post-title">P23 具名挂载和匿名挂载</h2><div class="excerpt"><p>
 【狂神说Java】Docker最新超详细版教程通俗易懂
@@ -158,13 +165,6 @@ lo：回环，eth0：本机网卡，docker0：docker网卡
 
 
 ro和rw关键...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-22T16:00:00.000Z">2020-11-23</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Docker/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_Docker%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/P24%20%E6%95%B0%E6%8D%AE%E5%8D%B7%E4%B9%8BDockerfile/">
-<article class="md"><h2 class="post-title">P24 数据卷之Dockerfile</h2><div class="excerpt"><p>
-【狂神说Java】Docker最新超详细版教程通俗易懂
-
-什么是Dockerfile就是用来构建docker镜像的构建文件，命令脚本。
-通过这个脚本可以生成镜像，镜像是一层一层的，脚本就是一个一个命令。
-12345# VOLUME 创建两个匿名挂载，分别是 volume01 volume02FROM centosVOLUME [&quot;volume01&quot;,&quot;volu...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-22T16:00:00.000Z">2020-11-23</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Docker/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_Docker%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/P25%20%E5%A4%9A%E4%B8%AA%E5%AE%B9%E5%99%A8%E5%85%B1%E4%BA%AB%E6%95%B0%E6%8D%AE%E5%8D%B7/">
 <article class="md"><h2 class="post-title">P25 多个容器共享数据卷</h2><div class="excerpt"><p>
 【狂神说Java】Docker最新超详细版教程通俗易懂
@@ -205,15 +205,13 @@ docker push 发布镜像（DockerHub，阿里云镜像仓库）
 
 指令保留关键字
 123456789101112FROM		# 基础镜像，地基MAINTAINER	# 作者，谁写的镜像 姓名+邮箱RUN			# 镜像构建时需要运行的命令ADD			# 添加内容，自动解压WORKDIR		# 镜像工作目录VOLUME 		# 挂载目录EXPOSE		# 端口配置CMD			# 指定这个容器启动时要运...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-22T16:00:00.000Z">2020-11-23</time></span><span class="cap breadcrumb">技术向</span></div></article>
-</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Docker/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_Docker%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/P11%20%E6%97%A5%E5%BF%97%E3%80%81%E5%85%83%E6%95%B0%E6%8D%AE%E3%80%81%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%9F%A5%E7%9C%8B/">
-<article class="md"><h2 class="post-title">P11 日志、元数据、进程的查看</h2><div class="excerpt"><p>
+</a><a class="post-card post " href="/%E6%8A%80%E6%9C%AF%E5%90%91/Docker/%E7%8B%82%E7%A5%9E%E8%AF%B4Java_Docker%E6%9C%80%E6%96%B0%E8%B6%85%E8%AF%A6%E7%BB%86%E7%89%88%E6%95%99%E7%A8%8B%E9%80%9A%E4%BF%97%E6%98%93%E6%87%82/P10%20%E5%AE%B9%E5%99%A8%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">
+<article class="md"><h2 class="post-title">P10 容器的基本命令</h2><div class="excerpt"><p>
 【狂神说Java】Docker最新超详细版教程通俗易懂
 
-后台启动容器
-1234# 命令 docker run -d 镜像名docker run -d centos# 发现问题：centos容器自动停止了# docker容器后台运行，必须有一个前台进程，否则docker发现没有应用，就会自动停止
-
-查看日志
-12345docker logs# 例如-ft # 带上时间戳--tail num...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-20T16:00:00.000Z">2020-11-21</time></span><span class="cap breadcrumb">技术向</span></div></article>
+容器命令有了镜像才可以创建容器。
+下载 centos 镜像测试学习docker run 根据镜像创建一个容器
+12345678910docker run [可选参数] image# 参数说明：--name=&quot;Name&quot; 容器名字 用来区分容器--d 后台运行-it 使用交互方式运行，进入容器查看内容-p 指定容器...</p></div><div class="meta cap"><span class="cap" id="post-meta">发布于&nbsp;<time datetime="2020-11-20T16:00:00.000Z">2020-11-21</time></span><span class="cap breadcrumb">技术向</span></div></article>
 </a></div>
   
 
